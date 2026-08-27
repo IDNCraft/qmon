@@ -66,7 +66,7 @@ qmon
 ```
 
 <p align="center">
-  <img src="docs/images/qmon-cli.png" alt="Qmon CLI Dashboard" width="800" />
+  <img src="docs/images/qmon-cli1.png" alt="Qmon CLI Dashboard" width="800" />
 </p>
 
 *(Note: The CLI automatically starts the API daemon for you in the background and gracefully shuts it down when you exit.)*
@@ -112,9 +112,9 @@ To use the Android Home Widget:
 2. Scroll down to **Qmon** and drag the widget to your home screen.
 
 <p align="center">
-  <img src="docs/images/mobile-dashboard.png" alt="Mobile Dashboard" height="500" />
+  <img src="docs/images/qmon-mobile.png" alt="Mobile Dashboard" height="500" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/android-widget.png" alt="Android Home Widget" height="500" />
+  <img src="docs/images/qmon-android-widget.png" alt="Android Home Widget" height="500" />
 </p>
 
 ---

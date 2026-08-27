@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
@@ -136,34 +135,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
         }
       }
 
-      // Sort providers: exhausted first, lowest remaining first, errors/empty at the bottom
+      // Sort providers: active first, exhausted next, errors/empty at the bottom
       snapshot.providers.sort((a, b) {
         final aQuotas = a.quotas ?? [];
         final bQuotas = b.quotas ?? [];
 
-        // Empty/Error to the bottom
-        if (aQuotas.isEmpty && bQuotas.isEmpty) return a.name.compareTo(b.name);
-        if (aQuotas.isEmpty) return 1;
-        if (bQuotas.isEmpty) return -1;
-
-        // Exhausted providers first
         bool aExhausted = aQuotas.any((q) => q.isExhausted);
         bool bExhausted = bQuotas.any((q) => q.isExhausted);
-
-        if (aExhausted && !bExhausted) return -1;
-        if (!aExhausted && bExhausted) return 1;
-
-        double getMinPct(List<Quota> quotas) {
-          return quotas.map((q) => q.percentRemaining).reduce(math.min);
+        int getSortGroup(ProviderSnapshot provider, bool exhausted) {
+          final quotas = provider.quotas ?? [];
+          if (!provider.isAvailable || quotas.isEmpty) return 2;
+          return exhausted ? 1 : 0;
         }
 
-        final aMin = getMinPct(aQuotas);
-        final bMin = getMinPct(bQuotas);
-
-        if (aMin != bMin) {
-          return aMin.compareTo(bMin); // Ascending (lowest remaining first)
+        final groupDifference =
+            getSortGroup(a, aExhausted) - getSortGroup(b, bExhausted);
+        if (groupDifference != 0) {
+          return groupDifference;
         }
-        return a.name.compareTo(b.name);
+
+        return a.name.toLowerCase().compareTo(b.name.toLowerCase());
       });
 
       if (mounted) {
