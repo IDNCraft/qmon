@@ -1,0 +1,89 @@
+name: Build & Publish Mobile APK
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag (e.g., v1.0.0)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+env:
+  RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+
+jobs:
+  build-apk:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install Flutter dependencies
+        working-directory: mobile
+        run: flutter pub get
+
+      - name: Read app version
+        id: app-version
+        working-directory: mobile
+        shell: bash
+        run: |
+          VERSION=$(sed -n 's/^version: *//p' pubspec.yaml)
+          VERSION_NAME="${VERSION%%+*}"
+          BUILD_NUMBER="${VERSION#*+}"
+          echo "name=${VERSION_NAME}" >> "$GITHUB_OUTPUT"
+          echo "build=${BUILD_NUMBER}" >> "$GITHUB_OUTPUT"
+
+      - name: Analyze Flutter project
+        working-directory: mobile
+        run: flutter analyze
+
+      - name: Verify release signing
+        working-directory: mobile
+        run: |
+          if grep -q 'signingConfigs.getByName("debug")' android/app/build.gradle.kts; then
+            echo "::error::Release build still uses debug signing. Configure a release keystore before publishing."
+            exit 1
+          fi
+
+      - name: Build release APK
+        working-directory: mobile
+        run: flutter build apk --release
+
+      - name: Set APK filename
+        id: apk
+        env:
+          RELEASE_TAG: ${{ env.RELEASE_TAG }}
+          VERSION_NAME: ${{ steps.app-version.outputs.name }}
+          BUILD_NUMBER: ${{ steps.app-version.outputs.build }}
+        run: |
+          if [[ "$RELEASE_TAG" == *build* ]]; then
+            APK_NAME="qmon-v${VERSION_NAME}-build${BUILD_NUMBER}.apk"
+          else
+            APK_NAME="qmon-v${VERSION_NAME}.apk"
+          fi
+          echo "name=${APK_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Rename APK
+        run: cp mobile/build/app/outputs/flutter-apk/app-release.apk "${{ steps.apk.outputs.name }}"
+
+      - name: Upload APK to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${RELEASE_TAG}" \
+            "${{ steps.apk.outputs.name }}" \
+            --clobber \
+            --repo "${GITHUB_REPOSITORY}"
