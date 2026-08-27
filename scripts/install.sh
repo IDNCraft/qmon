@@ -3,14 +3,14 @@
 set -euo pipefail
 
 REPOSITORY_URL="${QMON_REPO_URL:-https://github.com/IDNCraft/qmon.git}"
-REPOSITORY_REF="${QMON_REPO_REF:-master}"
+REPOSITORY_REF="${QMON_REPO_REF:-main}"
 INSTALL_DIR="${QMON_INSTALL_DIR:-$HOME/.local/bin}"
 CONFIGURE_PATH="${QMON_CONFIGURE_PATH:-1}"
 LOG_FILE="${TMPDIR:-/tmp}/qmon-install-$(date +%Y%m%d-%H%M%S).log"
 TEMP_ROOT=""
 
 if [[ -z "${BASH_VERSION:-}" ]]; then
-    echo "This installer requires bash. Run with: curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/master/scripts/install.sh | bash"
+    echo "This installer requires bash. Run with: curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/install.sh | bash"
     exit 1
 fi
 
