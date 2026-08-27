@@ -49,7 +49,7 @@ A complete ecosystem designed around keeping track of your AI usage, built to ru
 Qmon provides a one-liner installation script that builds and installs `qmon` and `qmon-server` into your `~/.local/bin` folder.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/master/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/install.sh | bash
 ```
 
 > [!IMPORTANT]
