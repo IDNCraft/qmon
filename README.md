@@ -18,29 +18,7 @@
   <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Built%20with-Flutter-02569B" alt="Built with Flutter" /></a>
 </p>
 
-<p align="center">
-  <img src="docs/images/cli-dashboard.png" alt="Qmon CLI Dashboard" width="800" />
-</p>
-
-Qmon is a powerful Terminal User Interface (TUI), Mobile App, and Background API Daemon for monitoring and managing your AI Provider Quotas (Claude Code, OpenCode Go, GitHub Copilot, Codex, Antigravity, etc.).
-
----
-
-## Screenshots
-
-### Qmon Server
-
-<p align="center">
-  <img src="docs/images/qmon-server.png" alt="Qmon server terminal output" width="800" />
-</p>
-
-### Mobile Companion & Android Widget
-
-<p align="center">
-  <img src="docs/images/mobile-dashboard.png" alt="Mobile Dashboard" height="500" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/android-widget.png" alt="Android Home Widget" height="500" />
-</p>
+Qmon is a powerful Terminal User Interface (TUI), Mobile App, and Background API Daemon for monitoring and managing your AI Provider Quotas (Claude Code, OpenCode Go, GitHub Copilot, Codex, Antigravity.).
 
 ---
 
@@ -87,6 +65,10 @@ If you only want to check your quotas from the terminal, simply run:
 qmon
 ```
 
+<p align="center">
+  <img src="docs/images/cli-dashboard.png" alt="Qmon CLI Dashboard" width="800" />
+</p>
+
 *(Note: The CLI automatically starts the API daemon for you in the background and gracefully shuts it down when you exit.)*
 
 **2. Always-On API Daemon (For Mobile & Widget)**
@@ -96,6 +78,10 @@ If you want your Mobile App and Android Widget to sync 24/7 without needing the 
 ```bash
 qmon-server
 ```
+
+<p align="center">
+  <img src="docs/images/qmon-server.png" alt="Qmon server terminal output" width="800" />
+</p>
 
 > [!TIP]
 > `qmon-server` reads quota data and provider configuration from the machine where it runs. Run it on an always-on server, VPS, or homelab only when the required provider accounts and data are available there. Otherwise, keep it running on your personal computer; the mobile app and widget will be unavailable when that computer sleeps or disconnects.
@@ -134,6 +120,15 @@ To use the Android Home Widget:
 1. Long-press on your Android home screen and select **Widgets**.
 2. Scroll down to **Qmon** and drag the widget to your home screen.
 3. Open the Qmon app, tap the **Settings (Gear)** icon, and configure the API URL to point to your computer's local IP address (e.g., `http://192.168.1.100:8080`). Ensure both devices are on the same Wi-Fi network.
+<br/>
+
+<br/>
+
+<p>
+  <img src="docs/images/mobile-dashboard.png" alt="Mobile Dashboard" height="500" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/images/android-widget.png" alt="Android Home Widget" height="500" />
+</p>
 
 ---
 
