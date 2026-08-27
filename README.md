@@ -66,7 +66,7 @@ qmon
 ```
 
 <p align="center">
-  <img src="docs/images/cli-dashboard.png" alt="Qmon CLI Dashboard" width="800" />
+  <img src="docs/images/qmon-cli.png" alt="Qmon CLI Dashboard" width="800" />
 </p>
 
 *(Note: The CLI automatically starts the API daemon for you in the background and gracefully shuts it down when you exit.)*
@@ -120,11 +120,8 @@ To use the Android Home Widget:
 1. Long-press on your Android home screen and select **Widgets**.
 2. Scroll down to **Qmon** and drag the widget to your home screen.
 3. Open the Qmon app, tap the **Settings (Gear)** icon, and configure the API URL to point to your computer's local IP address (e.g., `http://192.168.1.100:8080`). Ensure both devices are on the same Wi-Fi network.
-<br/>
 
-<br/>
-
-<p>
+<p align="center">
   <img src="docs/images/mobile-dashboard.png" alt="Mobile Dashboard" height="500" />
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="docs/images/android-widget.png" alt="Android Home Widget" height="500" />
