@@ -40,6 +40,8 @@ cd api
 make dev
 ```
 
+The development API listens on port `8080` by default. Start it in a separate terminal before running the mobile app.
+
 Run Go tests:
 
 ```bash
@@ -61,12 +63,35 @@ bun run format:check
 
 ### Mobile
 
-For mobile changes from the `mobile` directory:
+For mobile changes, install dependencies and run the standard checks from the `mobile` directory:
 
 ```bash
+cd mobile
 flutter pub get
 flutter analyze
 flutter test
+```
+
+Run the mobile app against the local API without entering the host IP manually on macOS or Linux:
+
+```bash
+make mobile-dev
+```
+
+`make mobile-dev` detects the host IP from `en0` or `en1` on macOS, or from the first address returned by `hostname -I` on Linux. It then runs Flutter with `QMON_API_URL=http://<host-ip>:8080`. Keep the API daemon running in another terminal, and connect a physical device to the same local network.
+
+On Windows or another unsupported OS, pass the host IP explicitly. This form also works with native Windows `cmd`/PowerShell:
+
+```bash
+make mobile-dev HOST_IP=192.168.1.10
+```
+
+The injected URL is used only by debug builds; release builds use the saved API URL.
+
+For a focused check after changing quota handling:
+
+```bash
+flutter test test/api_service_test.dart test/quota_type_label_test.dart
 ```
 
 ## Checks
@@ -77,7 +102,12 @@ Run the checks relevant to the area you changed. For a core build, run:
 make build
 ```
 
-For a cross-layer change, run the API, CLI, and mobile checks listed above when the required toolchains are available.
+For a cross-layer change, run the API, CLI, and mobile checks listed above when the required toolchains are available. For a debug APK compile check:
+
+```bash
+cd mobile
+flutter build apk --debug
+```
 
 ## Graphify (Optional)
 

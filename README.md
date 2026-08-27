@@ -102,24 +102,14 @@ qmon logout opencode
 
 **Mobile Companion App & Widget**
 
-Once `qmon-server` is running on your machine, you can build and install the mobile app to your Android device:
+Once `qmon-server` is running on your machine, download the latest published APK from [GitHub Releases](https://github.com/IDNCraft/qmon/releases/latest) and install it on your Android device.
 
-```bash
-cd mobile
-flutter pub get
-
-# Option 1: Install directly to a connected phone
-flutter run --release
-
-# Option 2: Build an APK file to install manually later
-flutter build apk
-```
+Open the Qmon app after installation, tap the **Settings (Gear)** icon, and configure the API URL to point to your computer's local IP address (e.g., `http://192.168.1.100:8080`). Ensure both devices are on the same Wi-Fi network.
 
 To use the Android Home Widget:
 
 1. Long-press on your Android home screen and select **Widgets**.
 2. Scroll down to **Qmon** and drag the widget to your home screen.
-3. Open the Qmon app, tap the **Settings (Gear)** icon, and configure the API URL to point to your computer's local IP address (e.g., `http://192.168.1.100:8080`). Ensure both devices are on the same Wi-Fi network.
 
 <p align="center">
   <img src="docs/images/mobile-dashboard.png" alt="Mobile Dashboard" height="500" />
@@ -143,15 +133,13 @@ To use the Android Home Widget:
 
 ## Contributing
 
-Contributions are welcome! Since Qmon is a monorepo, you can develop the CLI, backend, and mobile app in tandem.
+1. Fork the repository
+2. Create a branch: `dev#your-feature`
+3. Make your changes
+4. Run the relevant checks for the affected component
+5. Submit a Pull Request to the `main` branch
 
-```bash
-git clone git@github.com:IDNCraft/qmon.git
-cd qmon
-bash scripts/install.sh
-```
-
-Check out the `api`, `cli`, and `mobile` directories for their respective source codes. Feel free to open an issue or submit a pull request.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
