@@ -9,8 +9,10 @@ import (
 	"net/http/httptest"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 type mockRepository struct {
@@ -509,6 +511,120 @@ func TestProbeCodexRPCSuccess(t *testing.T) {
 
 	if quotas[1].PercentRemaining != 80.0 {
 		t.Errorf("expected 80%% remaining, got %v", quotas[1].PercentRemaining)
+	}
+}
+
+func TestProbeOpenCodeNoSubscriptionIsExhausted(t *testing.T) {
+	configDir := t.TempDir()
+	authDir := filepath.Join(configDir, "opencode")
+	if err := os.MkdirAll(authDir, 0755); err != nil {
+		t.Fatalf("failed to create auth directory: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(authDir, "auth.json"), []byte(`{"opencode":{"type":"api","key":"test"}}`), 0600); err != nil {
+		t.Fatalf("failed to write auth file: %v", err)
+	}
+
+	mockRepo := &mockRepository{
+		QueryLocalDBFunc: func(ctx context.Context, env map[string]string, sqlQuery string) (string, error) {
+			if strings.Contains(sqlQuery, "monthly_cost") {
+				return `[{"monthly_cost":0}]`, nil
+			}
+			return `[{"five_hour_cost":0,"weekly_cost":0,"five_hour_oldest_ms":null,"anchor_ms":1700000000000}]`, nil
+		},
+	}
+	service := NewService(mockRepo, nil)
+
+	quotas, err := service.probeOpenCode(context.Background(), time.Now(), configDir)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(quotas) != 3 {
+		t.Fatalf("expected 3 quotas, got %d", len(quotas))
+	}
+	if quotas[0].QuotaType != QuotaTypeFiveHour {
+		t.Errorf("expected 5h quota type, got %s", quotas[0].QuotaType)
+	}
+
+	for _, quota := range quotas {
+		if quota.PercentRemaining != 0 {
+			t.Errorf("expected 0%% remaining for %s, got %v", quota.QuotaType, quota.PercentRemaining)
+		}
+		if !quota.IsExhausted {
+			t.Errorf("expected %s quota exhausted", quota.QuotaType)
+		}
+	}
+}
+
+func TestProbeOpenCodeNoHistoryIsAvailable(t *testing.T) {
+	configDir := t.TempDir()
+	authDir := filepath.Join(configDir, "opencode")
+	if err := os.MkdirAll(authDir, 0755); err != nil {
+		t.Fatalf("failed to create auth directory: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(authDir, "auth.json"), []byte(`{"opencode":{"type":"api","key":"test"}}`), 0600); err != nil {
+		t.Fatalf("failed to write auth file: %v", err)
+	}
+
+	mockRepo := &mockRepository{
+		QueryLocalDBFunc: func(ctx context.Context, env map[string]string, sqlQuery string) (string, error) {
+			return `[{"five_hour_cost":0,"weekly_cost":0,"five_hour_oldest_ms":null,"anchor_ms":null}]`, nil
+		},
+	}
+	service := NewService(mockRepo, nil)
+
+	quotas, err := service.probeOpenCode(context.Background(), time.Now(), configDir)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(quotas) != 2 {
+		t.Fatalf("expected 2 quotas, got %d", len(quotas))
+	}
+
+	for _, quota := range quotas {
+		if quota.PercentRemaining != 100 {
+			t.Errorf("expected 100%% remaining for %s, got %v", quota.QuotaType, quota.PercentRemaining)
+		}
+		if quota.IsExhausted {
+			t.Errorf("expected %s quota not exhausted", quota.QuotaType)
+		}
+	}
+}
+
+func TestProbeOpenCodeLimitReachedIsExhausted(t *testing.T) {
+	configDir := t.TempDir()
+	authDir := filepath.Join(configDir, "opencode")
+	if err := os.MkdirAll(authDir, 0755); err != nil {
+		t.Fatalf("failed to create auth directory: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(authDir, "auth.json"), []byte(`{"opencode":{"type":"api","key":"test"}}`), 0600); err != nil {
+		t.Fatalf("failed to write auth file: %v", err)
+	}
+
+	mockRepo := &mockRepository{
+		QueryLocalDBFunc: func(ctx context.Context, env map[string]string, sqlQuery string) (string, error) {
+			if strings.Contains(sqlQuery, "monthly_cost") {
+				return `[{"monthly_cost":60}]`, nil
+			}
+			return `[{"five_hour_cost":12,"weekly_cost":30,"five_hour_oldest_ms":1700000000000,"anchor_ms":1700000000000}]`, nil
+		},
+	}
+	service := NewService(mockRepo, nil)
+
+	quotas, err := service.probeOpenCode(context.Background(), time.Now(), configDir)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(quotas) != 3 {
+		t.Fatalf("expected 3 quotas, got %d", len(quotas))
+	}
+
+	for _, quota := range quotas {
+		if quota.PercentRemaining != 0 {
+			t.Errorf("expected 0%% remaining for %s, got %v", quota.QuotaType, quota.PercentRemaining)
+		}
+		if !quota.IsExhausted {
+			t.Errorf("expected %s quota exhausted", quota.QuotaType)
+		}
 	}
 }
 
