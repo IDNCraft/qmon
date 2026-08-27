@@ -1,0 +1,664 @@
+{
+  "communities": {
+    "0": [
+      "auth_handler_login",
+      "auth_handler_logout",
+      "auth_handler_refresh",
+      "auth_handler_resetdefaultadmin",
+      "auth_resetdefaultadminrequest",
+      "h",
+      "internal_auth_handler",
+      "internal_auth_handler_go_auth_handler",
+      "internal_auth_handler_go_context",
+      "internal_auth_handler_go_service",
+      "internal_provider_antigravity_login_go_context",
+      "internal_provider_antigravity_login_go_provider_handler",
+      "internal_provider_claude_login_go_context",
+      "internal_provider_claude_login_go_provider_handler",
+      "internal_provider_codex_login_go_context",
+      "internal_provider_codex_login_go_provider_handler",
+      "internal_provider_copilot_login_go_context",
+      "internal_provider_copilot_login_go_provider_handler",
+      "internal_provider_handler",
+      "internal_provider_handler_getuserid",
+      "internal_provider_handler_go_context",
+      "internal_provider_handler_go_provider_handler",
+      "internal_provider_handler_go_repository",
+      "internal_provider_handler_newhandler",
+      "internal_provider_opencode_login_go_context",
+      "internal_provider_opencode_login_go_provider_handler",
+      "internal_response_response",
+      "internal_response_response_badrequest",
+      "internal_response_response_created",
+      "internal_response_response_errorbody",
+      "internal_response_response_forbidden",
+      "internal_response_response_go_context",
+      "internal_response_response_newmeta",
+      "internal_response_response_nocontent",
+      "internal_response_response_notfound",
+      "internal_response_response_ok",
+      "internal_response_response_okwithmeta",
+      "internal_response_response_servererror",
+      "internal_response_response_serviceunavailable",
+      "internal_response_response_unauthorized",
+      "internal_response_response_unprocessableentity",
+      "internal_response_response_validationerror",
+      "provider_handler_claudeloginstatus",
+      "provider_handler_codexloginstatus",
+      "provider_handler_completeantigravitylogin",
+      "provider_handler_completeclaudelogin",
+      "provider_handler_completeopencodelogin",
+      "provider_handler_copilotloginstatus",
+      "provider_handler_deletecredential",
+      "provider_handler_initiateantigravitylogin",
+      "provider_handler_initiateclaudelogin",
+      "provider_handler_initiatecodexlogin",
+      "provider_handler_initiatecopilotlogin",
+      "provider_handler_listaccounts",
+      "provider_handler_listcredentials",
+      "provider_handler_logoutopencode",
+      "provider_handler_savecredential",
+      "response_meta"
+    ],
+    "1": [
+      "cmd_migrate_main",
+      "cmd_migrate_main_init",
+      "cmd_migrate_main_main",
+      "cmd_seed_main",
+      "cmd_seed_main_init",
+      "cmd_seed_main_main",
+      "database_seeders_main_seeder",
+      "database_seeders_main_seeder_all",
+      "database_seeders_seeder",
+      "database_seeders_seeder_go_db",
+      "database_seeders_seeder_newrunner",
+      "engine",
+      "handler",
+      "internal_config_database",
+      "internal_config_database_databaseurl",
+      "internal_config_validate",
+      "internal_config_validate_validate",
+      "internal_logger_logger",
+      "internal_logger_logger_build",
+      "internal_logger_logger_init",
+      "internal_logger_logger_sync",
+      "internal_middleware_auth",
+      "internal_middleware_auth_auth",
+      "internal_middleware_auth_go_handlerfunc",
+      "internal_middleware_logger",
+      "internal_middleware_logger_go_handlerfunc",
+      "internal_middleware_logger_logger",
+      "internal_middleware_recovery",
+      "internal_middleware_recovery_go_handlerfunc",
+      "internal_middleware_recovery_recovery",
+      "internal_router_router",
+      "internal_router_router_setup",
+      "main",
+      "main_buildhandlers",
+      "main_dbconnection",
+      "main_dblog",
+      "main_go_db",
+      "main_init",
+      "main_main",
+      "router_handlers",
+      "seeders_runner",
+      "seeders_runner_run",
+      "seeders_runner_runonly",
+      "seeders_seeder"
+    ],
+    "2": [
+      "internal_quota_model",
+      "internal_quota_model_go_time",
+      "internal_quota_service",
+      "internal_quota_service_anchoredmonthbounds",
+      "internal_quota_service_extractclauderesettext",
+      "internal_quota_service_go_cmd",
+      "internal_quota_service_go_context",
+      "internal_quota_service_go_quota_service",
+      "internal_quota_service_go_repository",
+      "internal_quota_service_go_time",
+      "internal_quota_service_newservice",
+      "internal_quota_service_parseclaudecostoutput",
+      "internal_quota_service_parseclaudeerror",
+      "internal_quota_service_parseclaudeoutput",
+      "internal_quota_service_parsecodexerror",
+      "internal_quota_service_percentremaining",
+      "internal_quota_service_startofweekutc",
+      "internal_quota_service_stripansi",
+      "internal_quota_service_test",
+      "internal_quota_service_test_testantigravitysubscriptionexpired",
+      "internal_quota_service_test_testhelperrpcprocess",
+      "internal_quota_service_test_testparseclaudecostoutput",
+      "internal_quota_service_test_testparseclaudeerror",
+      "internal_quota_service_test_testparseclaudeoutput",
+      "internal_quota_service_test_testparsecodexerror",
+      "internal_quota_service_test_testprobeclaude",
+      "internal_quota_service_test_testprobecodex",
+      "internal_quota_service_test_testprobecodexrpcsuccess",
+      "internal_quota_service_test_testprobecopilotkeychainsuccess",
+      "internal_quota_service_test_testprobecopilotsuccess",
+      "quota_claudeauthstatus",
+      "quota_providersnapshot",
+      "quota_quota",
+      "quota_quotasnapshotresponse",
+      "quota_quotatype",
+      "quota_service_getsnapshot",
+      "quota_service_probeclaude",
+      "quota_service_probecodex",
+      "quota_service_probeopencode",
+      "t"
+    ],
+    "3": [
+      "fileheader",
+      "health_handler",
+      "health_handler_check",
+      "internal_config_app",
+      "internal_config_app_appenv",
+      "internal_config_app_appname",
+      "internal_config_app_appurl",
+      "internal_config_app_appversion",
+      "internal_config_app_corsorigins",
+      "internal_config_app_debug",
+      "internal_config_app_frontendurl",
+      "internal_config_app_isproduction",
+      "internal_config_app_port",
+      "internal_config_config",
+      "internal_config_config_getenv",
+      "internal_config_mail",
+      "internal_config_mail_mailfrom",
+      "internal_config_mail_mailfromname",
+      "internal_config_mail_mailhost",
+      "internal_config_mail_mailpassword",
+      "internal_config_mail_mailport",
+      "internal_config_mail_mailusername",
+      "internal_health_handler",
+      "internal_health_handler_go_context",
+      "internal_health_handler_go_db",
+      "internal_health_handler_statuslabel",
+      "internal_middleware_cors",
+      "internal_middleware_cors_cors",
+      "internal_middleware_cors_go_handlerfunc",
+      "internal_storage_storage",
+      "internal_storage_storage_deletefile",
+      "internal_storage_storage_isallowed",
+      "internal_storage_storage_savefile"
+    ],
+    "4": [
+      "auth_loginrequest",
+      "auth_refreshtokenrequest",
+      "auth_service",
+      "auth_service_createrefreshtoken",
+      "auth_service_issuetoken",
+      "auth_service_login",
+      "auth_service_refreshtoken",
+      "auth_service_resetdefaultadmin",
+      "auth_service_revokerefreshtoken",
+      "auth_tokenresponse",
+      "auth_userinfo",
+      "duration",
+      "internal_auth_model",
+      "internal_auth_service",
+      "internal_auth_service_go_repository",
+      "internal_config_auth",
+      "internal_config_auth_jwtexpirehours",
+      "internal_config_auth_jwtsecret",
+      "internal_config_auth_refreshtokenexpiredays",
+      "internal_quota_antigravity_formatduration",
+      "internal_quota_codex_go_context",
+      "internal_quota_copilot_go_context",
+      "internal_quota_copilot_go_quota_service",
+      "quota",
+      "quota_service",
+      "quota_service_probecodexrpc",
+      "quota_service_probecopilot"
+    ],
+    "5": [
+      "file",
+      "internal_utils_csv",
+      "internal_utils_csv_exportcsv",
+      "internal_utils_csv_importcsv",
+      "internal_utils_csv_importcsvfrombytes",
+      "internal_utils_csv_parsecsv",
+      "internal_utils_excel",
+      "internal_utils_excel_colletter",
+      "internal_utils_excel_exportexcel",
+      "internal_utils_excel_extractfield",
+      "internal_utils_excel_importexcel",
+      "internal_utils_excel_importexcelfrombytes",
+      "internal_utils_excel_isemptyrow",
+      "internal_utils_pdf",
+      "internal_utils_pdf_exportpdf",
+      "reader",
+      "utils_csvcolumn",
+      "utils_excelcolumn",
+      "utils_pdfcolumn",
+      "utils_pdfoptions",
+      "value"
+    ],
+    "6": [
+      "internal_setting_model",
+      "internal_setting_model_go_time",
+      "internal_setting_mysql",
+      "internal_setting_mysql_go_db",
+      "internal_setting_mysql_go_repository",
+      "internal_setting_mysql_newmysqlrepository",
+      "internal_setting_service",
+      "internal_setting_service_go_repository",
+      "setting_appsetting",
+      "setting_keyvalue",
+      "setting_mysqlrepository",
+      "setting_mysqlrepository_getadminpasswordhash",
+      "setting_mysqlrepository_list",
+      "setting_mysqlrepository_upsert",
+      "setting_service",
+      "setting_service_list",
+      "setting_service_publicconfig",
+      "setting_service_update",
+      "setting_updatesettingsrequest"
+    ],
+    "7": [
+      "auth_handler_registerprotectedroutes",
+      "auth_handler_registerpublicroutes",
+      "internal_auth_router_go_auth_handler",
+      "internal_auth_router_go_routergroup",
+      "internal_middleware_ratelimit",
+      "internal_middleware_ratelimit_go_handlerfunc",
+      "internal_middleware_ratelimit_go_time",
+      "internal_middleware_ratelimit_newstore",
+      "internal_middleware_ratelimit_ratelimit",
+      "limit",
+      "limiter",
+      "middleware_iplimiter",
+      "middleware_limiterstore",
+      "middleware_limiterstore_cleanup",
+      "middleware_limiterstore_get",
+      "mutex"
+    ],
+    "8": [
+      "auth_loginuser",
+      "auth_mysqlrepository",
+      "auth_mysqlrepository_deleterefreshtoken",
+      "auth_mysqlrepository_findbyemail",
+      "auth_mysqlrepository_findrefreshtoken",
+      "auth_mysqlrepository_insertrefreshtoken",
+      "auth_mysqlrepository_insertuser",
+      "auth_mysqlrepository_setpassword",
+      "auth_mysqlrepository_updateusercredentials",
+      "internal_auth_model_go_time",
+      "internal_auth_mysql",
+      "internal_auth_mysql_go_db",
+      "internal_auth_mysql_go_repository",
+      "internal_auth_mysql_go_time",
+      "internal_auth_mysql_newmysqlrepository"
+    ],
+    "9": [
+      "database_seeders_03_users",
+      "database_seeders_03_users_go_db",
+      "internal_middleware_requestid",
+      "internal_middleware_requestid_go_handlerfunc",
+      "internal_middleware_requestid_requestid",
+      "internal_utils_random",
+      "internal_utils_random_randomalphanum",
+      "internal_utils_random_randomhex",
+      "internal_utils_uid",
+      "internal_utils_uid_generateuid",
+      "internal_utils_uid_generateuidshort",
+      "seeders_userseeder",
+      "seeders_userseeder_name",
+      "seeders_userseeder_run"
+    ],
+    "10": [
+      "internal_quota_antigravity",
+      "internal_quota_antigravity_antigravitysubscriptionexpired",
+      "internal_quota_antigravity_go_context",
+      "internal_quota_antigravity_go_quota_service",
+      "quota_cloudcodefetchmodelsrequest",
+      "quota_cloudcodefetchmodelsresponse",
+      "quota_cloudcodeloadrequest",
+      "quota_cloudcodeloadresponse",
+      "quota_cloudcodemodelinfo",
+      "quota_cloudcodetier",
+      "quota_oauthtokenresponse",
+      "quota_service_probeantigravity",
+      "quota_service_querycloudcodeapi",
+      "quota_service_refreshantigravitytoken"
+    ],
+    "11": [
+      "internal_provider_repository",
+      "internal_provider_repository_go_db",
+      "internal_provider_repository_go_time",
+      "internal_provider_repository_newrepository",
+      "provider_credential",
+      "provider_credentialstatus",
+      "provider_repository",
+      "provider_repository_deletecredential",
+      "provider_repository_getcredentials",
+      "provider_repository_listconfiguredproviders",
+      "provider_repository_savecredential",
+      "provider_savecredentialinput"
+    ],
+    "12": [
+      "internal_mail_mailer",
+      "internal_mail_mailer_buildmessage",
+      "internal_mail_mailer_getenv",
+      "internal_mail_mailer_newmailerfromenv",
+      "internal_mail_mailer_render",
+      "mail_activationdata",
+      "mail_mail",
+      "mail_mailer",
+      "mail_mailer_send",
+      "mail_passwordresetdata"
+    ],
+    "13": [
+      "internal_utils_query",
+      "internal_utils_query_go_context",
+      "internal_utils_query_isallowedcol",
+      "internal_utils_query_parsefilterparam",
+      "internal_utils_query_parselistquery",
+      "internal_utils_query_parsestringslice",
+      "internal_utils_query_queryint",
+      "internal_utils_query_trimall",
+      "utils_listqueryoptions",
+      "utils_listqueryparams"
+    ],
+    "14": [
+      "internal_quota_repository",
+      "internal_quota_repository_go_context",
+      "internal_quota_repository_go_db",
+      "internal_quota_repository_newrepository",
+      "quota_repository",
+      "quota_sqlrepository",
+      "quota_sqlrepository_checkcliavailable",
+      "quota_sqlrepository_querylocaldb",
+      "quota_sqlrepository_runclicommand"
+    ],
+    "15": [
+      "internal_utils_date",
+      "internal_utils_date_formatdate",
+      "internal_utils_date_formatdateiso",
+      "internal_utils_date_formatdateshort",
+      "internal_utils_date_formatdatetime",
+      "internal_utils_date_formatdatetimeiso",
+      "internal_utils_date_formattime",
+      "internal_utils_date_formattimeshort",
+      "internal_utils_date_go_time"
+    ],
+    "16": [
+      "internal_quota_handler",
+      "internal_quota_handler_getquotauserid",
+      "internal_quota_handler_go_context",
+      "internal_quota_handler_go_service",
+      "internal_quota_handler_newhandler",
+      "quota_handler",
+      "quota_handler_getsnapshot"
+    ],
+    "17": [
+      "cancelfunc",
+      "internal_provider_claude_login",
+      "internal_provider_claude_login_go_cmd",
+      "internal_provider_claude_login_go_time",
+      "provider_claudeloginsession",
+      "writecloser"
+    ],
+    "18": [
+      "internal_quota_codex",
+      "quota_codexrpcratelimits",
+      "quota_codexrpcresponse",
+      "quota_codexrpcresult",
+      "quota_codexrpcwindow"
+    ],
+    "19": [
+      "internal_quota_service_test_go_context",
+      "quota_mockrepository",
+      "quota_mockrepository_checkcliavailable",
+      "quota_mockrepository_querylocaldb",
+      "quota_mockrepository_runclicommand"
+    ],
+    "20": [
+      "internal_setting_handler",
+      "internal_setting_handler_go_context",
+      "internal_setting_handler_go_service",
+      "internal_setting_handler_go_setting_handler",
+      "setting_handler_publicconfig"
+    ],
+    "21": [
+      "internal_utils_base64",
+      "internal_utils_base64_decode",
+      "internal_utils_base64_decodeurl",
+      "internal_utils_base64_encode",
+      "internal_utils_base64_encodeurl"
+    ],
+    "22": [
+      "internal_utils_string",
+      "internal_utils_string_initials",
+      "internal_utils_string_slugify",
+      "internal_utils_string_title",
+      "internal_utils_string_truncate"
+    ],
+    "23": [
+      "internal_middleware_permission",
+      "internal_middleware_permission_go_handlerfunc",
+      "internal_middleware_permission_requirepermission",
+      "middleware_permissionchecker"
+    ],
+    "24": [
+      "internal_provider_antigravity_login",
+      "provider_completeantigravityloginrequest",
+      "provider_initiateantigravityloginrequest",
+      "provider_oauthtokenresponse"
+    ],
+    "25": [
+      "internal_quota_copilot",
+      "quota_copilotinteractionquota",
+      "quota_copilotquotasnapshots",
+      "quota_copilotuserresponse"
+    ],
+    "26": [
+      "internal_utils_currency",
+      "internal_utils_currency_formatidr",
+      "internal_utils_currency_formatusd",
+      "internal_utils_currency_thousands"
+    ],
+    "27": [
+      "internal_setting_router_go_routergroup",
+      "internal_setting_router_go_setting_handler",
+      "setting_handler_registerpublicroutes"
+    ],
+    "28": [
+      "auth_repository",
+      "internal_auth_repository"
+    ],
+    "29": [
+      "collections_userseed",
+      "database_seeders_collections_users"
+    ],
+    "30": [
+      "internal_repository_base",
+      "repository_crud"
+    ],
+    "31": [
+      "internal_setting_repository",
+      "setting_repository"
+    ],
+    "32": [
+      "internal_utils_password",
+      "internal_utils_password_validatepassword"
+    ],
+    "33": [
+      "internal_auth_router"
+    ],
+    "34": [
+      "internal_provider_codex_login"
+    ],
+    "35": [
+      "internal_provider_copilot_login"
+    ],
+    "36": [
+      "internal_provider_opencode_login"
+    ],
+    "37": [
+      "internal_response_codes"
+    ],
+    "38": [
+      "internal_setting_router"
+    ],
+    "39": [
+      "pkg_qmon_api"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08590441621294616,
+    "1": 0.06342494714587738,
+    "2": 0.11538461538461539,
+    "3": 0.10037878787878787,
+    "4": 0.1111111111111111,
+    "5": 0.14761904761904762,
+    "6": 0.13450292397660818,
+    "7": 0.19166666666666668,
+    "8": 0.1523809523809524,
+    "9": 0.15384615384615385,
+    "10": 0.21978021978021978,
+    "11": 0.21212121212121213,
+    "12": 0.28888888888888886,
+    "13": 0.4222222222222222,
+    "14": 0.3611111111111111,
+    "15": 0.4444444444444444,
+    "16": 0.47619047619047616,
+    "17": 0.3333333333333333,
+    "18": 0.7,
+    "19": 0.7,
+    "20": 0.4,
+    "21": 0.4,
+    "22": 0.4,
+    "23": 0.6666666666666666,
+    "24": 0.5,
+    "25": 0.8333333333333334,
+    "26": 0.8333333333333334,
+    "27": 0.6666666666666666,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0
+  },
+  "gods": [
+    {
+      "id": "internal_response_response_ok",
+      "label": "OK()",
+      "degree": 24
+    },
+    {
+      "id": "internal_config_config_getenv",
+      "label": "getenv()",
+      "degree": 19
+    },
+    {
+      "id": "internal_response_response_servererror",
+      "label": "ServerError()",
+      "degree": 18
+    },
+    {
+      "id": "quota_quota",
+      "label": "Quota",
+      "degree": 11
+    },
+    {
+      "id": "internal_response_response_badrequest",
+      "label": "BadRequest()",
+      "degree": 11
+    },
+    {
+      "id": "main_main",
+      "label": "main()",
+      "degree": 11
+    },
+    {
+      "id": "auth_mysqlrepository",
+      "label": "mysqlRepository",
+      "degree": 9
+    },
+    {
+      "id": "internal_quota_service_go_quota_service",
+      "label": "Service",
+      "degree": 9
+    },
+    {
+      "id": "internal_quota_service_newservice",
+      "label": "NewService()",
+      "degree": 9
+    },
+    {
+      "id": "internal_response_response_errorbody",
+      "label": "errorBody()",
+      "degree": 9
+    }
+  ],
+  "surprises": [
+    {
+      "source": "main()",
+      "target": "Port()",
+      "source_files": [
+        "main.go",
+        "internal/config/app.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "buildHandlers()",
+      "target": "NewService()",
+      "source_files": [
+        "main.go",
+        "internal/quota/service.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "main()",
+      "target": "DatabaseURL()",
+      "source_files": [
+        "cmd/migrate/main.go",
+        "internal/config/database.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "Sync()",
+      "source_files": [
+        "cmd/migrate/main.go",
+        "internal/logger/logger.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "All()",
+      "source_files": [
+        "cmd/seed/main.go",
+        "database/seeders/main_seeder.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

@@ -33,11 +33,11 @@ make build
 
 ### API
 
-Run the API without live reload from the `api` directory:
+Run the API with live reload using Air from the `api` directory:
 
 ```bash
 cd api
-make dev-plain
+make dev
 ```
 
 Run Go tests:
