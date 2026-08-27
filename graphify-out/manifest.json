@@ -205,9 +205,9 @@
     "semantic_hash": "37440dabbda9c05bb4a060234e274d31"
   },
   "api/internal/quota/codex.go": {
-    "mtime": 1784517250.3497794,
-    "ast_hash": "cec7e5f0ef1e07b32128269feee284ff",
-    "semantic_hash": "cec7e5f0ef1e07b32128269feee284ff"
+    "mtime": 1787800694.806151,
+    "ast_hash": "8fc6bb71ab04c98fa84a958e4a083ce4",
+    "semantic_hash": "8fc6bb71ab04c98fa84a958e4a083ce4"
   },
   "api/internal/quota/copilot.go": {
     "mtime": 1784534165.793453,
@@ -220,9 +220,9 @@
     "semantic_hash": "9f3279c8fa905f29e1478d765e307676"
   },
   "api/internal/quota/model.go": {
-    "mtime": 1784273695.4547615,
-    "ast_hash": "5bb74945686e31d3a9bc30d406b9266d",
-    "semantic_hash": "5bb74945686e31d3a9bc30d406b9266d"
+    "mtime": 1787800694.7981503,
+    "ast_hash": "ec9d190033d3e10e909cc84cc5c3fac1",
+    "semantic_hash": "ec9d190033d3e10e909cc84cc5c3fac1"
   },
   "api/internal/quota/repository.go": {
     "mtime": 1784534165.7042043,
@@ -230,14 +230,14 @@
     "semantic_hash": "db1b0f58f17901125ac8a1af7fde0940"
   },
   "api/internal/quota/service.go": {
-    "mtime": 1784520611.257765,
-    "ast_hash": "76dae47da450d98595b702872dc15130",
-    "semantic_hash": "76dae47da450d98595b702872dc15130"
+    "mtime": 1787800694.811581,
+    "ast_hash": "4a4b3ce1f8f1b6b9d022eb77face46fd",
+    "semantic_hash": "4a4b3ce1f8f1b6b9d022eb77face46fd"
   },
   "api/internal/quota/service_test.go": {
-    "mtime": 1787206973.143288,
-    "ast_hash": "ba3ed88bcd0b35a98aadce152763d199",
-    "semantic_hash": "ba3ed88bcd0b35a98aadce152763d199"
+    "mtime": 1787800694.811566,
+    "ast_hash": "89f755926b1c8d583f9d3600084bef3d",
+    "semantic_hash": "89f755926b1c8d583f9d3600084bef3d"
   },
   "api/internal/repository/base.go": {
     "mtime": 1784197092.3616617,
@@ -395,9 +395,9 @@
     "semantic_hash": "aa36b11fbc7476b093a55c973f9409f4"
   },
   "cli/src/components/Dashboard.tsx": {
-    "mtime": 1787202951.5607672,
-    "ast_hash": "bd3e2f0533dc8ba8079edc9600509688",
-    "semantic_hash": "bd3e2f0533dc8ba8079edc9600509688"
+    "mtime": 1787795416.6057043,
+    "ast_hash": "5227693d08800d4c23d398171f2355a4",
+    "semantic_hash": "5227693d08800d4c23d398171f2355a4"
   },
   "cli/src/components/Login.tsx": {
     "mtime": 1786343408.2077959,
@@ -490,14 +490,14 @@
     "semantic_hash": "5029ab110757e000245f59f4e06a2162"
   },
   "mobile/lib/models/quota_models.dart": {
-    "mtime": 1784528906.4678328,
-    "ast_hash": "19961341d6a4d88b54f41b8ffadb8e73",
-    "semantic_hash": "19961341d6a4d88b54f41b8ffadb8e73"
+    "mtime": 1787801733.1505022,
+    "ast_hash": "d405ff17e354f211d6a05a48551c22e9",
+    "semantic_hash": "d405ff17e354f211d6a05a48551c22e9"
   },
   "mobile/lib/screens/dashboard_screen.dart": {
-    "mtime": 1784531489.4795578,
-    "ast_hash": "16de2445a3fc1b7f9488acd2b3fc4b45",
-    "semantic_hash": "16de2445a3fc1b7f9488acd2b3fc4b45"
+    "mtime": 1787801733.4471333,
+    "ast_hash": "364cfd79763778e0cde88222f0d3b6d3",
+    "semantic_hash": "364cfd79763778e0cde88222f0d3b6d3"
   },
   "mobile/lib/screens/login_screen.dart": {
     "mtime": 1784523359.1713307,
@@ -505,14 +505,14 @@
     "semantic_hash": "23ed28e4d8db9d2c6557a7bbf5bbca8d"
   },
   "mobile/lib/screens/settings_screen.dart": {
-    "mtime": 1784526416.799731,
-    "ast_hash": "bf6682cca7185cc2ac7d6b741da94fd9",
-    "semantic_hash": "bf6682cca7185cc2ac7d6b741da94fd9"
+    "mtime": 1787802859.3594868,
+    "ast_hash": "81980f606d01c3d665d9a7bc335c217e",
+    "semantic_hash": "81980f606d01c3d665d9a7bc335c217e"
   },
   "mobile/lib/services/api_service.dart": {
-    "mtime": 1784523674.0159745,
-    "ast_hash": "bd5afcb923231f49d6822cf0d5266d45",
-    "semantic_hash": "bd5afcb923231f49d6822cf0d5266d45"
+    "mtime": 1787802941.7711148,
+    "ast_hash": "36749b435de06b1099a68002f608d518",
+    "semantic_hash": "36749b435de06b1099a68002f608d518"
   },
   "mobile/lib/theme/app_theme.dart": {
     "mtime": 1784521933.14229,
@@ -520,17 +520,17 @@
     "semantic_hash": "97f3b2310229d02f981573e4972ffc84"
   },
   "mobile/lib/widgets/provider_card.dart": {
-    "mtime": 1787201666.261958,
-    "ast_hash": "dafec4e96fbc3cda53c085e66c0385f8",
-    "semantic_hash": "dafec4e96fbc3cda53c085e66c0385f8"
+    "mtime": 1787801733.3188195,
+    "ast_hash": "5bae6b460eb1e37ecab8eb7548b4c509",
+    "semantic_hash": "5bae6b460eb1e37ecab8eb7548b4c509"
   },
   "mobile/linux/flutter/generated_plugin_registrant.cc": {
-    "mtime": 1786345261.0650928,
+    "mtime": 1787803018.4706008,
     "ast_hash": "d07afe003d5837167bdd357d593f20a0",
     "semantic_hash": "d07afe003d5837167bdd357d593f20a0"
   },
   "mobile/linux/flutter/generated_plugin_registrant.h": {
-    "mtime": 1786345261.0644345,
+    "mtime": 1787803018.4702857,
     "ast_hash": "d295462c9da9f7fef22dc86c34492318",
     "semantic_hash": "d295462c9da9f7fef22dc86c34492318"
   },
@@ -550,7 +550,7 @@
     "semantic_hash": "7bd839b67ebee22174be9f4da4521b6f"
   },
   "mobile/macos/Flutter/GeneratedPluginRegistrant.swift": {
-    "mtime": 1786345261.0660503,
+    "mtime": 1787803018.4714293,
     "ast_hash": "a430f15385326361b2884c4254577488",
     "semantic_hash": "a430f15385326361b2884c4254577488"
   },
@@ -585,12 +585,12 @@
     "semantic_hash": "9a36a1ae261d7b9d06c9b9e86c454166"
   },
   "mobile/windows/flutter/generated_plugin_registrant.cc": {
-    "mtime": 1786345261.0669594,
+    "mtime": 1787803018.4721527,
     "ast_hash": "a8f91348d8d9090f22ec69d597c41e1f",
     "semantic_hash": "a8f91348d8d9090f22ec69d597c41e1f"
   },
   "mobile/windows/flutter/generated_plugin_registrant.h": {
-    "mtime": 1786345261.0666256,
+    "mtime": 1787803018.4719012,
     "ast_hash": "0ea33875f9f8e118f9c2ded03e2e2835",
     "semantic_hash": "0ea33875f9f8e118f9c2ded03e2e2835"
   },
@@ -638,5 +638,15 @@
     "mtime": 1787457566.748777,
     "ast_hash": "0f0d53c99300755b5cbfd35beeeb406d",
     "semantic_hash": "0f0d53c99300755b5cbfd35beeeb406d"
+  },
+  "mobile/test/api_service_test.dart": {
+    "mtime": 1787802941.7795417,
+    "ast_hash": "e70eb3b5e78fa68b011446f6e410eda3",
+    "semantic_hash": "e70eb3b5e78fa68b011446f6e410eda3"
+  },
+  "mobile/test/quota_type_label_test.dart": {
+    "mtime": 1787801733.4668972,
+    "ast_hash": "8e8a1e37e93a2d1671007610c830a1d7",
+    "semantic_hash": "8e8a1e37e93a2d1671007610c830a1d7"
   }
 }

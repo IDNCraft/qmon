@@ -1,11 +1,37 @@
-.PHONY: build install clean
+.PHONY: build install clean mobile-dev
 
 # Default OS to Linux if not specified, but this should be run natively or via scripts/install.sh
 OS ?= $(shell uname -s | tr A-Z a-z)
 ARCH ?= $(shell uname -m)
 BIN_DIR = $(HOME)/.local/bin
+HOST_IP ?=
 
 build: build-api build-cli
+
+ifneq ($(strip $(HOST_IP)),)
+mobile-dev:
+	@echo "=> Running mobile dev against http://$(HOST_IP):8080";
+	cd mobile && flutter run --dart-define=QMON_API_URL=http://$(HOST_IP):8080
+else ifeq ($(OS),Windows_NT)
+mobile-dev:
+	@echo "Unable to detect host IP on Windows. Run: make mobile-dev HOST_IP=<host-ip>";
+	@exit /b 1
+else
+mobile-dev:
+	@host_ip="$(HOST_IP)"; \
+	if [ -z "$$host_ip" ]; then \
+		case "$(OS)" in \
+			darwin) host_ip="$$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null)" ;; \
+			linux) host_ip="$$(hostname -I 2>/dev/null | awk '{print $$1}')" ;; \
+		esac; \
+	fi; \
+	if [ -z "$$host_ip" ]; then \
+		echo "Unable to detect host IP. Run: make mobile-dev HOST_IP=<host-ip>" >&2; \
+		exit 1; \
+	fi; \
+	echo "=> Running mobile dev against http://$$host_ip:8080"; \
+	cd mobile && flutter run --dart-define=QMON_API_URL=http://$$host_ip:8080
+endif
 
 build-api:
 	@echo "=> Building Qmon API (Backend)..."

@@ -1,11 +1,30 @@
+String quotaTypeLabel(String type, {String? providerId}) {
+  final value = type.trim();
+  final normalizedType = value.toLowerCase();
+  final normalizedProvider = providerId?.trim().toLowerCase();
+
+  if (normalizedProvider == 'codex' && normalizedType == 'session') {
+    return '5h';
+  }
+
+  switch (normalizedType) {
+    case '5h':
+    case 'five_hour':
+    case 'five-hour':
+      return '5h';
+    case 'weekly':
+      return 'Weekly';
+    default:
+      if (value.isEmpty) return '';
+      return '${value[0].toUpperCase()}${value.substring(1)}';
+  }
+}
+
 class QuotaSnapshotResponse {
   final DateTime capturedAt;
   final List<ProviderSnapshot> providers;
 
-  QuotaSnapshotResponse({
-    required this.capturedAt,
-    required this.providers,
-  });
+  QuotaSnapshotResponse({required this.capturedAt, required this.providers});
 
   factory QuotaSnapshotResponse.fromJson(Map<String, dynamic> json) {
     return QuotaSnapshotResponse(
@@ -73,8 +92,9 @@ class Quota {
       type: json['quota_type']?.toString() ?? '',
       percentRemaining: (json['percent_remaining'] ?? 0).toDouble(),
       resetText: json['reset_text'] ?? '',
-      resetsAt:
-          json['resets_at'] != null ? DateTime.parse(json['resets_at']) : null,
+      resetsAt: json['resets_at'] != null
+          ? DateTime.parse(json['resets_at'])
+          : null,
       modelKey: json['model_key'],
       isExhausted: json['is_exhausted'] ?? false,
     );
