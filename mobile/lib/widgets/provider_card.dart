@@ -32,7 +32,8 @@ class ProviderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gradients = _getGradients(provider.providerId);
-    final hasError = provider.lastError != null && provider.lastError!.isNotEmpty;
+    final hasError =
+        provider.lastError != null && provider.lastError!.isNotEmpty;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -74,7 +75,9 @@ class ProviderCard extends StatelessWidget {
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 4),
+                        horizontal: 10,
+                        vertical: 4,
+                      ),
                       decoration: BoxDecoration(
                         color: hasError
                             ? Colors.redAccent.withOpacity(0.2)
@@ -84,7 +87,9 @@ class ProviderCard extends StatelessWidget {
                       child: Text(
                         hasError ? 'Error' : 'Active',
                         style: TextStyle(
-                          color: hasError ? Colors.redAccent : Colors.greenAccent,
+                          color: hasError
+                              ? Colors.redAccent
+                              : Colors.greenAccent,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -114,7 +119,12 @@ class ProviderCard extends StatelessWidget {
   List<Widget> _buildGroupedQuotas(List<Quota> quotas, Color accentColor) {
     Map<String, List<Quota>> groupedQuotas = {};
     for (var q in quotas) {
-      final String key = '${q.percentRemaining}|${q.resetText}|${q.isExhausted}|${q.type}';
+      final String typeLabel = quotaTypeLabel(
+        q.type,
+        providerId: provider.providerId,
+      );
+      final String key =
+          '${q.percentRemaining}|${q.resetText}|${q.isExhausted}|$typeLabel';
       if (!groupedQuotas.containsKey(key)) {
         groupedQuotas[key] = [];
       }
@@ -122,41 +132,60 @@ class ProviderCard extends StatelessWidget {
     }
 
     return groupedQuotas.values.map((group) {
-      List<String> modelKeys = group.map((q) => q.modelKey?.toUpperCase() ?? '-').toSet().toList();
+      List<String> modelKeys = group
+          .map((q) => q.modelKey?.toUpperCase() ?? '-')
+          .toSet()
+          .toList();
       modelKeys.sort();
       String modelName = modelKeys.join(' & ');
-      
-      List<String> qTypes = group.map((q) => q.type).where((t) => t.isNotEmpty && t != 'model_specific').toSet().toList();
-      
+
+      List<String> qTypes = group
+          .map((q) => q.type)
+          .where((type) => type.isNotEmpty && type != 'model_specific')
+          .map((type) => quotaTypeLabel(type, providerId: provider.providerId))
+          .toSet()
+          .toList();
+
       if (modelName == '-') {
         if (qTypes.isNotEmpty) {
-          modelName = qTypes.map((t) => t[0].toUpperCase() + t.substring(1)).join(', ');
+          modelName = qTypes.join(', ');
         }
       } else {
         if (qTypes.isNotEmpty) {
-          modelName += ' (${qTypes.map((t) => t[0].toUpperCase() + t.substring(1)).join(', ')})';
+          modelName += ' (${qTypes.join(', ')})';
         }
       }
       Quota firstQ = group.first;
-      
-      double displayPct = showUsedMetric ? (100 - firstQ.percentRemaining) : firstQ.percentRemaining;
+
+      double displayPct = showUsedMetric
+          ? (100 - firstQ.percentRemaining)
+          : firstQ.percentRemaining;
       Color valueColor = Colors.greenAccent;
-      
+
       if (firstQ.isExhausted) {
         valueColor = Colors.redAccent;
       } else if (showUsedMetric) {
-        if (displayPct >= 80) valueColor = Colors.redAccent;
-        else if (displayPct >= 50) valueColor = Colors.orangeAccent;
+        if (displayPct >= 80)
+          valueColor = Colors.redAccent;
+        else if (displayPct >= 50)
+          valueColor = Colors.orangeAccent;
       } else {
-        if (displayPct < 20) valueColor = Colors.redAccent;
-        else if (displayPct < 50) valueColor = Colors.orangeAccent;
+        if (displayPct < 20)
+          valueColor = Colors.redAccent;
+        else if (displayPct < 50)
+          valueColor = Colors.orangeAccent;
       }
-      
+
       return _buildQuotaRow(firstQ, modelName, valueColor, displayPct);
     }).toList();
   }
 
-  Widget _buildQuotaRow(Quota q, String title, Color valueColor, double displayPct) {
+  Widget _buildQuotaRow(
+    Quota q,
+    String title,
+    Color valueColor,
+    double displayPct,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Column(

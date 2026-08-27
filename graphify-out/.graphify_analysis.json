@@ -1,6 +1,71 @@
 {
   "communities": {
     "0": [
+      "api_internal_auth_handler",
+      "api_internal_auth_handler_go_auth_handler",
+      "api_internal_auth_handler_go_context",
+      "api_internal_auth_handler_go_service",
+      "api_internal_provider_antigravity_login_go_context",
+      "api_internal_provider_antigravity_login_go_provider_handler",
+      "api_internal_provider_claude_login_go_context",
+      "api_internal_provider_claude_login_go_provider_handler",
+      "api_internal_provider_codex_login_go_context",
+      "api_internal_provider_codex_login_go_provider_handler",
+      "api_internal_provider_copilot_login_go_context",
+      "api_internal_provider_copilot_login_go_provider_handler",
+      "api_internal_provider_handler",
+      "api_internal_provider_handler_getuserid",
+      "api_internal_provider_handler_go_context",
+      "api_internal_provider_handler_go_provider_handler",
+      "api_internal_provider_handler_go_repository",
+      "api_internal_provider_handler_newhandler",
+      "api_internal_provider_opencode_login_go_context",
+      "api_internal_provider_opencode_login_go_provider_handler",
+      "api_internal_response_response",
+      "api_internal_response_response_badrequest",
+      "api_internal_response_response_created",
+      "api_internal_response_response_errorbody",
+      "api_internal_response_response_forbidden",
+      "api_internal_response_response_go_context",
+      "api_internal_response_response_newmeta",
+      "api_internal_response_response_nocontent",
+      "api_internal_response_response_notfound",
+      "api_internal_response_response_ok",
+      "api_internal_response_response_okwithmeta",
+      "api_internal_response_response_servererror",
+      "api_internal_response_response_serviceunavailable",
+      "api_internal_response_response_unauthorized",
+      "api_internal_response_response_unprocessableentity",
+      "api_internal_response_response_validationerror",
+      "api_internal_setting_handler",
+      "api_internal_setting_handler_go_context",
+      "api_internal_setting_handler_go_service",
+      "api_internal_setting_handler_go_setting_handler",
+      "auth_handler_login",
+      "auth_handler_logout",
+      "auth_handler_refresh",
+      "auth_handler_resetdefaultadmin",
+      "auth_resetdefaultadminrequest",
+      "h",
+      "provider_handler_claudeloginstatus",
+      "provider_handler_codexloginstatus",
+      "provider_handler_completeantigravitylogin",
+      "provider_handler_completeclaudelogin",
+      "provider_handler_completeopencodelogin",
+      "provider_handler_copilotloginstatus",
+      "provider_handler_deletecredential",
+      "provider_handler_initiateantigravitylogin",
+      "provider_handler_initiateclaudelogin",
+      "provider_handler_initiatecodexlogin",
+      "provider_handler_initiatecopilotlogin",
+      "provider_handler_listaccounts",
+      "provider_handler_listcredentials",
+      "provider_handler_logoutopencode",
+      "provider_handler_savecredential",
+      "response_meta",
+      "setting_handler_publicconfig"
+    ],
+    "1": [
       "mobile_windows_flutter_generated_plugin_registrant_cc_mobile_windows_flutter_generated_plugin_registrant",
       "mobile_windows_flutter_generated_plugin_registrant_h_mobile_windows_flutter_generated_plugin_registrant",
       "mobile_windows_flutter_generated_plugin_registrant_registerplugins",
@@ -64,85 +129,24 @@
       "unique_ptr",
       "wstring"
     ],
-    "1": [
-      "api_internal_auth_handler",
-      "api_internal_auth_handler_go_auth_handler",
-      "api_internal_auth_handler_go_context",
-      "api_internal_auth_handler_go_service",
-      "api_internal_provider_antigravity_login_go_context",
-      "api_internal_provider_antigravity_login_go_provider_handler",
-      "api_internal_provider_claude_login_go_context",
-      "api_internal_provider_claude_login_go_provider_handler",
-      "api_internal_provider_codex_login_go_context",
-      "api_internal_provider_codex_login_go_provider_handler",
-      "api_internal_provider_copilot_login_go_context",
-      "api_internal_provider_copilot_login_go_provider_handler",
-      "api_internal_provider_handler",
-      "api_internal_provider_handler_getuserid",
-      "api_internal_provider_handler_go_context",
-      "api_internal_provider_handler_go_provider_handler",
-      "api_internal_provider_handler_go_repository",
-      "api_internal_provider_handler_newhandler",
-      "api_internal_provider_opencode_login_go_context",
-      "api_internal_provider_opencode_login_go_provider_handler",
-      "api_internal_response_response",
-      "api_internal_response_response_badrequest",
-      "api_internal_response_response_created",
-      "api_internal_response_response_errorbody",
-      "api_internal_response_response_forbidden",
-      "api_internal_response_response_go_context",
-      "api_internal_response_response_newmeta",
-      "api_internal_response_response_nocontent",
-      "api_internal_response_response_notfound",
-      "api_internal_response_response_ok",
-      "api_internal_response_response_okwithmeta",
-      "api_internal_response_response_servererror",
-      "api_internal_response_response_serviceunavailable",
-      "api_internal_response_response_unauthorized",
-      "api_internal_response_response_unprocessableentity",
-      "api_internal_response_response_validationerror",
-      "auth_handler_login",
-      "auth_handler_logout",
-      "auth_handler_refresh",
-      "auth_handler_resetdefaultadmin",
-      "auth_resetdefaultadminrequest",
-      "h",
-      "provider_handler_claudeloginstatus",
-      "provider_handler_codexloginstatus",
-      "provider_handler_completeantigravitylogin",
-      "provider_handler_completeclaudelogin",
-      "provider_handler_completeopencodelogin",
-      "provider_handler_copilotloginstatus",
-      "provider_handler_deletecredential",
-      "provider_handler_initiateantigravitylogin",
-      "provider_handler_initiateclaudelogin",
-      "provider_handler_initiatecodexlogin",
-      "provider_handler_initiatecopilotlogin",
-      "provider_handler_listaccounts",
-      "provider_handler_listcredentials",
-      "provider_handler_logoutopencode",
-      "provider_handler_savecredential",
-      "response_meta"
-    ],
     "2": [
       "api_database_seeders_03_users",
       "api_database_seeders_03_users_go_db",
-      "api_internal_middleware_requestid",
-      "api_internal_middleware_requestid_go_handlerfunc",
-      "api_internal_middleware_requestid_requestid",
       "api_internal_quota_antigravity_go_context",
       "api_internal_quota_antigravity_go_quota",
       "api_internal_quota_antigravity_go_quota_service",
       "api_internal_quota_model",
       "api_internal_quota_model_go_time",
+      "api_internal_quota_repository",
+      "api_internal_quota_repository_go_context",
+      "api_internal_quota_repository_go_db",
+      "api_internal_quota_repository_newrepository",
       "api_internal_utils_base64",
       "api_internal_utils_base64_decode",
       "api_internal_utils_base64_decodeurl",
       "api_internal_utils_base64_encode",
       "api_internal_utils_base64_encodeurl",
-      "api_internal_utils_random",
       "api_internal_utils_random_randomalphanum",
-      "api_internal_utils_random_randomhex",
       "api_internal_utils_string",
       "api_internal_utils_string_initials",
       "api_internal_utils_string_slugify",
@@ -166,24 +170,71 @@
       "quota_quota",
       "quota_quotasnapshotresponse",
       "quota_quotatype",
+      "quota_repository",
       "quota_service_probeantigravity",
       "quota_service_querycloudcodeapi",
       "quota_service_refreshantigravitytoken",
+      "quota_sqlrepository",
+      "quota_sqlrepository_checkcliavailable",
+      "quota_sqlrepository_querylocaldb",
+      "quota_sqlrepository_runclicommand",
       "seeders_userseeder",
       "seeders_userseeder_name",
       "seeders_userseeder_run",
       "vector"
     ],
     "3": [
+      "api_internal_auth_model",
+      "api_internal_auth_model_go_time",
+      "api_internal_auth_mysql",
+      "api_internal_auth_mysql_go_db",
+      "api_internal_auth_mysql_go_repository",
+      "api_internal_auth_mysql_go_time",
+      "api_internal_auth_mysql_newmysqlrepository",
+      "api_internal_auth_service",
+      "api_internal_auth_service_go_repository",
+      "api_internal_config_auth",
+      "api_internal_config_auth_jwtexpirehours",
+      "api_internal_config_auth_jwtsecret",
+      "api_internal_config_auth_refreshtokenexpiredays",
+      "api_internal_middleware_auth",
+      "api_internal_middleware_auth_auth",
+      "api_internal_middleware_auth_go_handlerfunc",
+      "api_internal_middleware_requestid",
+      "api_internal_middleware_requestid_go_handlerfunc",
+      "api_internal_middleware_requestid_requestid",
+      "api_internal_utils_random",
+      "api_internal_utils_random_randomhex",
+      "auth_loginrequest",
+      "auth_loginuser",
+      "auth_mysqlrepository",
+      "auth_mysqlrepository_deleterefreshtoken",
+      "auth_mysqlrepository_findbyemail",
+      "auth_mysqlrepository_findrefreshtoken",
+      "auth_mysqlrepository_insertrefreshtoken",
+      "auth_mysqlrepository_insertuser",
+      "auth_mysqlrepository_setpassword",
+      "auth_mysqlrepository_updateusercredentials",
+      "auth_refreshtokenrequest",
+      "auth_service",
+      "auth_service_createrefreshtoken",
+      "auth_service_issuetoken",
+      "auth_service_login",
+      "auth_service_refreshtoken",
+      "auth_service_resetdefaultadmin",
+      "auth_service_revokerefreshtoken",
+      "auth_tokenresponse",
+      "auth_userinfo",
+      "duration"
+    ],
+    "4": [
       "api_internal_quota_service",
       "api_internal_quota_service_anchoredmonthbounds",
       "api_internal_quota_service_extractclauderesettext",
-      "api_internal_quota_service_go_cmd",
       "api_internal_quota_service_go_context",
       "api_internal_quota_service_go_quota",
       "api_internal_quota_service_go_quota_service",
       "api_internal_quota_service_go_quotasnapshotresponse",
-      "api_internal_quota_service_go_repository",
       "api_internal_quota_service_go_time",
       "api_internal_quota_service_newservice",
       "api_internal_quota_service_parseclaudecostoutput",
@@ -206,6 +257,7 @@
       "api_internal_quota_service_test_testprobecodexrpcsuccess",
       "api_internal_quota_service_test_testprobecopilotkeychainsuccess",
       "api_internal_quota_service_test_testprobecopilotsuccess",
+      "cmd",
       "quota_claudeauthstatus",
       "quota_mockrepository",
       "quota_mockrepository_checkcliavailable",
@@ -215,9 +267,10 @@
       "quota_service_probeclaude",
       "quota_service_probecodex",
       "quota_service_probeopencode",
+      "repository",
       "t"
     ],
-    "4": [
+    "5": [
       "any",
       "api_internal_middleware_recovery",
       "api_internal_middleware_recovery_go_handlerfunc",
@@ -258,7 +311,7 @@
       "xctest",
       "xctestcase"
     ],
-    "5": [
+    "6": [
       "api_cmd_migrate_main",
       "api_cmd_migrate_main_init",
       "api_cmd_migrate_main_main",
@@ -298,7 +351,7 @@
       "seeders_runner_runonly",
       "seeders_seeder"
     ],
-    "6": [
+    "7": [
       "cli_src_api",
       "cli_src_api_fetchallquotas",
       "cli_src_api_getbaseurl",
@@ -337,45 +390,6 @@
       "cli_src_sidecar_checkhealth",
       "cli_src_sidecar_startsidecar",
       "cli_src_sidecar_stopsidecar"
-    ],
-    "7": [
-      "api_internal_auth_model",
-      "api_internal_auth_model_go_time",
-      "api_internal_auth_mysql",
-      "api_internal_auth_mysql_go_db",
-      "api_internal_auth_mysql_go_repository",
-      "api_internal_auth_mysql_go_time",
-      "api_internal_auth_mysql_newmysqlrepository",
-      "api_internal_auth_service",
-      "api_internal_auth_service_go_repository",
-      "api_internal_config_auth",
-      "api_internal_config_auth_jwtexpirehours",
-      "api_internal_config_auth_jwtsecret",
-      "api_internal_config_auth_refreshtokenexpiredays",
-      "api_internal_middleware_auth",
-      "api_internal_middleware_auth_auth",
-      "api_internal_middleware_auth_go_handlerfunc",
-      "auth_loginrequest",
-      "auth_loginuser",
-      "auth_mysqlrepository",
-      "auth_mysqlrepository_deleterefreshtoken",
-      "auth_mysqlrepository_findbyemail",
-      "auth_mysqlrepository_findrefreshtoken",
-      "auth_mysqlrepository_insertrefreshtoken",
-      "auth_mysqlrepository_insertuser",
-      "auth_mysqlrepository_setpassword",
-      "auth_mysqlrepository_updateusercredentials",
-      "auth_refreshtokenrequest",
-      "auth_service",
-      "auth_service_createrefreshtoken",
-      "auth_service_issuetoken",
-      "auth_service_login",
-      "auth_service_refreshtoken",
-      "auth_service_resetdefaultadmin",
-      "auth_service_revokerefreshtoken",
-      "auth_tokenresponse",
-      "auth_userinfo",
-      "duration"
     ],
     "8": [
       "activity",
@@ -449,73 +463,6 @@
       "health_handler_check"
     ],
     "10": [
-      "cli_package",
-      "cli_package_dependencies",
-      "cli_package_dependencies_cli_table3",
-      "cli_package_dependencies_ink",
-      "cli_package_dependencies_ink_text_input",
-      "cli_package_dependencies_react",
-      "cli_package_dependencies_signal_exit",
-      "cli_package_module",
-      "cli_package_name",
-      "cli_package_peerdependencies",
-      "cli_package_peerdependencies_typescript",
-      "cli_package_private",
-      "cli_package_scripts",
-      "cli_package_scripts_format",
-      "cli_package_scripts_format_check",
-      "cli_package_scripts_lint",
-      "cli_package_scripts_lint_fix",
-      "cli_package_scripts_release",
-      "cli_package_scripts_release_alpha",
-      "cli_package_scripts_release_beta",
-      "cli_package_scripts_release_major",
-      "cli_package_scripts_release_minor",
-      "cli_package_scripts_release_patch",
-      "cli_package_scripts_typecheck",
-      "cli_package_type",
-      "cli_package_version",
-      "cli_table3",
-      "ink",
-      "ink_text_input",
-      "react",
-      "signal_exit",
-      "typescript"
-    ],
-    "11": [
-      "cli_package_devdependencies",
-      "cli_package_devdependencies_eslint",
-      "cli_package_devdependencies_eslint_config_prettier",
-      "cli_package_devdependencies_eslint_plugin_prettier",
-      "cli_package_devdependencies_eslint_plugin_promise",
-      "cli_package_devdependencies_eslint_plugin_security",
-      "cli_package_devdependencies_eslint_plugin_unicorn",
-      "cli_package_devdependencies_ianvs_prettier_plugin_sort_imports",
-      "cli_package_devdependencies_prettier",
-      "cli_package_devdependencies_react_devtools_core",
-      "cli_package_devdependencies_release_it",
-      "cli_package_devdependencies_release_it_conventional_changelog",
-      "cli_package_devdependencies_types_bun",
-      "cli_package_devdependencies_types_react",
-      "cli_package_devdependencies_typescript_eslint_eslint_plugin",
-      "cli_package_devdependencies_typescript_eslint_parser",
-      "eslint",
-      "eslint_config_prettier",
-      "eslint_plugin_prettier",
-      "eslint_plugin_promise",
-      "eslint_plugin_security",
-      "eslint_plugin_unicorn",
-      "ianvs_prettier_plugin_sort_imports",
-      "prettier",
-      "react_devtools_core",
-      "release_it",
-      "release_it_conventional_changelog",
-      "types_bun",
-      "types_react",
-      "typescript_eslint_eslint_plugin",
-      "typescript_eslint_parser"
-    ],
-    "12": [
       "flpluginregistry",
       "gapplication",
       "gboolean",
@@ -542,7 +489,7 @@
       "mobile_linux_runner_my_application_myapplication_parent_instance",
       "myapplicationclass"
     ],
-    "13": [
+    "11": [
       "dart_async",
       "dart_math",
       "login_screen_dart",
@@ -568,7 +515,33 @@
       "timer",
       "widgets_provider_card_dart"
     ],
-    "14": [
+    "12": [
+      "datetime",
+      "mobile_lib_models_quota_models",
+      "mobile_lib_models_quota_models_capturedat",
+      "mobile_lib_models_quota_models_fromjson",
+      "mobile_lib_models_quota_models_isavailable",
+      "mobile_lib_models_quota_models_isenabled",
+      "mobile_lib_models_quota_models_isexhausted",
+      "mobile_lib_models_quota_models_lasterror",
+      "mobile_lib_models_quota_models_modelkey",
+      "mobile_lib_models_quota_models_name",
+      "mobile_lib_models_quota_models_normalizedprovider",
+      "mobile_lib_models_quota_models_normalizedtype",
+      "mobile_lib_models_quota_models_percentremaining",
+      "mobile_lib_models_quota_models_providerid",
+      "mobile_lib_models_quota_models_providers",
+      "mobile_lib_models_quota_models_providersnapshot",
+      "mobile_lib_models_quota_models_quota",
+      "mobile_lib_models_quota_models_quotas",
+      "mobile_lib_models_quota_models_quotasnapshotresponse",
+      "mobile_lib_models_quota_models_quotatypelabel",
+      "mobile_lib_models_quota_models_resetsat",
+      "mobile_lib_models_quota_models_resettext",
+      "mobile_lib_models_quota_models_type",
+      "mobile_lib_models_quota_models_value"
+    ],
+    "13": [
       "cli_tsconfig",
       "cli_tsconfig_compileroptions",
       "cli_tsconfig_compileroptions_allowimportingtsextensions",
@@ -593,7 +566,7 @@
       "ref_bun_types",
       "ref_esnext"
     ],
-    "15": [
+    "14": [
       "api_internal_utils_csv",
       "api_internal_utils_csv_exportcsv",
       "api_internal_utils_csv_importcsv",
@@ -616,30 +589,29 @@
       "utils_pdfoptions",
       "value"
     ],
-    "16": [
-      "datetime",
+    "15": [
       "list",
-      "mobile_lib_models_quota_models",
-      "mobile_lib_models_quota_models_capturedat",
-      "mobile_lib_models_quota_models_fromjson",
-      "mobile_lib_models_quota_models_isavailable",
-      "mobile_lib_models_quota_models_isenabled",
-      "mobile_lib_models_quota_models_isexhausted",
-      "mobile_lib_models_quota_models_lasterror",
-      "mobile_lib_models_quota_models_modelkey",
-      "mobile_lib_models_quota_models_name",
-      "mobile_lib_models_quota_models_percentremaining",
-      "mobile_lib_models_quota_models_providerid",
-      "mobile_lib_models_quota_models_providers",
-      "mobile_lib_models_quota_models_providersnapshot",
-      "mobile_lib_models_quota_models_quota",
-      "mobile_lib_models_quota_models_quotas",
-      "mobile_lib_models_quota_models_quotasnapshotresponse",
-      "mobile_lib_models_quota_models_resetsat",
-      "mobile_lib_models_quota_models_resettext",
-      "mobile_lib_models_quota_models_type"
+      "mobile_lib_screens_settings_screen",
+      "mobile_lib_screens_settings_screen_apiservice",
+      "mobile_lib_screens_settings_screen_availableproviders",
+      "mobile_lib_screens_settings_screen_build",
+      "mobile_lib_screens_settings_screen_createstate",
+      "mobile_lib_screens_settings_screen_hiddenproviders",
+      "mobile_lib_screens_settings_screen_initstate",
+      "mobile_lib_screens_settings_screen_issuccess",
+      "mobile_lib_screens_settings_screen_istesting",
+      "mobile_lib_screens_settings_screen_loadcurrenturl",
+      "mobile_lib_screens_settings_screen_saveandtest",
+      "mobile_lib_screens_settings_screen_showabsolutetime",
+      "mobile_lib_screens_settings_screen_showusedmetric",
+      "mobile_lib_screens_settings_screen_testresult",
+      "mobile_lib_screens_settings_screen_togglemetric",
+      "mobile_lib_screens_settings_screen_toggleprovider",
+      "mobile_lib_screens_settings_screen_toggletime",
+      "mobile_lib_screens_settings_screen_urlcontroller",
+      "string"
     ],
-    "17": [
+    "16": [
       "api_internal_setting_model",
       "api_internal_setting_model_go_time",
       "api_internal_setting_mysql",
@@ -660,7 +632,49 @@
       "setting_service_update",
       "setting_updatesettingsrequest"
     ],
+    "17": [
+      "cli_package_devdependencies",
+      "cli_package_devdependencies_eslint",
+      "cli_package_devdependencies_eslint_config_prettier",
+      "cli_package_devdependencies_eslint_plugin_prettier",
+      "cli_package_devdependencies_eslint_plugin_promise",
+      "cli_package_devdependencies_eslint_plugin_security",
+      "cli_package_devdependencies_prettier",
+      "cli_package_devdependencies_react_devtools_core",
+      "cli_package_devdependencies_release_it_conventional_changelog",
+      "cli_package_devdependencies_types_react",
+      "eslint",
+      "eslint_config_prettier",
+      "eslint_plugin_prettier",
+      "eslint_plugin_promise",
+      "eslint_plugin_security",
+      "prettier",
+      "react_devtools_core",
+      "release_it_conventional_changelog",
+      "types_react"
+    ],
     "18": [
+      "dart_convert",
+      "mobile_lib_services_api_service",
+      "mobile_lib_services_api_service_checkhealth",
+      "mobile_lib_services_api_service_cleartoken",
+      "mobile_lib_services_api_service_defaulturl",
+      "mobile_lib_services_api_service_developmenturl",
+      "mobile_lib_services_api_service_fetchsnapshot",
+      "mobile_lib_services_api_service_getbaseurl",
+      "mobile_lib_services_api_service_gettoken",
+      "mobile_lib_services_api_service_login",
+      "mobile_lib_services_api_service_resolvebaseurl",
+      "mobile_lib_services_api_service_setbaseurl",
+      "mobile_lib_services_api_service_settoken",
+      "mobile_lib_services_api_service_tokenkey",
+      "mobile_lib_services_api_service_urlkey",
+      "package_flutter_foundation_dart",
+      "package_http_http_dart",
+      "package_shared_preferences_shared_preferences_dart",
+      "static_const_string"
+    ],
+    "19": [
       "api_internal_quota_antigravity",
       "api_internal_quota_antigravity_antigravitysubscriptionexpired",
       "api_internal_quota_antigravity_formatduration",
@@ -680,46 +694,7 @@
       "quota_service_probecodexrpc",
       "quota_service_probecopilot"
     ],
-    "19": [
-      "mobile_lib_screens_settings_screen",
-      "mobile_lib_screens_settings_screen_apiservice",
-      "mobile_lib_screens_settings_screen_availableproviders",
-      "mobile_lib_screens_settings_screen_build",
-      "mobile_lib_screens_settings_screen_createstate",
-      "mobile_lib_screens_settings_screen_hiddenproviders",
-      "mobile_lib_screens_settings_screen_initstate",
-      "mobile_lib_screens_settings_screen_issuccess",
-      "mobile_lib_screens_settings_screen_istesting",
-      "mobile_lib_screens_settings_screen_loadcurrenturl",
-      "mobile_lib_screens_settings_screen_saveandtest",
-      "mobile_lib_screens_settings_screen_showabsolutetime",
-      "mobile_lib_screens_settings_screen_showusedmetric",
-      "mobile_lib_screens_settings_screen_testresult",
-      "mobile_lib_screens_settings_screen_togglemetric",
-      "mobile_lib_screens_settings_screen_toggleprovider",
-      "mobile_lib_screens_settings_screen_toggletime",
-      "mobile_lib_screens_settings_screen_urlcontroller"
-    ],
     "20": [
-      "dart_convert",
-      "mobile_lib_services_api_service",
-      "mobile_lib_services_api_service_apiservice",
-      "mobile_lib_services_api_service_checkhealth",
-      "mobile_lib_services_api_service_cleartoken",
-      "mobile_lib_services_api_service_defaulturl",
-      "mobile_lib_services_api_service_fetchsnapshot",
-      "mobile_lib_services_api_service_getbaseurl",
-      "mobile_lib_services_api_service_gettoken",
-      "mobile_lib_services_api_service_login",
-      "mobile_lib_services_api_service_setbaseurl",
-      "mobile_lib_services_api_service_settoken",
-      "mobile_lib_services_api_service_tokenkey",
-      "mobile_lib_services_api_service_urlkey",
-      "package_http_http_dart",
-      "package_shared_preferences_shared_preferences_dart",
-      "static_const_string"
-    ],
-    "21": [
       "api_internal_auth_router_go_auth_handler",
       "api_internal_auth_router_go_routergroup",
       "api_internal_middleware_ratelimit",
@@ -736,6 +711,23 @@
       "middleware_limiterstore_cleanup",
       "middleware_limiterstore_get",
       "mutex"
+    ],
+    "21": [
+      "dashboard_screen_dart",
+      "mobile_lib_screens_login_screen",
+      "mobile_lib_screens_login_screen_apiservice",
+      "mobile_lib_screens_login_screen_checkexistingtoken",
+      "mobile_lib_screens_login_screen_createstate",
+      "mobile_lib_screens_login_screen_emailcontroller",
+      "mobile_lib_screens_login_screen_error",
+      "mobile_lib_screens_login_screen_initstate",
+      "mobile_lib_screens_login_screen_isloading",
+      "mobile_lib_screens_login_screen_login",
+      "mobile_lib_screens_login_screen_passwordcontroller",
+      "mobile_lib_services_api_service_apiservice",
+      "services_api_service_dart",
+      "settings_screen_dart",
+      "texteditingcontroller"
     ],
     "22": [
       "color",
@@ -754,22 +746,6 @@
       "statelesswidget"
     ],
     "23": [
-      "dashboard_screen_dart",
-      "mobile_lib_screens_login_screen",
-      "mobile_lib_screens_login_screen_apiservice",
-      "mobile_lib_screens_login_screen_checkexistingtoken",
-      "mobile_lib_screens_login_screen_createstate",
-      "mobile_lib_screens_login_screen_emailcontroller",
-      "mobile_lib_screens_login_screen_error",
-      "mobile_lib_screens_login_screen_initstate",
-      "mobile_lib_screens_login_screen_isloading",
-      "mobile_lib_screens_login_screen_login",
-      "mobile_lib_screens_login_screen_passwordcontroller",
-      "services_api_service_dart",
-      "settings_screen_dart",
-      "texteditingcontroller"
-    ],
-    "24": [
       "api_internal_provider_repository",
       "api_internal_provider_repository_go_db",
       "api_internal_provider_repository_go_time",
@@ -783,7 +759,34 @@
       "provider_repository_savecredential",
       "provider_savecredentialinput"
     ],
+    "24": [
+      "cli_package_scripts",
+      "cli_package_scripts_format",
+      "cli_package_scripts_format_check",
+      "cli_package_scripts_lint",
+      "cli_package_scripts_lint_fix",
+      "cli_package_scripts_release",
+      "cli_package_scripts_release_alpha",
+      "cli_package_scripts_release_beta",
+      "cli_package_scripts_release_major",
+      "cli_package_scripts_release_minor",
+      "cli_package_scripts_release_patch",
+      "cli_package_scripts_typecheck"
+    ],
     "25": [
+      "cli_package_dependencies",
+      "cli_package_dependencies_cli_table3",
+      "cli_package_dependencies_ink",
+      "cli_package_dependencies_ink_text_input",
+      "cli_package_dependencies_react",
+      "cli_package_dependencies_signal_exit",
+      "cli_table3",
+      "ink",
+      "ink_text_input",
+      "react",
+      "signal_exit"
+    ],
+    "26": [
       "mobile_lib_main",
       "mobile_lib_main_build",
       "mobile_lib_main_main",
@@ -791,13 +794,12 @@
       "mobile_test_widget_test",
       "mobile_test_widget_test_main",
       "package_flutter_material_dart",
-      "package_flutter_test_flutter_test_dart",
       "package_home_widget_home_widget_dart",
       "package_qmon_mobile_main_dart",
       "screens_login_screen_dart",
       "theme_app_theme_dart"
     ],
-    "26": [
+    "27": [
       "mobile_web_manifest",
       "mobile_web_manifest_background_color",
       "mobile_web_manifest_description",
@@ -810,7 +812,7 @@
       "mobile_web_manifest_start_url",
       "mobile_web_manifest_theme_color"
     ],
-    "27": [
+    "28": [
       "api_internal_mail_mailer",
       "api_internal_mail_mailer_buildmessage",
       "api_internal_mail_mailer_getenv",
@@ -822,7 +824,7 @@
       "mail_mailer_send",
       "mail_passwordresetdata"
     ],
-    "28": [
+    "29": [
       "api_internal_utils_query",
       "api_internal_utils_query_go_context",
       "api_internal_utils_query_isallowedcol",
@@ -833,17 +835,6 @@
       "api_internal_utils_query_trimall",
       "utils_listqueryoptions",
       "utils_listqueryparams"
-    ],
-    "29": [
-      "api_internal_quota_repository",
-      "api_internal_quota_repository_go_context",
-      "api_internal_quota_repository_go_db",
-      "api_internal_quota_repository_newrepository",
-      "quota_repository",
-      "quota_sqlrepository",
-      "quota_sqlrepository_checkcliavailable",
-      "quota_sqlrepository_querylocaldb",
-      "quota_sqlrepository_runclicommand"
     ],
     "30": [
       "api_internal_utils_date",
@@ -857,6 +848,17 @@
       "api_internal_utils_date_go_time"
     ],
     "31": [
+      "cli_package",
+      "cli_package_module",
+      "cli_package_name",
+      "cli_package_peerdependencies",
+      "cli_package_peerdependencies_typescript",
+      "cli_package_private",
+      "cli_package_type",
+      "cli_package_version",
+      "typescript"
+    ],
+    "32": [
       "mobile_lib_theme_app_theme",
       "mobile_lib_theme_app_theme_accentprimary",
       "mobile_lib_theme_app_theme_apptheme",
@@ -867,7 +869,7 @@
       "package_google_fonts_google_fonts_dart",
       "static_const_color"
     ],
-    "32": [
+    "33": [
       "mobile_lib_screens_dashboard_screen_dashboardscreen",
       "mobile_lib_screens_dashboard_screen_dashboardscreenstate",
       "mobile_lib_screens_login_screen_loginscreen",
@@ -877,7 +879,7 @@
       "state",
       "statefulwidget"
     ],
-    "33": [
+    "34": [
       "api_internal_quota_handler",
       "api_internal_quota_handler_getquotauserid",
       "api_internal_quota_handler_go_context",
@@ -886,7 +888,16 @@
       "quota_handler",
       "quota_handler_getsnapshot"
     ],
-    "34": [
+    "35": [
+      "mobile_test_api_service_test",
+      "mobile_test_api_service_test_main",
+      "mobile_test_quota_type_label_test",
+      "mobile_test_quota_type_label_test_main",
+      "package_flutter_test_flutter_test_dart",
+      "package_qmon_mobile_models_quota_models_dart",
+      "package_qmon_mobile_services_api_service_dart"
+    ],
+    "36": [
       "api_internal_provider_claude_login",
       "api_internal_provider_claude_login_go_cmd",
       "api_internal_provider_claude_login_go_time",
@@ -894,174 +905,197 @@
       "provider_claudeloginsession",
       "writecloser"
     ],
-    "35": [
+    "37": [
       "api_internal_quota_codex",
       "quota_codexrpcratelimits",
       "quota_codexrpcresponse",
       "quota_codexrpcresult",
       "quota_codexrpcwindow"
     ],
-    "36": [
-      "api_internal_setting_handler",
-      "api_internal_setting_handler_go_context",
-      "api_internal_setting_handler_go_service",
-      "api_internal_setting_handler_go_setting_handler",
-      "setting_handler_publicconfig"
-    ],
-    "37": [
+    "38": [
       "scripts_install",
       "scripts_install_cleanup",
       "scripts_install_configure_shell_path",
       "scripts_install_fail",
       "scripts_install_sh__entry"
     ],
-    "38": [
+    "39": [
       "api_internal_middleware_permission",
       "api_internal_middleware_permission_go_handlerfunc",
       "api_internal_middleware_permission_requirepermission",
       "middleware_permissionchecker"
     ],
-    "39": [
+    "40": [
       "api_internal_provider_antigravity_login",
       "provider_completeantigravityloginrequest",
       "provider_initiateantigravityloginrequest",
       "provider_oauthtokenresponse"
     ],
-    "40": [
+    "41": [
       "api_internal_quota_copilot",
       "quota_copilotinteractionquota",
       "quota_copilotquotasnapshots",
       "quota_copilotuserresponse"
     ],
-    "41": [
+    "42": [
       "api_internal_utils_currency",
       "api_internal_utils_currency_formatidr",
       "api_internal_utils_currency_formatusd",
       "api_internal_utils_currency_thousands"
     ],
-    "42": [
+    "43": [
       "api_internal_setting_router_go_routergroup",
       "api_internal_setting_router_go_setting_handler",
       "setting_handler_registerpublicroutes"
     ],
-    "43": [
+    "44": [
       "flutteractivity",
       "mobile_android_app_src_main_kotlin_com_qmon_qmon_mobile_mainactivity",
       "mobile_android_app_src_main_kotlin_com_qmon_qmon_mobile_mainactivity_mainactivity"
     ],
-    "44": [
+    "45": [
       "api_database_seeders_collections_users",
       "collections_userseed"
     ],
-    "45": [
+    "46": [
       "api_internal_auth_repository",
       "auth_repository"
     ],
-    "46": [
+    "47": [
       "api_internal_repository_base",
       "repository_crud"
     ],
-    "47": [
+    "48": [
       "api_internal_setting_repository",
       "setting_repository"
     ],
-    "48": [
+    "49": [
       "api_internal_utils_password",
       "api_internal_utils_password_validatepassword"
     ],
-    "49": [
+    "50": [
       "cli_eslint_config",
       "cli_eslint_config_unicornrecommendedrules"
     ],
-    "50": [
-      "api_internal_auth_router"
-    ],
     "51": [
-      "api_internal_provider_codex_login"
+      "cli_package_devdependencies_eslint_plugin_unicorn",
+      "eslint_plugin_unicorn"
     ],
     "52": [
-      "api_internal_provider_copilot_login"
+      "cli_package_devdependencies_ianvs_prettier_plugin_sort_imports",
+      "ianvs_prettier_plugin_sort_imports"
     ],
     "53": [
-      "api_internal_provider_opencode_login"
+      "cli_package_devdependencies_release_it",
+      "release_it"
     ],
     "54": [
-      "api_internal_response_codes"
+      "cli_package_devdependencies_types_bun",
+      "types_bun"
     ],
     "55": [
-      "api_internal_setting_router"
+      "cli_package_devdependencies_typescript_eslint_eslint_plugin",
+      "typescript_eslint_eslint_plugin"
     ],
     "56": [
-      "cli_prettierrc"
+      "cli_package_devdependencies_typescript_eslint_parser",
+      "typescript_eslint_parser"
     ],
     "57": [
-      "mobile_android_app_build_gradle"
+      "api_internal_auth_router"
     ],
     "58": [
-      "mobile_android_build_gradle"
+      "api_internal_provider_codex_login"
     ],
     "59": [
-      "mobile_android_settings_gradle"
+      "api_internal_provider_copilot_login"
     ],
     "60": [
-      "mobile_ios_runner_runner_bridging_header"
+      "api_internal_provider_opencode_login"
     ],
     "61": [
-      "none_quotasnapshotresponse"
+      "api_internal_quota_service_go_cmd"
     ],
     "62": [
-      "none_string"
+      "api_internal_quota_service_go_repository"
     ],
     "63": [
+      "api_internal_response_codes"
+    ],
+    "64": [
+      "api_internal_setting_router"
+    ],
+    "65": [
+      "cli_prettierrc"
+    ],
+    "66": [
+      "mobile_android_app_build_gradle"
+    ],
+    "67": [
+      "mobile_android_build_gradle"
+    ],
+    "68": [
+      "mobile_android_settings_gradle"
+    ],
+    "69": [
+      "mobile_ios_runner_runner_bridging_header"
+    ],
+    "70": [
+      "none_quotasnapshotresponse"
+    ],
+    "71": [
+      "none_string"
+    ],
+    "72": [
       "pkg_qmon_api"
     ]
   },
   "cohesion": {
-    "0": 0.0597567424643046,
-    "1": 0.08590441621294616,
-    "2": 0.05851063829787234,
-    "3": 0.1073170731707317,
-    "4": 0.0620782726045884,
-    "5": 0.07681365576102418,
-    "6": 0.13940256045519203,
-    "7": 0.07657657657657657,
+    "0": 0.07526881720430108,
+    "1": 0.0597567424643046,
+    "2": 0.05656108597285068,
+    "3": 0.06504065040650407,
+    "4": 0.1073170731707317,
+    "5": 0.0620782726045884,
+    "6": 0.07681365576102418,
+    "7": 0.13940256045519203,
     "8": 0.0748663101604278,
     "9": 0.10037878787878787,
-    "10": 0.0625,
-    "11": 0.06451612903225806,
-    "12": 0.1,
+    "10": 0.1,
+    "11": 0.08695652173913043,
+    "12": 0.08333333333333333,
     "13": 0.08695652173913043,
-    "14": 0.08695652173913043,
-    "15": 0.14761904761904762,
-    "16": 0.09523809523809523,
-    "17": 0.13450292397660818,
-    "18": 0.13071895424836602,
-    "19": 0.1111111111111111,
-    "20": 0.11764705882352941,
-    "21": 0.19166666666666668,
+    "14": 0.14761904761904762,
+    "15": 0.1,
+    "16": 0.13450292397660818,
+    "17": 0.10526315789473684,
+    "18": 0.10526315789473684,
+    "19": 0.13071895424836602,
+    "20": 0.19166666666666668,
+    "21": 0.13333333333333333,
     "22": 0.14285714285714285,
-    "23": 0.14285714285714285,
-    "24": 0.21212121212121213,
-    "25": 0.16666666666666666,
+    "23": 0.21212121212121213,
+    "24": 0.16666666666666666,
+    "25": 0.18181818181818182,
     "26": 0.18181818181818182,
-    "27": 0.28888888888888886,
-    "28": 0.4222222222222222,
-    "29": 0.3611111111111111,
+    "27": 0.18181818181818182,
+    "28": 0.28888888888888886,
+    "29": 0.4222222222222222,
     "30": 0.4444444444444444,
     "31": 0.2222222222222222,
-    "32": 0.32142857142857145,
-    "33": 0.47619047619047616,
-    "34": 0.3333333333333333,
-    "35": 0.7,
-    "36": 0.4,
-    "37": 0.6,
-    "38": 0.6666666666666666,
-    "39": 0.5,
-    "40": 0.8333333333333334,
+    "32": 0.2222222222222222,
+    "33": 0.32142857142857145,
+    "34": 0.47619047619047616,
+    "35": 0.2857142857142857,
+    "36": 0.3333333333333333,
+    "37": 0.7,
+    "38": 0.6,
+    "39": 0.6666666666666666,
+    "40": 0.5,
     "41": 0.8333333333333334,
-    "42": 0.6666666666666666,
+    "42": 0.8333333333333334,
     "43": 0.6666666666666666,
-    "44": 1.0,
+    "44": 0.6666666666666666,
     "45": 1.0,
     "46": 1.0,
     "47": 1.0,
@@ -1080,7 +1114,16 @@
     "60": 1.0,
     "61": 1.0,
     "62": 1.0,
-    "63": 1.0
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0
   },
   "gods": [
     {
