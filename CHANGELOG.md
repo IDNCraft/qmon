@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/IDNCraft/qmon/compare/v0.0.1...v0.0.2) (2026-08-27)
+
+
+### Bug Fixes
+
+* **mobile:** handle login background load failures ([#10](https://github.com/IDNCraft/qmon/issues/10)) ([d73b02b](https://github.com/IDNCraft/qmon/commit/d73b02bdcc86502921377e3c62c66e6afa38356c))
+
 ## 0.0.1 (2026-08-27)
 
 
