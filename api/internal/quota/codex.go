@@ -33,7 +33,7 @@ type codexRPCResponse struct {
 
 // probeCodexRPC queries the Codex app-server via JSON-RPC over stdin/stdout.
 func (s *Service) probeCodexRPC(ctx context.Context, env map[string]string) ([]Quota, error) {
-	cmd, err := s.runRPCCommand(ctx, env, "codex", "-s", "read-only", "-a", "untrusted", "app-server")
+	cmd, err := s.runRPCCommand(ctx, env, "codex", "-s", "read-only", "-a", "never", "app-server")
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +122,7 @@ func (s *Service) probeCodexRPC(ctx context.Context, env map[string]string) ([]Q
 
 					limits := msg.Result.RateLimits
 
-					// Primary limit (Session/rolling)
+					// Primary limit (5h)
 					if limits.Primary != nil {
 						remaining := 100.0 - limits.Primary.UsedPercent
 						if remaining < 0 {
@@ -139,7 +139,7 @@ func (s *Service) probeCodexRPC(ctx context.Context, env map[string]string) ([]Q
 							}
 						}
 						quotas = append(quotas, Quota{
-							QuotaType:        QuotaTypeSession,
+							QuotaType:        QuotaTypeFiveHour,
 							PercentRemaining: remaining,
 							ResetText:        resetText,
 							ResetsAt:         resetAt,
@@ -173,7 +173,7 @@ func (s *Service) probeCodexRPC(ctx context.Context, env map[string]string) ([]Q
 					// Fallback if no limits returned (e.g. Free plan default)
 					if len(quotas) == 0 && limits.PlanType == "free" {
 						quotas = append(quotas, Quota{
-							QuotaType:        QuotaTypeSession,
+							QuotaType:        QuotaTypeFiveHour,
 							PercentRemaining: 100.0,
 							ResetText:        "Free plan",
 						})

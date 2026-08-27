@@ -410,7 +410,7 @@ func TestProbeCodex(t *testing.T) {
 			expectError: false,
 			expectQuota: []Quota{
 				{
-					QuotaType:        QuotaTypeSession,
+					QuotaType:        QuotaTypeFiveHour,
 					PercentRemaining: 100.0,
 					ResetText:        "Active",
 				},
@@ -477,6 +477,9 @@ func TestProbeCodexRPCSuccess(t *testing.T) {
 	service := NewService(mockRepo, nil)
 
 	service.runRPCCommand = func(ctx context.Context, env map[string]string, name string, args ...string) (*exec.Cmd, error) {
+		if name != "codex" || len(args) != 5 || args[0] != "-s" || args[1] != "read-only" || args[2] != "-a" || args[3] != "never" || args[4] != "app-server" {
+			t.Fatalf("unexpected Codex app-server command: %s %v", name, args)
+		}
 		// Run this test binary again but target the helper process
 		cmd := exec.CommandContext(ctx, os.Args[0], "-test.run=TestHelperRPCProcess")
 		cmd.Env = append(os.Environ(), "GO_WANT_HELPER_PROCESS=1")
@@ -488,16 +491,24 @@ func TestProbeCodexRPCSuccess(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if len(quotas) != 1 {
-		t.Fatalf("expected 1 quota, got %d", len(quotas))
+	if len(quotas) != 2 {
+		t.Fatalf("expected 2 quotas, got %d", len(quotas))
 	}
 
-	if quotas[0].QuotaType != QuotaTypeSession {
-		t.Errorf("expected session quota type, got %s", quotas[0].QuotaType)
+	if quotas[0].QuotaType != QuotaTypeFiveHour {
+		t.Errorf("expected 5h quota type, got %s", quotas[0].QuotaType)
 	}
 
 	if quotas[0].PercentRemaining != 40.0 {
 		t.Errorf("expected 40%% remaining, got %v", quotas[0].PercentRemaining)
+	}
+
+	if quotas[1].QuotaType != QuotaTypeWeekly {
+		t.Errorf("expected weekly quota type, got %s", quotas[1].QuotaType)
+	}
+
+	if quotas[1].PercentRemaining != 80.0 {
+		t.Errorf("expected 80%% remaining, got %v", quotas[1].PercentRemaining)
 	}
 }
 
@@ -526,8 +537,8 @@ func TestHelperRPCProcess(t *testing.T) {
 	if !scanner.Scan() {
 		return
 	}
-	// Write rate limits response where usedPercent is 60% (so 40% remaining)
-	fmt.Println(`{"id":2,"result":{"rateLimits":{"limitId":"codex","primary":{"usedPercent":60,"windowDurationMins":43200,"resetsAt":1784475797},"secondary":null,"planType":"free"}}}`)
+	// Write rate limits response with 60% primary usage and 20% secondary usage.
+	fmt.Println(`{"id":2,"result":{"rateLimits":{"limitId":"codex","primary":{"usedPercent":60,"windowDurationMins":300,"resetsAt":1784475797},"secondary":{"usedPercent":20,"windowDurationMins":10080,"resetsAt":1785080597},"planType":"free"}}}`)
 }
 
 func TestParseClaudeCostOutput(t *testing.T) {

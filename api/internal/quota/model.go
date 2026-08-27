@@ -7,6 +7,7 @@ type QuotaType string
 
 const (
 	QuotaTypeSession       QuotaType = "session"
+	QuotaTypeFiveHour      QuotaType = "5h"
 	QuotaTypeWeekly        QuotaType = "weekly"
 	QuotaTypeMonthly       QuotaType = "monthly"
 	QuotaTypeModelSpecific QuotaType = "model_specific"

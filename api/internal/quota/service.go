@@ -585,10 +585,10 @@ func (s *Service) probeCodex(ctx context.Context, env map[string]string) ([]Quot
 		return rpcQuotas, nil
 	}
 
-	// If RPC fails but we are logged in, return a placeholder indicating active session
+	// If RPC fails but we are logged in, return a placeholder for the 5h window.
 	return []Quota{
 		{
-			QuotaType:        QuotaTypeSession,
+			QuotaType:        QuotaTypeFiveHour,
 			PercentRemaining: 100.0,
 			ResetText:        "Active",
 		},
