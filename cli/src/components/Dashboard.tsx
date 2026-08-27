@@ -44,8 +44,9 @@ export function Dashboard({ onLogout }: Props) {
   const [hiddenProviders, setHiddenProviders] = useState<Set<string>>(new Set())
   const [selectedSettingIndex, setSelectedSettingIndex] = useState(0)
   const { columns: terminalColumns } = useWindowSize()
+  const dashboardColumns = Math.min(120, terminalColumns)
   const isCompact = terminalColumns < 100
-  const tableWidth = Math.max(20, terminalColumns - 8)
+  const tableWidth = Math.max(20, dashboardColumns - 8)
   const compactStatusWidth = Math.max(12, Math.floor(tableWidth * 0.42))
   const compactLabelWidth = Math.max(8, tableWidth - compactStatusWidth)
   const desktopModelWidth = Math.max(24, Math.floor(tableWidth * 0.32))
@@ -395,7 +396,7 @@ export function Dashboard({ onLogout }: Props) {
     return table.toString()
   }
 
-  const frameWidth = Math.max(8, terminalColumns - 4)
+  const frameWidth = Math.max(8, dashboardColumns - 4)
   const frameLine = '─'.repeat(Math.max(0, frameWidth - 2))
 
   if (showSettings) {

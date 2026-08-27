@@ -39,3 +39,7 @@ graphify-out/.graphify_python
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Geeto state files
+.geeto
+geeto*

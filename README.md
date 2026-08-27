@@ -1,4 +1,4 @@
-<h1 align="center">Qmon 🚀</h1>
+<h1 align="center">Qmon</h1>
 
 <p align="center">
   <strong>Monitor your AI quotas instantly.</strong><br />
@@ -27,6 +27,12 @@ Qmon is a powerful Terminal User Interface (TUI), Mobile App, and Background API
 ---
 
 ## Screenshots
+
+### Qmon Server
+
+<p align="center">
+  <img src="docs/images/qmon-server.png" alt="Qmon server terminal output" width="800" />
+</p>
 
 ### Mobile Companion & Android Widget
 
@@ -66,14 +72,6 @@ Qmon provides a one-liner installation script that builds and installs `qmon` an
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/master/scripts/install.sh | bash
-```
-
-To install from a local checkout instead:
-
-```bash
-git clone git@github.com:IDNCraft/qmon.git
-cd qmon
-bash scripts/install.sh
 ```
 
 > [!IMPORTANT]
