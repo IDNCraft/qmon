@@ -1,0 +1,53 @@
+{
+    "name": "qmon",
+    "version": "0.0.0",
+    "description": "Monitor AI provider quotas from the terminal, mobile app, and API daemon",
+    "author": {
+        "name": "IDNCraft",
+        "url": "https://github.com/orgs/IDNCraft"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IDNCraft/qmon.git"
+    },
+    "keywords": [
+        "ai",
+        "quota",
+        "monitoring",
+        "cli",
+        "mobile",
+        "flutter",
+        "golang",
+        "codex",
+        "claude",
+        "copilot",
+        "opencode",
+        "antigravity",
+        "release",
+        "changelog",
+        "conventional-commits"
+    ],
+    "license": "MIT",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "make build",
+        "lint": "bun --cwd cli run lint",
+        "typecheck": "bun --cwd cli run typecheck",
+        "check": "bun run lint && bun run typecheck && bun run build",
+        "release": "release-it",
+        "release:minor": "release-it minor",
+        "release:major": "release-it major",
+        "release:patch": "release-it patch",
+        "release:beta": "release-it --preRelease=beta --ci",
+        "release:alpha": "release-it --preRelease=alpha"
+    },
+    "devDependencies": {
+        "@release-it/conventional-changelog": "^10.0.5",
+        "release-it": "^19.2.4"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "bun": ">=1.0.0"
+    }
+}
