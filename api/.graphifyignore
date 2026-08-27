@@ -1,0 +1,25 @@
+# Go build and runtime outputs
+
+belajar-go
+*.exe
+vendor/
+tmp/
+
+# SQLite database snapshots/runtime data
+
+database/*.db
+storage/*.sqlite
+storage/*.sqlite3
+
+# Runtime uploads
+
+storage/uploads/*
+!storage/uploads/.gitkeep
+
+# Local environment
+
+.env
+
+# Graphify generated state
+
+graphify-out/

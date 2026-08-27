@@ -1,0 +1,21 @@
+# File env berisi secret — jangan di-commit ke git
+.env
+
+# Binary hasil build
+/belajar-go
+*.exe
+
+# Folder vendor kalau ada
+vendor/
+
+# File upload — jangan commit file user, hanya track direktorinya
+storage/uploads/*
+!storage/uploads/.gitkeep
+tmp/
+
+# Graphify cache / machine-local metadata (keep graph.json and manifest.json)
+graphify-out/cost.json
+graphify-out/*/cost.json
+graphify-out/cache/
+graphify-out/.graphify_root
+graphify-out/.graphify_python

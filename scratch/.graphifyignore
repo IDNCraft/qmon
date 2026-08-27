@@ -1,0 +1,11 @@
+# Scratch-only generated/runtime files
+
+build/
+tmp/
+*.db
+*.sqlite
+*.sqlite3
+
+# Graphify generated state
+
+graphify-out/

@@ -1,0 +1,41 @@
+# Flutter/Dart tool caches
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+
+# Native build and platform caches
+android/.gradle/
+android/local.properties
+android/app/debug/
+android/app/profile/
+android/app/release/
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/.last_build_id
+ios/Flutter/ephemeral/
+macos/Flutter/ephemeral/
+linux/flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# Generated symbols and IDE files
+app.*.symbols
+app.*.map.json
+*.iml
+*.ipr
+*.iws
+.idea/
+*.log
+*.pyc
+*.swp
+.DS_Store
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Graphify generated state
+graphify-out/

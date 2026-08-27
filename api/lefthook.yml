@@ -1,0 +1,15 @@
+commit-msg:
+  commands:
+    commitlint:
+      run: |
+        MSG=$(cat {1})
+        echo "$MSG" | grep -qE '^(feat|fix|chore|docs|style|refactor|perf|test|build|ci|revert)(\(.+\))?: .{1,85}$' \
+          || (echo "❌ Invalid commit message. Format: type(scope): subject" && echo "   Types: feat fix chore docs style refactor perf test build ci revert" && exit 1)
+
+pre-commit:
+  commands:
+    fmt:
+      glob: "*.go"
+      run: gofmt -w {staged_files}
+    vet:
+      run: go vet ./...

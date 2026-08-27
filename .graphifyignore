@@ -1,0 +1,51 @@
+# Root build and scratch output
+
+build/
+scratch/
+
+# Go API runtime and generated outputs
+
+api/bin/
+api/tmp/
+api/.omc/
+api/qmon-server
+api/*.exe
+
+# SQLite database snapshots/runtime data
+
+api/**/*.db
+api/**/*.sqlite
+api/**/*.sqlite3
+
+# Bun/TypeScript CLI dependencies/build output
+
+cli/node_modules/
+cli/dist/
+cli/.vite/
+cli/coverage/
+cli/.eslintcache
+cli/*.tsbuildinfo
+
+# Flutter toolchains and platform build outputs
+
+mobile/**/build/
+mobile/.dart_tool/
+mobile/.pub-cache/
+mobile/.pub/
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/ios/Pods/
+mobile/ios/.symlinks/
+mobile/**/Flutter/ephemeral/
+mobile/**/flutter/ephemeral/
+
+# Graphify generated state
+
+**/graphify-out/
+
+# Local-only secrets and machine files
+
+.env
+.env.*
+!.env.example
+.DS_Store

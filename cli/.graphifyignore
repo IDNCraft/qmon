@@ -1,0 +1,26 @@
+# Bun/TypeScript dependencies and generated output
+node_modules/
+out/
+dist/
+coverage/
+*.lcov
+.eslintcache
+.cache/
+*.tsbuildinfo
+
+# Logs and local reports
+logs/
+*.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# Local environment and IDE files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.idea/
+.DS_Store
+
+# Graphify generated state
+graphify-out/

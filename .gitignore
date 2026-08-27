@@ -1,0 +1,41 @@
+# Build artifacts
+build/
+bin/
+
+# Node / CLI
+cli/node_modules/
+cli/dist/
+
+# API
+api/tmp/
+api/.omc/
+api/qmon-server
+api/*.exe
+
+# Mobile / Flutter
+mobile/.dart_tool/
+mobile/.packages
+mobile/.pub-cache/
+mobile/.pub/
+mobile/build/
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/ios/.symlinks/
+mobile/ios/Pods/
+
+# Env / Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Graphify cache / machine-local metadata (keep graph.json and manifest.json)
+graphify-out/cost.json
+graphify-out/*/cost.json
+graphify-out/cache/
+graphify-out/.graphify_root
+graphify-out/.graphify_python
+
+# OS specific
+.DS_Store
+Thumbs.db
