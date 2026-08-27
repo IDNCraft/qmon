@@ -211,23 +211,15 @@ export function Dashboard({ onLogout }: Props) {
         return { ...updatedSnap, quotas: sorted }
       })
       .sort((a, b) => {
-        // Sort providers by their most critical quota
-        const aMin = Math.min(
-          ...(a.quotas?.map((q) =>
-            showUsedMetric ? 100 - q.percent_remaining : q.percent_remaining
-          ) || [100])
-        )
-        const bMin = Math.min(
-          ...(b.quotas?.map((q) =>
-            showUsedMetric ? 100 - q.percent_remaining : q.percent_remaining
-          ) || [100])
-        )
-        // Exhausted providers first
-        const aExhausted = a.quotas?.some((q) => q.is_exhausted) || false
-        const bExhausted = b.quotas?.some((q) => q.is_exhausted) || false
-        if (aExhausted && !bExhausted) return -1
-        if (!aExhausted && bExhausted) return 1
-        return aMin - bMin
+        const getSortGroup = (snapshot: QuotaSnapshot) => {
+          if (!snapshot.is_available || !snapshot.quotas?.length) return 2
+          return snapshot.quotas.some((q) => q.is_exhausted) ? 1 : 0
+        }
+
+        const groupDifference = getSortGroup(a) - getSortGroup(b)
+        if (groupDifference !== 0) return groupDifference
+
+        return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
       })
 
     sortedSnapshots.forEach((snap) => {
