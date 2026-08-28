@@ -1,10 +1,12 @@
-import { render } from 'ink'
+/** @jsxImportSource @opentui/react */
+import { createCliRenderer } from '@opentui/core'
+import { createRoot } from '@opentui/react'
 import React from 'react'
 
-import { App } from './App'
 import { loginWithPrompt, runAuthFlow, runLogoutFlow } from './auth'
 import { clearConfig, loadConfig } from './config'
 import { startSidecar, stopSidecar } from './sidecar'
+import { App } from './App'
 
 const args = process.argv.slice(2)
 
@@ -103,7 +105,10 @@ async function main() {
         console.error(`\x1b[31mFailed to start built-in API: ${err.message}\x1b[0m`)
       })
     }
-    render(<App />)
+
+    const renderer = await createCliRenderer({ exitOnCtrlC: true })
+    renderer.on('destroy', () => stopSidecar())
+    createRoot(renderer).render(<App />)
   }
 }
 
