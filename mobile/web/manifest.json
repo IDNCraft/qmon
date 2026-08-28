@@ -1,6 +1,6 @@
 {
-    "name": "qmon_mobile",
-    "short_name": "qmon_mobile",
+    "name": "Qmon",
+    "short_name": "Qmon",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -467,50 +467,62 @@ func TestProbeCodex(t *testing.T) {
 }
 
 func TestProbeCodexRPCSuccess(t *testing.T) {
-	// We will spawn a helper process (ourselves) to mock the JSON-RPC app-server
-	mockRepo := &mockRepository{
-		RunCLICommandFunc: func(ctx context.Context, env map[string]string, name string, args ...string) (string, error) {
-			if name == "codex" && len(args) > 1 && args[0] == "login" && args[1] == "status" {
-				return "Logged in using ChatGPT", nil
+	tests := []struct {
+		name         string
+		planType     string
+		expectedType QuotaType
+	}{
+		{"Free plan maps primary to session", "free", QuotaTypeSession},
+		{"Paid plan maps primary to 5h", "paid", QuotaTypeFiveHour},
+	}
+
+	for _, tc := range tests {
+		tc := tc
+		t.Run(tc.name, func(t *testing.T) {
+			mockRepo := &mockRepository{
+				RunCLICommandFunc: func(ctx context.Context, env map[string]string, name string, args ...string) (string, error) {
+					if name == "codex" && len(args) > 1 && args[0] == "login" && args[1] == "status" {
+						return "Logged in using ChatGPT", nil
+					}
+					return "", nil
+				},
 			}
-			return "", nil
-		},
-	}
-	service := NewService(mockRepo, nil)
+			service := NewService(mockRepo, nil)
 
-	service.runRPCCommand = func(ctx context.Context, env map[string]string, name string, args ...string) (*exec.Cmd, error) {
-		if name != "codex" || len(args) != 5 || args[0] != "-s" || args[1] != "read-only" || args[2] != "-a" || args[3] != "never" || args[4] != "app-server" {
-			t.Fatalf("unexpected Codex app-server command: %s %v", name, args)
-		}
-		// Run this test binary again but target the helper process
-		cmd := exec.CommandContext(ctx, os.Args[0], "-test.run=TestHelperRPCProcess")
-		cmd.Env = append(os.Environ(), "GO_WANT_HELPER_PROCESS=1")
-		return cmd, nil
-	}
+			service.runRPCCommand = func(ctx context.Context, env map[string]string, name string, args ...string) (*exec.Cmd, error) {
+				if name != "codex" || len(args) != 5 || args[0] != "-s" || args[1] != "read-only" || args[2] != "-a" || args[3] != "never" || args[4] != "app-server" {
+					t.Fatalf("unexpected Codex app-server command: %s %v", name, args)
+				}
+				cmd := exec.CommandContext(ctx, os.Args[0], "-test.run=TestHelperRPCProcess")
+				cmd.Env = append(os.Environ(), "GO_WANT_HELPER_PROCESS=1", "CODEX_TEST_PLAN_TYPE="+tc.planType)
+				return cmd, nil
+			}
 
-	quotas, err := service.probeCodex(context.Background(), nil)
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
+			quotas, err := service.probeCodex(context.Background(), nil)
+			if err != nil {
+				t.Fatalf("unexpected error: %v", err)
+			}
 
-	if len(quotas) != 2 {
-		t.Fatalf("expected 2 quotas, got %d", len(quotas))
-	}
+			if len(quotas) != 2 {
+				t.Fatalf("expected 2 quotas, got %d", len(quotas))
+			}
 
-	if quotas[0].QuotaType != QuotaTypeFiveHour {
-		t.Errorf("expected 5h quota type, got %s", quotas[0].QuotaType)
-	}
+			if quotas[0].QuotaType != tc.expectedType {
+				t.Errorf("expected %s quota type, got %s", tc.expectedType, quotas[0].QuotaType)
+			}
 
-	if quotas[0].PercentRemaining != 40.0 {
-		t.Errorf("expected 40%% remaining, got %v", quotas[0].PercentRemaining)
-	}
+			if quotas[0].PercentRemaining != 40.0 {
+				t.Errorf("expected 40%% remaining, got %v", quotas[0].PercentRemaining)
+			}
 
-	if quotas[1].QuotaType != QuotaTypeWeekly {
-		t.Errorf("expected weekly quota type, got %s", quotas[1].QuotaType)
-	}
+			if quotas[1].QuotaType != QuotaTypeWeekly {
+				t.Errorf("expected weekly quota type, got %s", quotas[1].QuotaType)
+			}
 
-	if quotas[1].PercentRemaining != 80.0 {
-		t.Errorf("expected 80%% remaining, got %v", quotas[1].PercentRemaining)
+			if quotas[1].PercentRemaining != 80.0 {
+				t.Errorf("expected 80%% remaining, got %v", quotas[1].PercentRemaining)
+			}
+		})
 	}
 }
 
@@ -654,7 +666,12 @@ func TestHelperRPCProcess(t *testing.T) {
 		return
 	}
 	// Write rate limits response with 60% primary usage and 20% secondary usage.
-	fmt.Println(`{"id":2,"result":{"rateLimits":{"limitId":"codex","primary":{"usedPercent":60,"windowDurationMins":300,"resetsAt":1784475797},"secondary":{"usedPercent":20,"windowDurationMins":10080,"resetsAt":1785080597},"planType":"free"}}}`)
+	planType := os.Getenv("CODEX_TEST_PLAN_TYPE")
+	if planType == "" {
+		planType = "free"
+	}
+	response := fmt.Sprintf(`{"id":2,"result":{"rateLimits":{"limitId":"codex","primary":{"usedPercent":60,"windowDurationMins":300,"resetsAt":1784475797},"secondary":{"usedPercent":20,"windowDurationMins":10080,"resetsAt":1785080597},"planType":"%s"}}}`, planType)
+	fmt.Println(response)
 }
 
 func TestParseClaudeCostOutput(t *testing.T) {

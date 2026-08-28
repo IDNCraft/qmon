@@ -4,7 +4,7 @@ String quotaTypeLabel(String type, {String? providerId}) {
   final normalizedProvider = providerId?.trim().toLowerCase();
 
   if (normalizedProvider == 'codex' && normalizedType == 'session') {
-    return '5h';
+    return 'session';
   }
 
   switch (normalizedType) {

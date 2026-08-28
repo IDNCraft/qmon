@@ -5,7 +5,7 @@ import 'package:qmon_mobile/models/quota_models.dart';
 void main() {
   test('formats Codex five-hour and weekly windows', () {
     expect(quotaTypeLabel('5h', providerId: 'codex'), '5h');
-    expect(quotaTypeLabel('session', providerId: 'codex'), '5h');
+    expect(quotaTypeLabel('session', providerId: 'codex'), 'session');
     expect(quotaTypeLabel('weekly', providerId: 'codex'), 'Weekly');
   });
 

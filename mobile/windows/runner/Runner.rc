@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.qmon" "\0"
-            VALUE "FileDescription", "qmon_mobile" "\0"
+            VALUE "FileDescription", "Qmon" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "qmon_mobile" "\0"
+            VALUE "InternalName", "Qmon" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.qmon. All rights reserved." "\0"
             VALUE "OriginalFilename", "qmon_mobile.exe" "\0"
-            VALUE "ProductName", "qmon_mobile" "\0"
+            VALUE "ProductName", "Qmon" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
