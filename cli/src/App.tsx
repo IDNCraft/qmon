@@ -1,9 +1,9 @@
-import { Box } from 'ink'
+/** @jsxImportSource @opentui/react */
 import React, { useEffect, useState } from 'react'
 
+import { loadConfig } from './config'
 import { Dashboard } from './components/Dashboard'
 import { Login } from './components/Login'
-import { loadConfig } from './config'
 
 export function App() {
   const [hasConfig, setHasConfig] = useState(false)
@@ -20,8 +20,8 @@ export function App() {
     setHasConfig(false)
   }
   return (
-    <Box>
+    <box flexDirection="column" alignItems="center" paddingTop={1}>
       {!hasConfig ? <Login onLogin={handleLogin} /> : <Dashboard onLogout={handleLogout} />}
-    </Box>
+    </box>
   )
 }
