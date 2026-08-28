@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -29,6 +30,15 @@ type codexRPCResponse struct {
 	Error  *struct {
 		Message string `json:"message"`
 	} `json:"error"`
+}
+
+// codexQuotaTypeForPlan returns the correct quota type for Codex rate-limit windows.
+// Free plans are session-limited; paid/subscription plans use the 5-hour rolling window.
+func codexQuotaTypeForPlan(planType string) QuotaType {
+	if strings.EqualFold(planType, "free") {
+		return QuotaTypeSession
+	}
+	return QuotaTypeFiveHour
 }
 
 // probeCodexRPC queries the Codex app-server via JSON-RPC over stdin/stdout.
@@ -122,7 +132,7 @@ func (s *Service) probeCodexRPC(ctx context.Context, env map[string]string) ([]Q
 
 					limits := msg.Result.RateLimits
 
-					// Primary limit (5h)
+					// Primary limit (5h for paid plans, session for free plans)
 					if limits.Primary != nil {
 						remaining := 100.0 - limits.Primary.UsedPercent
 						if remaining < 0 {
@@ -139,7 +149,7 @@ func (s *Service) probeCodexRPC(ctx context.Context, env map[string]string) ([]Q
 							}
 						}
 						quotas = append(quotas, Quota{
-							QuotaType:        QuotaTypeFiveHour,
+							QuotaType:        codexQuotaTypeForPlan(limits.PlanType),
 							PercentRemaining: remaining,
 							ResetText:        resetText,
 							ResetsAt:         resetAt,
@@ -171,9 +181,9 @@ func (s *Service) probeCodexRPC(ctx context.Context, env map[string]string) ([]Q
 					}
 
 					// Fallback if no limits returned (e.g. Free plan default)
-					if len(quotas) == 0 && limits.PlanType == "free" {
+					if len(quotas) == 0 && strings.EqualFold(limits.PlanType, "free") {
 						quotas = append(quotas, Quota{
-							QuotaType:        QuotaTypeFiveHour,
+							QuotaType:        codexQuotaTypeForPlan(limits.PlanType),
 							PercentRemaining: 100.0,
 							ResetText:        "Free plan",
 						})
