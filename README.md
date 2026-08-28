@@ -30,7 +30,7 @@ A complete ecosystem designed around keeping track of your AI usage, built to ru
 - **Isolated Profiles** — Uses standard `XDG_CONFIG_HOME` and `XDG_DATA_HOME` variables to completely isolate your AI usage data without modifying your primary system configuration
 - **Blazing Fast Concurrency** — Powered by Go Routines to probe all active providers in parallel, ensuring instant dashboard loads
 - **Real-Time Monitoring** — Automatically scans underlying SQLite databases and configuration files to report exact quota usage across all accounts
-- **Interactive TUI** — Built with React Ink for an aesthetic and highly responsive terminal dashboard
+- **Interactive TUI** — Built with OpenTUI for an aesthetic and highly responsive terminal dashboard
 - **Mobile Companion App** — Beautiful Flutter-based mobile dashboard for checking quotas on the go
 - **Android Home Widget** — Native Android widget to view real-time API quota limits right from your home screen
 
@@ -124,7 +124,7 @@ To use the Android Home Widget:
 | Layer | Technology |
 | ------- | ----------- |
 | Backend Daemon | Go + Goroutines |
-| CLI Frontend | Bun + React Ink |
+| CLI Frontend | Bun + OpenTUI |
 | Mobile App | Flutter |
 | Mobile Widget | Native Android (Kotlin + XML) |
 | Data Source | Local SQLite & Config Files |

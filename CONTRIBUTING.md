@@ -1,6 +1,6 @@
 # Contributing to Qmon
 
-Thank you for contributing to Qmon. Qmon is a monorepo with a Go API daemon, a Bun and React Ink CLI, and an optional Flutter mobile app.
+Thank you for contributing to Qmon. Qmon is a monorepo with a Go API daemon, a Bun and OpenTUI CLI, and an optional Flutter mobile app.
 
 ## Prerequisites
 
@@ -62,6 +62,12 @@ From the `cli` directory:
 bun run typecheck
 bun run lint
 bun run format:check
+```
+
+To run the TUI during development, use the `dev` script:
+
+```bash
+bun run dev
 ```
 
 ### Mobile
@@ -159,7 +165,7 @@ Keep the commit body focused on what changed, why it changed, and the impact. Do
 | Directory | Purpose                                         |
 | --------- | ----------------------------------------------- |
 | `api/`    | Go API daemon, storage, migrations, and seeders |
-| `cli/`    | Bun and React Ink terminal interface            |
+| `cli/`    | Bun and OpenTUI terminal interface              |
 | `mobile/` | Flutter mobile companion app and Android widget |
 | `docs/`   | Documentation and images                        |
 | `build/`  | Local build artifacts                           |
