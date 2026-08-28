@@ -166,8 +166,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
         _updateWidget(snapshot);
       }
     } catch (e) {
-      if (e.toString().contains('401') && mounted) {
+      if (e.toString().contains('401')) {
         await _apiService.clearToken();
+        if (!mounted) return;
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -242,15 +243,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
             if (firstQ.isExhausted) {
               colorHex = "#FF5252";
             } else if (_showUsedMetric) {
-              if (displayPct >= 80)
+              if (displayPct >= 80) {
                 colorHex = "#FF5252";
-              else if (displayPct >= 50)
+              } else if (displayPct >= 50) {
                 colorHex = "#FFD740";
+              }
             } else {
-              if (displayPct < 20)
+              if (displayPct < 20) {
                 colorHex = "#FF5252";
-              else if (displayPct < 50)
+              } else if (displayPct < 50) {
                 colorHex = "#FFD740";
+              }
             }
 
             quotasData.add({
@@ -326,13 +329,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () async {
+              final navigator = Navigator.of(context);
               await _apiService.clearToken();
-              if (mounted) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
-                );
-              }
+              if (!mounted) return;
+              navigator.pushReplacement(
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
             },
           ),
         ],

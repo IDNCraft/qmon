@@ -97,9 +97,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(32),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.05),
+                    color: Colors.white.withValues(alpha: 0.05),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                       width: 1.5,
                     ),
                   ),
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _emailController,
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Colors.white.withOpacity(0.05),
+                          fillColor: Colors.white.withValues(alpha: 0.05),
                           hintText: 'Email',
                           prefixIcon: const Icon(
                             Icons.email,
@@ -144,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Colors.white.withOpacity(0.05),
+                          fillColor: Colors.white.withValues(alpha: 0.05),
                           hintText: 'Password',
                           prefixIcon: const Icon(
                             Icons.lock,
@@ -174,7 +174,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: ElevatedButton(
                           onPressed: _isLoading ? null : _login,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.cyanAccent.withOpacity(0.2),
+                            backgroundColor: Colors.cyanAccent.withValues(
+                              alpha: 0.2,
+                            ),
                             foregroundColor: Colors.cyanAccent,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),

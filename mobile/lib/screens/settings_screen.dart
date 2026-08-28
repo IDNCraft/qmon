@@ -132,7 +132,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Text(
                 'Enter the local network IP address of your Mac running the Qmon API daemon. (e.g. http://192.168.1.5:8080)',
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.6),
+                  color: Colors.white.withValues(alpha: 0.6),
                   fontSize: 14,
                 ),
               ),
@@ -141,7 +141,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 controller: _urlController,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Colors.white.withOpacity(0.05),
+                  fillColor: Colors.white.withValues(alpha: 0.05),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
@@ -159,7 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: ElevatedButton(
                   onPressed: _isTesting ? null : _saveAndTest,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.cyanAccent.withOpacity(0.2),
+                    backgroundColor: Colors.cyanAccent.withValues(alpha: 0.2),
                     foregroundColor: Colors.cyanAccent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -187,13 +187,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: _isSuccess
-                          ? Colors.greenAccent.withOpacity(0.1)
-                          : Colors.redAccent.withOpacity(0.1),
+                          ? Colors.greenAccent.withValues(alpha: 0.1)
+                          : Colors.redAccent.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: _isSuccess
-                            ? Colors.greenAccent.withOpacity(0.3)
-                            : Colors.redAccent.withOpacity(0.3),
+                            ? Colors.greenAccent.withValues(alpha: 0.3)
+                            : Colors.redAccent.withValues(alpha: 0.3),
                       ),
                     ),
                     child: Row(
@@ -236,14 +236,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 value: _showUsedMetric,
                 onChanged: _toggleMetric,
-                activeColor: Colors.cyanAccent,
+                thumbColor: WidgetStateProperty.resolveWith(
+                  (states) => states.contains(WidgetState.selected)
+                      ? Colors.cyanAccent
+                      : null,
+                ),
               ),
               SwitchListTile(
                 title: const Text('Show Absolute Time'),
                 subtitle: const Text('Display exact time instead of relative'),
                 value: _showAbsoluteTime,
                 onChanged: _toggleTime,
-                activeColor: Colors.cyanAccent,
+                thumbColor: WidgetStateProperty.resolveWith(
+                  (states) => states.contains(WidgetState.selected)
+                      ? Colors.cyanAccent
+                      : null,
+                ),
               ),
               const SizedBox(height: 24),
               const Text(
