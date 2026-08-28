@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/IDNCraft/qmon/compare/v0.0.2...v0.0.3) (2026-08-28)
+
+
+### Bug Fixes
+
+* **mobile:** modernize Flutter color and lifecycle APIs ([#11](https://github.com/IDNCraft/qmon/issues/11)) ([f7102f5](https://github.com/IDNCraft/qmon/commit/f7102f581730ee6af312f5236f2247269d6cd12b))
+
 ## [0.0.2](https://github.com/IDNCraft/qmon/compare/v0.0.1...v0.0.2) (2026-08-27)
 
 
