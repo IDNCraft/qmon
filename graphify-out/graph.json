@@ -9,7 +9,7 @@
       "source_file": "api/cmd/migrate/main.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 38,
+      "community": 39,
       "norm_label": "migrate/main.go",
       "id": "api_cmd_migrate_main"
     },
@@ -19,7 +19,7 @@
       "source_file": "api/cmd/migrate/main.go",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 38,
+      "community": 39,
       "norm_label": "init()",
       "id": "api_cmd_migrate_main_init"
     },
@@ -29,7 +29,7 @@
       "source_file": "api/cmd/migrate/main.go",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 38,
+      "community": 39,
       "norm_label": "main()",
       "id": "api_cmd_migrate_main_main"
     },
@@ -331,7 +331,7 @@
       "source_file": "api/internal/auth/model.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "auth/model.go",
       "id": "api_internal_auth_model"
     },
@@ -341,7 +341,7 @@
       "source_file": "api/internal/auth/model.go",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "loginrequest",
       "id": "auth_loginrequest"
     },
@@ -351,7 +351,7 @@
       "source_file": "api/internal/auth/model.go",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "userinfo",
       "id": "auth_userinfo"
     },
@@ -361,7 +361,7 @@
       "source_file": "api/internal/auth/model.go",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "tokenresponse",
       "id": "auth_tokenresponse"
     },
@@ -371,7 +371,7 @@
       "source_file": "api/internal/auth/model.go",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "refreshtokenrequest",
       "id": "auth_refreshtokenrequest"
     },
@@ -381,7 +381,7 @@
       "source_file": "api/internal/auth/model.go",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "loginuser",
       "id": "auth_loginuser"
     },
@@ -391,7 +391,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "time",
       "id": "api_internal_auth_model_go_time"
     },
@@ -401,7 +401,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": "auth/mysql.go",
       "id": "api_internal_auth_mysql"
     },
@@ -411,7 +411,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": "mysqlrepository",
       "id": "auth_mysqlrepository"
     },
@@ -421,7 +421,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": "db",
       "id": "api_internal_auth_mysql_go_db"
     },
@@ -431,7 +431,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": "newmysqlrepository()",
       "id": "api_internal_auth_mysql_newmysqlrepository"
     },
@@ -441,7 +441,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": "repository",
       "id": "api_internal_auth_mysql_go_repository"
     },
@@ -451,7 +451,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".findbyemail()",
       "id": "auth_mysqlrepository_findbyemail"
     },
@@ -461,7 +461,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": ".insertuser()",
       "id": "auth_mysqlrepository_insertuser"
     },
@@ -471,7 +471,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": ".setpassword()",
       "id": "auth_mysqlrepository_setpassword"
     },
@@ -481,7 +481,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": ".updateusercredentials()",
       "id": "auth_mysqlrepository_updateusercredentials"
     },
@@ -491,7 +491,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L62",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": ".insertrefreshtoken()",
       "id": "auth_mysqlrepository_insertrefreshtoken"
     },
@@ -501,7 +501,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": "time",
       "id": "api_internal_auth_mysql_go_time"
     },
@@ -511,7 +511,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": ".findrefreshtoken()",
       "id": "auth_mysqlrepository_findrefreshtoken"
     },
@@ -521,7 +521,7 @@
       "source_file": "api/internal/auth/mysql.go",
       "source_location": "L80",
       "_origin": "ast",
-      "community": 4,
+      "community": 22,
       "norm_label": ".deleterefreshtoken()",
       "id": "auth_mysqlrepository_deleterefreshtoken"
     },
@@ -601,7 +601,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "auth/service.go",
       "id": "api_internal_auth_service"
     },
@@ -611,7 +611,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "service",
       "id": "auth_service"
     },
@@ -621,7 +621,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "repository",
       "id": "api_internal_auth_service_go_repository"
     },
@@ -631,7 +631,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".login()",
       "id": "auth_service_login"
     },
@@ -641,7 +641,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".resetdefaultadmin()",
       "id": "auth_service_resetdefaultadmin"
     },
@@ -651,7 +651,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L91",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".refreshtoken()",
       "id": "auth_service_refreshtoken"
     },
@@ -661,7 +661,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L124",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".revokerefreshtoken()",
       "id": "auth_service_revokerefreshtoken"
     },
@@ -671,7 +671,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L130",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".issuetoken()",
       "id": "auth_service_issuetoken"
     },
@@ -681,7 +681,7 @@
       "source_file": "api/internal/auth/service.go",
       "source_location": "L139",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".createrefreshtoken()",
       "id": "auth_service_createrefreshtoken"
     },
@@ -691,7 +691,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "app.go",
       "id": "api_internal_config_app"
     },
@@ -701,7 +701,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "appname()",
       "id": "api_internal_config_app_appname"
     },
@@ -711,7 +711,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 39,
+      "community": 40,
       "norm_label": "appurl()",
       "id": "api_internal_config_app_appurl"
     },
@@ -721,7 +721,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 39,
+      "community": 40,
       "norm_label": "frontendurl()",
       "id": "api_internal_config_app_frontendurl"
     },
@@ -731,7 +731,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "appenv()",
       "id": "api_internal_config_app_appenv"
     },
@@ -741,7 +741,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "port()",
       "id": "api_internal_config_app_port"
     },
@@ -751,7 +751,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 40,
+      "community": 41,
       "norm_label": "appversion()",
       "id": "api_internal_config_app_appversion"
     },
@@ -761,7 +761,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "isproduction()",
       "id": "api_internal_config_app_isproduction"
     },
@@ -771,7 +771,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "debug()",
       "id": "api_internal_config_app_debug"
     },
@@ -781,7 +781,7 @@
       "source_file": "api/internal/config/app.go",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "corsorigins()",
       "id": "api_internal_config_app_corsorigins"
     },
@@ -791,7 +791,7 @@
       "source_file": "api/internal/config/auth.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "config/auth.go",
       "id": "api_internal_config_auth"
     },
@@ -801,7 +801,7 @@
       "source_file": "api/internal/config/auth.go",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "jwtsecret()",
       "id": "api_internal_config_auth_jwtsecret"
     },
@@ -811,7 +811,7 @@
       "source_file": "api/internal/config/auth.go",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "jwtexpirehours()",
       "id": "api_internal_config_auth_jwtexpirehours"
     },
@@ -821,7 +821,7 @@
       "source_file": "api/internal/config/auth.go",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "refreshtokenexpiredays()",
       "id": "api_internal_config_auth_refreshtokenexpiredays"
     },
@@ -831,7 +831,7 @@
       "source_file": "api/internal/config/config.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "config.go",
       "id": "api_internal_config_config"
     },
@@ -841,7 +841,7 @@
       "source_file": "api/internal/config/config.go",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "getenv()",
       "id": "api_internal_config_config_getenv"
     },
@@ -851,7 +851,7 @@
       "source_file": "api/internal/config/database.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "database.go",
       "id": "api_internal_config_database"
     },
@@ -861,7 +861,7 @@
       "source_file": "api/internal/config/database.go",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "databaseurl()",
       "id": "api_internal_config_database_databaseurl"
     },
@@ -871,7 +871,7 @@
       "source_file": "api/internal/config/mail.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "mail.go",
       "id": "api_internal_config_mail"
     },
@@ -881,7 +881,7 @@
       "source_file": "api/internal/config/mail.go",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "mailhost()",
       "id": "api_internal_config_mail_mailhost"
     },
@@ -891,7 +891,7 @@
       "source_file": "api/internal/config/mail.go",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "mailport()",
       "id": "api_internal_config_mail_mailport"
     },
@@ -901,7 +901,7 @@
       "source_file": "api/internal/config/mail.go",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "mailusername()",
       "id": "api_internal_config_mail_mailusername"
     },
@@ -911,7 +911,7 @@
       "source_file": "api/internal/config/mail.go",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "mailpassword()",
       "id": "api_internal_config_mail_mailpassword"
     },
@@ -921,7 +921,7 @@
       "source_file": "api/internal/config/mail.go",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "mailfrom()",
       "id": "api_internal_config_mail_mailfrom"
     },
@@ -931,7 +931,7 @@
       "source_file": "api/internal/config/mail.go",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 27,
+      "community": 28,
       "norm_label": "mailfromname()",
       "id": "api_internal_config_mail_mailfromname"
     },
@@ -941,7 +941,7 @@
       "source_file": "api/internal/config/validate.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "validate.go",
       "id": "api_internal_config_validate"
     },
@@ -951,7 +951,7 @@
       "source_file": "api/internal/config/validate.go",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "validate()",
       "id": "api_internal_config_validate_validate"
     },
@@ -961,7 +961,7 @@
       "source_file": "api/internal/health/handler.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 40,
+      "community": 41,
       "norm_label": "health/handler.go",
       "id": "api_internal_health_handler"
     },
@@ -971,7 +971,7 @@
       "source_file": "api/internal/health/handler.go",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 40,
+      "community": 41,
       "norm_label": "handler",
       "id": "health_handler"
     },
@@ -981,7 +981,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 40,
+      "community": 41,
       "norm_label": "db",
       "id": "api_internal_health_handler_go_db"
     },
@@ -991,7 +991,7 @@
       "source_file": "api/internal/health/handler.go",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 40,
+      "community": 41,
       "norm_label": ".check()",
       "id": "health_handler_check"
     },
@@ -1001,7 +1001,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 40,
+      "community": 41,
       "norm_label": "context",
       "id": "api_internal_health_handler_go_context"
     },
@@ -1011,7 +1011,7 @@
       "source_file": "api/internal/health/handler.go",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 40,
+      "community": 41,
       "norm_label": "statuslabel()",
       "id": "api_internal_health_handler_statuslabel"
     },
@@ -1021,7 +1021,7 @@
       "source_file": "api/internal/logger/logger.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 38,
+      "community": 39,
       "norm_label": "logger/logger.go",
       "id": "api_internal_logger_logger"
     },
@@ -1031,7 +1031,7 @@
       "source_file": "api/internal/logger/logger.go",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 38,
+      "community": 39,
       "norm_label": "init()",
       "id": "api_internal_logger_logger_init"
     },
@@ -1041,7 +1041,7 @@
       "source_file": "api/internal/logger/logger.go",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 38,
+      "community": 39,
       "norm_label": "build()",
       "id": "api_internal_logger_logger_build"
     },
@@ -1051,7 +1051,7 @@
       "source_file": "api/internal/logger/logger.go",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 38,
+      "community": 39,
       "norm_label": "sync()",
       "id": "api_internal_logger_logger_sync"
     },
@@ -1061,7 +1061,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "mailer.go",
       "id": "api_internal_mail_mailer"
     },
@@ -1071,7 +1071,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "activationdata",
       "id": "mail_activationdata"
     },
@@ -1081,7 +1081,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "passwordresetdata",
       "id": "mail_passwordresetdata"
     },
@@ -1091,7 +1091,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "mailer",
       "id": "mail_mailer"
     },
@@ -1101,7 +1101,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "mail",
       "id": "mail_mail"
     },
@@ -1111,7 +1111,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L59",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "newmailerfromenv()",
       "id": "api_internal_mail_mailer_newmailerfromenv"
     },
@@ -1121,7 +1121,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L78",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": ".send()",
       "id": "mail_mailer_send"
     },
@@ -1131,7 +1131,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L87",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "render()",
       "id": "api_internal_mail_mailer_render"
     },
@@ -1141,7 +1141,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L100",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "buildmessage()",
       "id": "api_internal_mail_mailer_buildmessage"
     },
@@ -1151,7 +1151,7 @@
       "source_file": "api/internal/mail/mailer.go",
       "source_location": "L113",
       "_origin": "ast",
-      "community": 28,
+      "community": 29,
       "norm_label": "getenv()",
       "id": "api_internal_mail_mailer_getenv"
     },
@@ -1161,7 +1161,7 @@
       "source_file": "api/internal/middleware/auth.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "middleware/auth.go",
       "id": "api_internal_middleware_auth"
     },
@@ -1171,7 +1171,7 @@
       "source_file": "api/internal/middleware/auth.go",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "auth()",
       "id": "api_internal_middleware_auth_auth"
     },
@@ -1181,7 +1181,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "handlerfunc",
       "id": "api_internal_middleware_auth_go_handlerfunc"
     },
@@ -1191,7 +1191,7 @@
       "source_file": "api/internal/middleware/cors.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "cors.go",
       "id": "api_internal_middleware_cors"
     },
@@ -1201,7 +1201,7 @@
       "source_file": "api/internal/middleware/cors.go",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "cors()",
       "id": "api_internal_middleware_cors_cors"
     },
@@ -1211,7 +1211,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 23,
+      "community": 24,
       "norm_label": "handlerfunc",
       "id": "api_internal_middleware_cors_go_handlerfunc"
     },
@@ -1411,7 +1411,7 @@
       "source_file": "api/internal/middleware/recovery.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "recovery.go",
       "id": "api_internal_middleware_recovery"
     },
@@ -1421,7 +1421,7 @@
       "source_file": "api/internal/middleware/recovery.go",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "recovery()",
       "id": "api_internal_middleware_recovery_recovery"
     },
@@ -1431,7 +1431,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "handlerfunc",
       "id": "api_internal_middleware_recovery_go_handlerfunc"
     },
@@ -1551,7 +1551,7 @@
       "source_file": "api/internal/provider/claude_login.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 42,
+      "community": 43,
       "norm_label": "claude_login.go",
       "id": "api_internal_provider_claude_login"
     },
@@ -1561,7 +1561,7 @@
       "source_file": "api/internal/provider/claude_login.go",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 42,
+      "community": 43,
       "norm_label": "claudeloginsession",
       "id": "provider_claudeloginsession"
     },
@@ -1571,7 +1571,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 42,
+      "community": 43,
       "norm_label": "writecloser",
       "id": "writecloser"
     },
@@ -1581,7 +1581,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 42,
+      "community": 43,
       "norm_label": "cmd",
       "id": "api_internal_provider_claude_login_go_cmd"
     },
@@ -1591,7 +1591,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 42,
+      "community": 43,
       "norm_label": "cancelfunc",
       "id": "cancelfunc"
     },
@@ -1601,7 +1601,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 42,
+      "community": 43,
       "norm_label": "time",
       "id": "api_internal_provider_claude_login_go_time"
     },
@@ -1911,7 +1911,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "provider/repository.go",
       "id": "api_internal_provider_repository"
     },
@@ -1921,7 +1921,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "credential",
       "id": "provider_credential"
     },
@@ -1931,7 +1931,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "time",
       "id": "api_internal_provider_repository_go_time"
     },
@@ -1941,7 +1941,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "savecredentialinput",
       "id": "provider_savecredentialinput"
     },
@@ -1951,7 +1951,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "credentialstatus",
       "id": "provider_credentialstatus"
     },
@@ -1961,7 +1961,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L36",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "repository",
       "id": "provider_repository"
     },
@@ -1971,7 +1971,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "db",
       "id": "api_internal_provider_repository_go_db"
     },
@@ -1981,7 +1981,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": "newrepository()",
       "id": "api_internal_provider_repository_newrepository"
     },
@@ -1991,7 +1991,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": ".getcredentials()",
       "id": "provider_repository_getcredentials"
     },
@@ -2001,7 +2001,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L67",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": ".savecredential()",
       "id": "provider_repository_savecredential"
     },
@@ -2011,7 +2011,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L81",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": ".deletecredential()",
       "id": "provider_repository_deletecredential"
     },
@@ -2021,7 +2021,7 @@
       "source_file": "api/internal/provider/repository.go",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 22,
+      "community": 23,
       "norm_label": ".listconfiguredproviders()",
       "id": "provider_repository_listconfiguredproviders"
     },
@@ -2031,7 +2031,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "antigravity.go",
       "id": "api_internal_quota_antigravity"
     },
@@ -2041,7 +2041,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "cloudcodeloadrequest",
       "id": "quota_cloudcodeloadrequest"
     },
@@ -2051,7 +2051,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "cloudcodefetchmodelsrequest",
       "id": "quota_cloudcodefetchmodelsrequest"
     },
@@ -2061,7 +2061,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "cloudcodeloadresponse",
       "id": "quota_cloudcodeloadresponse"
     },
@@ -2071,7 +2071,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "cloudcodetier",
       "id": "quota_cloudcodetier"
     },
@@ -2081,7 +2081,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "cloudcodemodelinfo",
       "id": "quota_cloudcodemodelinfo"
     },
@@ -2091,7 +2091,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "cloudcodefetchmodelsresponse",
       "id": "quota_cloudcodefetchmodelsresponse"
     },
@@ -2101,7 +2101,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "oauthtokenresponse",
       "id": "quota_oauthtokenresponse"
     },
@@ -2111,7 +2111,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L64",
       "_origin": "ast",
-      "community": 32,
+      "community": 5,
       "norm_label": "antigravitysubscriptionexpired()",
       "id": "api_internal_quota_antigravity_antigravitysubscriptionexpired"
     },
@@ -2181,7 +2181,7 @@
       "source_file": "api/internal/quota/antigravity.go",
       "source_location": "L338",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "formatduration()",
       "id": "api_internal_quota_antigravity_formatduration"
     },
@@ -2191,7 +2191,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "duration",
       "id": "duration"
     },
@@ -2261,7 +2261,7 @@
       "source_file": "api/internal/quota/copilot.go",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "service",
       "id": "api_internal_quota_copilot_go_quota_service"
     },
@@ -2271,7 +2271,7 @@
       "source_file": "api/internal/quota/copilot.go",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": ".probecopilot()",
       "id": "quota_service_probecopilot"
     },
@@ -2281,7 +2281,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "context",
       "id": "api_internal_quota_copilot_go_context"
     },
@@ -2291,7 +2291,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "norm_label": "quota",
       "id": "api_internal_quota_copilot_go_quota"
     },
@@ -2301,7 +2301,7 @@
       "source_file": "api/internal/quota/handler.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 41,
+      "community": 42,
       "norm_label": "quota/handler.go",
       "id": "api_internal_quota_handler"
     },
@@ -2311,7 +2311,7 @@
       "source_file": "api/internal/quota/handler.go",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 41,
+      "community": 42,
       "norm_label": "handler",
       "id": "quota_handler"
     },
@@ -2321,7 +2321,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 41,
+      "community": 42,
       "norm_label": "service",
       "id": "api_internal_quota_handler_go_service"
     },
@@ -2331,7 +2331,7 @@
       "source_file": "api/internal/quota/handler.go",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 41,
+      "community": 42,
       "norm_label": "newhandler()",
       "id": "api_internal_quota_handler_newhandler"
     },
@@ -2341,7 +2341,7 @@
       "source_file": "api/internal/quota/handler.go",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 41,
+      "community": 42,
       "norm_label": "getquotauserid()",
       "id": "api_internal_quota_handler_getquotauserid"
     },
@@ -2351,7 +2351,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 41,
+      "community": 42,
       "norm_label": "context",
       "id": "api_internal_quota_handler_go_context"
     },
@@ -2361,7 +2361,7 @@
       "source_file": "api/internal/quota/handler.go",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 41,
+      "community": 42,
       "norm_label": ".getsnapshot()",
       "id": "quota_handler_getsnapshot"
     },
@@ -2531,7 +2531,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 43,
+      "community": 44,
       "norm_label": "context",
       "id": "api_internal_quota_service_test_go_context"
     },
@@ -3111,7 +3111,7 @@
       "source_file": "api/internal/storage/storage.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 39,
+      "community": 40,
       "norm_label": "storage.go",
       "id": "api_internal_storage_storage"
     },
@@ -3121,7 +3121,7 @@
       "source_file": "api/internal/storage/storage.go",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 39,
+      "community": 40,
       "norm_label": "savefile()",
       "id": "api_internal_storage_storage_savefile"
     },
@@ -3131,7 +3131,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 39,
+      "community": 40,
       "norm_label": "fileheader",
       "id": "fileheader"
     },
@@ -3141,7 +3141,7 @@
       "source_file": "api/internal/storage/storage.go",
       "source_location": "L77",
       "_origin": "ast",
-      "community": 39,
+      "community": 40,
       "norm_label": "deletefile()",
       "id": "api_internal_storage_storage_deletefile"
     },
@@ -3151,7 +3151,7 @@
       "source_file": "api/internal/storage/storage.go",
       "source_location": "L95",
       "_origin": "ast",
-      "community": 39,
+      "community": 40,
       "norm_label": "isallowed()",
       "id": "api_internal_storage_storage_isallowed"
     },
@@ -3571,7 +3571,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "query.go",
       "id": "api_internal_utils_query"
     },
@@ -3581,7 +3581,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "listqueryparams",
       "id": "utils_listqueryparams"
     },
@@ -3591,7 +3591,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "listqueryoptions",
       "id": "utils_listqueryoptions"
     },
@@ -3601,7 +3601,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "parselistquery()",
       "id": "api_internal_utils_query_parselistquery"
     },
@@ -3611,7 +3611,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "context",
       "id": "api_internal_utils_query_go_context"
     },
@@ -3621,7 +3621,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L110",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "parsefilterparam()",
       "id": "api_internal_utils_query_parsefilterparam"
     },
@@ -3631,7 +3631,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L117",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "queryint()",
       "id": "api_internal_utils_query_queryint"
     },
@@ -3641,7 +3641,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L132",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "isallowedcol()",
       "id": "api_internal_utils_query_isallowedcol"
     },
@@ -3651,7 +3651,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L147",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "parsestringslice()",
       "id": "api_internal_utils_query_parsestringslice"
     },
@@ -3661,7 +3661,7 @@
       "source_file": "api/internal/utils/query.go",
       "source_location": "L163",
       "_origin": "ast",
-      "community": 29,
+      "community": 30,
       "norm_label": "trimall()",
       "id": "api_internal_utils_query_trimall"
     },
@@ -3781,7 +3781,7 @@
       "source_file": "api/main.go",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "api/main.go",
       "id": "api_main"
     },
@@ -3791,7 +3791,7 @@
       "source_file": "api/main.go",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "init()",
       "id": "api_main_init"
     },
@@ -3801,7 +3801,7 @@
       "source_file": "api/main.go",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "dbconnection()",
       "id": "api_main_dbconnection"
     },
@@ -3811,7 +3811,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "db",
       "id": "api_main_go_db"
     },
@@ -3821,7 +3821,7 @@
       "source_file": "api/main.go",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "dblog()",
       "id": "api_main_dblog"
     },
@@ -3831,7 +3831,7 @@
       "source_file": "api/main.go",
       "source_location": "L60",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "main()",
       "id": "api_main_main"
     },
@@ -3841,7 +3841,7 @@
       "source_file": "api/main.go",
       "source_location": "L166",
       "_origin": "ast",
-      "community": 31,
+      "community": 32,
       "norm_label": "buildhandlers()",
       "id": "api_main_buildhandlers"
     },
@@ -5506,7 +5506,7 @@
       "source_file": "mobile/ios/Runner/AppDelegate.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "ios/runner/appdelegate.swift",
       "id": "mobile_ios_runner_appdelegate"
     },
@@ -5517,7 +5517,7 @@
       "source_file": "mobile/ios/Runner/AppDelegate.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "flutter",
       "id": "flutter"
     },
@@ -5528,7 +5528,7 @@
       "source_file": "mobile/ios/Runner/AppDelegate.swift",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "uikit",
       "id": "uikit"
     },
@@ -5540,7 +5540,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "appdelegate",
       "id": "mobile_ios_runner_appdelegate_appdelegate"
     },
@@ -5550,7 +5550,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "flutterappdelegate",
       "id": "flutterappdelegate"
     },
@@ -5561,7 +5561,7 @@
       "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": ".application()",
       "id": "mobile_ios_runner_appdelegate_appdelegate_application"
     },
@@ -5571,7 +5571,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "uiapplication",
       "id": "uiapplication"
     },
@@ -5581,7 +5581,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "any",
       "id": "any"
     },
@@ -5591,7 +5591,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "bool",
       "id": "mobile_ios_runner_appdelegate_swift_bool"
     },
@@ -5611,7 +5611,7 @@
       "source_file": "mobile/ios/RunnerTests/RunnerTests.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "ios/runnertests/runnertests.swift",
       "id": "mobile_ios_runnertests_runnertests"
     },
@@ -5622,7 +5622,7 @@
       "source_file": "mobile/ios/RunnerTests/RunnerTests.swift",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "xctest",
       "id": "xctest"
     },
@@ -5634,7 +5634,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "runnertests",
       "id": "mobile_ios_runnertests_runnertests_runnertests"
     },
@@ -5644,7 +5644,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "xctestcase",
       "id": "xctestcase"
     },
@@ -5655,7 +5655,7 @@
       "source_location": "L7",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": ".testexample()",
       "id": "mobile_ios_runnertests_runnertests_runnertests_testexample"
     },
@@ -5665,7 +5665,7 @@
       "source_file": "mobile/lib/main.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "main.dart",
       "id": "mobile_lib_main"
     },
@@ -5675,7 +5675,7 @@
       "source_file": "mobile/lib/main.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "qmonapp",
       "id": "mobile_lib_main_qmonapp"
     },
@@ -5685,7 +5685,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "statelesswidget",
       "id": "statelesswidget"
     },
@@ -5695,7 +5695,7 @@
       "source_file": "mobile/lib/main.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "main",
       "id": "mobile_lib_main_main"
     },
@@ -5705,7 +5705,7 @@
       "source_file": "mobile/lib/main.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "setappgroupid",
       "id": "mobile_lib_main_setappgroupid"
     },
@@ -5715,7 +5715,7 @@
       "source_file": "mobile/lib/main.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "build",
       "id": "mobile_lib_main_build"
     },
@@ -5725,7 +5725,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "package:flutter/material.dart",
       "id": "package_flutter_material_dart"
     },
@@ -5735,7 +5735,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "theme/app_theme.dart",
       "id": "theme_app_theme_dart"
     },
@@ -5745,7 +5745,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "screens/login_screen.dart",
       "id": "screens_login_screen_dart"
     },
@@ -5755,7 +5755,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "package:home_widget/home_widget.dart",
       "id": "package_home_widget_home_widget_dart"
     },
@@ -5905,7 +5905,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "../models/quota_models.dart",
       "id": "models_quota_models_dart"
     },
@@ -6075,7 +6075,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "providersnapshot",
       "id": "providersnapshot"
     },
@@ -6085,7 +6085,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "dart:ui",
       "id": "dart_ui"
     },
@@ -6095,7 +6095,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "color",
       "id": "color"
     },
@@ -6237,7 +6237,7 @@
       "source_file": "mobile/macos/Flutter/GeneratedPluginRegistrant.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "generatedpluginregistrant.swift",
       "id": "mobile_macos_flutter_generatedpluginregistrant"
     },
@@ -6248,7 +6248,7 @@
       "source_file": "mobile/macos/Runner/AppDelegate.swift",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "fluttermacos",
       "id": "fluttermacos"
     },
@@ -6259,7 +6259,7 @@
       "source_file": "mobile/macos/Flutter/GeneratedPluginRegistrant.swift",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "foundation",
       "id": "foundation"
     },
@@ -6270,7 +6270,7 @@
       "source_file": "mobile/macos/Flutter/GeneratedPluginRegistrant.swift",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "path_provider_foundation",
       "id": "path_provider_foundation"
     },
@@ -6281,7 +6281,7 @@
       "source_file": "mobile/macos/Flutter/GeneratedPluginRegistrant.swift",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "shared_preferences_foundation",
       "id": "shared_preferences_foundation"
     },
@@ -6292,7 +6292,7 @@
       "source_location": "L11",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "registergeneratedplugins()",
       "id": "mobile_macos_flutter_generatedpluginregistrant_registergeneratedplugins"
     },
@@ -6302,7 +6302,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "flutterpluginregistry",
       "id": "flutterpluginregistry"
     },
@@ -6312,7 +6312,7 @@
       "source_file": "mobile/macos/Runner/AppDelegate.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "macos/runner/appdelegate.swift",
       "id": "mobile_macos_runner_appdelegate"
     },
@@ -6323,7 +6323,7 @@
       "source_file": "mobile/macos/Runner/AppDelegate.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "cocoa",
       "id": "cocoa"
     },
@@ -6335,7 +6335,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "appdelegate",
       "id": "mobile_macos_runner_appdelegate_appdelegate"
     },
@@ -6346,7 +6346,7 @@
       "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": ".applicationshouldterminateafterlastwindowclosed()",
       "id": "mobile_macos_runner_appdelegate_appdelegate_applicationshouldterminateafterlastwindowclosed"
     },
@@ -6356,7 +6356,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "nsapplication",
       "id": "nsapplication"
     },
@@ -6366,7 +6366,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "bool",
       "id": "mobile_macos_runner_appdelegate_swift_bool"
     },
@@ -6377,7 +6377,7 @@
       "source_location": "L10",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": ".applicationsupportssecurerestorablestate()",
       "id": "mobile_macos_runner_appdelegate_appdelegate_applicationsupportssecurerestorablestate"
     },
@@ -6387,7 +6387,7 @@
       "source_file": "mobile/macos/Runner/MainFlutterWindow.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "mainflutterwindow.swift",
       "id": "mobile_macos_runner_mainflutterwindow"
     },
@@ -6399,7 +6399,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "mainflutterwindow",
       "id": "mobile_macos_runner_mainflutterwindow_mainflutterwindow"
     },
@@ -6409,7 +6409,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "nswindow",
       "id": "nswindow"
     },
@@ -6420,7 +6420,7 @@
       "source_location": "L5",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": ".awakefromnib()",
       "id": "mobile_macos_runner_mainflutterwindow_mainflutterwindow_awakefromnib"
     },
@@ -6430,7 +6430,7 @@
       "source_file": "mobile/macos/RunnerTests/RunnerTests.swift",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "macos/runnertests/runnertests.swift",
       "id": "mobile_macos_runnertests_runnertests"
     },
@@ -6442,7 +6442,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "runnertests",
       "id": "mobile_macos_runnertests_runnertests_runnertests"
     },
@@ -6453,7 +6453,7 @@
       "source_location": "L7",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": ".testexample()",
       "id": "mobile_macos_runnertests_runnertests_runnertests_testexample"
     },
@@ -6463,7 +6463,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "package:flutter_test/flutter_test.dart",
       "id": "package_flutter_test_flutter_test_dart"
     },
@@ -6473,7 +6473,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "package:qmon_mobile/main.dart",
       "id": "package_qmon_mobile_main_dart"
     },
@@ -6687,7 +6687,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "flutterviewcontroller",
       "id": "flutterviewcontroller"
     },
@@ -7471,7 +7471,7 @@
       "source_file": "mobile/test/api_service_test.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "api_service_test.dart",
       "id": "mobile_test_api_service_test"
     },
@@ -7481,7 +7481,7 @@
       "source_file": "mobile/test/api_service_test.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "main",
       "id": "mobile_test_api_service_test_main"
     },
@@ -7491,7 +7491,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "package:qmon_mobile/services/api_service.dart",
       "id": "package_qmon_mobile_services_api_service_dart"
     },
@@ -7501,7 +7501,7 @@
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "package:qmon_mobile/models/quota_models.dart",
       "id": "package_qmon_mobile_models_quota_models_dart"
     },
@@ -7765,7 +7765,7 @@
       "source_file": "mobile/test/widget_test.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "widget_test.dart",
       "id": "mobile_test_widget_test"
     },
@@ -7775,7 +7775,7 @@
       "source_file": "mobile/test/widget_test.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "main",
       "id": "mobile_test_widget_test_main"
     },
@@ -7875,7 +7875,7 @@
       "source_file": "api/internal/quota/service_test.go",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 43,
+      "community": 44,
       "norm_label": "mockrepository",
       "id": "quota_mockrepository"
     },
@@ -7885,7 +7885,7 @@
       "source_file": "api/internal/quota/service_test.go",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 43,
+      "community": 44,
       "norm_label": ".checkcliavailable()",
       "id": "quota_mockrepository_checkcliavailable"
     },
@@ -7895,7 +7895,7 @@
       "source_file": "api/internal/quota/service_test.go",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 43,
+      "community": 44,
       "norm_label": ".runclicommand()",
       "id": "quota_mockrepository_runclicommand"
     },
@@ -7905,7 +7905,7 @@
       "source_file": "api/internal/quota/service_test.go",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 43,
+      "community": 44,
       "norm_label": ".querylocaldb()",
       "id": "quota_mockrepository_querylocaldb"
     },
@@ -8415,7 +8415,7 @@
       "source_file": "mobile/test/quota_type_label_test.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "quota_type_label_test.dart",
       "id": "mobile_test_quota_type_label_test"
     },
@@ -8425,7 +8425,7 @@
       "source_file": "mobile/test/quota_type_label_test.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 30,
+      "community": 31,
       "norm_label": "main",
       "id": "mobile_test_quota_type_label_test_main"
     },
@@ -8435,7 +8435,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "manifest.json",
       "id": "mobile_web_manifest"
     },
@@ -8445,7 +8445,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "name",
       "id": "mobile_web_manifest_name"
     },
@@ -8455,7 +8455,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "short_name",
       "id": "mobile_web_manifest_short_name"
     },
@@ -8465,7 +8465,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "start_url",
       "id": "mobile_web_manifest_start_url"
     },
@@ -8475,7 +8475,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "display",
       "id": "mobile_web_manifest_display"
     },
@@ -8485,7 +8485,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "background_color",
       "id": "mobile_web_manifest_background_color"
     },
@@ -8495,7 +8495,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "theme_color",
       "id": "mobile_web_manifest_theme_color"
     },
@@ -8505,7 +8505,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "description",
       "id": "mobile_web_manifest_description"
     },
@@ -8515,7 +8515,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "orientation",
       "id": "mobile_web_manifest_orientation"
     },
@@ -8525,7 +8525,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "prefer_related_applications",
       "id": "mobile_web_manifest_prefer_related_applications"
     },
@@ -8535,7 +8535,7 @@
       "source_file": "mobile/web/manifest.json",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 26,
+      "community": 27,
       "norm_label": "icons",
       "id": "mobile_web_manifest_icons"
     },
@@ -8559,76 +8559,6 @@
       "community": 2,
       "norm_label": "wwinmain()",
       "id": "mobile_windows_runner_main_wwinmain"
-    },
-    {
-      "label": "install.sh",
-      "file_type": "code",
-      "source_file": "scripts/install.sh",
-      "source_location": "L1",
-      "metadata": {
-        "language": "bash",
-        "kind": "file"
-      },
-      "_origin": "ast",
-      "community": 44,
-      "norm_label": "install.sh",
-      "id": "scripts_install"
-    },
-    {
-      "label": "install.sh script",
-      "file_type": "code",
-      "source_file": "scripts/install.sh",
-      "source_location": "L1",
-      "metadata": {
-        "language": "bash",
-        "kind": "bash_entrypoint"
-      },
-      "_origin": "ast",
-      "community": 44,
-      "norm_label": "install.sh script",
-      "id": "scripts_install_sh__entry"
-    },
-    {
-      "label": "cleanup()",
-      "file_type": "code",
-      "source_file": "scripts/install.sh",
-      "source_location": "L17",
-      "metadata": {
-        "language": "bash",
-        "kind": "bash_function"
-      },
-      "_origin": "ast",
-      "community": 44,
-      "norm_label": "cleanup()",
-      "id": "scripts_install_cleanup"
-    },
-    {
-      "label": "fail()",
-      "file_type": "code",
-      "source_file": "scripts/install.sh",
-      "source_location": "L23",
-      "metadata": {
-        "language": "bash",
-        "kind": "bash_function"
-      },
-      "_origin": "ast",
-      "community": 44,
-      "norm_label": "fail()",
-      "id": "scripts_install_fail"
-    },
-    {
-      "label": "configure_shell_path()",
-      "file_type": "code",
-      "source_file": "scripts/install.sh",
-      "source_location": "L29",
-      "metadata": {
-        "language": "bash",
-        "kind": "bash_function"
-      },
-      "_origin": "ast",
-      "community": 44,
-      "norm_label": "configure_shell_path()",
-      "id": "scripts_install_configure_shell_path"
     },
     {
       "label": "app/build.gradle.kts",
@@ -9156,7 +9086,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "provider_card.dart",
       "id": "mobile_lib_widgets_provider_card"
     },
@@ -9166,7 +9096,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "norm_label": "providercard",
       "id": "mobile_lib_widgets_provider_card_providercard"
     },
@@ -9176,7 +9106,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "provider",
       "id": "mobile_lib_widgets_provider_card_provider"
     },
@@ -9186,7 +9116,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "showusedmetric",
       "id": "mobile_lib_widgets_provider_card_showusedmetric"
     },
@@ -9196,7 +9126,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "_getgradients",
       "id": "mobile_lib_widgets_provider_card_getgradients"
     },
@@ -9206,7 +9136,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "build",
       "id": "mobile_lib_widgets_provider_card_build"
     },
@@ -9216,7 +9146,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "_buildgroupedquotas",
       "id": "mobile_lib_widgets_provider_card_buildgroupedquotas"
     },
@@ -9226,7 +9156,7 @@
       "source_file": "mobile/lib/widgets/provider_card.dart",
       "source_location": null,
       "_origin": "ast",
-      "community": 24,
+      "community": 25,
       "norm_label": "_buildquotarow",
       "id": "mobile_lib_widgets_provider_card_buildquotarow"
     },
@@ -9709,6 +9639,118 @@
       "id": "package_engines_bun",
       "community": 3,
       "norm_label": "bun"
+    },
+    {
+      "label": "install.sh",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "scripts_install",
+      "community": 38,
+      "norm_label": "install.sh"
+    },
+    {
+      "label": "install.sh script",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "scripts_install_sh__entry",
+      "community": 38,
+      "norm_label": "install.sh script"
+    },
+    {
+      "label": "cleanup()",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L17",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_install_cleanup",
+      "community": 38,
+      "norm_label": "cleanup()"
+    },
+    {
+      "label": "fail()",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L23",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_install_fail",
+      "community": 38,
+      "norm_label": "fail()"
+    },
+    {
+      "label": "run_with_spinner()",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L29",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_install_run_with_spinner",
+      "community": 38,
+      "norm_label": "run_with_spinner()"
+    },
+    {
+      "label": "install_cli_dependencies()",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L54",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_install_install_cli_dependencies",
+      "community": 38,
+      "norm_label": "install_cli_dependencies()"
+    },
+    {
+      "label": "build_and_install()",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L59",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_install_build_and_install",
+      "community": 38,
+      "norm_label": "build_and_install()"
+    },
+    {
+      "label": "configure_shell_path()",
+      "file_type": "code",
+      "source_file": "scripts/install.sh",
+      "source_location": "L63",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_install_configure_shell_path",
+      "community": 38,
+      "norm_label": "configure_shell_path()"
     }
   ],
   "links": [
@@ -24259,74 +24301,6 @@
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/install.sh",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "scripts_install",
-      "target": "scripts_install_cleanup"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/install.sh",
-      "source_location": "L29",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "scripts_install",
-      "target": "scripts_install_configure_shell_path"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/install.sh",
-      "source_location": "L23",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "scripts_install",
-      "target": "scripts_install_fail"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/install.sh",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "scripts_install",
-      "target": "scripts_install_sh__entry"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/install.sh",
-      "source_location": "L114",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "scripts_install_sh__entry",
-      "target": "scripts_install_configure_shell_path"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/install.sh",
-      "source_location": "L75",
-      "weight": 1.0,
-      "context": "call",
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "scripts_install_sh__entry",
-      "target": "scripts_install_fail"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "mobile/lib/screens/dashboard_screen.dart",
       "source_location": null,
@@ -25495,8 +25469,121 @@
       "source": "package_engines",
       "target": "package_engines_node",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_install",
+      "target": "scripts_install_build_and_install",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_install",
+      "target": "scripts_install_cleanup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_install",
+      "target": "scripts_install_configure_shell_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_install",
+      "target": "scripts_install_fail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_install",
+      "target": "scripts_install_install_cli_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_install",
+      "target": "scripts_install_run_with_spinner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_install",
+      "target": "scripts_install_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L146",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "scripts_install_sh__entry",
+      "target": "scripts_install_configure_shell_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L109",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "scripts_install_sh__entry",
+      "target": "scripts_install_fail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/install.sh",
+      "source_location": "L126",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "scripts_install_sh__entry",
+      "target": "scripts_install_run_with_spinner",
+      "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7e5291a074050f30b992124de0b36ce0ef44b62c"
+  "built_at_commit": "4295a369ac45d9459f4a3b653091890d13e91647"
 }
