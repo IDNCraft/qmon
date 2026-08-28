@@ -1,6 +1,5 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
-import React from 'react'
 
 import { TextInput } from '../TextInput'
 import { Button, THEME } from '../ui'
@@ -41,13 +40,20 @@ export function ResetForm({
       <box flexDirection="column" paddingLeft={1}>
         {step > 3 && (
           <box flexDirection="row" marginBottom={1}>
-            <text selectable={false} fg={THEME.muted}>New Email: </text>
+            <text selectable={false} fg={THEME.muted}>
+              New Email:{' '}
+            </text>
             <text selectable={false}>{resetEmail}</text>
           </box>
         )}
 
         {step === 3 && (
-          <box flexDirection="row" onMouseDown={() => onFocusField('resetEmail')}>
+          <box
+            flexDirection="row"
+            onMouseDown={() => {
+              onFocusField('resetEmail')
+            }}
+          >
             <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.warning} width={12}>
               New Email
             </text>
@@ -57,15 +63,27 @@ export function ResetForm({
               onSubmit={onSubmitResetEmail}
               placeholder="my.new.email@example.com"
               focused={focusedField === 'resetEmail'}
-              onMouseDown={() => onFocusField('resetEmail')}
+              onMouseDown={() => {
+                onFocusField('resetEmail')
+              }}
             />
           </box>
         )}
 
         {step === 4 && (
-          <box flexDirection="column" onMouseDown={() => onFocusField('resetPassword')}>
+          <box
+            flexDirection="column"
+            onMouseDown={() => {
+              onFocusField('resetPassword')
+            }}
+          >
             <box flexDirection="row">
-              <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.warning} width={12}>
+              <text
+                selectable={false}
+                attributes={TextAttributes.BOLD}
+                fg={THEME.warning}
+                width={12}
+              >
                 New Password
               </text>
               <TextInput
@@ -75,12 +93,16 @@ export function ResetForm({
                 focused={focusedField === 'resetPassword'}
                 placeholder="strong password"
                 maskChar="*"
-                onMouseDown={() => onFocusField('resetPassword')}
+                onMouseDown={() => {
+                  onFocusField('resetPassword')
+                }}
               />
             </box>
             {loading && (
               <box marginTop={1}>
-                <text selectable={false} fg={THEME.warning}>Updating credentials…</text>
+                <text selectable={false} fg={THEME.warning}>
+                  Updating credentials…
+                </text>
               </box>
             )}
           </box>

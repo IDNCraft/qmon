@@ -55,7 +55,34 @@ curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/install.
 > [!IMPORTANT]
 > The installer adds `~/.local/bin` to the detected shell configuration automatically. Open a new terminal after installation so the updated `PATH` is loaded.
 
+### Update
+
+Update Qmon to the latest tagged release with:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/update.sh | bash
+```
+
+To update to a specific release, pass its tag:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/update.sh | bash -s -- v1.5.0
+```
+
 ### Usage
+
+Show the installed CLI version:
+
+```bash
+qmon version
+```
+
+Update to the latest release, or pass a specific release tag:
+
+```bash
+qmon update
+qmon update v1.5.0
+```
 
 **1. Standalone Terminal Usage**
 
@@ -66,7 +93,7 @@ qmon
 ```
 
 <p align="center">
-  <img src="docs/images/qmon-cli1.png" alt="Qmon CLI Dashboard" width="800" />
+  <img src="docs/images/qmon-tui.png" alt="Qmon CLI Dashboard" width="800" />
 </p>
 
 *(Note: The CLI automatically starts the API daemon for you in the background and gracefully shuts it down when you exit.)*

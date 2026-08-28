@@ -1,18 +1,22 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
 import { useKeyboard, useTerminalDimensions } from '@opentui/react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { fetchAppConfig, login, resetDefaultCredentials } from '../api'
-import { saveConfig } from '../config'
-import { startSidecar } from '../sidecar'
-import { Card, THEME } from './ui'
 import { LoginForm } from './login/LoginForm'
 import { ResetForm } from './login/ResetForm'
 import { SecurityCard } from './login/SecurityCard'
+import { Card, THEME } from './ui'
+import { fetchAppConfig, login, resetDefaultCredentials } from '../api'
+import { saveConfig } from '../config'
+import { startSidecar } from '../sidecar'
 
 interface Props {
   onLogin: () => void
+}
+
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
 }
 
 export function Login({ onLogin }: Props) {
@@ -31,7 +35,9 @@ export function Login({ onLogin }: Props) {
   const [resetEmail, setResetEmail] = useState('')
   const [resetPassword, setResetPassword] = useState('')
   const [resetSuccess, setResetSuccess] = useState('')
-  const [focusedField, setFocusedField] = useState<'email' | 'password' | 'resetEmail' | 'resetPassword' | null>(null)
+  const [focusedField, setFocusedField] = useState<
+    'email' | 'password' | 'resetEmail' | 'resetPassword' | null
+  >(null)
 
   const inResetMode = step >= 3
 
@@ -57,7 +63,7 @@ export function Login({ onLogin }: Props) {
       }
       const { isDefaultAdmin } = await fetchAppConfig(cleanUrl, signal)
       setIsDefaultAdmin(isDefaultAdmin === 'true')
-    } catch (e) {
+    } catch {
       if (signal?.aborted) return
       setIsDefaultAdmin(false)
     }
@@ -66,14 +72,33 @@ export function Login({ onLogin }: Props) {
   useEffect(() => {
     const controller = new AbortController()
     checkDefaultAdmin(url, controller.signal)
-    return () => controller.abort()
+    return () => {
+      controller.abort()
+    }
   }, [])
 
   useEffect(() => {
-    if (step === 1) setFocusedField('email')
-    else if (step === 2) setFocusedField('password')
-    else if (step === 3) setFocusedField('resetEmail')
-    else if (step === 4) setFocusedField('resetPassword')
+    switch (step) {
+      case 1: {
+        setFocusedField('email')
+        break
+      }
+      case 2: {
+        setFocusedField('password')
+        break
+      }
+      case 3: {
+        setFocusedField('resetEmail')
+        break
+      }
+      case 4: {
+        {
+          setFocusedField('resetPassword')
+          // No default
+        }
+        break
+      }
+    }
   }, [step])
 
   const handleSubmitEmail = () => {
@@ -91,8 +116,8 @@ export function Login({ onLogin }: Props) {
         const { token } = await login(email, password, url)
         saveConfig({ baseUrl: url, token })
         onLogin()
-      } catch (err: any) {
-        setError(err.message)
+      } catch (error_: unknown) {
+        setError(getErrorMessage(error_))
         setLoading(false)
       }
     }
@@ -111,15 +136,15 @@ export function Login({ onLogin }: Props) {
       setError('')
       try {
         const { message } = await resetDefaultCredentials(resetEmail, resetPassword, url)
-        setResetSuccess(message || 'Success! Please login with your new credentials.')
+        setResetSuccess(message ?? 'Success! Please login with your new credentials.')
         setStep(1)
         setIsDefaultAdmin(false)
         setEmail('')
         setPassword('')
         setResetEmail('')
         setResetPassword('')
-      } catch (err: any) {
-        setError(err.message)
+      } catch (error_: unknown) {
+        setError(getErrorMessage(error_))
       } finally {
         setLoading(false)
       }
@@ -156,7 +181,7 @@ export function Login({ onLogin }: Props) {
   return (
     <box flexDirection="column" padding={1} alignItems="center">
       {resetSuccess && (
-      <Card borderColor={THEME.success} marginBottom={1} width={cardWidth}>
+        <Card borderColor={THEME.success} marginBottom={1} width={cardWidth}>
           <text selectable={false} fg={THEME.success} attributes={TextAttributes.BOLD}>
             {resetSuccess}
           </text>
@@ -169,13 +194,15 @@ export function Login({ onLogin }: Props) {
           titleColor={titleColor}
           borderColor={borderColor}
           width={cardWidth}
-          onMouseDown={() => setFocusedField((prev) => {
-            if (prev) return prev
-            if (step === 1) return 'email'
-            if (step === 2) return 'password'
-            if (step === 3) return 'resetEmail'
-            return 'resetPassword'
-          })}
+          onMouseDown={() => {
+            setFocusedField((prev) => {
+              if (prev) return prev
+              if (step === 1) return 'email'
+              if (step === 2) return 'password'
+              if (step === 3) return 'resetEmail'
+              return 'resetPassword'
+            })
+          }}
         >
           {inResetMode ? (
             <ResetForm
@@ -192,9 +219,13 @@ export function Login({ onLogin }: Props) {
                     ? 'resetPassword'
                     : null
               }
-              onFocusField={(field) => setFocusedField(field)}
+              onFocusField={(field) => {
+                setFocusedField(field)
+              }}
               onSubmitResetEmail={handleSubmitResetEmail}
-              onSubmitResetPassword={handleSubmitResetPassword}
+              onSubmitResetPassword={() => {
+                void handleSubmitResetPassword()
+              }}
               onCancel={goBack}
             />
           ) : (
@@ -207,16 +238,16 @@ export function Login({ onLogin }: Props) {
               loading={loading}
               isDefaultAdmin={isDefaultAdmin}
               focusedField={
-                focusedField === 'email'
-                  ? 'email'
-                  : focusedField === 'password'
-                    ? 'password'
-                    : null
+                focusedField === 'email' ? 'email' : focusedField === 'password' ? 'password' : null
               }
-              onFocusField={(field) => setFocusedField(field)}
+              onFocusField={(field) => {
+                setFocusedField(field)
+              }}
               emailSuggestion={emailSuggestion}
               onSubmitEmail={handleSubmitEmail}
-              onSubmitPassword={handleSubmitPassword}
+              onSubmitPassword={() => {
+                void handleSubmitPassword()
+              }}
               onBack={goBack}
             />
           )}

@@ -1,20 +1,21 @@
 /** @jsxImportSource @opentui/react */
 import type { QuotaSnapshot } from '../api'
+import type { SettingsItem } from './dashboard/SettingsCard'
 import { RGBA, TextAttributes } from '@opentui/core'
 import { useKeyboard, useTerminalDimensions } from '@opentui/react'
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
+import { DashboardHeader } from './dashboard/DashboardHeader'
+import { Footer } from './dashboard/Footer'
+import { SettingsCard } from './dashboard/SettingsCard'
+import { SummaryCards } from './dashboard/SummaryCards'
+import { LoadingScreen } from './LoadingScreen'
+import { QuotaGrid } from './QuotaGrid'
+import { Card, THEME } from './ui'
+import packageJson from '../../../package.json' with { type: 'json' }
 import { clearConfig } from '../config'
 import { useDashboardSettings } from '../hooks/useDashboardSettings'
 import { useQuotaData } from '../hooks/useQuotaData'
-import { Card, THEME } from './ui'
-import { DashboardHeader } from './dashboard/DashboardHeader'
-import packageJson from '../../package.json' with { type: 'json' }
-import { Footer } from './dashboard/Footer'
-import { LoadingScreen } from './LoadingScreen'
-import { QuotaTable } from './QuotaTable'
-import { SettingsCard, type SettingsItem } from './dashboard/SettingsCard'
-import { SummaryCards } from './dashboard/SummaryCards'
 
 interface Props {
   onLogout: () => void
@@ -43,13 +44,20 @@ export function Dashboard({ onLogout }: Props) {
     showUsedMetric,
     showAbsoluteTime,
     hiddenProviders,
+    autoUpdate,
+    updateStatus,
+    availableVersion,
+    updating,
     toggleUsedMetric,
     toggleAbsoluteTime,
     toggleProviderVisibility,
+    toggleAutoUpdate,
+    checkForUpdate,
+    updateNow,
   } = useDashboardSettings()
 
   const uniqueProviders = useMemo(
-    () => Array.from(new Set(snapshots.map((s: QuotaSnapshot) => s.name))),
+    () => [...new Set(snapshots.map((s: QuotaSnapshot) => s.name))],
     [snapshots]
   )
 
@@ -61,36 +69,94 @@ export function Dashboard({ onLogout }: Props) {
         label: 'Time Display',
         value: showAbsoluteTime ? 'Absolute (Date)' : 'Relative (Timer)',
       },
-      ...uniqueProviders.map((p) => ({ type: 'provider' as const, label: p, value: !hiddenProviders.has(p) })),
+      ...uniqueProviders.map((p) => ({
+        type: 'provider' as const,
+        label: p,
+        value: !hiddenProviders.has(p),
+      })),
+      { type: 'autoUpdate', label: 'Auto Update', value: autoUpdate },
+      { type: 'checkUpdate', label: 'Check for Update', value: updateStatus },
     ],
-    [uniqueProviders, showUsedMetric, showAbsoluteTime, hiddenProviders]
+    [uniqueProviders, showUsedMetric, showAbsoluteTime, hiddenProviders, autoUpdate, updateStatus]
   )
 
   useKeyboard((key) => {
     if (showSettings) {
-      if (key.name === 'up') {
-        setSelectedSettingIndex((prev) => Math.max(0, prev - 1))
-      } else if (key.name === 'down') {
-        setSelectedSettingIndex((prev) => Math.min(settingsItems.length - 1, prev + 1))
-      } else if (key.name === 'space' || key.name === 'return') {
-        const item = settingsItems[selectedSettingIndex]
-        if (!item) return
-        if (item.type === 'metric') toggleUsedMetric()
-        else if (item.type === 'time') toggleAbsoluteTime()
-        else if (item.type === 'provider') toggleProviderVisibility(item.label)
-      } else if (key.name === 'escape' || key.name === 's') {
-        setShowSettings(false)
+      switch (key.name) {
+        case 'up': {
+          setSelectedSettingIndex((prev) => Math.max(0, prev - 1))
+
+          break
+        }
+        case 'down': {
+          setSelectedSettingIndex((prev) => Math.min(settingsItems.length - 1, prev + 1))
+
+          break
+        }
+        case 'space':
+        case 'return': {
+          const item = settingsItems[selectedSettingIndex]
+          if (!item) return
+          switch (item.type) {
+            case 'metric': {
+              toggleUsedMetric()
+              break
+            }
+            case 'time': {
+              toggleAbsoluteTime()
+              break
+            }
+            case 'provider': {
+              toggleProviderVisibility(item.label)
+              break
+            }
+            case 'autoUpdate': {
+              toggleAutoUpdate()
+              break
+            }
+            case 'checkUpdate': {
+              {
+                checkForUpdate()
+                // No default
+              }
+              break
+            }
+          }
+
+          break
+        }
+        case 'escape':
+        case 's': {
+          setShowSettings(false)
+
+          break
+        }
+        // No default
       }
     } else {
-      if (key.name === 'r') {
-        loadData()
-      } else if (key.name === 's') {
-        setShowSettings(true)
-        setSelectedSettingIndex(0)
-      } else if (key.name === 'u') {
-        toggleUsedMetric()
-      } else if (key.name === 't') {
-        toggleAbsoluteTime()
+      switch (key.name) {
+        case 'r': {
+          loadData()
+
+          break
+        }
+        case 's': {
+          setShowSettings(true)
+          setSelectedSettingIndex(0)
+
+          break
+        }
+        case 'u': {
+          toggleUsedMetric()
+
+          break
+        }
+        case 't': {
+          toggleAbsoluteTime()
+
+          break
+        }
+        // No default
       }
     }
   })
@@ -125,9 +191,16 @@ export function Dashboard({ onLogout }: Props) {
         <DashboardHeader
           loading={loading}
           version={packageJson.version}
-          onRefresh={loadData}
+          updateVersion={availableVersion}
+          updating={updating}
+          onRefresh={() => {
+            void loadData()
+          }}
           onSettings={openSettings}
           onLogout={handleLogoutClick}
+          onUpdate={() => {
+            void updateNow()
+          }}
         />
 
         {!error && snapshots.length > 0 && (
@@ -164,11 +237,18 @@ export function Dashboard({ onLogout }: Props) {
               flexGrow={1}
               scrollY
               focused={!showSettings}
-              verticalScrollbarOptions={{ visible: scrollHovered && hasOverflow, showArrows: false }}
-              onMouseOver={() => setScrollHovered(true)}
-              onMouseOut={() => setScrollHovered(false)}
+              verticalScrollbarOptions={{
+                visible: scrollHovered && hasOverflow,
+                showArrows: false,
+              }}
+              onMouseOver={() => {
+                setScrollHovered(true)
+              }}
+              onMouseOut={() => {
+                setScrollHovered(false)
+              }}
             >
-              <QuotaTable
+              <QuotaGrid
                 snapshots={snapshots}
                 hiddenProviders={hiddenProviders}
                 showUsedMetric={showUsedMetric}
@@ -221,6 +301,10 @@ export function Dashboard({ onLogout }: Props) {
             onToggleMetric={toggleUsedMetric}
             onToggleTime={toggleAbsoluteTime}
             onToggleProvider={toggleProviderVisibility}
+            onToggleAutoUpdate={toggleAutoUpdate}
+            onCheckUpdate={() => {
+              void checkForUpdate()
+            }}
             width={Math.max(16, Math.min(80, terminalColumns - 4))}
           />
         </box>

@@ -1,9 +1,8 @@
 /** @jsxImportSource @opentui/react */
+import type { QuotaCell } from './QuotaCells'
 import { TextAttributes } from '@opentui/core'
-import React from 'react'
 
 import { Badge, Card, THEME } from '../ui'
-import type { QuotaCell } from './QuotaCells'
 
 interface Props {
   cell: QuotaCell
@@ -20,19 +19,21 @@ export function QuotaCard({ cell, isAvailable, width, paddingX, paddingY }: Prop
       paddingX={paddingX}
       paddingY={paddingY}
       padding={paddingX === undefined && paddingY === undefined ? 1 : undefined}
-      borderColor={cell.isExhausted ? THEME.danger : cell.providerColor || THEME.border}
+      borderColor={cell.isExhausted ? THEME.danger : (cell.providerColor ?? THEME.border)}
       marginBottom={0}
     >
       <box flexDirection="row" justifyContent="space-between" marginBottom={1}>
         {cell.model && cell.model !== '-' ? (
-          <text selectable={false} attributes={TextAttributes.DIM}>{cell.model}</text>
+          <text selectable={false} attributes={TextAttributes.DIM}>
+            {cell.model}
+          </text>
         ) : (
           <text selectable={false} />
         )}
-        {!isAvailable ? (
-          <Badge label="Error" color={THEME.danger} />
-        ) : (
+        {isAvailable ? (
           <Badge label="Health" color={THEME.success} />
+        ) : (
+          <Badge label="Error" color={THEME.danger} />
         )}
       </box>
 

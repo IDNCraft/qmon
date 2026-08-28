@@ -1,6 +1,5 @@
 {
   "name": "qmon-cli",
-  "version": "0.0.0",
   "module": "index.ts",
   "type": "module",
   "private": true,
@@ -10,13 +9,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit",
-    "release": "release-it",
-    "release:minor": "release-it minor",
-    "release:major": "release-it major",
-    "release:patch": "release-it patch",
-    "release:beta": "release-it --preRelease=beta --ci",
-    "release:alpha": "release-it --preRelease=alpha"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@opentui/core": "^0.5.9",
@@ -27,7 +20,6 @@
   "devDependencies": {
     "@types/react": "^19.2.17",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-    "@release-it/conventional-changelog": "^10.0.5",
     "@types/bun": "latest",
     "@typescript-eslint/eslint-plugin": "^8.56.0",
     "@typescript-eslint/parser": "^8.56.0",
@@ -38,8 +30,7 @@
     "eslint-plugin-security": "^3.0.1",
     "eslint-plugin-unicorn": "^62.0.0",
     "prettier": "^3.8.1",
-    "react-devtools-core": "^7.0.1",
-    "release-it": "^19.2.4"
+    "react-devtools-core": "^7.0.1"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"

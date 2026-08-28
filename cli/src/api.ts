@@ -1,6 +1,6 @@
 import { loadConfig } from './config'
 
-export interface Quota {
+interface Quota {
   quota_type: string
   percent_remaining: number
   reset_text: string
@@ -43,7 +43,7 @@ function assertObject(value: unknown): Record<string, unknown> {
 
 function assertString(value: unknown, field: string): string {
   if (typeof value !== 'string') {
-    throw new Error(`Invalid API response: ${field} must be string`)
+    throw new TypeError(`Invalid API response: ${field} must be string`)
   }
   return value
 }
@@ -51,21 +51,7 @@ function assertString(value: unknown, field: string): string {
 function assertOptionalString(value: unknown, field: string): string | undefined {
   if (value === undefined || value === null) return undefined
   if (typeof value !== 'string') {
-    throw new Error(`Invalid API response: ${field} must be string or null`)
-  }
-  return value
-}
-
-function assertNumber(value: unknown, field: string): number {
-  if (typeof value !== 'number') {
-    throw new Error(`Invalid API response: ${field} must be number`)
-  }
-  return value
-}
-
-function assertBoolean(value: unknown, field: string): boolean {
-  if (typeof value !== 'boolean') {
-    throw new Error(`Invalid API response: ${field} must be boolean`)
+    throw new TypeError(`Invalid API response: ${field} must be string or null`)
   }
   return value
 }
@@ -79,14 +65,14 @@ function assertBooleanLike(value: unknown, field: string): boolean {
 function assertOptionalNumber(value: unknown, field: string): number | undefined {
   if (value === undefined || value === null) return undefined
   if (typeof value !== 'number') {
-    throw new Error(`Invalid API response: ${field} must be number or null`)
+    throw new TypeError(`Invalid API response: ${field} must be number or null`)
   }
   return value
 }
 
 function assertArray(value: unknown, field: string): unknown[] {
   if (!Array.isArray(value)) {
-    throw new Error(`Invalid API response: ${field} must be array`)
+    throw new TypeError(`Invalid API response: ${field} must be array`)
   }
   return value
 }
@@ -112,12 +98,14 @@ function validateQuotaSnapshot(value: unknown): QuotaSnapshot {
       provider_id: providerId,
       name: assertString(obj.name, 'name'),
       is_available: assertBooleanLike(obj.is_available, 'is_available'),
-      quotas: quotas.map(validateQuota),
+      quotas: quotas.map((quota) => validateQuota(quota)),
       last_error: assertOptionalString(obj.last_error, 'last_error') ?? '',
       captured_at: assertOptionalString(obj.captured_at, 'captured_at') ?? '',
     }
-  } catch (err: any) {
-    throw new Error(`Invalid API response for provider ${providerId}: ${err.message}`)
+  } catch (error: unknown) {
+    throw new Error(
+      `Invalid API response for provider ${providerId}: ${getThrownErrorMessage(error)}`
+    )
   }
 }
 
@@ -125,7 +113,7 @@ function validateSnapshotResponse(value: unknown): QuotaSnapshot[] {
   const obj = assertObject(value)
   const data = assertObject(obj.data)
   const providers = assertArray(data.providers, 'data.providers')
-  return providers.map(validateQuotaSnapshot)
+  return providers.map((provider) => validateQuotaSnapshot(provider))
 }
 
 function validateTokenResponse(value: unknown): { token: string } {
@@ -160,6 +148,10 @@ function getErrorMessage(body: unknown, fallback: string): string {
   return fallback
 }
 
+function getThrownErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
+}
+
 export async function fetchAllQuotas(signal?: AbortSignal): Promise<QuotaSnapshot[]> {
   try {
     const res = await fetch(`${getBaseUrl()}/api/v1/quota/snapshot`, {
@@ -177,9 +169,9 @@ export async function fetchAllQuotas(signal?: AbortSignal): Promise<QuotaSnapsho
       throw new Error('Invalid API response: empty body')
     }
     return validateSnapshotResponse(body)
-  } catch (err: any) {
-    if (signal?.aborted) throw err
-    throw new Error(err.message || 'Failed to fetch quotas')
+  } catch (error: unknown) {
+    if (signal?.aborted) throw error
+    throw new Error(getThrownErrorMessage(error) || 'Failed to fetch quotas')
   }
 }
 
@@ -205,9 +197,9 @@ export async function login(
       throw new Error('Invalid API response: empty body')
     }
     return validateTokenResponse(body)
-  } catch (err: any) {
-    if (signal?.aborted) throw err
-    throw new Error(err.message || 'Login failed')
+  } catch (error: unknown) {
+    if (signal?.aborted) throw error
+    throw new Error(getThrownErrorMessage(error) || 'Login failed')
   }
 }
 
@@ -233,9 +225,9 @@ export async function resetDefaultCredentials(
       throw new Error('Invalid API response: empty body')
     }
     return validateResetResponse(body)
-  } catch (err: any) {
-    if (signal?.aborted) throw err
-    throw new Error(err.message || 'Reset failed')
+  } catch (error: unknown) {
+    if (signal?.aborted) throw error
+    throw new Error(getThrownErrorMessage(error) || 'Reset failed')
   }
 }
 
@@ -254,8 +246,8 @@ export async function fetchAppConfig(
       throw new Error('Invalid API response: empty body')
     }
     return validateAppConfigResponse(body)
-  } catch (err: any) {
-    if (signal?.aborted) throw err
-    throw new Error(err.message || 'Failed to fetch app config')
+  } catch (error: unknown) {
+    if (signal?.aborted) throw error
+    throw new Error(getThrownErrorMessage(error) || 'Failed to fetch app config')
   }
 }

@@ -1,6 +1,5 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
-import React from 'react'
 
 import { THEME } from '../ui'
 
@@ -32,7 +31,10 @@ export function Footer({ terminalColumns }: Props) {
               <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.accent}>
                 {item.key}
               </text>
-              <text selectable={false} attributes={TextAttributes.DIM}>{' '}{item.label}</text>
+              <text selectable={false} attributes={TextAttributes.DIM}>
+                {' '}
+                {item.label}
+              </text>
             </box>
           ))}
         </box>

@@ -364,63 +364,58 @@
     "ast_hash": "2044f03b8feaf8c9555657d1b629624c",
     "semantic_hash": "2044f03b8feaf8c9555657d1b629624c"
   },
-  "cli/.release-it.json": {
-    "mtime": 1786343408.043222,
-    "ast_hash": "13aaa55919ba6122e8a23c59d1ad1462",
-    "semantic_hash": "13aaa55919ba6122e8a23c59d1ad1462"
-  },
   "cli/eslint.config.js": {
     "mtime": 1786344199.0672524,
     "ast_hash": "92eba61b1ce2abfae8e67157248f65b6",
     "semantic_hash": "92eba61b1ce2abfae8e67157248f65b6"
   },
   "cli/package.json": {
-    "mtime": 1787925430.059177,
-    "ast_hash": "69362efa9e3fd1a459f9b79b1cec7a17",
-    "semantic_hash": "69362efa9e3fd1a459f9b79b1cec7a17"
+    "mtime": 1787929884.5387022,
+    "ast_hash": "46717235c4fb8f60678b1c75fda69e6a",
+    "semantic_hash": "46717235c4fb8f60678b1c75fda69e6a"
   },
   "cli/src/App.tsx": {
-    "mtime": 1787923061.0039775,
-    "ast_hash": "de9c04049c32c4f2c0805b2f3cdf95e4",
-    "semantic_hash": "de9c04049c32c4f2c0805b2f3cdf95e4"
+    "mtime": 1787934686.1152396,
+    "ast_hash": "eb77cf4ec8d2e07a3fdd35febd98e2eb",
+    "semantic_hash": "eb77cf4ec8d2e07a3fdd35febd98e2eb"
   },
   "cli/src/api.ts": {
-    "mtime": 1787924031.3218627,
-    "ast_hash": "0f501a39defe97183f69e5e2ba9ee156",
-    "semantic_hash": "0f501a39defe97183f69e5e2ba9ee156"
+    "mtime": 1787934686.1056914,
+    "ast_hash": "b92b6e6cd40284ed04da2d030eff37fd",
+    "semantic_hash": "b92b6e6cd40284ed04da2d030eff37fd"
   },
   "cli/src/auth.ts": {
-    "mtime": 1786343408.1424098,
-    "ast_hash": "aa36b11fbc7476b093a55c973f9409f4",
-    "semantic_hash": "aa36b11fbc7476b093a55c973f9409f4"
+    "mtime": 1787935588.9913316,
+    "ast_hash": "bf95e8423e6ffdaeabbaf8e202051a04",
+    "semantic_hash": "bf95e8423e6ffdaeabbaf8e202051a04"
   },
   "cli/src/components/Dashboard.tsx": {
-    "mtime": 1787924880.486663,
-    "ast_hash": "a39f2a3e921e4972a6f69464f0f4f6c5",
-    "semantic_hash": "a39f2a3e921e4972a6f69464f0f4f6c5"
+    "mtime": 1787934686.089831,
+    "ast_hash": "50f9c989a510ce1c9e7d85172bed0d8f",
+    "semantic_hash": "50f9c989a510ce1c9e7d85172bed0d8f"
   },
   "cli/src/components/Login.tsx": {
-    "mtime": 1787923061.0075297,
-    "ast_hash": "9853b1cb2e6173434c2b2debb5b2c2d3",
-    "semantic_hash": "9853b1cb2e6173434c2b2debb5b2c2d3"
+    "mtime": 1787935589.0116525,
+    "ast_hash": "5f37c1ec24f1b4c88adcceb3ca2c2fbb",
+    "semantic_hash": "5f37c1ec24f1b4c88adcceb3ca2c2fbb"
   },
   "cli/src/config.ts": {
-    "mtime": 1786343408.2124891,
-    "ast_hash": "d7c6b03e973c4e0d07a449becd2b4b0b",
-    "semantic_hash": "d7c6b03e973c4e0d07a449becd2b4b0b"
+    "mtime": 1787933865.1289773,
+    "ast_hash": "58cd096ac1f3a4c3d05e69778ae103e4",
+    "semantic_hash": "58cd096ac1f3a4c3d05e69778ae103e4"
   },
   "cli/src/index.tsx": {
-    "mtime": 1787923061.0047143,
-    "ast_hash": "62dc58c6ccab3aded915992a37697f5b",
-    "semantic_hash": "62dc58c6ccab3aded915992a37697f5b"
+    "mtime": 1787935822.076643,
+    "ast_hash": "d42087099a027b5bbd2fa16980cd79ac",
+    "semantic_hash": "d42087099a027b5bbd2fa16980cd79ac"
   },
   "cli/src/sidecar.ts": {
-    "mtime": 1787454249.7083445,
-    "ast_hash": "522fd64f55d889836b986b2f88d67f24",
-    "semantic_hash": "522fd64f55d889836b986b2f88d67f24"
+    "mtime": 1787934067.3340688,
+    "ast_hash": "8f2845a810957c4c157b7241744c1279",
+    "semantic_hash": "8f2845a810957c4c157b7241744c1279"
   },
   "cli/tsconfig.json": {
-    "mtime": 1787902146.2550948,
+    "mtime": 1787927726.936218,
     "ast_hash": "deb3ea8fa9c92f5d7a181a3ca181629b",
     "semantic_hash": "deb3ea8fa9c92f5d7a181a3ca181629b"
   },
@@ -660,78 +655,88 @@
     "semantic_hash": "73f808dadbc4d415a17a3293c9910912"
   },
   "cli/src/components/LoadingScreen.tsx": {
-    "mtime": 1787913620.0201342,
-    "ast_hash": "31bd1dd5266d8432471e872230b4a688",
-    "semantic_hash": "31bd1dd5266d8432471e872230b4a688"
-  },
-  "cli/src/components/QuotaTable.tsx": {
-    "mtime": 1787923061.0093076,
-    "ast_hash": "1a574ddbcf78d17fd9438cd19848f648",
-    "semantic_hash": "1a574ddbcf78d17fd9438cd19848f648"
+    "mtime": 1787933865.0650463,
+    "ast_hash": "23a17e04ee36f5b1dc67d3cb2f5c7dd2",
+    "semantic_hash": "23a17e04ee36f5b1dc67d3cb2f5c7dd2"
   },
   "cli/src/components/TextInput.tsx": {
-    "mtime": 1787913620.0194044,
-    "ast_hash": "30e987b71d80a69254062236c74cdee1",
-    "semantic_hash": "30e987b71d80a69254062236c74cdee1"
+    "mtime": 1787934686.144781,
+    "ast_hash": "144ca80e239aeb108a6a664e3baa6731",
+    "semantic_hash": "144ca80e239aeb108a6a664e3baa6731"
   },
   "cli/src/components/dashboard/DashboardHeader.tsx": {
-    "mtime": 1787924880.4865165,
-    "ast_hash": "afa2c22a35a8f3a3880ad46b2c28ed5c",
-    "semantic_hash": "afa2c22a35a8f3a3880ad46b2c28ed5c"
+    "mtime": 1787935169.783516,
+    "ast_hash": "011fef31496ded07a343422cc8d53297",
+    "semantic_hash": "011fef31496ded07a343422cc8d53297"
   },
   "cli/src/components/dashboard/Footer.tsx": {
-    "mtime": 1787924219.2340739,
-    "ast_hash": "e4e0f0259d7e2a35fc58851d86ed22cf",
-    "semantic_hash": "e4e0f0259d7e2a35fc58851d86ed22cf"
+    "mtime": 1787934686.1449468,
+    "ast_hash": "cc10636cbc969101d2f0abb68cc6337a",
+    "semantic_hash": "cc10636cbc969101d2f0abb68cc6337a"
   },
   "cli/src/components/dashboard/SettingsCard.tsx": {
-    "mtime": 1787924723.0391603,
-    "ast_hash": "97d810883f1ae48f1b2537c0aa15b77d",
-    "semantic_hash": "97d810883f1ae48f1b2537c0aa15b77d"
+    "mtime": 1787934686.1580229,
+    "ast_hash": "849577dbf48e8920219383c056d957ad",
+    "semantic_hash": "849577dbf48e8920219383c056d957ad"
   },
   "cli/src/components/dashboard/SummaryCards.tsx": {
-    "mtime": 1787923061.013729,
-    "ast_hash": "f34443eca07f1456a31fcd038bdbedd9",
-    "semantic_hash": "f34443eca07f1456a31fcd038bdbedd9"
+    "mtime": 1787934686.158029,
+    "ast_hash": "3e847c4fe9d04a4b6222845746b5bfc1",
+    "semantic_hash": "3e847c4fe9d04a4b6222845746b5bfc1"
   },
   "cli/src/components/login/LoginForm.tsx": {
-    "mtime": 1787921737.1752832,
-    "ast_hash": "afc2487a60322964610ef6886fc3937f",
-    "semantic_hash": "afc2487a60322964610ef6886fc3937f"
+    "mtime": 1787934686.1580346,
+    "ast_hash": "a947c73b3ae6da8141f32686fa77e465",
+    "semantic_hash": "a947c73b3ae6da8141f32686fa77e465"
   },
   "cli/src/components/login/ResetForm.tsx": {
-    "mtime": 1787921757.4162123,
-    "ast_hash": "dd9a03e5785e1f1ae49eb8af1170a510",
-    "semantic_hash": "dd9a03e5785e1f1ae49eb8af1170a510"
+    "mtime": 1787934686.1580405,
+    "ast_hash": "23408737ea72d26052fbb663d30fddfc",
+    "semantic_hash": "23408737ea72d26052fbb663d30fddfc"
   },
   "cli/src/components/login/SecurityCard.tsx": {
-    "mtime": 1787921775.929126,
-    "ast_hash": "839047965c235e07b6d12e084bb2d99d",
-    "semantic_hash": "839047965c235e07b6d12e084bb2d99d"
+    "mtime": 1787934686.1744316,
+    "ast_hash": "01a469ef326df5bf0d55117c019c4d15",
+    "semantic_hash": "01a469ef326df5bf0d55117c019c4d15"
   },
   "cli/src/components/quota/QuotaCard.tsx": {
-    "mtime": 1787922396.987528,
-    "ast_hash": "c8ed06a595538e9b997704b9ce68a5cd",
-    "semantic_hash": "c8ed06a595538e9b997704b9ce68a5cd"
+    "mtime": 1787934686.1255145,
+    "ast_hash": "8e15508ff0eb4fe0ebe9754f5716c446",
+    "semantic_hash": "8e15508ff0eb4fe0ebe9754f5716c446"
   },
   "cli/src/components/quota/QuotaCells.ts": {
-    "mtime": 1787923061.014657,
-    "ast_hash": "2d388476b938e0af5a8aad6a16a07c76",
-    "semantic_hash": "2d388476b938e0af5a8aad6a16a07c76"
+    "mtime": 1787933865.1635945,
+    "ast_hash": "c5c87b2df920f0324279f77d1178c40d",
+    "semantic_hash": "c5c87b2df920f0324279f77d1178c40d"
   },
   "cli/src/components/ui.tsx": {
-    "mtime": 1787913620.020841,
-    "ast_hash": "3ca55a11fa7acc5077e7cdb4c381797a",
-    "semantic_hash": "3ca55a11fa7acc5077e7cdb4c381797a"
+    "mtime": 1787933865.1338298,
+    "ast_hash": "a89807dd30ab50033d0e9ccb63a18ba6",
+    "semantic_hash": "a89807dd30ab50033d0e9ccb63a18ba6"
   },
   "cli/src/hooks/useDashboardSettings.ts": {
-    "mtime": 1787923061.0107942,
-    "ast_hash": "2ed0f6632aa1f8bd74136eb912748d9c",
-    "semantic_hash": "2ed0f6632aa1f8bd74136eb912748d9c"
+    "mtime": 1787935589.0116959,
+    "ast_hash": "d0d9aaf8ddd3fca113906b1f97d53f3c",
+    "semantic_hash": "d0d9aaf8ddd3fca113906b1f97d53f3c"
   },
   "cli/src/hooks/useQuotaData.ts": {
-    "mtime": 1787923061.0102391,
-    "ast_hash": "f41ec98a6be42992346aa277bc667555",
-    "semantic_hash": "f41ec98a6be42992346aa277bc667555"
+    "mtime": 1787933865.1339414,
+    "ast_hash": "338fee5ff4839233f0de2480bbc072c7",
+    "semantic_hash": "338fee5ff4839233f0de2480bbc072c7"
+  },
+  "cli/src/components/QuotaGrid.tsx": {
+    "mtime": 1787934457.874818,
+    "ast_hash": "0bee8d04581942bce4b5bb52ce46f5cf",
+    "semantic_hash": "0bee8d04581942bce4b5bb52ce46f5cf"
+  },
+  "cli/src/openUrl.ts": {
+    "mtime": 1787935589.0172014,
+    "ast_hash": "5209c9c87a29c5165fc2e60129ccba79",
+    "semantic_hash": "5209c9c87a29c5165fc2e60129ccba79"
+  },
+  "scripts/update.sh": {
+    "mtime": 1787935588.9617293,
+    "ast_hash": "f563a4cd02b4904e3bc791305caa87de",
+    "semantic_hash": "f563a4cd02b4904e3bc791305caa87de"
   }
 }

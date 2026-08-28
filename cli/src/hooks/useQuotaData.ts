@@ -1,6 +1,6 @@
+import type { QuotaSnapshot } from '../api'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import type { QuotaSnapshot } from '../api'
 import { fetchAllQuotas } from '../api'
 
 export function useQuotaData(onLogout: () => void) {
@@ -19,13 +19,14 @@ export function useQuotaData(onLogout: () => void) {
         setSnapshots(data)
         setLastRefreshed(new Date())
         setError('')
-      } catch (err: any) {
+      } catch (error_: unknown) {
         if (signal?.aborted) return
-        if (err.message === 'UNAUTHORIZED') {
+        const message = error_ instanceof Error ? error_.message : String(error_)
+        if (message === 'UNAUTHORIZED') {
           onLogout()
           return
         }
-        setError(err.message)
+        setError(message)
       } finally {
         if (!signal?.aborted) setLoading(false)
       }
