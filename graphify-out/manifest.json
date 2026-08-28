@@ -635,9 +635,9 @@
     "semantic_hash": "5a4cf051798d7e6931ee0405a4523c8f"
   },
   "scripts/install.sh": {
-    "mtime": 1787817647.9809809,
-    "ast_hash": "dd0ca001b470dd8e59fd103799620971",
-    "semantic_hash": "dd0ca001b470dd8e59fd103799620971"
+    "mtime": 1787897639.0094304,
+    "ast_hash": "883a1eaee8b815681aefadcb1457b5a9",
+    "semantic_hash": "883a1eaee8b815681aefadcb1457b5a9"
   },
   "mobile/test/api_service_test.dart": {
     "mtime": 1787806811.8240469,
@@ -655,8 +655,8 @@
     "semantic_hash": "661ec2515defd8322007861bbd876e6d"
   },
   "package.json": {
-    "mtime": 1787895777.4017246,
-    "ast_hash": "4cd31d3fdeff3bca9cd0d8a34f9d6297",
-    "semantic_hash": "4cd31d3fdeff3bca9cd0d8a34f9d6297"
+    "mtime": 1787896853.0441518,
+    "ast_hash": "ec461198c256be08a70425dd51b4f3e6",
+    "semantic_hash": "ec461198c256be08a70425dd51b4f3e6"
   }
 }

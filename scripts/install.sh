@@ -26,6 +26,40 @@ fail() {
     exit 1
 }
 
+run_with_spinner() {
+    local message="$1"
+    shift
+    if [[ ! -t 2 ]]; then
+        "$@" >>"$LOG_FILE" 2>&1
+        return $?
+    fi
+    local spinner_chars='|/-\'
+    local i=0
+    (
+        while true; do
+            printf "  %s [%s]  \r" "$message" "${spinner_chars:$i:1}" >&2
+            i=$(( (i + 1) % 4 ))
+            sleep 0.1
+        done
+    ) &
+    local spinner_pid=$!
+    "$@" >>"$LOG_FILE" 2>&1
+    local exit_code=$?
+    kill "$spinner_pid" 2>/dev/null
+    wait "$spinner_pid" 2>/dev/null || true
+    printf "   \r" >&2
+    return $exit_code
+}
+
+install_cli_dependencies() {
+    cd "$BUILD_ROOT/cli"
+    bun install --frozen-lockfile
+}
+
+build_and_install() {
+    make -C "$BUILD_ROOT" install "BIN_DIR=$INSTALL_DIR"
+}
+
 configure_shell_path() {
     local install_dir="$1"
     local shell_name="${SHELL##*/}"
@@ -89,7 +123,7 @@ if [[ -n "$LOCAL_ROOT" ]]; then
 else
     command -v git >/dev/null 2>&1 || fail "git is required when installing via curl."
     TEMP_ROOT="$(mktemp -d "${TMPDIR:-/tmp}/qmon-install.XXXXXX")"
-    if ! git clone --depth 1 --branch "$REPOSITORY_REF" "$REPOSITORY_URL" "$TEMP_ROOT/qmon" >>"$LOG_FILE" 2>&1; then
+    if ! run_with_spinner "Cloning repository..." git clone --depth 1 --branch "$REPOSITORY_REF" "$REPOSITORY_URL" "$TEMP_ROOT/qmon"; then
         fail "unable to clone $REPOSITORY_URL ($REPOSITORY_REF)."
     fi
     BUILD_ROOT="$TEMP_ROOT/qmon"
@@ -97,13 +131,11 @@ fi
 
 mkdir -p "$INSTALL_DIR" || fail "unable to create install directory $INSTALL_DIR."
 
-echo "Installing Qmon CLI dependencies..."
-if ! (cd "$BUILD_ROOT/cli" && bun install --frozen-lockfile) >>"$LOG_FILE" 2>&1; then
+if ! run_with_spinner "Installing CLI dependencies..." install_cli_dependencies; then
     fail "unable to install CLI dependencies."
 fi
 
-echo "Building and installing qmon and qmon-server..."
-if ! make -C "$BUILD_ROOT" install BIN_DIR="$INSTALL_DIR" >>"$LOG_FILE" 2>&1; then
+if ! run_with_spinner "Building and installing qmon and qmon-server..." build_and_install; then
     fail "unable to build or install Qmon."
 fi
 
