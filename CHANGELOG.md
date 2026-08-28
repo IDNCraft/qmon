@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.1.0](https://github.com/IDNCraft/qmon/compare/v0.0.6...v0.1.0) (2026-08-28)
+
+
+### Features
+
+* **cli:** add version and update commands ([#18](https://github.com/IDNCraft/qmon/issues/18)) ([14e25d7](https://github.com/IDNCraft/qmon/commit/14e25d7e06367cbb5872cf262de788f33485521e))
+
 ## [0.0.6](https://github.com/IDNCraft/qmon/compare/v0.0.5...v0.0.6) (2026-08-28)
 
 
