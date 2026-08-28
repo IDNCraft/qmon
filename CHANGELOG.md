@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/IDNCraft/qmon/compare/v0.0.5...v0.0.6) (2026-08-28)
+
+
+### Features
+
+* **install:** add spinners and update Android build plugins ([#15](https://github.com/IDNCraft/qmon/issues/15)) ([6c9f86a](https://github.com/IDNCraft/qmon/commit/6c9f86a0aebd45b7dc4e04ad68748ef8f92897f7))
+
 ## [0.0.5](https://github.com/IDNCraft/qmon/compare/v0.0.4...v0.0.5) (2026-08-28)
 
 ## [0.0.4](https://github.com/IDNCraft/qmon/compare/v0.0.3...v0.0.4) (2026-08-28)
