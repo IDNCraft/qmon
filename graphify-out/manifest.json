@@ -425,7 +425,7 @@
     "semantic_hash": "34aadb5ff69e4c64e749fc6494ba9d3d"
   },
   "mobile/android/app/build.gradle.kts": {
-    "mtime": 1787890322.7616637,
+    "mtime": 1787895763.6056948,
     "ast_hash": "966dfc6d48bd24d889105118b5d97896",
     "semantic_hash": "966dfc6d48bd24d889105118b5d97896"
   },
@@ -655,8 +655,8 @@
     "semantic_hash": "661ec2515defd8322007861bbd876e6d"
   },
   "package.json": {
-    "mtime": 1787888963.4704065,
-    "ast_hash": "bbfec9e48217d5d3da81560dadd83d3d",
-    "semantic_hash": "bbfec9e48217d5d3da81560dadd83d3d"
+    "mtime": 1787895777.4017246,
+    "ast_hash": "4cd31d3fdeff3bca9cd0d8a34f9d6297",
+    "semantic_hash": "4cd31d3fdeff3bca9cd0d8a34f9d6297"
   }
 }
