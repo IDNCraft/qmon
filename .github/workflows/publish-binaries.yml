@@ -58,8 +58,19 @@ jobs:
             exit 1
           fi
 
+      - name: Decode release keystore
+        env:
+          QMON_RELEASE_KEYSTORE_BASE64: ${{ secrets.QMON_RELEASE_KEYSTORE_BASE64 }}
+        run: |
+          echo "$QMON_RELEASE_KEYSTORE_BASE64" | base64 -d > mobile/android/app/qmon-release.keystore
+
       - name: Build release APK
         working-directory: mobile
+        env:
+          QMON_RELEASE_KEYSTORE: qmon-release.keystore
+          QMON_RELEASE_KEYSTORE_PASSWORD: ${{ secrets.QMON_RELEASE_KEYSTORE_PASSWORD }}
+          QMON_RELEASE_KEY_ALIAS: ${{ secrets.QMON_RELEASE_KEY_ALIAS }}
+          QMON_RELEASE_KEY_PASSWORD: ${{ secrets.QMON_RELEASE_KEY_PASSWORD }}
         run: flutter build apk --release
 
       - name: Set APK filename

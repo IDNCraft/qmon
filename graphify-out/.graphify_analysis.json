@@ -225,6 +225,50 @@
       "ref_release"
     ],
     "4": [
+      "api_internal_auth_model",
+      "api_internal_auth_model_go_time",
+      "api_internal_auth_mysql",
+      "api_internal_auth_mysql_go_db",
+      "api_internal_auth_mysql_go_repository",
+      "api_internal_auth_mysql_go_time",
+      "api_internal_auth_mysql_newmysqlrepository",
+      "api_internal_auth_service",
+      "api_internal_auth_service_go_repository",
+      "api_internal_config_auth",
+      "api_internal_config_auth_jwtexpirehours",
+      "api_internal_config_auth_jwtsecret",
+      "api_internal_config_auth_refreshtokenexpiredays",
+      "api_internal_middleware_auth",
+      "api_internal_middleware_auth_auth",
+      "api_internal_middleware_auth_go_handlerfunc",
+      "api_internal_quota_antigravity_formatduration",
+      "api_internal_quota_copilot_go_context",
+      "api_internal_quota_copilot_go_quota",
+      "api_internal_quota_copilot_go_quota_service",
+      "auth_loginrequest",
+      "auth_loginuser",
+      "auth_mysqlrepository",
+      "auth_mysqlrepository_deleterefreshtoken",
+      "auth_mysqlrepository_findbyemail",
+      "auth_mysqlrepository_findrefreshtoken",
+      "auth_mysqlrepository_insertrefreshtoken",
+      "auth_mysqlrepository_insertuser",
+      "auth_mysqlrepository_setpassword",
+      "auth_mysqlrepository_updateusercredentials",
+      "auth_refreshtokenrequest",
+      "auth_service",
+      "auth_service_createrefreshtoken",
+      "auth_service_issuetoken",
+      "auth_service_login",
+      "auth_service_refreshtoken",
+      "auth_service_resetdefaultadmin",
+      "auth_service_revokerefreshtoken",
+      "auth_tokenresponse",
+      "auth_userinfo",
+      "duration",
+      "quota_service_probecopilot"
+    ],
+    "5": [
       "any",
       "api_internal_middleware_recovery",
       "api_internal_middleware_recovery_go_handlerfunc",
@@ -264,47 +308,6 @@
       "uikit",
       "xctest",
       "xctestcase"
-    ],
-    "5": [
-      "api_internal_auth_model",
-      "api_internal_auth_model_go_time",
-      "api_internal_auth_service",
-      "api_internal_auth_service_go_repository",
-      "api_internal_config_auth",
-      "api_internal_config_auth_jwtexpirehours",
-      "api_internal_config_auth_jwtsecret",
-      "api_internal_config_auth_refreshtokenexpiredays",
-      "api_internal_middleware_auth",
-      "api_internal_middleware_auth_auth",
-      "api_internal_middleware_auth_go_handlerfunc",
-      "api_internal_quota_antigravity",
-      "api_internal_quota_antigravity_antigravitysubscriptionexpired",
-      "api_internal_quota_antigravity_formatduration",
-      "api_internal_quota_copilot_go_context",
-      "api_internal_quota_copilot_go_quota",
-      "api_internal_quota_copilot_go_quota_service",
-      "auth_loginrequest",
-      "auth_loginuser",
-      "auth_mysqlrepository_findbyemail",
-      "auth_refreshtokenrequest",
-      "auth_service",
-      "auth_service_createrefreshtoken",
-      "auth_service_issuetoken",
-      "auth_service_login",
-      "auth_service_refreshtoken",
-      "auth_service_resetdefaultadmin",
-      "auth_service_revokerefreshtoken",
-      "auth_tokenresponse",
-      "auth_userinfo",
-      "duration",
-      "quota_cloudcodefetchmodelsrequest",
-      "quota_cloudcodefetchmodelsresponse",
-      "quota_cloudcodeloadrequest",
-      "quota_cloudcodeloadresponse",
-      "quota_cloudcodemodelinfo",
-      "quota_cloudcodetier",
-      "quota_oauthtokenresponse",
-      "quota_service_probecopilot"
     ],
     "6": [
       "api_internal_quota_service",
@@ -743,20 +746,6 @@
       "seeders_seeder"
     ],
     "22": [
-      "api_internal_auth_mysql",
-      "api_internal_auth_mysql_go_db",
-      "api_internal_auth_mysql_go_repository",
-      "api_internal_auth_mysql_go_time",
-      "api_internal_auth_mysql_newmysqlrepository",
-      "auth_mysqlrepository",
-      "auth_mysqlrepository_deleterefreshtoken",
-      "auth_mysqlrepository_findrefreshtoken",
-      "auth_mysqlrepository_insertrefreshtoken",
-      "auth_mysqlrepository_insertuser",
-      "auth_mysqlrepository_setpassword",
-      "auth_mysqlrepository_updateusercredentials"
-    ],
-    "23": [
       "api_internal_provider_repository",
       "api_internal_provider_repository_go_db",
       "api_internal_provider_repository_go_time",
@@ -770,7 +759,7 @@
       "provider_repository_savecredential",
       "provider_savecredentialinput"
     ],
-    "24": [
+    "23": [
       "api_internal_config_app",
       "api_internal_config_app_appenv",
       "api_internal_config_app_corsorigins",
@@ -783,7 +772,7 @@
       "api_internal_middleware_cors_cors",
       "api_internal_middleware_cors_go_handlerfunc"
     ],
-    "25": [
+    "24": [
       "color",
       "dart_ui",
       "mobile_lib_widgets_provider_card",
@@ -796,7 +785,7 @@
       "models_quota_models_dart",
       "providersnapshot"
     ],
-    "26": [
+    "25": [
       "mobile_lib_main",
       "mobile_lib_main_build",
       "mobile_lib_main_main",
@@ -809,7 +798,7 @@
       "statelesswidget",
       "theme_app_theme_dart"
     ],
-    "27": [
+    "26": [
       "mobile_web_manifest",
       "mobile_web_manifest_background_color",
       "mobile_web_manifest_description",
@@ -822,7 +811,7 @@
       "mobile_web_manifest_start_url",
       "mobile_web_manifest_theme_color"
     ],
-    "28": [
+    "27": [
       "api_internal_config_app_appname",
       "api_internal_config_config",
       "api_internal_config_config_getenv",
@@ -834,7 +823,7 @@
       "api_internal_config_mail_mailport",
       "api_internal_config_mail_mailusername"
     ],
-    "29": [
+    "28": [
       "api_internal_mail_mailer",
       "api_internal_mail_mailer_buildmessage",
       "api_internal_mail_mailer_getenv",
@@ -846,7 +835,7 @@
       "mail_mailer_send",
       "mail_passwordresetdata"
     ],
-    "30": [
+    "29": [
       "api_internal_utils_query",
       "api_internal_utils_query_go_context",
       "api_internal_utils_query_isallowedcol",
@@ -858,7 +847,7 @@
       "utils_listqueryoptions",
       "utils_listqueryparams"
     ],
-    "31": [
+    "30": [
       "mobile_test_api_service_test",
       "mobile_test_api_service_test_main",
       "mobile_test_quota_type_label_test",
@@ -870,7 +859,7 @@
       "package_qmon_mobile_models_quota_models_dart",
       "package_qmon_mobile_services_api_service_dart"
     ],
-    "32": [
+    "31": [
       "api_internal_config_database",
       "api_internal_config_database_databaseurl",
       "api_main",
@@ -880,6 +869,17 @@
       "api_main_go_db",
       "api_main_init",
       "api_main_main"
+    ],
+    "32": [
+      "api_internal_quota_antigravity",
+      "api_internal_quota_antigravity_antigravitysubscriptionexpired",
+      "quota_cloudcodefetchmodelsrequest",
+      "quota_cloudcodefetchmodelsresponse",
+      "quota_cloudcodeloadrequest",
+      "quota_cloudcodeloadresponse",
+      "quota_cloudcodemodelinfo",
+      "quota_cloudcodetier",
+      "quota_oauthtokenresponse"
     ],
     "33": [
       "api_internal_quota_repository",
@@ -1119,8 +1119,8 @@
     "1": 0.0597567424643046,
     "2": 0.057624113475177305,
     "3": 0.046511627906976744,
-    "4": 0.0620782726045884,
-    "5": 0.0728744939271255,
+    "4": 0.06504065040650407,
+    "5": 0.0620782726045884,
     "6": 0.12010796221322537,
     "7": 0.13940256045519203,
     "8": 0.0748663101604278,
@@ -1137,17 +1137,17 @@
     "19": 0.19166666666666668,
     "20": 0.125,
     "21": 0.22727272727272727,
-    "22": 0.19696969696969696,
-    "23": 0.21212121212121213,
-    "24": 0.21818181818181817,
+    "22": 0.21212121212121213,
+    "23": 0.21818181818181817,
+    "24": 0.18181818181818182,
     "25": 0.18181818181818182,
     "26": 0.18181818181818182,
-    "27": 0.18181818181818182,
-    "28": 0.3333333333333333,
-    "29": 0.28888888888888886,
-    "30": 0.4222222222222222,
-    "31": 0.2,
-    "32": 0.3611111111111111,
+    "27": 0.3333333333333333,
+    "28": 0.28888888888888886,
+    "29": 0.4222222222222222,
+    "30": 0.2,
+    "31": 0.3611111111111111,
+    "32": 0.3055555555555556,
     "33": 0.3611111111111111,
     "34": 0.4444444444444444,
     "35": 0.2222222222222222,
