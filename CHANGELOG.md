@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.0.4](https://github.com/IDNCraft/qmon/compare/v0.0.3...v0.0.4) (2026-08-28)
+
 ## [0.0.3](https://github.com/IDNCraft/qmon/compare/v0.0.2...v0.0.3) (2026-08-28)
 
 
