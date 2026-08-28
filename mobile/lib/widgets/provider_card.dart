@@ -43,16 +43,16 @@ class ProviderCard extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.05),
+              color: Colors.white.withValues(alpha: 0.05),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withValues(alpha: 0.1),
                 width: 1.5,
               ),
               gradient: LinearGradient(
                 colors: [
-                  gradients[0].withOpacity(0.15),
-                  gradients[1].withOpacity(0.05),
+                  gradients[0].withValues(alpha: 0.15),
+                  gradients[1].withValues(alpha: 0.05),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -80,8 +80,8 @@ class ProviderCard extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: hasError
-                            ? Colors.redAccent.withOpacity(0.2)
-                            : Colors.greenAccent.withOpacity(0.2),
+                            ? Colors.redAccent.withValues(alpha: 0.2)
+                            : Colors.greenAccent.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
@@ -102,7 +102,7 @@ class ProviderCard extends StatelessWidget {
                   Text(
                     provider.lastError!,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.7),
+                      color: Colors.white.withValues(alpha: 0.7),
                       fontStyle: FontStyle.italic,
                     ),
                   )
@@ -165,15 +165,17 @@ class ProviderCard extends StatelessWidget {
       if (firstQ.isExhausted) {
         valueColor = Colors.redAccent;
       } else if (showUsedMetric) {
-        if (displayPct >= 80)
+        if (displayPct >= 80) {
           valueColor = Colors.redAccent;
-        else if (displayPct >= 50)
+        } else if (displayPct >= 50) {
           valueColor = Colors.orangeAccent;
+        }
       } else {
-        if (displayPct < 20)
+        if (displayPct < 20) {
           valueColor = Colors.redAccent;
-        else if (displayPct < 50)
+        } else if (displayPct < 50) {
           valueColor = Colors.orangeAccent;
+        }
       }
 
       return _buildQuotaRow(firstQ, modelName, valueColor, displayPct);
@@ -217,7 +219,7 @@ class ProviderCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             child: LinearProgressIndicator(
               value: displayPct / 100,
-              backgroundColor: Colors.white.withOpacity(0.1),
+              backgroundColor: Colors.white.withValues(alpha: 0.1),
               valueColor: AlwaysStoppedAnimation<Color>(valueColor),
               minHeight: 6,
             ),
@@ -226,7 +228,7 @@ class ProviderCard extends StatelessWidget {
           Text(
             q.resetText,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withValues(alpha: 0.5),
               fontSize: 12,
             ),
           ),
