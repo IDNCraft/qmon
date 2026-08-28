@@ -114,7 +114,7 @@ export function Dashboard({ onLogout }: Props) {
       style={{ position: 'relative' }}
     >
       <Card
-        title="Qmon Quota Dashboard"
+        title="Qmon Dashboard"
         titleColor={THEME.accent}
         width={dashboardColumns - 4}
         paddingX={1}
