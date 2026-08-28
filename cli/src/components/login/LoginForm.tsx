@@ -1,6 +1,5 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
-import React from 'react'
 
 import { TextInput } from '../TextInput'
 import { Button, THEME } from '../ui'
@@ -45,13 +44,20 @@ export function LoginForm({
       <box flexDirection="column" paddingLeft={1}>
         {step > 1 && (
           <box flexDirection="row" marginBottom={1}>
-            <text selectable={false} fg={THEME.muted}>Email: </text>
+            <text selectable={false} fg={THEME.muted}>
+              Email:{' '}
+            </text>
             <text selectable={false}>{email}</text>
           </box>
         )}
 
         {step === 1 && (
-          <box flexDirection="row" onMouseDown={() => onFocusField('email')}>
+          <box
+            flexDirection="row"
+            onMouseDown={() => {
+              onFocusField('email')
+            }}
+          >
             <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.accent} width={10}>
               Email
             </text>
@@ -61,18 +67,32 @@ export function LoginForm({
               onSubmit={onSubmitEmail}
               placeholder="your@email.com"
               focused={focusedField === 'email'}
-              onMouseDown={() => onFocusField('email')}
+              onMouseDown={() => {
+                onFocusField('email')
+              }}
             />
             {emailSuggestion && (
-              <text selectable={false} attributes={TextAttributes.DIM}>{emailSuggestion}</text>
+              <text selectable={false} attributes={TextAttributes.DIM}>
+                {emailSuggestion}
+              </text>
             )}
           </box>
         )}
 
         {step === 2 && (
-          <box flexDirection="column" onMouseDown={() => onFocusField('password')}>
+          <box
+            flexDirection="column"
+            onMouseDown={() => {
+              onFocusField('password')
+            }}
+          >
             <box flexDirection="row">
-              <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.accent} width={10}>
+              <text
+                selectable={false}
+                attributes={TextAttributes.BOLD}
+                fg={THEME.accent}
+                width={10}
+              >
                 Password
               </text>
               <TextInput
@@ -82,12 +102,16 @@ export function LoginForm({
                 focused={focusedField === 'password'}
                 placeholder={isDefaultAdmin ? 'password' : ''}
                 maskChar="*"
-                onMouseDown={() => onFocusField('password')}
+                onMouseDown={() => {
+                  onFocusField('password')
+                }}
               />
             </box>
             {loading && (
               <box marginTop={1}>
-                <text selectable={false} fg={THEME.warning}>Verifying credentials…</text>
+                <text selectable={false} fg={THEME.warning}>
+                  Verifying credentials…
+                </text>
               </box>
             )}
           </box>
@@ -96,9 +120,7 @@ export function LoginForm({
 
       <box flexDirection="row" gap={1} marginTop={1}>
         {step > 1 && <Button label="Back" color={THEME.muted} onClick={onBack} />}
-        {step === 1 && (
-          <Button label="Continue" onClick={onSubmitEmail} disabled={!email} />
-        )}
+        {step === 1 && <Button label="Continue" onClick={onSubmitEmail} disabled={!email} />}
         {step === 2 && (
           <Button
             label={loading ? 'Logging in…' : 'Login'}

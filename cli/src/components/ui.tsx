@@ -67,8 +67,8 @@ export function Card({
   backgroundColor,
   onMouseDown,
 }: CardProps) {
-  const px = paddingX !== undefined ? paddingX : padding + 1
-  const py = paddingY !== undefined ? paddingY : padding
+  const px = paddingX ?? padding + 1
+  const py = paddingY ?? padding
   return (
     <box
       flexDirection="column"
@@ -86,7 +86,9 @@ export function Card({
       paddingRight={px}
       paddingTop={py}
       paddingBottom={py}
-      onMouseDown={(event) => onMouseDown?.(event)}
+      onMouseDown={(event) => {
+        onMouseDown?.(event)
+      }}
     >
       {title && (
         <box marginBottom={1}>
@@ -159,11 +161,22 @@ export function Button({
       paddingBottom={0}
       width={width}
       justifyContent={justifyContent}
-      onMouseOver={() => !disabled && setHovered(true)}
-      onMouseOut={() => setHovered(false)}
-      onMouseDown={() => !disabled && onClick()}
+      onMouseOver={() => {
+        if (!disabled) {
+          setHovered(true)
+        }
+      }}
+      onMouseOut={() => {
+        setHovered(false)
+      }}
+      onMouseDown={() => {
+        if (!disabled) {
+          onClick()
+        }
+      }}
     >
-      <text selectable={false}
+      <text
+        selectable={false}
         attributes={TextAttributes.BOLD}
         fg={disabled ? THEME.muted : hovered ? THEME.textInverse : color}
       >

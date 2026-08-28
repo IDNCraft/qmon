@@ -1,31 +1,38 @@
 /** @jsxImportSource @opentui/react */
 import { createCliRenderer } from '@opentui/core'
 import { createRoot } from '@opentui/react'
-import React from 'react'
 
+import { App } from './App'
 import { loginWithPrompt, runAuthFlow, runLogoutFlow } from './auth'
 import { clearConfig, loadConfig } from './config'
 import { startSidecar, stopSidecar } from './sidecar'
-import { App } from './App'
+import { runUpdate } from './update'
+import packageJson from '../../package.json' with { type: 'json' }
 
 const args = process.argv.slice(2)
+
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
+}
 
 async function executeWithLogin<T>(fn: () => Promise<T>): Promise<T> {
   try {
     return await fn()
-  } catch (err: any) {
-    if (err.message?.includes('Not logged in')) {
-      console.log(`\n\x1b[33m➜ Login required. Let's set that up first.\x1b[0m`)
+  } catch (error: unknown) {
+    if (getErrorMessage(error).includes('Not logged in')) {
+      console.log(`\n\u001B[33m➜ Login required. Let's set that up first.\u001B[0m`)
       await loginWithPrompt()
       return await fn()
     }
-    throw err
+    throw error
   }
 }
 
 async function main() {
   // Register process termination handlers to guarantee sidecar cleanup
-  process.on('exit', () => stopSidecar())
+  process.on('exit', () => {
+    stopSidecar()
+  })
   process.on('SIGINT', () => {
     stopSidecar()
     process.exit(0)
@@ -37,24 +44,50 @@ async function main() {
 
   if (args.length === 1 && (args[0] === '-h' || args[0] === '--help')) {
     console.log(`
-\x1b[1m\x1b[36mQmon CLI - Command Reference\x1b[0m
+\u001B[1m\u001B[36mQmon CLI - Command Reference\u001B[0m
 
-\x1b[33mUsage:\x1b[0m
+\u001B[33mUsage:\u001B[0m
   qmon [command]
 
-\x1b[33mCommands:\x1b[0m
-  \x1b[32mqmon\x1b[0m                                Open the Qmon Quota Dashboard
-  \x1b[32mqmon login <provider>\x1b[0m               Login to a provider (antigravity, claude, codex, copilot)
-  \x1b[32mqmon logout\x1b[0m                          Logout of current Qmon account
-  \x1b[32mqmon logout <provider> [account]\x1b[0m    Logout of a specific provider account
+\u001B[33mCommands:\u001B[0m
+  \u001B[32mqmon\u001B[0m                                Open the Qmon Quota Dashboard
+  \u001B[32mqmon version\u001B[0m                         Show the installed CLI version
+  \u001B[32mqmon update [release-ref]\u001B[0m            Update to the latest or specified release
+  \u001B[32mqmon login <provider>\u001B[0m               Login to a provider (antigravity, claude, codex, copilot)
+  \u001B[32mqmon logout\u001B[0m                          Logout of current Qmon account
+  \u001B[32mqmon logout <provider> [account]\u001B[0m    Logout of a specific provider account
 `)
     process.exit(0)
   }
 
+  if (args[0] === 'version') {
+    if (args.length !== 1) {
+      console.error('Usage: qmon version')
+      process.exit(1)
+    }
+    console.log(`qmon v${packageJson.version}`)
+    return
+  }
+
+  if (args[0] === 'update') {
+    if (args.length > 2) {
+      console.error('Usage: qmon update [release-ref]')
+      process.exit(1)
+    }
+    try {
+      await runUpdate(args[1])
+      console.log('Qmon update complete. Restart qmon to use the new version.')
+    } catch (error: unknown) {
+      console.error(`\u001B[31mUpdate failed: ${getErrorMessage(error)}\u001B[0m`)
+      process.exit(1)
+    }
+    return
+  }
+
   if (args[0] === 'login') {
     if (!args[1]) {
-      console.log(`\x1b[31mError: Provider not specified.\x1b[0m\n`)
-      console.log(`\x1b[33mDid you mean:\x1b[0m`)
+      console.log(`\u001B[31mError: Provider not specified.\u001B[0m\n`)
+      console.log(`\u001B[33mDid you mean:\u001B[0m`)
       console.log(`  qmon login antigravity`)
       console.log(`  qmon login claude`)
       console.log(`  qmon login codex`)
@@ -67,20 +100,20 @@ async function main() {
     executeWithLogin(async () => {
       const config = loadConfig()
       if (config) {
-        await startSidecar(config.baseUrl).catch(() => {})
+        await startSidecar(config.baseUrl).catch(() => { })
       }
       await runAuthFlow(provider)
       stopSidecar()
       process.exit(0)
-    }).catch((err: any) => {
-      console.error(`\x1b[31mError: ${err.message}\x1b[0m`)
+    }).catch((error: unknown) => {
+      console.error(`\u001B[31mError: ${getErrorMessage(error)}\u001B[0m`)
       process.exit(1)
     })
   } else if (args[0] === 'logout') {
     if (!args[1]) {
-      console.log(`\n\x1b[33m⏳ Logging out of Qmon account...\x1b[0m`)
+      console.log(`\n\u001B[33m⏳ Logging out of Qmon account...\u001B[0m`)
       clearConfig()
-      console.log(`\x1b[32m✅ Logged out. Credentials cleared.\x1b[0m\n`)
+      console.log(`\u001B[32m✅ Logged out. Credentials cleared.\u001B[0m\n`)
       process.exit(0)
     }
 
@@ -89,30 +122,32 @@ async function main() {
     executeWithLogin(async () => {
       const config = loadConfig()
       if (config) {
-        await startSidecar(config.baseUrl).catch(() => {})
+        await startSidecar(config.baseUrl).catch(() => { })
       }
       await runLogoutFlow(provider, accountName)
       stopSidecar()
       process.exit(0)
-    }).catch((err: any) => {
-      console.error(`\x1b[31mError: ${err.message}\x1b[0m`)
+    }).catch((error: unknown) => {
+      console.error(`\u001B[31mError: ${getErrorMessage(error)}\u001B[0m`)
       process.exit(1)
     })
   } else {
     const config = loadConfig()
     if (config) {
-      await startSidecar(config.baseUrl).catch((err) => {
-        console.error(`\x1b[31mFailed to start built-in API: ${err.message}\x1b[0m`)
+      await startSidecar(config.baseUrl).catch((error: unknown) => {
+        console.error(`\u001B[31mFailed to start built-in API: ${getErrorMessage(error)}\u001B[0m`)
       })
     }
 
     const renderer = await createCliRenderer({ exitOnCtrlC: true })
-    renderer.on('destroy', () => stopSidecar())
+    renderer.on('destroy', () => {
+      stopSidecar()
+    })
     createRoot(renderer).render(<App />)
   }
 }
 
-main().catch((err) => {
-  console.error(`\x1b[31mFatal error: ${err.message}\x1b[0m`)
+main().catch((error: unknown) => {
+  console.error(`\u001B[31mFatal error: ${getErrorMessage(error)}\u001B[0m`)
   process.exit(1)
 })

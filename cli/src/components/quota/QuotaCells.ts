@@ -1,4 +1,5 @@
 import type { QuotaSnapshot } from '../../api'
+
 import { THEME } from '../ui'
 
 const PROVIDER_COLOR: Record<string, string> = {
@@ -23,24 +24,41 @@ export interface QuotaCell {
 }
 
 function formatAbsoluteTime(text: string, referenceDate: Date): string {
-  const match = text.match(/(?:(\d+)d\s+)?(?:(\d+)h\s+)?(\d+)m/)
-  if (match) {
-    const days = parseInt(match[1] || '0')
-    const hours = parseInt(match[2] || '0')
-    const minutes = parseInt(match[3] || '0')
-    const ms = ((days * 24 + hours) * 60 + minutes) * 60 * 1000
-    const targetDate = new Date(referenceDate.getTime() + ms)
-
-    const dateStr = targetDate.toLocaleString()
-    if (text.includes('Exhausted — ')) {
-      return `Exhausted until ${dateStr}`
-    } else if (text.includes('in ')) {
-      return text.replace(/in\s+(?:\d+d\s+)?(?:\d+h\s+)?\d+m/, `at ${dateStr}`)
-    } else {
-      return text.replace(/(?:\d+d\s+)?(?:\d+h\s+)?\d+m/, dateStr)
-    }
+  const durationMatches = [...text.matchAll(/\d{1,3}[dhm]/g)]
+  const firstMatch = durationMatches[0]
+  const lastMatch = durationMatches.at(-1)
+  if (
+    !firstMatch ||
+    !lastMatch ||
+    firstMatch.index === undefined ||
+    lastMatch.index === undefined
+  ) {
+    return text
   }
-  return text
+
+  const durationStart = firstMatch.index
+  const durationEnd = lastMatch.index + lastMatch[0].length
+  const days = durationMatches
+    .filter((match) => match[0].endsWith('d'))
+    .reduce((total, match) => total + Number.parseInt(match[0], 10), 0)
+  const hours = durationMatches
+    .filter((match) => match[0].endsWith('h'))
+    .reduce((total, match) => total + Number.parseInt(match[0], 10), 0)
+  const minutes = durationMatches
+    .filter((match) => match[0].endsWith('m'))
+    .reduce((total, match) => total + Number.parseInt(match[0], 10), 0)
+  const ms = ((days * 24 + hours) * 60 + minutes) * 60 * 1000
+  const dateStr = new Date(referenceDate.getTime() + ms).toLocaleString()
+
+  if (text.includes('Exhausted — ')) {
+    return `Exhausted until ${dateStr}`
+  }
+
+  const beforeDuration = text.slice(0, durationStart)
+  const replacement = beforeDuration.endsWith('in ')
+    ? `${text.slice(0, durationStart - 3)}at ${dateStr}`
+    : `${beforeDuration}${dateStr}`
+  return `${replacement}${text.slice(durationEnd)}`
 }
 
 export function buildCells(
@@ -60,7 +78,7 @@ export function buildCells(
         updatedSnap.name = updatedSnap.name.replace(/opencode/i, 'OpenCode Go')
       }
       if (!updatedSnap.quotas) updatedSnap.quotas = []
-      const sorted = [...updatedSnap.quotas].sort((a, b) => {
+      const sorted = updatedSnap.quotas.toSorted((a, b) => {
         if (a.is_exhausted && !b.is_exhausted) return -1
         if (!a.is_exhausted && b.is_exhausted) return 1
         const aVal = showUsedMetric ? 100 - a.percent_remaining : a.percent_remaining
@@ -69,7 +87,7 @@ export function buildCells(
       })
       return { ...updatedSnap, quotas: sorted }
     })
-    .sort((a, b) => {
+    .toSorted((a, b) => {
       const getSortGroup = (snapshot: QuotaSnapshot) => {
         if (!snapshot.is_available || !snapshot.quotas?.length) return 2
         return snapshot.quotas.some((q) => q.is_exhausted) ? 1 : 0
@@ -79,7 +97,7 @@ export function buildCells(
       return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
     })
 
-  sortedSnapshots.forEach((snap) => {
+  for (const snap of sortedSnapshots) {
     const providerColor = PROVIDER_COLOR[snap.provider_id]
 
     if (!snap.is_available) {
@@ -94,7 +112,7 @@ export function buildCells(
         statusSegments: [{ text: 'Not Available / Error', color: THEME.danger }],
         isExhausted: false,
       })
-      return
+      continue
     }
 
     if (!snap.quotas || snap.quotas.length === 0) {
@@ -110,7 +128,7 @@ export function buildCells(
         statusSegments: [{ text: status }],
         isExhausted: false,
       })
-      return
+      continue
     }
 
     const groups: {
@@ -124,26 +142,27 @@ export function buildCells(
     for (const q of snap.quotas) {
       const key = `${q.percent_remaining}|${q.reset_text}|${q.is_exhausted}|${q.quota_type}`
       const existing = groups.find(
-        (g) => `${g.pct}|${g.resetText}|${g.isExhausted}|${g.quotaTypes.values().next().value}` === key
+        (g) =>
+          `${g.pct}|${g.resetText}|${g.isExhausted}|${g.quotaTypes.values().next().value}` === key
       )
       if (existing) {
-        existing.modelKeys.add(q.model_key || '-')
-        existing.quotaTypes.add(q.quota_type || '')
+        existing.modelKeys.add(q.model_key ?? '-')
+        existing.quotaTypes.add(q.quota_type ?? '')
       } else {
         groups.push({
-          modelKeys: new Set([q.model_key || '-']),
+          modelKeys: new Set([q.model_key ?? '-']),
           pct: q.percent_remaining,
           resetText: q.reset_text,
-          isExhausted: q.is_exhausted || false,
+          isExhausted: q.is_exhausted ?? false,
           resetsAt: q.resets_at,
-          quotaTypes: new Set([q.quota_type || '']),
+          quotaTypes: new Set([q.quota_type ?? '']),
         })
       }
     }
 
-    groups.forEach((g, i) => {
+    for (const [i, g] of groups.entries()) {
       const provider = i === 0 ? snap.name : ''
-      let modelLabel = [...g.modelKeys].sort().join(' & ')
+      let modelLabel = [...g.modelKeys].toSorted().join(' & ')
       const qTypes = [...g.quotaTypes].filter((t) => t && t !== 'model_specific')
 
       if (modelLabel === '-') {
@@ -162,9 +181,11 @@ export function buildCells(
       if (g.isExhausted) {
         metricColor = THEME.danger
       } else if (showUsedMetric) {
-        metricColor = displayValue >= 80 ? THEME.danger : displayValue >= 50 ? THEME.warning : THEME.success
+        metricColor =
+          displayValue >= 80 ? THEME.danger : displayValue >= 50 ? THEME.warning : THEME.success
       } else {
-        metricColor = displayValue >= 50 ? THEME.success : displayValue >= 20 ? THEME.warning : THEME.danger
+        metricColor =
+          displayValue >= 50 ? THEME.success : displayValue >= 20 ? THEME.warning : THEME.danger
       }
 
       let displayReset = g.resetText
@@ -182,25 +203,28 @@ export function buildCells(
           } else if (displayReset.includes('Refreshes in ')) {
             displayReset = displayReset.replace(/Refreshes in .*/, `Refreshes at ${dateStr}`)
           }
-        } else if (!displayReset.match(/on \d{4}-\d{2}-\d{2}/)) {
+        } else if (!/on \d{4}-\d{2}-\d{2}/.test(displayReset)) {
           displayReset = formatAbsoluteTime(displayReset, lastRefreshed)
         }
-      } else if (!showAbsoluteTime && lastRefreshed) {
-        if (g.resetsAt && displayReset.match(/\(Resets on \d{4}-\d{2}-\d{2}\)/)) {
-          const diffMs = new Date(g.resetsAt).getTime() - lastRefreshed.getTime()
-          if (diffMs > 0) {
-            const d = Math.floor(diffMs / (1000 * 60 * 60 * 24))
-            const h = Math.floor((diffMs / (1000 * 60 * 60)) % 24)
-            const m = Math.floor((diffMs / (1000 * 60)) % 60)
-            let relStr = ''
-            if (d > 0) relStr += `${d}d `
-            if (h > 0 || d > 0) relStr += `${h}h `
-            relStr += `${m}m`
-            displayReset = displayReset.replace(
-              /\(Resets on \d{4}-\d{2}-\d{2}\)/,
-              `(Resets in ${relStr.trim()})`
-            )
-          }
+      } else if (
+        !showAbsoluteTime &&
+        lastRefreshed &&
+        g.resetsAt &&
+        /\(Resets on \d{4}-\d{2}-\d{2}\)/.test(displayReset)
+      ) {
+        const diffMs = new Date(g.resetsAt).getTime() - lastRefreshed.getTime()
+        if (diffMs > 0) {
+          const d = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+          const h = Math.floor((diffMs / (1000 * 60 * 60)) % 24)
+          const m = Math.floor((diffMs / (1000 * 60)) % 60)
+          let relStr = ''
+          if (d > 0) relStr += `${d}d `
+          if (h > 0 || d > 0) relStr += `${h}h `
+          relStr += `${m}m`
+          displayReset = displayReset.replace(
+            /\(Resets on \d{4}-\d{2}-\d{2}\)/,
+            `(Resets in ${relStr.trim()})`
+          )
         }
       }
 
@@ -208,14 +232,14 @@ export function buildCells(
       if (g.isExhausted) {
         highlightColor = THEME.danger
       } else if (showUsedMetric) {
-        highlightColor = displayValue >= 80 ? THEME.danger : displayValue >= 50 ? THEME.warning : THEME.success
+        highlightColor =
+          displayValue >= 80 ? THEME.danger : displayValue >= 50 ? THEME.warning : THEME.success
       } else {
-        highlightColor = displayValue >= 50 ? THEME.success : displayValue >= 20 ? THEME.warning : THEME.danger
+        highlightColor =
+          displayValue >= 50 ? THEME.success : displayValue >= 20 ? THEME.warning : THEME.danger
       }
 
-      const timeRegex = /(\b\d+d\s*(?:\d+h)?\s*(?:\d+m)?\b|\b\d+h\s*(?:\d+m)?\b|\b\d+m\b)/g
-      const moneyRegex = /(\$\d+\.\d+(?:\s*\/\s*\$\d+\.\d+)?)/g
-      const highlightRegex = new RegExp(`${timeRegex.source}|${moneyRegex.source}`, 'g')
+      const highlightRegex = /\b\d{1,3}[dhm]\b|\$\d+\.\d+|\$\d+/g
 
       const statusSegments: { text: string; color?: string }[] = []
       let lastIndex = 0
@@ -245,8 +269,8 @@ export function buildCells(
         statusSegments,
         isExhausted: g.isExhausted,
       })
-    })
-  })
+    }
+  }
 
   return cells
 }

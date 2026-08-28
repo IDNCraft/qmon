@@ -22,8 +22,12 @@ export function LoadingScreen({ label = 'Loading' }: Props) {
     const interval = setInterval(() => {
       setFrame((prev) => (prev + 1) % FRAMES.length)
     }, 180)
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
+
+  const currentFrame = FRAMES[frame] ?? []
 
   return (
     <box flexGrow={1} justifyContent="center" alignItems="center" marginTop={1}>
@@ -33,13 +37,15 @@ export function LoadingScreen({ label = 'Loading' }: Props) {
             QMON
           </text>
           <box flexDirection="column" alignItems="center" marginTop={1} marginBottom={1}>
-            {FRAMES[frame]!.map((line, i) => (
+            {currentFrame.map((line, i) => (
               <text selectable={false} key={i} attributes={TextAttributes.BOLD} fg={THEME.accent}>
                 {line}
               </text>
             ))}
           </box>
-          <text selectable={false} attributes={TextAttributes.DIM}>{label}…</text>
+          <text selectable={false} attributes={TextAttributes.DIM}>
+            {label}…
+          </text>
         </box>
       </Card>
     </box>

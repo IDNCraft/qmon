@@ -1,0 +1,350 @@
+{
+  "communities": {
+    "0": [
+      "src_api_quotasnapshot",
+      "src_components_dashboard",
+      "src_components_dashboard_dashboardheader",
+      "src_components_dashboard_dashboardheader_dashboardheader",
+      "src_components_dashboard_dashboardheader_props",
+      "src_components_dashboard_footer",
+      "src_components_dashboard_footer_footer",
+      "src_components_dashboard_footer_props",
+      "src_components_dashboard_props",
+      "src_components_dashboard_settingscard",
+      "src_components_dashboard_settingscard_props",
+      "src_components_dashboard_settingscard_settingscard",
+      "src_components_dashboard_settingscard_settingsitem",
+      "src_components_dashboard_summarycards",
+      "src_components_dashboard_summarycards_props",
+      "src_components_dashboard_summarycards_summarycards",
+      "src_components_loadingscreen",
+      "src_components_loadingscreen_frames",
+      "src_components_loadingscreen_loadingscreen",
+      "src_components_loadingscreen_props",
+      "src_components_login_securitycard",
+      "src_components_login_securitycard_props",
+      "src_components_login_securitycard_securitycard",
+      "src_components_quota_quotacard",
+      "src_components_quota_quotacard_props",
+      "src_components_quota_quotacard_quotacard",
+      "src_components_quota_quotacells",
+      "src_components_quota_quotacells_buildcells",
+      "src_components_quota_quotacells_formatabsolutetime",
+      "src_components_quota_quotacells_provider_color",
+      "src_components_quota_quotacells_quotacell",
+      "src_components_quotagrid",
+      "src_components_quotagrid_props",
+      "src_components_quotagrid_quotagrid",
+      "src_components_ui",
+      "src_components_ui_badge",
+      "src_components_ui_badgeprops",
+      "src_components_ui_button",
+      "src_components_ui_buttonprops",
+      "src_components_ui_card",
+      "src_components_ui_cardprops",
+      "src_components_ui_theme",
+      "src_components_ui_themecolors"
+    ],
+    "1": [
+      "src_api",
+      "src_api_assertarray",
+      "src_api_assertbooleanlike",
+      "src_api_assertobject",
+      "src_api_assertoptionalnumber",
+      "src_api_assertoptionalstring",
+      "src_api_assertstring",
+      "src_api_fetchallquotas",
+      "src_api_fetchappconfig",
+      "src_api_getbaseurl",
+      "src_api_geterrormessage",
+      "src_api_getheaders",
+      "src_api_getthrownerrormessage",
+      "src_api_login",
+      "src_api_quota",
+      "src_api_resetdefaultcredentials",
+      "src_api_safejson",
+      "src_api_validateappconfigresponse",
+      "src_api_validatequota",
+      "src_api_validatequotasnapshot",
+      "src_api_validateresetresponse",
+      "src_api_validatesnapshotresponse",
+      "src_api_validatetokenresponse",
+      "src_app",
+      "src_app_app",
+      "src_components_login",
+      "src_components_login_geterrormessage",
+      "src_components_login_login",
+      "src_components_login_props",
+      "src_config",
+      "src_config_config_path",
+      "src_config_loadconfig",
+      "src_config_qmonconfig",
+      "src_config_saveconfig",
+      "src_hooks_usequotadata",
+      "src_hooks_usequotadata_usequotadata"
+    ],
+    "2": [
+      "src_auth",
+      "src_auth_apiresponse",
+      "src_auth_askquestion",
+      "src_auth_authdata",
+      "src_auth_getapierrormessage",
+      "src_auth_getbaseurl",
+      "src_auth_geterrormessage",
+      "src_auth_getheaders",
+      "src_auth_isrecord",
+      "src_auth_loginwithprompt",
+      "src_auth_parseapiresponse",
+      "src_auth_parseauthdata",
+      "src_auth_readapiresponse",
+      "src_auth_runauthflow",
+      "src_auth_runlogoutflow",
+      "src_auth_startoauthcallbackserver",
+      "src_config_clearconfig",
+      "src_index",
+      "src_index_args",
+      "src_index_executewithlogin",
+      "src_index_geterrormessage",
+      "src_index_main",
+      "src_openurl_openurlinbrowser",
+      "src_sidecar",
+      "src_sidecar_checkhealth",
+      "src_sidecar_startsidecar",
+      "src_sidecar_stopsidecar",
+      "src_update",
+      "src_update_local_update_script_path",
+      "src_update_runupdate"
+    ],
+    "3": [
+      "eslint",
+      "eslint_config_prettier",
+      "eslint_plugin_prettier",
+      "eslint_plugin_promise",
+      "eslint_plugin_security",
+      "eslint_plugin_unicorn",
+      "ianvs_prettier_plugin_sort_imports",
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_prettier",
+      "package_devdependencies_eslint_plugin_prettier",
+      "package_devdependencies_eslint_plugin_promise",
+      "package_devdependencies_eslint_plugin_security",
+      "package_devdependencies_eslint_plugin_unicorn",
+      "package_devdependencies_ianvs_prettier_plugin_sort_imports",
+      "package_devdependencies_prettier",
+      "package_devdependencies_react_devtools_core",
+      "package_devdependencies_types_bun",
+      "package_devdependencies_types_react",
+      "package_devdependencies_typescript_eslint_eslint_plugin",
+      "package_devdependencies_typescript_eslint_parser",
+      "prettier",
+      "react_devtools_core",
+      "types_bun",
+      "types_react",
+      "typescript_eslint_eslint_plugin",
+      "typescript_eslint_parser"
+    ],
+    "4": [
+      "opentui_core",
+      "opentui_react",
+      "package",
+      "package_dependencies",
+      "package_dependencies_opentui_core",
+      "package_dependencies_opentui_react",
+      "package_dependencies_react",
+      "package_dependencies_signal_exit",
+      "package_module",
+      "package_name",
+      "package_peerdependencies",
+      "package_peerdependencies_typescript",
+      "package_private",
+      "package_scripts",
+      "package_scripts_dev",
+      "package_scripts_format",
+      "package_scripts_format_check",
+      "package_scripts_lint",
+      "package_scripts_lint_fix",
+      "package_scripts_typecheck",
+      "package_type",
+      "react",
+      "signal_exit",
+      "typescript"
+    ],
+    "5": [
+      "ref_bun_types",
+      "ref_esnext",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowimportingtsextensions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduledetection",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_compileroptions_noimplicitoverride",
+      "tsconfig_compileroptions_nopropertyaccessfromindexsignature",
+      "tsconfig_compileroptions_nouncheckedindexedaccess",
+      "tsconfig_compileroptions_nounusedlocals",
+      "tsconfig_compileroptions_nounusedparameters",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_types",
+      "tsconfig_compileroptions_verbatimmodulesyntax"
+    ],
+    "6": [
+      "src_components_login_loginform",
+      "src_components_login_loginform_loginform",
+      "src_components_login_loginform_props",
+      "src_components_login_resetform",
+      "src_components_login_resetform_props",
+      "src_components_login_resetform_resetform",
+      "src_components_textinput",
+      "src_components_textinput_props",
+      "src_components_textinput_textinput"
+    ],
+    "7": [
+      "src_components_dashboard_dashboard",
+      "src_hooks_usedashboardsettings",
+      "src_hooks_usedashboardsettings_comparesemver",
+      "src_hooks_usedashboardsettings_usedashboardsettings",
+      "src_openurl",
+      "src_openurl_latest_release_api_url"
+    ],
+    "8": [
+      "eslint_config",
+      "eslint_config_unicornrecommendedrules"
+    ],
+    "9": [
+      "prettierrc"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09634551495016612,
+    "1": 0.14285714285714285,
+    "2": 0.1632183908045977,
+    "3": 0.07407407407407407,
+    "4": 0.08333333333333333,
+    "5": 0.08695652173913043,
+    "6": 0.2777777777777778,
+    "7": 0.4666666666666667,
+    "8": 1.0,
+    "9": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 20
+    },
+    {
+      "id": "src_components_ui_theme",
+      "label": "THEME",
+      "degree": 14
+    },
+    {
+      "id": "src_config_loadconfig",
+      "label": "loadConfig()",
+      "degree": 13
+    },
+    {
+      "id": "src_auth_runauthflow",
+      "label": "runAuthFlow()",
+      "degree": 11
+    },
+    {
+      "id": "src_index_main",
+      "label": "main()",
+      "degree": 10
+    },
+    {
+      "id": "src_api_fetchallquotas",
+      "label": "fetchAllQuotas()",
+      "degree": 9
+    },
+    {
+      "id": "src_components_ui_card",
+      "label": "Card()",
+      "degree": 8
+    },
+    {
+      "id": "src_sidecar_startsidecar",
+      "label": "startSidecar()",
+      "degree": 8
+    },
+    {
+      "id": "src_api_validatequotasnapshot",
+      "label": "validateQuotaSnapshot()",
+      "degree": 8
+    },
+    {
+      "id": "src_components_login_login",
+      "label": "Login()",
+      "degree": 8
+    }
+  ],
+  "surprises": [
+    {
+      "source": "getBaseUrl()",
+      "target": "loadConfig()",
+      "source_files": [
+        "src/auth.ts",
+        "src/config.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "getHeaders()",
+      "target": "loadConfig()",
+      "source_files": [
+        "src/auth.ts",
+        "src/config.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "useDashboardSettings()",
+      "target": "loadConfig()",
+      "source_files": [
+        "src/hooks/useDashboardSettings.ts",
+        "src/config.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "main()",
+      "target": "loadConfig()",
+      "source_files": [
+        "src/index.tsx",
+        "src/config.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "loginWithPrompt()",
+      "target": "saveConfig()",
+      "source_files": [
+        "src/auth.ts",
+        "src/config.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

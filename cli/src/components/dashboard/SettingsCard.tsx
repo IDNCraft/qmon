@@ -1,11 +1,10 @@
 /** @jsxImportSource @opentui/react */
 import { MouseEvent, RGBA, TextAttributes } from '@opentui/core'
-import React from 'react'
 
 import { Badge, Card, THEME } from '../ui'
 
 export interface SettingsItem {
-  type: 'metric' | 'time' | 'provider'
+  type: 'metric' | 'time' | 'provider' | 'autoUpdate' | 'checkUpdate'
   label: string
   value: string | boolean
 }
@@ -17,6 +16,8 @@ interface Props {
   onToggleMetric: () => void
   onToggleTime: () => void
   onToggleProvider: (label: string) => void
+  onToggleAutoUpdate: () => void
+  onCheckUpdate: () => void
   width: number
 }
 
@@ -27,17 +28,45 @@ export function SettingsCard({
   onToggleMetric,
   onToggleTime,
   onToggleProvider,
+  onToggleAutoUpdate,
+  onCheckUpdate,
   width,
 }: Props) {
   const toggle = (item: SettingsItem) => {
-    if (item.type === 'metric') onToggleMetric()
-    else if (item.type === 'time') onToggleTime()
-    else if (item.type === 'provider') onToggleProvider(item.label)
+    switch (item.type) {
+      case 'metric': {
+        onToggleMetric()
+        break
+      }
+      case 'time': {
+        onToggleTime()
+        break
+      }
+      case 'provider': {
+        onToggleProvider(item.label)
+        break
+      }
+      case 'autoUpdate': {
+        onToggleAutoUpdate()
+        break
+      }
+      case 'checkUpdate': {
+        {
+          onCheckUpdate()
+          // No default
+        }
+        break
+      }
+    }
   }
 
   const sections = [
     { title: 'Display', items: items.filter((i) => i.type === 'metric' || i.type === 'time') },
     { title: 'Providers', items: items.filter((i) => i.type === 'provider') },
+    {
+      title: 'System',
+      items: items.filter((i) => i.type === 'autoUpdate' || i.type === 'checkUpdate'),
+    },
   ].filter((s) => s.items.length > 0)
 
   let globalIndex = 0
@@ -49,7 +78,9 @@ export function SettingsCard({
       width={width}
       borderColor={THEME.accent}
       backgroundColor={RGBA.fromInts(30, 30, 30, 160)}
-      onMouseDown={(e) => e.stopPropagation()}
+      onMouseDown={(e) => {
+        e.stopPropagation()
+      }}
     >
       <box marginBottom={1}>
         <text selectable={false} attributes={TextAttributes.DIM}>
@@ -70,9 +101,18 @@ export function SettingsCard({
               const isSelected = idx === selectedIndex
 
               let displayValue: React.ReactNode = null
-              if (item.type === 'metric' || item.type === 'time') {
+              if (item.type === 'metric' || item.type === 'time' || item.type === 'checkUpdate') {
                 displayValue = (
-                  <Badge label={String(item.value)} color={isSelected ? THEME.accent : THEME.muted} />
+                  <Badge
+                    label={String(item.value)}
+                    color={isSelected ? THEME.accent : THEME.muted}
+                  />
+                )
+              } else if (item.type === 'autoUpdate') {
+                displayValue = item.value ? (
+                  <Badge label="On" color={THEME.success} />
+                ) : (
+                  <Badge label="Off" color={THEME.muted} />
                 )
               } else {
                 displayValue = item.value ? (
@@ -94,7 +134,9 @@ export function SettingsCard({
                   paddingBottom={0}
                   marginTop={idx === 0 ? 0 : 1}
                   backgroundColor={isSelected ? THEME.selectedBg : undefined}
-                  onMouseOver={() => onSelect(idx)}
+                  onMouseOver={() => {
+                    onSelect(idx)
+                  }}
                   onMouseDown={(e: MouseEvent) => {
                     toggle(item)
                     e.stopPropagation()

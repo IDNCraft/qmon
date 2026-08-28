@@ -1,10 +1,11 @@
 /** @jsxImportSource @opentui/react */
 import type { QuotaSnapshot } from '../api'
+import type { QuotaCell } from './quota/QuotaCells'
 import { TextAttributes } from '@opentui/core'
-import React, { useEffect, useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 
 import { QuotaCard } from './quota/QuotaCard'
-import { buildCells, type QuotaCell } from './quota/QuotaCells'
+import { buildCells } from './quota/QuotaCells'
 
 interface Props {
   snapshots: QuotaSnapshot[]
@@ -23,7 +24,7 @@ interface Props {
   onOverflowChange?: (overflow: boolean) => void
 }
 
-export function QuotaTable(props: Props) {
+export function QuotaGrid(props: Props) {
   const {
     snapshots,
     hiddenProviders,
@@ -42,21 +43,8 @@ export function QuotaTable(props: Props) {
   } = props
 
   const cells = useMemo(
-    () =>
-      buildCells(
-        snapshots,
-        hiddenProviders,
-        showUsedMetric,
-        showAbsoluteTime,
-        lastRefreshed
-      ),
-    [
-      snapshots,
-      hiddenProviders,
-      showUsedMetric,
-      showAbsoluteTime,
-      lastRefreshed,
-    ]
+    () => buildCells(snapshots, hiddenProviders, showUsedMetric, showAbsoluteTime, lastRefreshed),
+    [snapshots, hiddenProviders, showUsedMetric, showAbsoluteTime, lastRefreshed]
   )
 
   if (cells.length === 0) {
@@ -73,7 +61,15 @@ export function QuotaTable(props: Props) {
       isCompact
         ? compactLabelWidth + compactStatusWidth
         : desktopProviderWidth + desktopModelWidth + desktopMetricWidth + desktopResetWidth,
-    [isCompact, compactLabelWidth, compactStatusWidth, desktopProviderWidth, desktopModelWidth, desktopMetricWidth, desktopResetWidth]
+    [
+      isCompact,
+      compactLabelWidth,
+      compactStatusWidth,
+      desktopProviderWidth,
+      desktopModelWidth,
+      desktopMetricWidth,
+      desktopResetWidth,
+    ]
   )
   // Card overhead: border (2) + horizontal padding (2) = 4 cells per card
   const cardOverhead = 4
@@ -85,7 +81,12 @@ export function QuotaTable(props: Props) {
 
   // Group cells by provider
   const groups = useMemo(() => {
-    const groups: { provider: string; providerColor?: string; isAvailable: boolean; cells: QuotaCell[] }[] = []
+    const groups: {
+      provider: string
+      providerColor?: string
+      isAvailable: boolean
+      cells: QuotaCell[]
+    }[] = []
     for (const cell of cells) {
       if (cell.provider) {
         const snapshot = snapshots.find((s) => s.provider_id === cell.providerId)
@@ -96,7 +97,10 @@ export function QuotaTable(props: Props) {
           cells: [cell],
         })
       } else if (groups.length > 0) {
-        groups[groups.length - 1]!.cells.push(cell)
+        const lastGroup = groups.at(-1)
+        if (lastGroup) {
+          lastGroup.cells.push(cell)
+        }
       }
     }
     return groups
@@ -134,7 +138,10 @@ export function QuotaTable(props: Props) {
             const rows: QuotaCell[][] = []
             if (isCompact) {
               for (let i = 0; i < group.cells.length; i++) {
-                rows.push([group.cells[i]!])
+                const cell = group.cells[i]
+                if (cell) {
+                  rows.push([cell])
+                }
               }
             } else {
               for (let i = 0; i < group.cells.length; i += 2) {

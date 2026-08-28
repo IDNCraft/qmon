@@ -1,6 +1,5 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
-import React from 'react'
 
 import { Button, Card, THEME } from '../ui'
 
@@ -12,11 +11,7 @@ interface Props {
 
 export function SecurityCard({ isDefaultAdmin, onReset, width }: Props) {
   return (
-    <Card
-      width={width}
-      borderColor={isDefaultAdmin ? THEME.danger : THEME.success}
-      padding={1}
-    >
+    <Card width={width} borderColor={isDefaultAdmin ? THEME.danger : THEME.success} padding={1}>
       {isDefaultAdmin ? (
         <box flexDirection="column">
           <text selectable={false} fg={THEME.danger} attributes={TextAttributes.BOLD}>
@@ -37,7 +32,10 @@ export function SecurityCard({ isDefaultAdmin, onReset, width }: Props) {
             flexDirection="column"
           >
             <text selectable={false}>
-              Email: <text selectable={false} fg={THEME.accent}>cli@qmon.ai</text>
+              Email:{' '}
+              <text selectable={false} fg={THEME.accent}>
+                cli@qmon.ai
+              </text>
             </text>
             <text selectable={false} fg={THEME.muted}>
               Password hidden for security · use Tab to auto-fill

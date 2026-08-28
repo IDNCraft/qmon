@@ -1,7 +1,7 @@
-import { ChildProcess, spawn } from 'child_process'
-import { existsSync, openSync } from 'fs'
-import { homedir } from 'os'
-import { join } from 'path'
+import { ChildProcess, spawn } from 'node:child_process'
+import { existsSync, openSync } from 'node:fs'
+import { homedir } from 'node:os'
+import path from 'node:path'
 
 let apiProcess: ChildProcess | null = null
 
@@ -22,11 +22,11 @@ export async function startSidecar(baseUrl: string): Promise<void> {
   let cwd = process.cwd()
 
   // 1. Try global install location
-  const globalBin = join(homedir(), '.local', 'bin', 'qmon-server')
+  const globalBin = path.join(homedir(), '.local', 'bin', 'qmon-server')
 
   // 2. Try development location (Monorepo)
-  const devApiDir = join(process.cwd(), '../api')
-  const devBin = join(devApiDir, 'qmon-server')
+  const devApiDir = path.join(process.cwd(), '../api')
+  const devBin = path.join(devApiDir, 'qmon-server')
 
   if (existsSync(globalBin)) {
     cmd = globalBin
@@ -43,7 +43,7 @@ export async function startSidecar(baseUrl: string): Promise<void> {
   }
 
   // Create log file in user's home folder for diagnostics
-  const logFilePath = join(homedir(), '.qmon-server-sidecar.log')
+  const logFilePath = path.join(homedir(), '.qmon-server-sidecar.log')
   const logFd = openSync(logFilePath, 'a')
 
   // Spawn detached so we can terminate it and its sub-children as a process group
@@ -54,7 +54,7 @@ export async function startSidecar(baseUrl: string): Promise<void> {
   })
 
   apiProcess.on('error', (err) => {
-    console.error('\x1b[31m❌ Failed to spawn API process:\x1b[0m', err.message)
+    console.error('\u001B[31m❌ Failed to spawn API process:\u001B[0m', err.message)
   })
 
   // Wait for it to boot up and respond to /health
@@ -74,14 +74,14 @@ export async function startSidecar(baseUrl: string): Promise<void> {
 }
 
 export function stopSidecar(): void {
-  if (apiProcess && apiProcess.pid) {
+  if (apiProcess?.pid) {
     try {
       // Kill the process group (minus sign indicates PGID)
       process.kill(-apiProcess.pid, 'SIGINT')
-    } catch (_) {
+    } catch {
       try {
         apiProcess.kill('SIGINT')
-      } catch (__) { }
+      } catch {}
     }
     apiProcess = null
   }
@@ -90,11 +90,13 @@ export function stopSidecar(): void {
 async function checkHealth(baseUrl: string): Promise<boolean> {
   try {
     const controller = new AbortController()
-    const id = setTimeout(() => controller.abort(), 400)
+    const id = setTimeout(() => {
+      controller.abort()
+    }, 400)
     const res = await fetch(`${baseUrl.replace(/\/+$/, '')}/health`, { signal: controller.signal })
     clearTimeout(id)
     return res.status === 200
-  } catch (_) {
+  } catch {
     return false
   }
 }
