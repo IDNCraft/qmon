@@ -9,6 +9,7 @@ import { DashboardHeader } from './dashboard/DashboardHeader'
 import { Footer } from './dashboard/Footer'
 import { SettingsCard } from './dashboard/SettingsCard'
 import { SummaryCards } from './dashboard/SummaryCards'
+import { UpdateModal } from './dashboard/UpdateModal'
 import { LoadingScreen } from './LoadingScreen'
 import { QuotaGrid } from './QuotaGrid'
 import { Card, THEME } from './ui'
@@ -16,6 +17,7 @@ import packageJson from '../../../package.json' with { type: 'json' }
 import { clearConfig } from '../config'
 import { useDashboardSettings } from '../hooks/useDashboardSettings'
 import { useQuotaData } from '../hooks/useQuotaData'
+import { restartQmon } from '../update'
 
 interface Props {
   onLogout: () => void
@@ -44,16 +46,18 @@ export function Dashboard({ onLogout }: Props) {
     showUsedMetric,
     showAbsoluteTime,
     hiddenProviders,
-    autoUpdate,
     updateStatus,
     availableVersion,
     updating,
+    updateState,
+    updateProgress,
+    updateError,
     toggleUsedMetric,
     toggleAbsoluteTime,
     toggleProviderVisibility,
-    toggleAutoUpdate,
     checkForUpdate,
     updateNow,
+    dismissUpdate,
   } = useDashboardSettings()
 
   const uniqueProviders = useMemo(
@@ -74,13 +78,14 @@ export function Dashboard({ onLogout }: Props) {
         label: p,
         value: !hiddenProviders.has(p),
       })),
-      { type: 'autoUpdate', label: 'Auto Update', value: autoUpdate },
       { type: 'checkUpdate', label: 'Check for Update', value: updateStatus },
     ],
-    [uniqueProviders, showUsedMetric, showAbsoluteTime, hiddenProviders, autoUpdate, updateStatus]
+    [uniqueProviders, showUsedMetric, showAbsoluteTime, hiddenProviders, updateStatus]
   )
 
   useKeyboard((key) => {
+    if (updateState !== 'idle') return
+
     if (showSettings) {
       switch (key.name) {
         case 'up': {
@@ -108,10 +113,6 @@ export function Dashboard({ onLogout }: Props) {
             }
             case 'provider': {
               toggleProviderVisibility(item.label)
-              break
-            }
-            case 'autoUpdate': {
-              toggleAutoUpdate()
               break
             }
             case 'checkUpdate': {
@@ -301,13 +302,25 @@ export function Dashboard({ onLogout }: Props) {
             onToggleMetric={toggleUsedMetric}
             onToggleTime={toggleAbsoluteTime}
             onToggleProvider={toggleProviderVisibility}
-            onToggleAutoUpdate={toggleAutoUpdate}
             onCheckUpdate={() => {
               void checkForUpdate()
             }}
             width={Math.max(16, Math.min(80, terminalColumns - 4))}
           />
         </box>
+      )}
+
+      {updateState !== 'idle' && (
+        <UpdateModal
+          progress={updateProgress}
+          updating={updating}
+          error={updateError}
+          width={Math.max(30, Math.min(60, terminalColumns - 4))}
+          onClose={dismissUpdate}
+          onRestart={() => {
+            restartQmon()
+          }}
+        />
       )}
     </box>
   )
