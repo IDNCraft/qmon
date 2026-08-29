@@ -1,14 +1,14 @@
 /** @jsxImportSource @opentui/react */
 import type { QuotaSnapshot } from '../api'
-import type { SettingsItem } from './dashboard/SettingsCard'
+import type { SettingsItem, SettingsRow } from './dashboard/SettingsCard'
 import { RGBA, TextAttributes } from '@opentui/core'
 import { useKeyboard, useTerminalDimensions } from '@opentui/react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { DashboardHeader } from './dashboard/DashboardHeader'
 import { Footer } from './dashboard/Footer'
 import { ReleaseNotesModal } from './dashboard/ReleaseNotesModal'
-import { SettingsCard } from './dashboard/SettingsCard'
+import { buildSettingsRows, SettingsCard } from './dashboard/SettingsCard'
 import { SummaryCards } from './dashboard/SummaryCards'
 import { UpdateModal } from './dashboard/UpdateModal'
 import { LoadingScreen } from './LoadingScreen'
@@ -37,6 +37,11 @@ export function Dashboard({ onLogout }: Props) {
 
   const [scrollHovered, setScrollHovered] = useState(false)
   const [hasOverflow, setHasOverflow] = useState(false)
+  const [openSections, setOpenSections] = useState<Set<string>>(
+    new Set(['Display', 'Providers', 'System'])
+  )
+  const [openReleases, setOpenReleases] = useState<Set<string>>(new Set())
+  const releaseSeedRef = useRef(false)
 
   const { snapshots, error, loading, lastRefreshed, loadData } = useQuotaData(onLogout)
   const {
@@ -64,6 +69,16 @@ export function Dashboard({ onLogout }: Props) {
     dismissReleaseNotes,
   } = useDashboardSettings()
 
+  useEffect(() => {
+    // Expand the newest release once when the list first arrives; after that
+    // the user's open/close choices stay untouched by re-checks.
+    if (!releaseSeedRef.current && releases.length > 0) {
+      releaseSeedRef.current = true
+      const newest = releases[0]
+      if (newest) setOpenReleases(new Set([newest.version]))
+    }
+  }, [releases])
+
   const uniqueProviders = useMemo(
     () => [...new Set(snapshots.map((s: QuotaSnapshot) => s.name))],
     [snapshots]
@@ -87,6 +102,67 @@ export function Dashboard({ onLogout }: Props) {
     [uniqueProviders, showUsedMetric, showAbsoluteTime, hiddenProviders, updateStatus]
   )
 
+  const settingsCardWidth = Math.max(16, Math.min(80, terminalColumns - 4))
+  const settingsRows = useMemo(
+    () =>
+      buildSettingsRows(settingsItems, releases, openSections, openReleases, settingsCardWidth - 8),
+    [settingsItems, releases, openSections, openReleases, settingsCardWidth]
+  )
+
+  const handleSettingsToggle = (row: SettingsRow) => {
+    switch (row.kind) {
+      case 'section': {
+        setOpenSections((prev) => {
+          const next = new Set(prev)
+          if (next.has(row.key)) {
+            next.delete(row.key)
+          } else {
+            next.add(row.key)
+          }
+          return next
+        })
+        break
+      }
+      case 'item': {
+        const item = row.item
+        switch (item.type) {
+          case 'metric': {
+            toggleUsedMetric()
+            break
+          }
+          case 'time': {
+            toggleAbsoluteTime()
+            break
+          }
+          case 'provider': {
+            toggleProviderVisibility(item.label)
+            break
+          }
+          case 'checkUpdate': {
+            void checkForUpdate()
+            break
+          }
+        }
+        break
+      }
+      case 'release': {
+        setOpenReleases((prev) => {
+          const next = new Set(prev)
+          if (next.has(row.version)) {
+            next.delete(row.version)
+          } else {
+            next.add(row.version)
+          }
+          return next
+        })
+        break
+      }
+      case 'note': {
+        break
+      }
+    }
+  }
+
   useKeyboard((key) => {
     if (updateState !== 'idle' || showReleaseNotes) return
 
@@ -98,34 +174,15 @@ export function Dashboard({ onLogout }: Props) {
           break
         }
         case 'down': {
-          setSelectedSettingIndex((prev) => Math.min(settingsItems.length - 1, prev + 1))
+          setSelectedSettingIndex((prev) => Math.min(settingsRows.length - 1, prev + 1))
 
           break
         }
         case 'space':
         case 'return': {
-          const item = settingsItems[selectedSettingIndex]
-          if (!item) return
-          switch (item.type) {
-            case 'metric': {
-              toggleUsedMetric()
-              break
-            }
-            case 'time': {
-              toggleAbsoluteTime()
-              break
-            }
-            case 'provider': {
-              toggleProviderVisibility(item.label)
-              break
-            }
-            case 'checkUpdate': {
-              {
-                checkForUpdate()
-                // No default
-              }
-              break
-            }
+          const row = settingsRows[selectedSettingIndex]
+          if (row) {
+            handleSettingsToggle(row)
           }
 
           break
@@ -300,16 +357,11 @@ export function Dashboard({ onLogout }: Props) {
           }}
         >
           <SettingsCard
-            items={settingsItems}
+            rows={settingsRows}
             selectedIndex={selectedSettingIndex}
             onSelect={setSelectedSettingIndex}
-            onToggleMetric={toggleUsedMetric}
-            onToggleTime={toggleAbsoluteTime}
-            onToggleProvider={toggleProviderVisibility}
-            onCheckUpdate={() => {
-              void checkForUpdate()
-            }}
-            width={Math.max(16, Math.min(80, terminalColumns - 4))}
+            onToggle={handleSettingsToggle}
+            width={settingsCardWidth}
           />
         </box>
       )}

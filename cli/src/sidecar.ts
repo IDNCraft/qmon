@@ -122,7 +122,7 @@ export function stopSidecar(): void {
     } catch {
       try {
         apiProcess.kill('SIGINT')
-      } catch { }
+      } catch {}
     }
     apiProcess = null
     try {
