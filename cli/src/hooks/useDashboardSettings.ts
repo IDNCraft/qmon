@@ -1,9 +1,9 @@
-import type { UpdateProgress } from '../update'
+import type { ReleaseInfo, UpdateProgress } from '../update'
 import { useEffect, useRef, useState } from 'react'
 
 import packageJson from '../../../package.json' with { type: 'json' }
 import { loadConfig, saveConfig } from '../config'
-import { LATEST_RELEASE_API_URL } from '../openUrl'
+import { LATEST_RELEASE_API_URL, RECENT_RELEASES_API_URL } from '../openUrl'
 import { runUpdate } from '../update'
 
 const INITIAL_UPDATE_PROGRESS: UpdateProgress = { step: 0, total: 3, label: '' }
@@ -23,6 +23,30 @@ function compareSemver(a: string, b: string): number {
   return 0
 }
 
+async function fetchRecentReleases(
+  latestVersion: string,
+  latestBody: string
+): Promise<ReleaseInfo[]> {
+  try {
+    const res = await fetch(RECENT_RELEASES_API_URL, { signal: AbortSignal.timeout(5000) })
+    if (!res.ok) throw new Error('GitHub API error')
+    const data = (await res.json()) as Array<{ tag_name?: string; name?: string; body?: string }>
+    const parsed = data
+      .filter((release) => typeof release.tag_name === 'string' && release.tag_name)
+      .map((release) => ({
+        version: (release.tag_name ?? '').replace(/^v/, ''),
+        name: release.name ?? '',
+        notes: release.body ?? '',
+      }))
+    if (parsed.length > 0 && parsed[0]?.version === latestVersion) {
+      return parsed
+    }
+  } catch {
+    // Fall back to the single latest release below.
+  }
+  return [{ version: latestVersion, name: '', notes: latestBody }]
+}
+
 export function useDashboardSettings() {
   const [showSettings, setShowSettings] = useState(false)
   const [selectedSettingIndex, setSelectedSettingIndex] = useState(0)
@@ -35,6 +59,8 @@ export function useDashboardSettings() {
   const [updateState, setUpdateState] = useState<UpdateState>('idle')
   const [updateProgress, setUpdateProgress] = useState(INITIAL_UPDATE_PROGRESS)
   const [updateError, setUpdateError] = useState('')
+  const [releases, setReleases] = useState<ReleaseInfo[]>([])
+  const [showReleaseNotes, setShowReleaseNotes] = useState(false)
   const updateLockRef = useRef(false)
   const updateStateRef = useRef<UpdateState>('idle')
   const checkForUpdateRef = useRef<(options?: { silent?: boolean }) => Promise<void>>(
@@ -107,13 +133,18 @@ export function useDashboardSettings() {
         signal: AbortSignal.timeout(5000),
       })
       if (!res.ok) throw new Error('GitHub API error')
-      const data = (await res.json()) as { tag_name?: string }
+      const data = (await res.json()) as { tag_name?: string; body?: string }
       const latest = (data.tag_name ?? '').replace(/^v/, '')
       const current = packageJson.version
       if (!latest) throw new Error('no release tag')
       if (compareSemver(latest, current) > 0) {
         setUpdateStatus(`v${latest} available`)
         setAvailableVersion(latest)
+        setReleases(await fetchRecentReleases(latest, data.body ?? ''))
+        // Show the release-notes modal once per version; closing it is safe
+        // because the Update button stays in the dashboard header.
+        const dismissed = loadConfig()?.dismissedUpdateVersion
+        setShowReleaseNotes(dismissed !== latest)
       } else {
         if (!silent) setUpdateStatus('Up to date')
         setAvailableVersion('')
@@ -170,6 +201,21 @@ export function useDashboardSettings() {
     setUpdateError('')
   }
 
+  const dismissReleaseNotes = () => {
+    setShowReleaseNotes(false)
+    if (availableVersion) {
+      const config = loadConfig()
+      if (config) {
+        config.dismissedUpdateVersion = availableVersion
+        saveConfig(config)
+      }
+    }
+  }
+
+  const openReleaseNotes = () => {
+    setShowReleaseNotes(true)
+  }
+
   checkForUpdateRef.current = checkForUpdate
   updateStateRef.current = updateState
 
@@ -193,5 +239,9 @@ export function useDashboardSettings() {
     checkForUpdate,
     updateNow,
     dismissUpdate,
+    releases,
+    showReleaseNotes,
+    dismissReleaseNotes,
+    openReleaseNotes,
   }
 }

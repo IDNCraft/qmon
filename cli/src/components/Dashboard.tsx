@@ -7,6 +7,7 @@ import { useMemo, useState } from 'react'
 
 import { DashboardHeader } from './dashboard/DashboardHeader'
 import { Footer } from './dashboard/Footer'
+import { ReleaseNotesModal } from './dashboard/ReleaseNotesModal'
 import { SettingsCard } from './dashboard/SettingsCard'
 import { SummaryCards } from './dashboard/SummaryCards'
 import { UpdateModal } from './dashboard/UpdateModal'
@@ -58,6 +59,9 @@ export function Dashboard({ onLogout }: Props) {
     checkForUpdate,
     updateNow,
     dismissUpdate,
+    releases,
+    showReleaseNotes,
+    dismissReleaseNotes,
   } = useDashboardSettings()
 
   const uniqueProviders = useMemo(
@@ -84,7 +88,7 @@ export function Dashboard({ onLogout }: Props) {
   )
 
   useKeyboard((key) => {
-    if (updateState !== 'idle') return
+    if (updateState !== 'idle' || showReleaseNotes) return
 
     if (showSettings) {
       switch (key.name) {
@@ -319,6 +323,20 @@ export function Dashboard({ onLogout }: Props) {
           onClose={dismissUpdate}
           onRestart={() => {
             restartQmon()
+          }}
+        />
+      )}
+
+      {showReleaseNotes && updateState === 'idle' && availableVersion && (
+        <ReleaseNotesModal
+          version={availableVersion}
+          releases={releases}
+          width={terminalColumns - 4}
+          height={terminalRows}
+          onClose={dismissReleaseNotes}
+          onUpdate={() => {
+            dismissReleaseNotes()
+            void updateNow()
           }}
         />
       )}
