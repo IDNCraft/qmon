@@ -1,9 +1,44 @@
 import { ChildProcess, spawn } from 'node:child_process'
-import { existsSync, openSync } from 'node:fs'
+import { existsSync, openSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import path from 'node:path'
 
 let apiProcess: ChildProcess | null = null
+
+// Sidecar PID persisted to disk so a later qmon run can reap an orphaned
+// qmon-server whose parent TUI died (crash, kill -9, or lost signal).
+const SIDECAR_PID_FILE = path.join(homedir(), '.qmon-server-sidecar.pid')
+
+function readSidecarPid(): number | null {
+  try {
+    const pid = Number.parseInt(readFileSync(SIDECAR_PID_FILE, 'utf8').trim(), 10)
+    return Number.isNaN(pid) ? null : pid
+  } catch {
+    return null
+  }
+}
+
+function writeSidecarPid(pid: number): void {
+  try {
+    writeFileSync(SIDECAR_PID_FILE, String(pid))
+  } catch {
+    // Best-effort bookkeeping only.
+  }
+}
+
+function reapOrphanSidecar(): void {
+  const pid = readSidecarPid()
+  if (!pid || pid === apiProcess?.pid) return
+  try {
+    process.kill(-pid, 'SIGKILL')
+  } catch {
+    try {
+      process.kill(pid, 'SIGKILL')
+    } catch {
+      // Already dead.
+    }
+  }
+}
 
 export async function startSidecar(baseUrl: string): Promise<void> {
   // Only start sidecar if baseUrl points to localhost/127.0.0.1
@@ -16,6 +51,9 @@ export async function startSidecar(baseUrl: string): Promise<void> {
   if (isUp) {
     return
   }
+
+  // API is down but a previous sidecar may still be alive without a parent.
+  reapOrphanSidecar()
 
   let cmd = 'qmon-server'
   let args: string[] = []
@@ -56,6 +94,9 @@ export async function startSidecar(baseUrl: string): Promise<void> {
   apiProcess.on('error', (err) => {
     console.error('\u001B[31m❌ Failed to spawn API process:\u001B[0m', err.message)
   })
+  if (apiProcess.pid) {
+    writeSidecarPid(apiProcess.pid)
+  }
 
   // Wait for it to boot up and respond to /health
   let attempts = 0
@@ -81,9 +122,14 @@ export function stopSidecar(): void {
     } catch {
       try {
         apiProcess.kill('SIGINT')
-      } catch {}
+      } catch { }
     }
     apiProcess = null
+    try {
+      unlinkSync(SIDECAR_PID_FILE)
+    } catch {
+      // File already gone.
+    }
   }
 }
 
