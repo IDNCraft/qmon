@@ -1,6 +1,9 @@
 /** @jsxImportSource @opentui/react */
+import type { MarkdownLine } from '../../markdown'
+import type { ReleaseInfo } from '../../update'
 import { MouseEvent, RGBA, TextAttributes } from '@opentui/core'
 
+import { renderMarkdownLines } from '../../markdown'
 import { Badge, Card, THEME } from '../ui'
 
 export interface SettingsItem {
@@ -9,62 +12,82 @@ export interface SettingsItem {
   value: string | boolean
 }
 
-interface Props {
-  items: SettingsItem[]
-  selectedIndex: number
-  onSelect: (index: number) => void
-  onToggleMetric: () => void
-  onToggleTime: () => void
-  onToggleProvider: (label: string) => void
-  onCheckUpdate: () => void
-  width: number
-}
+export type SettingsRow =
+  | { kind: 'section'; key: string; title: string; open: boolean }
+  | { kind: 'item'; key: string; item: SettingsItem }
+  | { kind: 'release'; key: string; version: string; open: boolean }
+  | { kind: 'note'; key: string; line: MarkdownLine }
 
-export function SettingsCard({
-  items,
-  selectedIndex,
-  onSelect,
-  onToggleMetric,
-  onToggleTime,
-  onToggleProvider,
-  onCheckUpdate,
-  width,
-}: Props) {
-  const toggle = (item: SettingsItem) => {
-    switch (item.type) {
-      case 'metric': {
-        onToggleMetric()
-        break
-      }
-      case 'time': {
-        onToggleTime()
-        break
-      }
-      case 'provider': {
-        onToggleProvider(item.label)
-        break
-      }
-      case 'checkUpdate': {
-        {
-          onCheckUpdate()
-          // No default
-        }
-        break
+export function buildSettingsRows(
+  items: SettingsItem[],
+  releases: ReleaseInfo[],
+  openSections: Set<string>,
+  openReleases: Set<string>,
+  wrapWidth: number
+): SettingsRow[] {
+  const rows: SettingsRow[] = []
+  const sections: Array<{ title: string; items: SettingsItem[] }> = [
+    { title: 'Display', items: items.filter((i) => i.type === 'metric' || i.type === 'time') },
+    { title: 'Providers', items: items.filter((i) => i.type === 'provider') },
+    { title: 'System', items: items.filter((i) => i.type === 'checkUpdate') },
+  ]
+
+  for (const section of sections) {
+    const open = openSections.has(section.title)
+    rows.push({ kind: 'section', key: section.title, title: section.title, open })
+    if (open) {
+      for (const item of section.items) {
+        rows.push({ kind: 'item', key: `item:${item.label}`, item })
       }
     }
   }
 
-  const sections = [
-    { title: 'Display', items: items.filter((i) => i.type === 'metric' || i.type === 'time') },
-    { title: 'Providers', items: items.filter((i) => i.type === 'provider') },
-    {
-      title: 'System',
-      items: items.filter((i) => i.type === 'checkUpdate'),
-    },
-  ].filter((s) => s.items.length > 0)
+  const notesOpen = openSections.has('Release Notes')
+  rows.push({ kind: 'section', key: 'Release Notes', title: 'Release Notes', open: notesOpen })
+  if (notesOpen) {
+    if (releases.length === 0) {
+      rows.push({
+        kind: 'note',
+        key: 'note:none',
+        line: { text: 'No releases fetched yet.', bold: false, color: THEME.muted },
+      })
+    }
+    for (const release of releases) {
+      const open = openReleases.has(release.version)
+      rows.push({
+        kind: 'release',
+        key: `release:${release.version}`,
+        version: release.version,
+        open,
+      })
+      if (open) {
+        const lines = renderMarkdownLines(release.notes, wrapWidth)
+        if (lines.length === 0) {
+          rows.push({
+            kind: 'note',
+            key: `note:${release.version}:empty`,
+            line: { text: 'No release notes published.', bold: false, color: THEME.muted },
+          })
+        }
+        for (const [lineIndex, line] of lines.entries()) {
+          rows.push({ kind: 'note', key: `note:${release.version}:${lineIndex}`, line })
+        }
+      }
+    }
+  }
 
-  let globalIndex = 0
+  return rows
+}
 
+interface Props {
+  rows: SettingsRow[]
+  selectedIndex: number
+  onSelect: (index: number) => void
+  onToggle: (row: SettingsRow) => void
+  width: number
+}
+
+export function SettingsCard({ rows, selectedIndex, onSelect, onToggle, width }: Props) {
   return (
     <Card
       title="Dashboard Settings"
@@ -78,73 +101,118 @@ export function SettingsCard({
     >
       <box marginBottom={1}>
         <text selectable={false} attributes={TextAttributes.DIM}>
-          Arrow keys + Space/Enter to toggle. Esc or S to close.
+          Arrows + Space/Enter to expand sections. Esc or S to close.
         </text>
       </box>
 
       <box flexDirection="column">
-        {sections.map((section, sectionIdx) => (
-          <box key={sectionIdx} flexDirection="column" marginTop={sectionIdx === 0 ? 0 : 1}>
-            <box marginBottom={1}>
-              <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.accent}>
-                {section.title}
-              </text>
-            </box>
-            {section.items.map((item) => {
-              const idx = globalIndex++
-              const isSelected = idx === selectedIndex
+        {rows.map((row, index) => {
+          const isSelected = index === selectedIndex
+          const selected = isSelected ? THEME.selectedBg : undefined
 
-              let displayValue: React.ReactNode = null
-              if (item.type === 'metric' || item.type === 'time' || item.type === 'checkUpdate') {
-                displayValue = (
-                  <Badge
-                    label={String(item.value)}
-                    color={isSelected ? THEME.accent : THEME.muted}
-                  />
-                )
-              } else {
-                displayValue = item.value ? (
-                  <Badge label="Shown" color={THEME.success} />
-                ) : (
-                  <Badge label="Hidden" color={THEME.muted} />
-                )
-              }
+          if (row.kind === 'section') {
+            return (
+              <box
+                key={row.key}
+                flexDirection="row"
+                marginTop={index === 0 ? 0 : 1}
+                paddingLeft={1}
+                backgroundColor={selected}
+                onMouseOver={() => {
+                  onSelect(index)
+                }}
+                onMouseDown={(e: MouseEvent) => {
+                  onToggle(row)
+                  e.stopPropagation()
+                }}
+              >
+                <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.accent}>
+                  {`${row.open ? '▾' : '▸'} ${row.title}`}
+                </text>
+              </box>
+            )
+          }
 
-              return (
-                <box
-                  key={idx}
-                  flexDirection="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  paddingLeft={1}
-                  paddingRight={1}
-                  paddingTop={0}
-                  paddingBottom={0}
-                  marginTop={idx === 0 ? 0 : 1}
-                  backgroundColor={isSelected ? THEME.selectedBg : undefined}
-                  onMouseOver={() => {
-                    onSelect(idx)
-                  }}
-                  onMouseDown={(e: MouseEvent) => {
-                    toggle(item)
-                    e.stopPropagation()
-                  }}
+          if (row.kind === 'release') {
+            return (
+              <box
+                key={row.key}
+                flexDirection="row"
+                paddingLeft={3}
+                backgroundColor={selected}
+                onMouseOver={() => {
+                  onSelect(index)
+                }}
+                onMouseDown={(e: MouseEvent) => {
+                  onToggle(row)
+                  e.stopPropagation()
+                }}
+              >
+                <text selectable={false} fg={isSelected ? THEME.accent : THEME.text}>
+                  {`${row.open ? '▾' : '▸'} v${row.version}`}
+                </text>
+              </box>
+            )
+          }
+
+          if (row.kind === 'note') {
+            return (
+              <box key={row.key} flexDirection="row" paddingLeft={5}>
+                <text
+                  selectable={false}
+                  fg={row.line.color}
+                  attributes={row.line.bold ? TextAttributes.BOLD : 0}
                 >
-                  <box flexGrow={1} justifyContent="center">
-                    <text
-                      selectable={false}
-                      attributes={isSelected ? TextAttributes.BOLD : 0}
-                      fg={isSelected ? THEME.accent : THEME.text}
-                    >
-                      {item.label}
-                    </text>
-                  </box>
-                  {displayValue}
-                </box>
-              )
-            })}
-          </box>
-        ))}
+                  {row.line.text}
+                </text>
+              </box>
+            )
+          }
+
+          const { item } = row
+          let displayValue: React.ReactNode = null
+          if (item.type === 'metric' || item.type === 'time' || item.type === 'checkUpdate') {
+            displayValue = (
+              <Badge label={String(item.value)} color={isSelected ? THEME.accent : THEME.muted} />
+            )
+          } else {
+            displayValue = item.value ? (
+              <Badge label="Shown" color={THEME.success} />
+            ) : (
+              <Badge label="Hidden" color={THEME.muted} />
+            )
+          }
+
+          return (
+            <box
+              key={row.key}
+              flexDirection="row"
+              justifyContent="space-between"
+              alignItems="center"
+              paddingLeft={3}
+              paddingRight={1}
+              backgroundColor={selected}
+              onMouseOver={() => {
+                onSelect(index)
+              }}
+              onMouseDown={(e: MouseEvent) => {
+                onToggle(row)
+                e.stopPropagation()
+              }}
+            >
+              <box flexGrow={1} justifyContent="center">
+                <text
+                  selectable={false}
+                  attributes={isSelected ? TextAttributes.BOLD : 0}
+                  fg={isSelected ? THEME.accent : THEME.text}
+                >
+                  {item.label}
+                </text>
+              </box>
+              {displayValue}
+            </box>
+          )
+        })}
       </box>
     </Card>
   )

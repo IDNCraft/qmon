@@ -390,9 +390,9 @@
     "semantic_hash": "d67d8d12428665cb708c78c292324e35"
   },
   "cli/src/components/Dashboard.tsx": {
-    "mtime": 1787980897.661858,
-    "ast_hash": "ff253dd790854b0fe53757b81d758b12",
-    "semantic_hash": "ff253dd790854b0fe53757b81d758b12"
+    "mtime": 1787986114.3957877,
+    "ast_hash": "a62af9697fab7ba13b4c0e32a6918d2d",
+    "semantic_hash": "a62af9697fab7ba13b4c0e32a6918d2d"
   },
   "cli/src/components/Login.tsx": {
     "mtime": 1787936695.6326516,
@@ -400,7 +400,7 @@
     "semantic_hash": "0cd2f0c8d3759dc2de6a2a5e9ea1956d"
   },
   "cli/src/config.ts": {
-    "mtime": 1787979281.890612,
+    "mtime": 1787984515.070558,
     "ast_hash": "98af8da1a578cd3ad06749a9531a283d",
     "semantic_hash": "98af8da1a578cd3ad06749a9531a283d"
   },
@@ -410,7 +410,7 @@
     "semantic_hash": "5ed5db2c0ce5af17161facf984cd9d8f"
   },
   "cli/src/sidecar.ts": {
-    "mtime": 1787981955.922732,
+    "mtime": 1787985133.6255891,
     "ast_hash": "85d23f7c13246f998a06be3198c04d2b",
     "semantic_hash": "85d23f7c13246f998a06be3198c04d2b"
   },
@@ -650,9 +650,9 @@
     "semantic_hash": "661ec2515defd8322007861bbd876e6d"
   },
   "package.json": {
-    "mtime": 1787979525.4877837,
-    "ast_hash": "4cd31d3fdeff3bca9cd0d8a34f9d6297",
-    "semantic_hash": "4cd31d3fdeff3bca9cd0d8a34f9d6297"
+    "mtime": 1787984764.3355827,
+    "ast_hash": "f8469a7993b664c8021dd784c4c137e2",
+    "semantic_hash": "f8469a7993b664c8021dd784c4c137e2"
   },
   "cli/src/components/LoadingScreen.tsx": {
     "mtime": 1787936695.6323707,
@@ -675,9 +675,9 @@
     "semantic_hash": "cc10636cbc969101d2f0abb68cc6337a"
   },
   "cli/src/components/dashboard/SettingsCard.tsx": {
-    "mtime": 1787979001.2475421,
-    "ast_hash": "329c57521752cf1248a0bf999d05e858",
-    "semantic_hash": "329c57521752cf1248a0bf999d05e858"
+    "mtime": 1787984960.0433233,
+    "ast_hash": "9635d7dd83e2af4d01d57a39430a15b4",
+    "semantic_hash": "9635d7dd83e2af4d01d57a39430a15b4"
   },
   "cli/src/components/dashboard/SummaryCards.tsx": {
     "mtime": 1787936695.6343281,
@@ -715,9 +715,9 @@
     "semantic_hash": "a89807dd30ab50033d0e9ccb63a18ba6"
   },
   "cli/src/hooks/useDashboardSettings.ts": {
-    "mtime": 1787980815.830379,
-    "ast_hash": "33069ffa3b34d41924507e3ccd9a3d70",
-    "semantic_hash": "33069ffa3b34d41924507e3ccd9a3d70"
+    "mtime": 1787985456.2931664,
+    "ast_hash": "227291e746aefca5cf8ca3ea464d969a",
+    "semantic_hash": "227291e746aefca5cf8ca3ea464d969a"
   },
   "cli/src/hooks/useQuotaData.ts": {
     "mtime": 1787936695.635922,
@@ -730,7 +730,7 @@
     "semantic_hash": "0bee8d04581942bce4b5bb52ce46f5cf"
   },
   "cli/src/openUrl.ts": {
-    "mtime": 1787980729.1142976,
+    "mtime": 1787984515.0712593,
     "ast_hash": "c8397c679aa7b2602ee5006d9c97aea3",
     "semantic_hash": "c8397c679aa7b2602ee5006d9c97aea3"
   },
@@ -745,17 +745,17 @@
     "semantic_hash": "0b2d7a8f91832f417ec9d92250a48299"
   },
   "cli/src/update.ts": {
-    "mtime": 1787980729.145818,
+    "mtime": 1787985133.6711943,
     "ast_hash": "697bbd79c9aa2b4716b017cc28ecaf59",
     "semantic_hash": "697bbd79c9aa2b4716b017cc28ecaf59"
   },
   "cli/src/components/dashboard/ReleaseNotesModal.tsx": {
-    "mtime": 1787983656.8577657,
+    "mtime": 1787985133.4624698,
     "ast_hash": "7f377f922319bf0df04d96da9106507d",
     "semantic_hash": "7f377f922319bf0df04d96da9106507d"
   },
   "cli/src/markdown.ts": {
-    "mtime": 1787982849.810719,
+    "mtime": 1787985133.6059933,
     "ast_hash": "bf620a2fe6ccc69f019d2510a29514f8",
     "semantic_hash": "bf620a2fe6ccc69f019d2510a29514f8"
   }

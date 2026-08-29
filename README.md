@@ -63,12 +63,6 @@ Update Qmon to the latest tagged release with:
 curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/update.sh | bash
 ```
 
-To update to a specific release, pass its tag:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/update.sh | bash -s -- v1.5.0
-```
-
 ### Usage
 
 Show the installed CLI version:
@@ -81,7 +75,6 @@ Update to the latest release, or pass a specific release tag:
 
 ```bash
 qmon update
-qmon update v1.5.0
 ```
 
 **1. Standalone Terminal Usage**

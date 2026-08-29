@@ -137,10 +137,12 @@ export function useDashboardSettings() {
       const latest = (data.tag_name ?? '').replace(/^v/, '')
       const current = packageJson.version
       if (!latest) throw new Error('no release tag')
+      // Always populate the release list so the Settings release notes stay
+      // available even when the installed version is already the latest.
+      setReleases(await fetchRecentReleases(latest, data.body ?? ''))
       if (compareSemver(latest, current) > 0) {
         setUpdateStatus(`v${latest} available`)
         setAvailableVersion(latest)
-        setReleases(await fetchRecentReleases(latest, data.body ?? ''))
         // Show the release-notes modal once per version; closing it is safe
         // because the Update button stays in the dashboard header.
         const dismissed = loadConfig()?.dismissedUpdateVersion
