@@ -1,6 +1,6 @@
 {
     "name": "qmon",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Monitor AI provider quotas from the terminal, mobile app, and API daemon",
     "author": {
         "name": "IDNCraft",

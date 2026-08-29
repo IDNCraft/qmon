@@ -1,5 +1,19 @@
 # Changelog
 
+# [0.2.0](https://github.com/IDNCraft/qmon/compare/v0.1.0...v0.2.0) (2026-08-29)
+
+
+### Bug Fixes
+
+* **cli:** reap orphaned sidecar processes on startup ([#21](https://github.com/IDNCraft/qmon/issues/21)) ([3f5f113](https://github.com/IDNCraft/qmon/commit/3f5f1135e81974c710f91f942a64327bdc7f87cc))
+
+
+### Features
+
+* **cli:** add collapsible release notes modal with PR link stripping ([#20](https://github.com/IDNCraft/qmon/issues/20)) ([559b03b](https://github.com/IDNCraft/qmon/commit/559b03b337c2348f9ca783d82f6a692a3a4b6e51))
+* **cli:** add collapsible settings sections with release notes ([#22](https://github.com/IDNCraft/qmon/issues/22)) ([d5f2341](https://github.com/IDNCraft/qmon/commit/d5f23418e3bad1d43194e442393f217a1eada646))
+* **cli:** add live update flow with in-dashboard updater ([#19](https://github.com/IDNCraft/qmon/issues/19)) ([8f91d84](https://github.com/IDNCraft/qmon/commit/8f91d846b832764ff3b644a945626f98626b4c75))
+
 # [0.1.0](https://github.com/IDNCraft/qmon/compare/v0.0.6...v0.1.0) (2026-08-28)
 
 
