@@ -11,6 +11,7 @@ export interface QmonConfig {
   showUsedMetric?: boolean
   showAbsoluteTime?: boolean
   lastUpdateCheck?: number
+  dismissedUpdateVersion?: string
 }
 
 export function loadConfig(): QmonConfig | null {

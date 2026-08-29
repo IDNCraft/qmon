@@ -1,4 +1,6 @@
 export const LATEST_RELEASE_API_URL = 'https://api.github.com/repos/IDNCraft/qmon/releases/latest'
+export const RECENT_RELEASES_API_URL =
+  'https://api.github.com/repos/IDNCraft/qmon/releases?per_page=3'
 
 export async function openUrlInBrowser(url: string): Promise<void> {
   try {
