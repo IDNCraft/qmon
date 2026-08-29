@@ -6,10 +6,11 @@ import { App } from './App'
 import { loginWithPrompt, runAuthFlow, runLogoutFlow } from './auth'
 import { clearConfig, loadConfig } from './config'
 import { startSidecar, stopSidecar } from './sidecar'
-import { runUpdate } from './update'
+import { runUpdate, setRendererDestroy } from './update'
 import packageJson from '../../package.json' with { type: 'json' }
 
 const args = process.argv.slice(2)
+let activeRenderer: import('@opentui/core').CliRenderer | null = null
 
 function getErrorMessage(error: unknown): string {
   return error instanceof Error ? error.message : String(error)
@@ -100,7 +101,7 @@ async function main() {
     executeWithLogin(async () => {
       const config = loadConfig()
       if (config) {
-        await startSidecar(config.baseUrl).catch(() => { })
+        await startSidecar(config.baseUrl).catch(() => {})
       }
       await runAuthFlow(provider)
       stopSidecar()
@@ -122,7 +123,7 @@ async function main() {
     executeWithLogin(async () => {
       const config = loadConfig()
       if (config) {
-        await startSidecar(config.baseUrl).catch(() => { })
+        await startSidecar(config.baseUrl).catch(() => {})
       }
       await runLogoutFlow(provider, accountName)
       stopSidecar()
@@ -139,11 +140,14 @@ async function main() {
       })
     }
 
-    const renderer = await createCliRenderer({ exitOnCtrlC: true })
-    renderer.on('destroy', () => {
+    activeRenderer = await createCliRenderer({ exitOnCtrlC: true })
+    activeRenderer.on('destroy', () => {
       stopSidecar()
     })
-    createRoot(renderer).render(<App />)
+    setRendererDestroy(() => {
+      activeRenderer?.destroy()
+    })
+    createRoot(activeRenderer).render(<App />)
   }
 }
 

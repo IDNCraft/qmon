@@ -4,7 +4,7 @@ import { MouseEvent, RGBA, TextAttributes } from '@opentui/core'
 import { Badge, Card, THEME } from '../ui'
 
 export interface SettingsItem {
-  type: 'metric' | 'time' | 'provider' | 'autoUpdate' | 'checkUpdate'
+  type: 'metric' | 'time' | 'provider' | 'checkUpdate'
   label: string
   value: string | boolean
 }
@@ -16,7 +16,6 @@ interface Props {
   onToggleMetric: () => void
   onToggleTime: () => void
   onToggleProvider: (label: string) => void
-  onToggleAutoUpdate: () => void
   onCheckUpdate: () => void
   width: number
 }
@@ -28,7 +27,6 @@ export function SettingsCard({
   onToggleMetric,
   onToggleTime,
   onToggleProvider,
-  onToggleAutoUpdate,
   onCheckUpdate,
   width,
 }: Props) {
@@ -46,10 +44,6 @@ export function SettingsCard({
         onToggleProvider(item.label)
         break
       }
-      case 'autoUpdate': {
-        onToggleAutoUpdate()
-        break
-      }
       case 'checkUpdate': {
         {
           onCheckUpdate()
@@ -65,7 +59,7 @@ export function SettingsCard({
     { title: 'Providers', items: items.filter((i) => i.type === 'provider') },
     {
       title: 'System',
-      items: items.filter((i) => i.type === 'autoUpdate' || i.type === 'checkUpdate'),
+      items: items.filter((i) => i.type === 'checkUpdate'),
     },
   ].filter((s) => s.items.length > 0)
 
@@ -107,12 +101,6 @@ export function SettingsCard({
                     label={String(item.value)}
                     color={isSelected ? THEME.accent : THEME.muted}
                   />
-                )
-              } else if (item.type === 'autoUpdate') {
-                displayValue = item.value ? (
-                  <Badge label="On" color={THEME.success} />
-                ) : (
-                  <Badge label="Off" color={THEME.muted} />
                 )
               } else {
                 displayValue = item.value ? (

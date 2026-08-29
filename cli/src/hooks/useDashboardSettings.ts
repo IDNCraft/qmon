@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
+import type { UpdateProgress } from '../update'
+import { useEffect, useRef, useState } from 'react'
 
 import packageJson from '../../../package.json' with { type: 'json' }
 import { loadConfig, saveConfig } from '../config'
 import { LATEST_RELEASE_API_URL } from '../openUrl'
 import { runUpdate } from '../update'
 
-const UPDATE_CHECK_INTERVAL_MS = 24 * 60 * 60 * 1000
+const INITIAL_UPDATE_PROGRESS: UpdateProgress = { step: 0, total: 3, label: '' }
+const UPDATE_RECHECK_INTERVAL_MS = 15 * 60 * 1000
+type UpdateState = 'idle' | 'updating' | 'success' | 'error'
 
 function compareSemver(a: string, b: string): number {
   const partsA = a.split('.').map(Number)
@@ -26,10 +29,17 @@ export function useDashboardSettings() {
   const [showUsedMetric, setShowUsedMetric] = useState(false)
   const [showAbsoluteTime, setShowAbsoluteTime] = useState(false)
   const [hiddenProviders, setHiddenProviders] = useState<Set<string>>(new Set())
-  const [autoUpdate, setAutoUpdate] = useState(false)
   const [updateStatus, setUpdateStatus] = useState('Check')
   const [availableVersion, setAvailableVersion] = useState('')
   const [updating, setUpdating] = useState(false)
+  const [updateState, setUpdateState] = useState<UpdateState>('idle')
+  const [updateProgress, setUpdateProgress] = useState(INITIAL_UPDATE_PROGRESS)
+  const [updateError, setUpdateError] = useState('')
+  const updateLockRef = useRef(false)
+  const updateStateRef = useRef<UpdateState>('idle')
+  const checkForUpdateRef = useRef<(options?: { silent?: boolean }) => Promise<void>>(
+    async () => { }
+  )
 
   useEffect(() => {
     const config = loadConfig()
@@ -43,29 +53,25 @@ export function useDashboardSettings() {
       if (config.showAbsoluteTime !== undefined) {
         setShowAbsoluteTime(config.showAbsoluteTime)
       }
-      if (config.autoUpdate !== undefined) {
-        setAutoUpdate(config.autoUpdate)
-      }
-      const dueForCheck =
-        !config.lastUpdateCheck || Date.now() - config.lastUpdateCheck > UPDATE_CHECK_INTERVAL_MS
-      if (config.autoUpdate && dueForCheck) {
-        checkForUpdate()
-      }
+    }
+    void checkForUpdateRef.current()
+    // Live re-check: a release published while qmon stays open surfaces the
+    // Update button without restarting. Silent mode never overwrites status text.
+    const interval = setInterval(() => {
+      if (updateLockRef.current || updateStateRef.current !== 'idle') return
+      void checkForUpdateRef.current({ silent: true })
+    }, UPDATE_RECHECK_INTERVAL_MS)
+    return () => {
+      clearInterval(interval)
     }
   }, [])
 
-  const updateSettings = (
-    newHidden: Set<string>,
-    newMetric: boolean,
-    newAbsTime: boolean,
-    newAutoUpdate: boolean
-  ) => {
+  const updateSettings = (newHidden: Set<string>, newMetric: boolean, newAbsTime: boolean) => {
     const config = loadConfig()
     if (config) {
       config.hiddenProviders = [...newHidden]
       config.showUsedMetric = newMetric
       config.showAbsoluteTime = newAbsTime
-      config.autoUpdate = newAutoUpdate
       saveConfig(config)
     }
   }
@@ -73,13 +79,13 @@ export function useDashboardSettings() {
   const toggleUsedMetric = () => {
     const next = !showUsedMetric
     setShowUsedMetric(next)
-    updateSettings(hiddenProviders, next, showAbsoluteTime, autoUpdate)
+    updateSettings(hiddenProviders, next, showAbsoluteTime)
   }
 
   const toggleAbsoluteTime = () => {
     const next = !showAbsoluteTime
     setShowAbsoluteTime(next)
-    updateSettings(hiddenProviders, showUsedMetric, next, autoUpdate)
+    updateSettings(hiddenProviders, showUsedMetric, next)
   }
 
   const toggleProviderVisibility = (label: string) => {
@@ -90,17 +96,12 @@ export function useDashboardSettings() {
       newHidden.add(label)
     }
     setHiddenProviders(newHidden)
-    updateSettings(newHidden, showUsedMetric, showAbsoluteTime, autoUpdate)
+    updateSettings(newHidden, showUsedMetric, showAbsoluteTime)
   }
 
-  const toggleAutoUpdate = () => {
-    const next = !autoUpdate
-    setAutoUpdate(next)
-    updateSettings(hiddenProviders, showUsedMetric, showAbsoluteTime, next)
-  }
-
-  const checkForUpdate = async () => {
-    setUpdateStatus('Checking...')
+  const checkForUpdate = async (options?: { silent?: boolean }) => {
+    const silent = options?.silent ?? false
+    if (!silent) setUpdateStatus('Checking...')
     try {
       const res = await fetch(LATEST_RELEASE_API_URL, {
         signal: AbortSignal.timeout(5000),
@@ -114,11 +115,11 @@ export function useDashboardSettings() {
         setUpdateStatus(`v${latest} available`)
         setAvailableVersion(latest)
       } else {
-        setUpdateStatus('Up to date')
+        if (!silent) setUpdateStatus('Up to date')
         setAvailableVersion('')
       }
     } catch {
-      setUpdateStatus('Check failed')
+      if (!silent) setUpdateStatus('Check failed')
     } finally {
       const config = loadConfig()
       if (config) {
@@ -129,21 +130,48 @@ export function useDashboardSettings() {
   }
 
   const updateNow = async () => {
-    if (!availableVersion || updating) return
+    if (!availableVersion || updateLockRef.current) return
     const targetVersion = availableVersion
+    updateLockRef.current = true
     setUpdating(true)
+    setUpdateState('updating')
+    setUpdateError('')
+    setUpdateProgress({
+      step: 0,
+      total: INITIAL_UPDATE_PROGRESS.total,
+      label: `Preparing update v${targetVersion}...`,
+    })
     setUpdateStatus(`Updating v${targetVersion}...`)
     try {
-      await runUpdate(targetVersion)
+      await runUpdate(targetVersion, setUpdateProgress)
       setAvailableVersion('')
       setUpdateStatus(`Updated v${targetVersion}; restart qmon`)
+      setUpdateState('success')
+      setUpdateProgress({
+        step: INITIAL_UPDATE_PROGRESS.total,
+        total: INITIAL_UPDATE_PROGRESS.total,
+        label: `Updated v${targetVersion}. Restart qmon to use it.`,
+      })
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : String(error)
       setUpdateStatus(`Update failed: ${message}`)
+      setUpdateError(message)
+      setUpdateState('error')
+      setUpdateProgress((progress) => ({ ...progress, label: 'Update failed.' }))
     } finally {
+      updateLockRef.current = false
       setUpdating(false)
     }
   }
+
+  const dismissUpdate = () => {
+    if (updating) return
+    setUpdateState('idle')
+    setUpdateError('')
+  }
+
+  checkForUpdateRef.current = checkForUpdate
+  updateStateRef.current = updateState
 
   return {
     showSettings,
@@ -153,15 +181,17 @@ export function useDashboardSettings() {
     showUsedMetric,
     showAbsoluteTime,
     hiddenProviders,
-    autoUpdate,
     updateStatus,
     availableVersion,
     updating,
+    updateState,
+    updateProgress,
+    updateError,
     toggleUsedMetric,
     toggleAbsoluteTime,
     toggleProviderVisibility,
-    toggleAutoUpdate,
     checkForUpdate,
     updateNow,
+    dismissUpdate,
   }
 }

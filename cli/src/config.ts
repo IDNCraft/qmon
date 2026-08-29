@@ -10,7 +10,6 @@ export interface QmonConfig {
   hiddenProviders?: string[]
   showUsedMetric?: boolean
   showAbsoluteTime?: boolean
-  autoUpdate?: boolean
   lastUpdateCheck?: number
 }
 
