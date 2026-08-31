@@ -526,7 +526,7 @@ func TestProbeCodexRPCSuccess(t *testing.T) {
 	}
 }
 
-func TestProbeOpenCodeNoSubscriptionIsExhausted(t *testing.T) {
+func TestProbeOpenCodeZeroCostWithHistoryIsAvailable(t *testing.T) {
 	configDir := t.TempDir()
 	authDir := filepath.Join(configDir, "opencode")
 	if err := os.MkdirAll(authDir, 0755); err != nil {
@@ -546,7 +546,7 @@ func TestProbeOpenCodeNoSubscriptionIsExhausted(t *testing.T) {
 	}
 	service := NewService(mockRepo, nil)
 
-	quotas, err := service.probeOpenCode(context.Background(), time.Now(), configDir)
+	quotas, err := service.probeOpenCodeLocal(context.Background(), time.Now(), configDir)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -557,13 +557,48 @@ func TestProbeOpenCodeNoSubscriptionIsExhausted(t *testing.T) {
 		t.Errorf("expected 5h quota type, got %s", quotas[0].QuotaType)
 	}
 
+	// Zero recorded cost with existing history no longer implies an inactive
+	// subscription: current opencode builds can report cost=0 while subscribed.
+	// The probe must not force an exhausted state from missing cost data.
 	for _, quota := range quotas {
-		if quota.PercentRemaining != 0 {
-			t.Errorf("expected 0%% remaining for %s, got %v", quota.QuotaType, quota.PercentRemaining)
+		if quota.PercentRemaining != 100 {
+			t.Errorf("expected 100%% remaining for %s, got %v", quota.QuotaType, quota.PercentRemaining)
 		}
-		if !quota.IsExhausted {
-			t.Errorf("expected %s quota exhausted", quota.QuotaType)
+		if quota.IsExhausted {
+			t.Errorf("expected %s quota not exhausted", quota.QuotaType)
 		}
+	}
+}
+
+func TestParseOpenCodeUsage(t *testing.T) {
+	now := time.Now()
+	payload := `{"usage":{"rolling":{"status":"ok","percent":5,"resetsAt":"2026-08-31T07:27:51.230Z"},"weekly":{"status":"rate-limited","percent":100,"resetsAt":"2026-09-07T00:00:00.230Z"},"monthly":{"status":"ok","percent":11,"resetsAt":"2026-09-29T03:53:40.230Z"}}}`
+
+	quotas, err := parseOpenCodeUsage([]byte(payload), now)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(quotas) != 3 {
+		t.Fatalf("expected 3 quotas, got %d", len(quotas))
+	}
+
+	if quotas[0].QuotaType != QuotaTypeFiveHour || quotas[0].PercentRemaining != 95 {
+		t.Errorf("expected 5h 95%% remaining, got %s %v", quotas[0].QuotaType, quotas[0].PercentRemaining)
+	}
+	if quotas[0].IsExhausted || quotas[0].ResetsAt == nil {
+		t.Errorf("expected 5h available with reset time")
+	}
+	if quotas[1].PercentRemaining != 0 || !quotas[1].IsExhausted {
+		t.Errorf("expected weekly exhausted for rate-limited, got %v", quotas[1].PercentRemaining)
+	}
+	if quotas[2].QuotaType != QuotaTypeMonthly || quotas[2].PercentRemaining != 89 {
+		t.Errorf("expected monthly 89%% remaining, got %s %v", quotas[2].QuotaType, quotas[2].PercentRemaining)
+	}
+}
+
+func TestParseOpenCodeUsageEmptyWindows(t *testing.T) {
+	if _, err := parseOpenCodeUsage([]byte(`{}`), time.Now()); err == nil {
+		t.Fatal("expected error for missing usage windows")
 	}
 }
 
@@ -584,7 +619,7 @@ func TestProbeOpenCodeNoHistoryIsAvailable(t *testing.T) {
 	}
 	service := NewService(mockRepo, nil)
 
-	quotas, err := service.probeOpenCode(context.Background(), time.Now(), configDir)
+	quotas, err := service.probeOpenCodeLocal(context.Background(), time.Now(), configDir)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -622,7 +657,7 @@ func TestProbeOpenCodeLimitReachedIsExhausted(t *testing.T) {
 	}
 	service := NewService(mockRepo, nil)
 
-	quotas, err := service.probeOpenCode(context.Background(), time.Now(), configDir)
+	quotas, err := service.probeOpenCodeLocal(context.Background(), time.Now(), configDir)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}

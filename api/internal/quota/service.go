@@ -406,7 +406,11 @@ func parseClaudeOutput(text string) ([]Quota, error) {
 	return nil, fmt.Errorf("could not parse any quota from Claude output: %s", clean)
 }
 
-func (s *Service) probeOpenCode(ctx context.Context, now time.Time, configDir string) ([]Quota, error) {
+// probeOpenCodeLocal estimates OpenCode Go usage from the local message DB.
+// Kept as a fallback for the official usage endpoint (see opencode.go): it can
+// only see this machine's messages and recent CLI builds no longer record cost
+// for Go models.
+func (s *Service) probeOpenCodeLocal(ctx context.Context, now time.Time, configDir string) ([]Quota, error) {
 	var authPath string
 	if configDir != "" {
 		authPath = filepath.Join(configDir, "opencode", "auth.json")
@@ -487,15 +491,8 @@ func (s *Service) probeOpenCode(ctx context.Context, now time.Time, configDir st
 	row := rows[0]
 	fiveHourRemaining := percentRemaining(row.FiveHourCost, fiveHourLimit)
 	weeklyRemaining := percentRemaining(row.WeeklyCost, weeklyLimit)
-	// OpenCode Go accounts without an active subscription can retain old usage
-	// history while returning zero cost for the current billing window.
-	noSubscription := row.AnchorMs != nil && row.WeeklyCost == 0
-	if noSubscription {
-		fiveHourRemaining = 0
-		weeklyRemaining = 0
-	}
-	fiveHourExhausted := noSubscription || row.FiveHourCost >= fiveHourLimit
-	weeklyExhausted := noSubscription || row.WeeklyCost >= weeklyLimit
+	fiveHourExhausted := row.FiveHourCost >= fiveHourLimit
+	weeklyExhausted := row.WeeklyCost >= weeklyLimit
 
 	weekEnd := startOfWeekUTC(now).Add(7 * 24 * time.Hour)
 	weekDur := time.Until(weekEnd)
@@ -547,10 +544,7 @@ func (s *Service) probeOpenCode(ctx context.Context, now time.Time, configDir st
 			var mRows []MonthlyRow
 			if err := json.Unmarshal([]byte(mRes), &mRows); err == nil && len(mRows) > 0 {
 				mRemaining := percentRemaining(mRows[0].MonthlyCost, monthlyLimit)
-				if noSubscription {
-					mRemaining = 0
-				}
-				monthlyExhausted := noSubscription || mRows[0].MonthlyCost >= monthlyLimit
+				monthlyExhausted := mRows[0].MonthlyCost >= monthlyLimit
 				mDur := time.Until(mEnd)
 				monthlyResetText := "monthly"
 				if mDur > 0 {
