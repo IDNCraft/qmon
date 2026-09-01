@@ -29,6 +29,10 @@
 
 * **cli:** add version and update commands ([#18](https://github.com/IDNCraft/qmon/issues/18)) ([14e25d7](https://github.com/IDNCraft/qmon/commit/14e25d7e06367cbb5872cf262de788f33485521e))
 
+### Code Refactoring
+
+* **tui:** make TUI layout responsive and stack login security card ([#16](https://github.com/IDNCraft/qmon/issues/16)) ([d779457](https://github.com/IDNCraft/qmon/commit/d77945712d175c34165fb21d81220318e837e4bd))
+
 ## [0.0.6](https://github.com/IDNCraft/qmon/compare/v0.0.5...v0.0.6) (2026-08-28)
 
 ### Features
@@ -37,13 +41,25 @@
 
 ## [0.0.5](https://github.com/IDNCraft/qmon/compare/v0.0.4...v0.0.5) (2026-08-28)
 
+### Build System
+
+* **android:** bump gradle wrapper to 8.14 ([#14](https://github.com/IDNCraft/qmon/issues/14)) ([17ae55b](https://github.com/IDNCraft/qmon/commit/17ae55b0a1ae64db3f6b8438f9346b0a7f46765b))
+
 ## [0.0.4](https://github.com/IDNCraft/qmon/compare/v0.0.3...v0.0.4) (2026-08-28)
+
+### Build System
+
+* **android:** configure release signing for production builds ([#13](https://github.com/IDNCraft/qmon/issues/13)) ([51afaaf](https://github.com/IDNCraft/qmon/commit/51afaafcbf26dfa72e99bad8c39089b4d4f234c9))
 
 ## [0.0.3](https://github.com/IDNCraft/qmon/compare/v0.0.2...v0.0.3) (2026-08-28)
 
 ### Bug Fixes
 
 * **mobile:** modernize Flutter color and lifecycle APIs ([#11](https://github.com/IDNCraft/qmon/issues/11)) ([f7102f5](https://github.com/IDNCraft/qmon/commit/f7102f581730ee6af312f5236f2247269d6cd12b))
+
+### Code Refactoring
+
+* standardize application name to "Qmon" across mobile and backend components ([#12](https://github.com/IDNCraft/qmon/issues/12)) ([91d70e2](https://github.com/IDNCraft/qmon/commit/91d70e2e0c988e3f0b19d28ea56f67b224b623c4))
 
 ## [0.0.2](https://github.com/IDNCraft/qmon/compare/v0.0.1...v0.0.2) (2026-08-27)
 
@@ -61,3 +77,12 @@
 
 * add mobile development support and enhance API service ([#5](https://github.com/IDNCraft/qmon/issues/5)) ([57c83df](https://github.com/IDNCraft/qmon/commit/57c83df9757767f24b1e66b92656b06b9cad370c))
 * initial commit ([508147c](https://github.com/IDNCraft/qmon/commit/508147c13ef0e81b2488c65a07460ac84aa96a35))
+
+### Code Refactoring
+
+* improve provider sorting logic and update images in README ([#8](https://github.com/IDNCraft/qmon/issues/8)) ([4cddb9b](https://github.com/IDNCraft/qmon/commit/4cddb9bdcad164e2ec90f7499bc0a787796065ef))
+* **quota:** update quota type to '5h' and adjust related logic ([#4](https://github.com/IDNCraft/qmon/issues/4)) ([200a29d](https://github.com/IDNCraft/qmon/commit/200a29d1a9c7db94a51a42fa8587729270a2564a))
+
+### Continuous Integration
+
+* **mobile:** publish release APKs ([#6](https://github.com/IDNCraft/qmon/issues/6)) ([67ee41f](https://github.com/IDNCraft/qmon/commit/67ee41f537e8c9511f489685ad43764256017cb8))

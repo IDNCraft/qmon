@@ -1,5 +1,22 @@
 {
-  "name": "qmon-cli",
+  "name": "qmon",
+  "version": "0.2.1",
+  "description": "Monitor AI provider quotas from the terminal UI",
+  "author": {
+    "name": "IDNCraft",
+    "url": "https://github.com/orgs/IDNCraft"
+  },
+  "keywords": [
+    "ai",
+    "quota",
+    "monitoring",
+    "cli",
+    "codex",
+    "claude",
+    "copilot",
+    "opencode",
+    "antigravity"
+  ],
   "module": "index.ts",
   "type": "module",
   "private": true,
@@ -34,5 +51,9 @@
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
   }
 }
