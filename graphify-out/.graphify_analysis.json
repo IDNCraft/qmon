@@ -73,6 +73,145 @@
       "setting_handler_publicconfig"
     ],
     "1": [
+      "cli_src_api_quotasnapshot",
+      "cli_src_components_dashboard",
+      "cli_src_components_dashboard_dashboardheader",
+      "cli_src_components_dashboard_dashboardheader_dashboardheader",
+      "cli_src_components_dashboard_dashboardheader_props",
+      "cli_src_components_dashboard_footer",
+      "cli_src_components_dashboard_footer_footer",
+      "cli_src_components_dashboard_footer_props",
+      "cli_src_components_dashboard_props",
+      "cli_src_components_dashboard_releasenotesmodal",
+      "cli_src_components_dashboard_releasenotesmodal_props",
+      "cli_src_components_dashboard_releasenotesmodal_releasenotesmodal",
+      "cli_src_components_dashboard_settingscard",
+      "cli_src_components_dashboard_settingscard_buildsettingsrows",
+      "cli_src_components_dashboard_settingscard_props",
+      "cli_src_components_dashboard_settingscard_settingscard",
+      "cli_src_components_dashboard_settingscard_settingsitem",
+      "cli_src_components_dashboard_settingscard_settingsrow",
+      "cli_src_components_dashboard_summarycards",
+      "cli_src_components_dashboard_summarycards_props",
+      "cli_src_components_dashboard_summarycards_summarycards",
+      "cli_src_components_dashboard_updatemodal",
+      "cli_src_components_dashboard_updatemodal_props",
+      "cli_src_components_dashboard_updatemodal_updatemodal",
+      "cli_src_components_loadingscreen",
+      "cli_src_components_loadingscreen_frames",
+      "cli_src_components_loadingscreen_loadingscreen",
+      "cli_src_components_loadingscreen_props",
+      "cli_src_components_login",
+      "cli_src_components_login_loginform",
+      "cli_src_components_login_loginform_loginform",
+      "cli_src_components_login_loginform_props",
+      "cli_src_components_login_props",
+      "cli_src_components_login_resetform",
+      "cli_src_components_login_resetform_props",
+      "cli_src_components_login_resetform_resetform",
+      "cli_src_components_login_securitycard",
+      "cli_src_components_login_securitycard_props",
+      "cli_src_components_login_securitycard_securitycard",
+      "cli_src_components_quota_quotacard",
+      "cli_src_components_quota_quotacard_props",
+      "cli_src_components_quota_quotacard_quotacard",
+      "cli_src_components_quota_quotacells",
+      "cli_src_components_quota_quotacells_buildcells",
+      "cli_src_components_quota_quotacells_formatabsolutetime",
+      "cli_src_components_quota_quotacells_provider_color",
+      "cli_src_components_quota_quotacells_quotacell",
+      "cli_src_components_quotagrid",
+      "cli_src_components_quotagrid_props",
+      "cli_src_components_quotagrid_quotagrid",
+      "cli_src_components_textinput",
+      "cli_src_components_textinput_props",
+      "cli_src_components_textinput_textinput",
+      "cli_src_components_ui",
+      "cli_src_components_ui_badge",
+      "cli_src_components_ui_badgeprops",
+      "cli_src_components_ui_button",
+      "cli_src_components_ui_buttonprops",
+      "cli_src_components_ui_card",
+      "cli_src_components_ui_cardprops",
+      "cli_src_components_ui_theme",
+      "cli_src_components_ui_themecolors",
+      "cli_src_markdown",
+      "cli_src_markdown_breaklongword",
+      "cli_src_markdown_markdownline",
+      "cli_src_markdown_rendermarkdownlines",
+      "cli_src_markdown_stripinlinemarkdown",
+      "cli_src_markdown_striptrailingprurl",
+      "cli_src_markdown_wraptext",
+      "cli_src_update_releaseinfo"
+    ],
+    "2": [
+      "cli_src_app",
+      "cli_src_app_app",
+      "cli_src_auth",
+      "cli_src_auth_apiresponse",
+      "cli_src_auth_askquestion",
+      "cli_src_auth_authdata",
+      "cli_src_auth_getapierrormessage",
+      "cli_src_auth_getbaseurl",
+      "cli_src_auth_geterrormessage",
+      "cli_src_auth_getheaders",
+      "cli_src_auth_isrecord",
+      "cli_src_auth_loginwithprompt",
+      "cli_src_auth_parseapiresponse",
+      "cli_src_auth_parseauthdata",
+      "cli_src_auth_readapiresponse",
+      "cli_src_auth_runauthflow",
+      "cli_src_auth_runlogoutflow",
+      "cli_src_auth_startoauthcallbackserver",
+      "cli_src_components_dashboard_dashboard",
+      "cli_src_config",
+      "cli_src_config_clearconfig",
+      "cli_src_config_config_path",
+      "cli_src_config_loadconfig",
+      "cli_src_config_qmonconfig",
+      "cli_src_config_saveconfig",
+      "cli_src_hooks_usedashboardsettings",
+      "cli_src_hooks_usedashboardsettings_comparesemver",
+      "cli_src_hooks_usedashboardsettings_fetchrecentreleases",
+      "cli_src_hooks_usedashboardsettings_initial_update_progress",
+      "cli_src_hooks_usedashboardsettings_updatestate",
+      "cli_src_hooks_usedashboardsettings_usedashboardsettings",
+      "cli_src_index",
+      "cli_src_index_args",
+      "cli_src_index_executewithlogin",
+      "cli_src_index_geterrormessage",
+      "cli_src_index_main",
+      "cli_src_openurl",
+      "cli_src_openurl_latest_release_api_url",
+      "cli_src_openurl_openurlinbrowser",
+      "cli_src_openurl_recent_releases_api_url",
+      "cli_src_sidecar",
+      "cli_src_sidecar_checkhealth",
+      "cli_src_sidecar_legacy_log_file",
+      "cli_src_sidecar_legacy_pid_file",
+      "cli_src_sidecar_migratelegacyfile",
+      "cli_src_sidecar_qmondatadir",
+      "cli_src_sidecar_readsidecarpid",
+      "cli_src_sidecar_reaporphansidecar",
+      "cli_src_sidecar_sidecar_pid_file",
+      "cli_src_sidecar_startsidecar",
+      "cli_src_sidecar_stopsidecar",
+      "cli_src_sidecar_writesidecarpid",
+      "cli_src_update",
+      "cli_src_update_getinstalldir",
+      "cli_src_update_isdigits",
+      "cli_src_update_isreleaseidentifier",
+      "cli_src_update_normalizereleaseref",
+      "cli_src_update_resolvereleaseref",
+      "cli_src_update_restartqmon",
+      "cli_src_update_runcommand",
+      "cli_src_update_runupdate",
+      "cli_src_update_setrendererdestroy",
+      "cli_src_update_updateprogress",
+      "cli_src_update_updateprogresscallback",
+      "package_engines_bun"
+    ],
+    "3": [
       "mobile_windows_flutter_generated_plugin_registrant_cc_mobile_windows_flutter_generated_plugin_registrant",
       "mobile_windows_flutter_generated_plugin_registrant_h_mobile_windows_flutter_generated_plugin_registrant",
       "mobile_windows_flutter_generated_plugin_registrant_registerplugins",
@@ -136,67 +275,59 @@
       "unique_ptr",
       "wstring"
     ],
-    "2": [
-      "cli_src_app",
-      "cli_src_app_app",
-      "cli_src_auth",
-      "cli_src_auth_apiresponse",
-      "cli_src_auth_askquestion",
-      "cli_src_auth_authdata",
-      "cli_src_auth_getapierrormessage",
-      "cli_src_auth_getbaseurl",
-      "cli_src_auth_geterrormessage",
-      "cli_src_auth_getheaders",
-      "cli_src_auth_isrecord",
-      "cli_src_auth_loginwithprompt",
-      "cli_src_auth_parseapiresponse",
-      "cli_src_auth_parseauthdata",
-      "cli_src_auth_readapiresponse",
-      "cli_src_auth_runauthflow",
-      "cli_src_auth_runlogoutflow",
-      "cli_src_auth_startoauthcallbackserver",
-      "cli_src_config",
-      "cli_src_config_clearconfig",
-      "cli_src_config_config_path",
-      "cli_src_config_loadconfig",
-      "cli_src_config_qmonconfig",
-      "cli_src_config_saveconfig",
-      "cli_src_hooks_usedashboardsettings",
-      "cli_src_hooks_usedashboardsettings_comparesemver",
-      "cli_src_hooks_usedashboardsettings_fetchrecentreleases",
-      "cli_src_hooks_usedashboardsettings_initial_update_progress",
-      "cli_src_hooks_usedashboardsettings_updatestate",
-      "cli_src_hooks_usedashboardsettings_usedashboardsettings",
-      "cli_src_index",
-      "cli_src_index_args",
-      "cli_src_index_executewithlogin",
-      "cli_src_index_geterrormessage",
-      "cli_src_index_main",
-      "cli_src_openurl",
-      "cli_src_openurl_latest_release_api_url",
-      "cli_src_openurl_openurlinbrowser",
-      "cli_src_openurl_recent_releases_api_url",
-      "cli_src_sidecar",
-      "cli_src_sidecar_checkhealth",
-      "cli_src_sidecar_readsidecarpid",
-      "cli_src_sidecar_reaporphansidecar",
-      "cli_src_sidecar_sidecar_pid_file",
-      "cli_src_sidecar_startsidecar",
-      "cli_src_sidecar_stopsidecar",
-      "cli_src_sidecar_writesidecarpid",
-      "cli_src_update",
-      "cli_src_update_getinstalldir",
-      "cli_src_update_isdigits",
-      "cli_src_update_isreleaseidentifier",
-      "cli_src_update_normalizereleaseref",
-      "cli_src_update_resolvereleaseref",
-      "cli_src_update_runcommand",
-      "cli_src_update_runupdate",
-      "cli_src_update_setrendererdestroy",
-      "cli_src_update_updateprogresscallback",
-      "package_engines_bun"
+    "4": [
+      "api_internal_quota_claude",
+      "api_internal_quota_claude_extractclauderesettext",
+      "api_internal_quota_claude_go_context",
+      "api_internal_quota_claude_go_quota",
+      "api_internal_quota_claude_go_quota_service",
+      "api_internal_quota_claude_parseclaudecostoutput",
+      "api_internal_quota_claude_parseclaudeerror",
+      "api_internal_quota_claude_parseclaudeoutput",
+      "api_internal_quota_service",
+      "api_internal_quota_service_anchoredmonthbounds",
+      "api_internal_quota_service_go_context",
+      "api_internal_quota_service_go_quota",
+      "api_internal_quota_service_go_quota_service",
+      "api_internal_quota_service_go_time",
+      "api_internal_quota_service_newservice",
+      "api_internal_quota_service_parsecodexerror",
+      "api_internal_quota_service_percentremaining",
+      "api_internal_quota_service_startofweekutc",
+      "api_internal_quota_service_stripansi",
+      "api_internal_quota_service_test",
+      "api_internal_quota_service_test_go_context",
+      "api_internal_quota_service_test_testantigravitysubscriptionexpired",
+      "api_internal_quota_service_test_testhelperrpcprocess",
+      "api_internal_quota_service_test_testparseclaudecostoutput",
+      "api_internal_quota_service_test_testparseclaudeerror",
+      "api_internal_quota_service_test_testparseclaudeoutput",
+      "api_internal_quota_service_test_testparsecodexerror",
+      "api_internal_quota_service_test_testparseopencodeusage",
+      "api_internal_quota_service_test_testparseopencodeusageemptywindows",
+      "api_internal_quota_service_test_testprobeclaude",
+      "api_internal_quota_service_test_testprobecodex",
+      "api_internal_quota_service_test_testprobecodexrpcsuccess",
+      "api_internal_quota_service_test_testprobecopilotkeychainsuccess",
+      "api_internal_quota_service_test_testprobecopilotsuccess",
+      "api_internal_quota_service_test_testprobeopencodelimitreachedisexhausted",
+      "api_internal_quota_service_test_testprobeopencodenohistoryisavailable",
+      "api_internal_quota_service_test_testprobeopencodezerocostwithhistoryisavailable",
+      "cmd",
+      "quota_claudeauthstatus",
+      "quota_mockrepository",
+      "quota_mockrepository_checkcliavailable",
+      "quota_mockrepository_querylocaldb",
+      "quota_mockrepository_runclicommand",
+      "quota_service_getsnapshot",
+      "quota_service_probeclaude",
+      "quota_service_probecodex",
+      "quota_service_probeopencodelocal",
+      "quotasnapshotresponse",
+      "repository",
+      "t"
     ],
-    "3": [
+    "5": [
       "package",
       "package_author",
       "package_author_name",
@@ -245,53 +376,7 @@
       "release_it",
       "release_it_conventional_changelog"
     ],
-    "4": [
-      "api_internal_quota_service",
-      "api_internal_quota_service_anchoredmonthbounds",
-      "api_internal_quota_service_extractclauderesettext",
-      "api_internal_quota_service_go_context",
-      "api_internal_quota_service_newservice",
-      "api_internal_quota_service_parseclaudecostoutput",
-      "api_internal_quota_service_parseclaudeerror",
-      "api_internal_quota_service_parseclaudeoutput",
-      "api_internal_quota_service_parsecodexerror",
-      "api_internal_quota_service_percentremaining",
-      "api_internal_quota_service_startofweekutc",
-      "api_internal_quota_service_stripansi",
-      "api_internal_quota_service_test",
-      "api_internal_quota_service_test_go_context",
-      "api_internal_quota_service_test_testantigravitysubscriptionexpired",
-      "api_internal_quota_service_test_testhelperrpcprocess",
-      "api_internal_quota_service_test_testparseclaudecostoutput",
-      "api_internal_quota_service_test_testparseclaudeerror",
-      "api_internal_quota_service_test_testparseclaudeoutput",
-      "api_internal_quota_service_test_testparsecodexerror",
-      "api_internal_quota_service_test_testprobeclaude",
-      "api_internal_quota_service_test_testprobecodex",
-      "api_internal_quota_service_test_testprobecodexrpcsuccess",
-      "api_internal_quota_service_test_testprobecopilotkeychainsuccess",
-      "api_internal_quota_service_test_testprobecopilotsuccess",
-      "api_internal_quota_service_test_testprobeopencodelimitreachedisexhausted",
-      "api_internal_quota_service_test_testprobeopencodenohistoryisavailable",
-      "api_internal_quota_service_test_testprobeopencodenosubscriptionisexhausted",
-      "cmd",
-      "quota",
-      "quota_claudeauthstatus",
-      "quota_mockrepository",
-      "quota_mockrepository_checkcliavailable",
-      "quota_mockrepository_querylocaldb",
-      "quota_mockrepository_runclicommand",
-      "quota_service",
-      "quota_service_getsnapshot",
-      "quota_service_probeclaude",
-      "quota_service_probecodex",
-      "quota_service_probeopencode",
-      "quotasnapshotresponse",
-      "repository",
-      "t",
-      "time"
-    ],
-    "5": [
+    "6": [
       "any",
       "api_internal_middleware_recovery",
       "api_internal_middleware_recovery_go_handlerfunc",
@@ -332,7 +417,7 @@
       "xctest",
       "xctestcase"
     ],
-    "6": [
+    "7": [
       "activity",
       "appwidgetmanager",
       "bundle",
@@ -368,73 +453,34 @@
       "remoteviewsservice",
       "sharedpreferences"
     ],
-    "7": [
-      "api_internal_quota_codex",
-      "api_internal_quota_codex_codexquotatypeforplan",
-      "api_internal_quota_codex_go_context",
-      "datetime",
-      "mobile_lib_models_quota_models",
-      "mobile_lib_models_quota_models_capturedat",
-      "mobile_lib_models_quota_models_fromjson",
-      "mobile_lib_models_quota_models_isavailable",
-      "mobile_lib_models_quota_models_isenabled",
-      "mobile_lib_models_quota_models_isexhausted",
-      "mobile_lib_models_quota_models_lasterror",
-      "mobile_lib_models_quota_models_modelkey",
-      "mobile_lib_models_quota_models_name",
-      "mobile_lib_models_quota_models_normalizedprovider",
-      "mobile_lib_models_quota_models_normalizedtype",
-      "mobile_lib_models_quota_models_percentremaining",
-      "mobile_lib_models_quota_models_providerid",
-      "mobile_lib_models_quota_models_providers",
-      "mobile_lib_models_quota_models_providersnapshot",
-      "mobile_lib_models_quota_models_quota",
-      "mobile_lib_models_quota_models_quotas",
-      "mobile_lib_models_quota_models_quotasnapshotresponse",
-      "mobile_lib_models_quota_models_quotatypelabel",
-      "mobile_lib_models_quota_models_resetsat",
-      "mobile_lib_models_quota_models_resettext",
-      "mobile_lib_models_quota_models_type",
-      "mobile_lib_models_quota_models_value",
-      "quota_codexrpcratelimits",
-      "quota_codexrpcresponse",
-      "quota_codexrpcresult",
-      "quota_codexrpcwindow",
-      "quota_service_probecodexrpc",
-      "quotatype"
-    ],
     "8": [
-      "cli_src_components_dashboard_updatemodal",
-      "cli_src_components_dashboard_updatemodal_props",
-      "cli_src_components_dashboard_updatemodal_updatemodal",
-      "cli_src_components_loadingscreen",
-      "cli_src_components_loadingscreen_frames",
-      "cli_src_components_loadingscreen_loadingscreen",
-      "cli_src_components_loadingscreen_props",
-      "cli_src_components_login",
+      "cli_src_api",
+      "cli_src_api_assertarray",
+      "cli_src_api_assertbooleanlike",
+      "cli_src_api_assertobject",
+      "cli_src_api_assertoptionalnumber",
+      "cli_src_api_assertoptionalstring",
+      "cli_src_api_assertstring",
+      "cli_src_api_fetchallquotas",
+      "cli_src_api_fetchappconfig",
+      "cli_src_api_getbaseurl",
+      "cli_src_api_geterrormessage",
+      "cli_src_api_getheaders",
+      "cli_src_api_getthrownerrormessage",
+      "cli_src_api_login",
+      "cli_src_api_quota",
+      "cli_src_api_resetdefaultcredentials",
+      "cli_src_api_safejson",
+      "cli_src_api_validateappconfigresponse",
+      "cli_src_api_validatequota",
+      "cli_src_api_validatequotasnapshot",
+      "cli_src_api_validateresetresponse",
+      "cli_src_api_validatesnapshotresponse",
+      "cli_src_api_validatetokenresponse",
       "cli_src_components_login_geterrormessage",
-      "cli_src_components_login_loginform",
-      "cli_src_components_login_loginform_loginform",
-      "cli_src_components_login_loginform_props",
-      "cli_src_components_login_props",
-      "cli_src_components_login_resetform",
-      "cli_src_components_login_resetform_props",
-      "cli_src_components_login_resetform_resetform",
-      "cli_src_components_login_securitycard",
-      "cli_src_components_login_securitycard_props",
-      "cli_src_components_login_securitycard_securitycard",
-      "cli_src_components_textinput",
-      "cli_src_components_textinput_props",
-      "cli_src_components_textinput_textinput",
-      "cli_src_components_ui",
-      "cli_src_components_ui_badgeprops",
-      "cli_src_components_ui_button",
-      "cli_src_components_ui_buttonprops",
-      "cli_src_components_ui_card",
-      "cli_src_components_ui_cardprops",
-      "cli_src_components_ui_theme",
-      "cli_src_components_ui_themecolors",
-      "cli_src_update_updateprogress"
+      "cli_src_components_login_login",
+      "cli_src_hooks_usequotadata",
+      "cli_src_hooks_usequotadata_usequotadata"
     ],
     "9": [
       "flpluginregistry",
@@ -464,30 +510,30 @@
       "myapplicationclass"
     ],
     "10": [
-      "cli_src_api",
-      "cli_src_api_assertarray",
-      "cli_src_api_assertbooleanlike",
-      "cli_src_api_assertobject",
-      "cli_src_api_assertoptionalnumber",
-      "cli_src_api_assertoptionalstring",
-      "cli_src_api_assertstring",
-      "cli_src_api_fetchallquotas",
-      "cli_src_api_fetchappconfig",
-      "cli_src_api_getbaseurl",
-      "cli_src_api_geterrormessage",
-      "cli_src_api_getheaders",
-      "cli_src_api_getthrownerrormessage",
-      "cli_src_api_login",
-      "cli_src_api_quota",
-      "cli_src_api_resetdefaultcredentials",
-      "cli_src_api_safejson",
-      "cli_src_api_validateappconfigresponse",
-      "cli_src_api_validatequota",
-      "cli_src_api_validatequotasnapshot",
-      "cli_src_api_validateresetresponse",
-      "cli_src_api_validatesnapshotresponse",
-      "cli_src_api_validatetokenresponse",
-      "cli_src_components_login_login"
+      "datetime",
+      "list",
+      "mobile_lib_models_quota_models",
+      "mobile_lib_models_quota_models_capturedat",
+      "mobile_lib_models_quota_models_fromjson",
+      "mobile_lib_models_quota_models_isavailable",
+      "mobile_lib_models_quota_models_isenabled",
+      "mobile_lib_models_quota_models_isexhausted",
+      "mobile_lib_models_quota_models_lasterror",
+      "mobile_lib_models_quota_models_modelkey",
+      "mobile_lib_models_quota_models_name",
+      "mobile_lib_models_quota_models_normalizedprovider",
+      "mobile_lib_models_quota_models_normalizedtype",
+      "mobile_lib_models_quota_models_percentremaining",
+      "mobile_lib_models_quota_models_providerid",
+      "mobile_lib_models_quota_models_providers",
+      "mobile_lib_models_quota_models_providersnapshot",
+      "mobile_lib_models_quota_models_quotas",
+      "mobile_lib_models_quota_models_quotasnapshotresponse",
+      "mobile_lib_models_quota_models_quotatypelabel",
+      "mobile_lib_models_quota_models_resetsat",
+      "mobile_lib_models_quota_models_resettext",
+      "mobile_lib_models_quota_models_type",
+      "mobile_lib_models_quota_models_value"
     ],
     "11": [
       "cli_tsconfig",
@@ -628,28 +674,6 @@
       "setting_updatesettingsrequest"
     ],
     "17": [
-      "cli_src_components_dashboard",
-      "cli_src_components_dashboard_dashboard",
-      "cli_src_components_dashboard_dashboardheader",
-      "cli_src_components_dashboard_dashboardheader_dashboardheader",
-      "cli_src_components_dashboard_dashboardheader_props",
-      "cli_src_components_dashboard_footer",
-      "cli_src_components_dashboard_footer_footer",
-      "cli_src_components_dashboard_footer_props",
-      "cli_src_components_dashboard_props",
-      "cli_src_components_dashboard_settingscard",
-      "cli_src_components_dashboard_settingscard_buildsettingsrows",
-      "cli_src_components_dashboard_settingscard_props",
-      "cli_src_components_dashboard_settingscard_settingscard",
-      "cli_src_components_dashboard_settingscard_settingsitem",
-      "cli_src_components_dashboard_settingscard_settingsrow",
-      "cli_src_components_ui_badge",
-      "cli_src_hooks_usequotadata",
-      "cli_src_hooks_usequotadata_usequotadata",
-      "cli_src_update_restartqmon"
-    ],
-    "18": [
-      "list",
       "mobile_lib_screens_settings_screen",
       "mobile_lib_screens_settings_screen_apiservice",
       "mobile_lib_screens_settings_screen_availableproviders",
@@ -669,7 +693,7 @@
       "mobile_lib_screens_settings_screen_toggletime",
       "mobile_lib_screens_settings_screen_urlcontroller"
     ],
-    "19": [
+    "18": [
       "api_internal_auth_router_go_auth_handler",
       "api_internal_auth_router_go_routergroup",
       "api_internal_middleware_ratelimit",
@@ -687,7 +711,7 @@
       "middleware_limiterstore_get",
       "mutex"
     ],
-    "20": [
+    "19": [
       "apiservice",
       "dashboard_screen_dart",
       "mobile_lib_screens_login_screen",
@@ -705,7 +729,7 @@
       "string",
       "texteditingcontroller"
     ],
-    "21": [
+    "20": [
       "api_cmd_migrate_main",
       "api_cmd_migrate_main_init",
       "api_cmd_migrate_main_main",
@@ -722,7 +746,7 @@
       "api_main_init",
       "api_main_main"
     ],
-    "22": [
+    "21": [
       "api_internal_auth_model_go_time",
       "api_internal_auth_mysql",
       "api_internal_auth_mysql_go_db",
@@ -739,7 +763,7 @@
       "auth_mysqlrepository_setpassword",
       "auth_mysqlrepository_updateusercredentials"
     ],
-    "23": [
+    "22": [
       "cli_package_devdependencies",
       "cli_package_devdependencies_eslint",
       "cli_package_devdependencies_eslint_plugin_prettier",
@@ -756,24 +780,7 @@
       "types_react",
       "typescript_eslint_eslint_plugin"
     ],
-    "24": [
-      "cli_src_api_quotasnapshot",
-      "cli_src_components_dashboard_summarycards",
-      "cli_src_components_dashboard_summarycards_props",
-      "cli_src_components_dashboard_summarycards_summarycards",
-      "cli_src_components_quota_quotacard",
-      "cli_src_components_quota_quotacard_props",
-      "cli_src_components_quota_quotacard_quotacard",
-      "cli_src_components_quota_quotacells",
-      "cli_src_components_quota_quotacells_buildcells",
-      "cli_src_components_quota_quotacells_formatabsolutetime",
-      "cli_src_components_quota_quotacells_provider_color",
-      "cli_src_components_quota_quotacells_quotacell",
-      "cli_src_components_quotagrid",
-      "cli_src_components_quotagrid_props",
-      "cli_src_components_quotagrid_quotagrid"
-    ],
-    "25": [
+    "23": [
       "api_internal_auth_service",
       "api_internal_auth_service_go_repository",
       "api_internal_config_auth",
@@ -789,7 +796,7 @@
       "auth_service_revokerefreshtoken",
       "duration"
     ],
-    "26": [
+    "24": [
       "api_cmd_seed_main",
       "api_cmd_seed_main_init",
       "api_cmd_seed_main_main",
@@ -803,7 +810,7 @@
       "seeders_runner_runonly",
       "seeders_seeder"
     ],
-    "27": [
+    "25": [
       "api_internal_provider_repository",
       "api_internal_provider_repository_go_db",
       "api_internal_provider_repository_go_time",
@@ -817,7 +824,20 @@
       "provider_repository_savecredential",
       "provider_savecredentialinput"
     ],
-    "28": [
+    "26": [
+      "api_internal_quota_opencode",
+      "api_internal_quota_opencode_go_context",
+      "api_internal_quota_opencode_go_quota",
+      "api_internal_quota_opencode_go_quota_service",
+      "api_internal_quota_opencode_go_time",
+      "api_internal_quota_opencode_loadopencodeapikey",
+      "api_internal_quota_opencode_parseopencodeusage",
+      "quota_opencodeusageresponse",
+      "quota_opencodeusagewindow",
+      "quota_service_probeopencode",
+      "quota_service_probeopencodeapi"
+    ],
+    "27": [
       "api_internal_utils_base64",
       "api_internal_utils_base64_decode",
       "api_internal_utils_base64_decodeurl",
@@ -830,20 +850,7 @@
       "api_internal_utils_string_truncate",
       "mobile_windows_runner_utils_cpp_string"
     ],
-    "29": [
-      "cli_src_components_dashboard_releasenotesmodal",
-      "cli_src_components_dashboard_releasenotesmodal_props",
-      "cli_src_components_dashboard_releasenotesmodal_releasenotesmodal",
-      "cli_src_markdown",
-      "cli_src_markdown_breaklongword",
-      "cli_src_markdown_markdownline",
-      "cli_src_markdown_rendermarkdownlines",
-      "cli_src_markdown_stripinlinemarkdown",
-      "cli_src_markdown_striptrailingprurl",
-      "cli_src_markdown_wraptext",
-      "cli_src_update_releaseinfo"
-    ],
-    "30": [
+    "28": [
       "color",
       "dart_ui",
       "mobile_lib_widgets_provider_card",
@@ -856,7 +863,7 @@
       "models_quota_models_dart",
       "providersnapshot"
     ],
-    "31": [
+    "29": [
       "in",
       "in_opt",
       "mobile_windows_runner_main",
@@ -869,7 +876,7 @@
       "mobile_windows_runner_utils_utf8fromutf16",
       "vector"
     ],
-    "32": [
+    "30": [
       "mobile_lib_main",
       "mobile_lib_main_build",
       "mobile_lib_main_main",
@@ -882,7 +889,7 @@
       "statelesswidget",
       "theme_app_theme_dart"
     ],
-    "33": [
+    "31": [
       "mobile_web_manifest",
       "mobile_web_manifest_background_color",
       "mobile_web_manifest_description",
@@ -895,7 +902,7 @@
       "mobile_web_manifest_start_url",
       "mobile_web_manifest_theme_color"
     ],
-    "34": [
+    "32": [
       "api_internal_mail_mailer",
       "api_internal_mail_mailer_buildmessage",
       "api_internal_mail_mailer_getenv",
@@ -907,7 +914,7 @@
       "mail_mailer_send",
       "mail_passwordresetdata"
     ],
-    "35": [
+    "33": [
       "api_internal_utils_query",
       "api_internal_utils_query_go_context",
       "api_internal_utils_query_isallowedcol",
@@ -919,7 +926,7 @@
       "utils_listqueryoptions",
       "utils_listqueryparams"
     ],
-    "36": [
+    "34": [
       "mobile_test_api_service_test",
       "mobile_test_api_service_test_main",
       "mobile_test_quota_type_label_test",
@@ -931,7 +938,7 @@
       "package_qmon_mobile_models_quota_models_dart",
       "package_qmon_mobile_services_api_service_dart"
     ],
-    "37": [
+    "35": [
       "api_internal_middleware_requestid",
       "api_internal_middleware_requestid_go_handlerfunc",
       "api_internal_middleware_requestid_requestid",
@@ -942,7 +949,7 @@
       "api_internal_utils_uid_generateuid",
       "api_internal_utils_uid_generateuidshort"
     ],
-    "38": [
+    "36": [
       "api_internal_quota_antigravity",
       "api_internal_quota_antigravity_antigravitysubscriptionexpired",
       "quota_cloudcodefetchmodelsrequest",
@@ -953,7 +960,7 @@
       "quota_cloudcodetier",
       "quota_oauthtokenresponse"
     ],
-    "39": [
+    "37": [
       "api_internal_quota_repository",
       "api_internal_quota_repository_go_context",
       "api_internal_quota_repository_go_db",
@@ -964,7 +971,7 @@
       "quota_sqlrepository_querylocaldb",
       "quota_sqlrepository_runclicommand"
     ],
-    "40": [
+    "38": [
       "api_internal_utils_date",
       "api_internal_utils_date_formatdate",
       "api_internal_utils_date_formatdateiso",
@@ -975,7 +982,7 @@
       "api_internal_utils_date_formattimeshort",
       "api_internal_utils_date_go_time"
     ],
-    "41": [
+    "39": [
       "cli_package_dependencies",
       "cli_package_dependencies_opentui_core",
       "cli_package_dependencies_opentui_react",
@@ -986,7 +993,7 @@
       "react",
       "signal_exit"
     ],
-    "42": [
+    "40": [
       "mobile_lib_theme_app_theme",
       "mobile_lib_theme_app_theme_accentprimary",
       "mobile_lib_theme_app_theme_apptheme",
@@ -997,7 +1004,7 @@
       "package_google_fonts_google_fonts_dart",
       "static_const_color"
     ],
-    "43": [
+    "41": [
       "api_internal_middleware_auth",
       "api_internal_middleware_auth_auth",
       "api_internal_middleware_auth_go_handlerfunc",
@@ -1007,7 +1014,17 @@
       "handler",
       "router_handlers"
     ],
-    "44": [
+    "42": [
+      "api_internal_quota_antigravity_formatduration",
+      "api_internal_quota_codex_go_context",
+      "api_internal_quota_copilot_go_context",
+      "api_internal_quota_copilot_go_quota",
+      "api_internal_quota_copilot_go_quota_service",
+      "mobile_lib_models_quota_models_quota",
+      "quota_service_probecodexrpc",
+      "quota_service_probecopilot"
+    ],
+    "43": [
       "cli_package",
       "cli_package_module",
       "cli_package_name",
@@ -1017,7 +1034,7 @@
       "cli_package_type",
       "typescript"
     ],
-    "45": [
+    "44": [
       "mobile_lib_screens_dashboard_screen_dashboardscreen",
       "mobile_lib_screens_dashboard_screen_dashboardscreenstate",
       "mobile_lib_screens_login_screen_loginscreen",
@@ -1027,7 +1044,7 @@
       "state",
       "statefulwidget"
     ],
-    "46": [
+    "45": [
       "scripts_install",
       "scripts_install_build_and_install",
       "scripts_install_cleanup",
@@ -1037,7 +1054,7 @@
       "scripts_install_run_with_spinner",
       "scripts_install_sh__entry"
     ],
-    "47": [
+    "46": [
       "api_internal_config_app_appversion",
       "api_internal_health_handler",
       "api_internal_health_handler_go_context",
@@ -1045,6 +1062,15 @@
       "api_internal_health_handler_statuslabel",
       "health_handler",
       "health_handler_check"
+    ],
+    "47": [
+      "api_internal_quota_codex",
+      "api_internal_quota_codex_codexquotatypeforplan",
+      "quota_codexrpcratelimits",
+      "quota_codexrpcresponse",
+      "quota_codexrpcresult",
+      "quota_codexrpcwindow",
+      "quotatype"
     ],
     "48": [
       "cli_package_scripts",
@@ -1110,213 +1136,206 @@
       "auth_userinfo"
     ],
     "56": [
-      "api_internal_quota_antigravity_formatduration",
-      "api_internal_quota_copilot_go_context",
-      "api_internal_quota_copilot_go_quota",
-      "api_internal_quota_copilot_go_quota_service",
-      "quota_service_probecopilot"
-    ],
-    "57": [
       "api_internal_middleware_permission",
       "api_internal_middleware_permission_go_handlerfunc",
       "api_internal_middleware_permission_requirepermission",
       "middleware_permissionchecker"
     ],
-    "58": [
+    "57": [
       "api_internal_provider_antigravity_login",
       "provider_completeantigravityloginrequest",
       "provider_initiateantigravityloginrequest",
       "provider_oauthtokenresponse"
     ],
-    "59": [
+    "58": [
       "api_internal_quota_copilot",
       "quota_copilotinteractionquota",
       "quota_copilotquotasnapshots",
       "quota_copilotuserresponse"
     ],
-    "60": [
+    "59": [
       "api_internal_utils_currency",
       "api_internal_utils_currency_formatidr",
       "api_internal_utils_currency_formatusd",
       "api_internal_utils_currency_thousands"
     ],
-    "61": [
+    "60": [
       "scripts_update",
       "scripts_update_cleanup",
       "scripts_update_fail",
       "scripts_update_sh__entry"
     ],
-    "62": [
+    "61": [
       "api_internal_setting_router_go_routergroup",
       "api_internal_setting_router_go_setting_handler",
       "setting_handler_registerpublicroutes"
     ],
-    "63": [
+    "62": [
       "flutteractivity",
       "mobile_android_app_src_main_kotlin_com_qmon_qmon_mobile_mainactivity",
       "mobile_android_app_src_main_kotlin_com_qmon_qmon_mobile_mainactivity_mainactivity"
     ],
-    "64": [
+    "63": [
       "api_database_seeders_collections_users",
       "collections_userseed"
     ],
-    "65": [
+    "64": [
       "api_internal_auth_repository",
       "auth_repository"
     ],
-    "66": [
+    "65": [
       "api_internal_repository_base",
       "repository_crud"
     ],
-    "67": [
+    "66": [
       "api_internal_setting_repository",
       "setting_repository"
     ],
-    "68": [
+    "67": [
       "api_internal_utils_password",
       "api_internal_utils_password_validatepassword"
     ],
-    "69": [
+    "68": [
       "cli_eslint_config",
       "cli_eslint_config_unicornrecommendedrules"
     ],
-    "70": [
+    "69": [
       "cli_package_devdependencies_eslint_config_prettier",
       "eslint_config_prettier"
     ],
-    "71": [
+    "70": [
       "cli_package_devdependencies_eslint_plugin_promise",
       "eslint_plugin_promise"
     ],
-    "72": [
+    "71": [
       "cli_package_devdependencies_eslint_plugin_security",
       "eslint_plugin_security"
     ],
-    "73": [
+    "72": [
       "cli_package_devdependencies_prettier",
       "prettier"
     ],
-    "74": [
+    "73": [
       "cli_package_devdependencies_types_bun",
       "types_bun"
     ],
-    "75": [
+    "74": [
       "cli_package_devdependencies_typescript_eslint_parser",
       "typescript_eslint_parser"
     ],
-    "76": [
+    "75": [
       "api_internal_auth_router"
     ],
-    "77": [
+    "76": [
       "api_internal_provider_codex_login"
     ],
-    "78": [
+    "77": [
       "api_internal_provider_copilot_login"
     ],
-    "79": [
+    "78": [
       "api_internal_provider_opencode_login"
     ],
-    "80": [
+    "79": [
       "api_internal_quota_codex_go_quota"
     ],
-    "81": [
+    "80": [
       "api_internal_quota_service_go_cmd"
     ],
-    "82": [
-      "api_internal_quota_service_go_quota"
-    ],
-    "83": [
+    "81": [
       "api_internal_quota_service_go_quotasnapshotresponse"
     ],
-    "84": [
+    "82": [
       "api_internal_quota_service_go_repository"
     ],
-    "85": [
-      "api_internal_quota_service_go_time"
-    ],
-    "86": [
+    "83": [
       "api_internal_response_codes"
     ],
-    "87": [
+    "84": [
       "api_internal_setting_router"
     ],
-    "88": [
+    "85": [
       "cli_prettierrc"
     ],
-    "89": [
+    "86": [
       "dart_math"
     ],
-    "90": [
+    "87": [
       "mobile_android_app_build_gradle"
     ],
-    "91": [
+    "88": [
       "mobile_android_build_gradle"
     ],
-    "92": [
+    "89": [
       "mobile_android_settings_gradle"
     ],
-    "93": [
+    "90": [
       "mobile_ios_runner_runner_bridging_header"
     ],
-    "94": [
+    "91": [
       "none_quotasnapshotresponse"
     ],
-    "95": [
+    "92": [
       "none_string"
     ],
-    "96": [
+    "93": [
       "pkg_qmon_api"
+    ],
+    "94": [
+      "quota"
+    ],
+    "95": [
+      "time"
     ]
   },
   "cohesion": {
     "0": 0.06583850931677018,
-    "1": 0.0597567424643046,
-    "2": 0.08590441621294616,
-    "3": 0.0425531914893617,
-    "4": 0.10253699788583509,
-    "5": 0.0620782726045884,
-    "6": 0.0748663101604278,
-    "7": 0.06628787878787878,
-    "8": 0.11827956989247312,
+    "1": 0.06666666666666667,
+    "2": 0.07548076923076923,
+    "3": 0.0597567424643046,
+    "4": 0.08081632653061224,
+    "5": 0.0425531914893617,
+    "6": 0.0620782726045884,
+    "7": 0.0748663101604278,
+    "8": 0.18803418803418803,
     "9": 0.09666666666666666,
-    "10": 0.2210144927536232,
+    "10": 0.08333333333333333,
     "11": 0.08695652173913043,
     "12": 0.09090909090909091,
     "13": 0.14761904761904762,
     "14": 0.16842105263157894,
     "15": 0.1,
     "16": 0.13450292397660818,
-    "17": 0.1695906432748538,
-    "18": 0.10526315789473684,
-    "19": 0.19166666666666668,
-    "20": 0.125,
-    "21": 0.19047619047619047,
-    "22": 0.1523809523809524,
-    "23": 0.13333333333333333,
-    "24": 0.23809523809523808,
-    "25": 0.26373626373626374,
-    "26": 0.22727272727272727,
-    "27": 0.21212121212121213,
-    "28": 0.21818181818181817,
-    "29": 0.34545454545454546,
+    "17": 0.1111111111111111,
+    "18": 0.19166666666666668,
+    "19": 0.125,
+    "20": 0.19047619047619047,
+    "21": 0.1523809523809524,
+    "22": 0.13333333333333333,
+    "23": 0.26373626373626374,
+    "24": 0.22727272727272727,
+    "25": 0.21212121212121213,
+    "26": 0.32727272727272727,
+    "27": 0.21818181818181817,
+    "28": 0.18181818181818182,
+    "29": 0.23636363636363636,
     "30": 0.18181818181818182,
-    "31": 0.23636363636363636,
-    "32": 0.18181818181818182,
-    "33": 0.18181818181818182,
-    "34": 0.28888888888888886,
-    "35": 0.4222222222222222,
-    "36": 0.2,
-    "37": 0.25,
-    "38": 0.3055555555555556,
-    "39": 0.3611111111111111,
-    "40": 0.4444444444444444,
-    "41": 0.2222222222222222,
-    "42": 0.2222222222222222,
-    "43": 0.2857142857142857,
-    "44": 0.25,
-    "45": 0.32142857142857145,
-    "46": 0.35714285714285715,
-    "47": 0.3333333333333333,
+    "31": 0.18181818181818182,
+    "32": 0.28888888888888886,
+    "33": 0.4222222222222222,
+    "34": 0.2,
+    "35": 0.25,
+    "36": 0.3055555555555556,
+    "37": 0.3611111111111111,
+    "38": 0.4444444444444444,
+    "39": 0.2222222222222222,
+    "40": 0.2222222222222222,
+    "41": 0.2857142857142857,
+    "42": 0.25,
+    "43": 0.25,
+    "44": 0.32142857142857145,
+    "45": 0.35714285714285715,
+    "46": 0.3333333333333333,
+    "47": 0.42857142857142855,
     "48": 0.2857142857142857,
     "49": 0.4666666666666667,
     "50": 0.4,
@@ -1325,14 +1344,14 @@
     "53": 0.6666666666666666,
     "54": 0.4,
     "55": 0.5,
-    "56": 0.4,
-    "57": 0.6666666666666666,
-    "58": 0.5,
+    "56": 0.6666666666666666,
+    "57": 0.5,
+    "58": 0.8333333333333334,
     "59": 0.8333333333333334,
-    "60": 0.8333333333333334,
+    "60": 0.6666666666666666,
     "61": 0.6666666666666666,
     "62": 0.6666666666666666,
-    "63": 0.6666666666666666,
+    "63": 1.0,
     "64": 1.0,
     "65": 1.0,
     "66": 1.0,
@@ -1364,8 +1383,7 @@
     "92": 1.0,
     "93": 1.0,
     "94": 1.0,
-    "95": 1.0,
-    "96": 1.0
+    "95": 1.0
   },
   "gods": [
     {
@@ -1421,17 +1439,6 @@
   ],
   "surprises": [
     {
-      "source": "restartQmon()",
-      "target": "bun",
-      "source_files": [
-        "cli/src/update.ts",
-        "package.json"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities"
-    },
-    {
       "source": "main()",
       "target": "DatabaseURL()",
       "source_files": [
@@ -1470,6 +1477,17 @@
       "source_files": [
         "api/main.go",
         "api/database/seeders/seeder.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "AppURL()",
+      "target": "getenv()",
+      "source_files": [
+        "api/internal/config/app.go",
+        "api/internal/config/config.go"
       ],
       "confidence": "INFERRED",
       "relation": "calls",

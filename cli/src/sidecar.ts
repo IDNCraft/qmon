@@ -1,13 +1,45 @@
 import { ChildProcess, spawn } from 'node:child_process'
-import { existsSync, openSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
+import {
+  existsSync,
+  mkdirSync,
+  openSync,
+  readFileSync,
+  renameSync,
+  unlinkSync,
+  writeFileSync,
+} from 'node:fs'
 import { homedir } from 'node:os'
 import path from 'node:path'
 
 let apiProcess: ChildProcess | null = null
 
+// Sidecar state lives in qmon's data directory (XDG_DATA_HOME aware), not in
+// $HOME, so a single directory holds all qmon state and is easy to reset.
+function qmonDataDir(): string {
+  const xdg = process.env.XDG_DATA_HOME
+  const base = xdg && path.isAbsolute(xdg) ? xdg : path.join(homedir(), '.local', 'share')
+  return path.join(base, 'qmon')
+}
+
+// Legacy locations used before sidecar state moved into the data directory.
+const LEGACY_PID_FILE = path.join(homedir(), '.qmon-server-sidecar.pid')
+const LEGACY_LOG_FILE = path.join(homedir(), '.qmon-server-sidecar.log')
+
 // Sidecar PID persisted to disk so a later qmon run can reap an orphaned
 // qmon-server whose parent TUI died (crash, kill -9, or lost signal).
-const SIDECAR_PID_FILE = path.join(homedir(), '.qmon-server-sidecar.pid')
+const SIDECAR_PID_FILE = path.join(qmonDataDir(), 'sidecar.pid')
+
+function migrateLegacyFile(from: string, to: string): void {
+  try {
+    if (existsSync(from) && !existsSync(to)) {
+      renameSync(from, to)
+    } else if (existsSync(from)) {
+      unlinkSync(from)
+    }
+  } catch {
+    // Best-effort migration only.
+  }
+}
 
 function readSidecarPid(): number | null {
   try {
@@ -80,8 +112,16 @@ export async function startSidecar(baseUrl: string): Promise<void> {
     // but if it fails, the user must run the API manually.
   }
 
-  // Create log file in user's home folder for diagnostics
-  const logFilePath = path.join(homedir(), '.qmon-server-sidecar.log')
+  // Create log file in qmon's data folder for diagnostics
+  const dataDir = qmonDataDir()
+  try {
+    mkdirSync(dataDir, { recursive: true })
+  } catch {
+    // Fall through: openSync below surfaces a real failure.
+  }
+  migrateLegacyFile(LEGACY_PID_FILE, SIDECAR_PID_FILE)
+  const logFilePath = path.join(dataDir, 'sidecar.log')
+  migrateLegacyFile(LEGACY_LOG_FILE, logFilePath)
   const logFd = openSync(logFilePath, 'a')
 
   // Spawn detached so we can terminate it and its sub-children as a process group
@@ -122,7 +162,7 @@ export function stopSidecar(): void {
     } catch {
       try {
         apiProcess.kill('SIGINT')
-      } catch {}
+      } catch { }
     }
     apiProcess = null
     try {
