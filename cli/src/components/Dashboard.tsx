@@ -269,6 +269,7 @@ export function Dashboard({ onLogout }: Props) {
           <SummaryCards
             isCompact={isCompact}
             snapshots={snapshots}
+            hiddenProviders={hiddenProviders}
             showUsedMetric={showUsedMetric}
             showAbsoluteTime={showAbsoluteTime}
           />

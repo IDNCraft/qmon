@@ -328,6 +328,56 @@
       "t"
     ],
     "5": [
+      "api_database_seeders_03_users",
+      "api_database_seeders_03_users_go_db",
+      "api_internal_middleware_requestid",
+      "api_internal_middleware_requestid_go_handlerfunc",
+      "api_internal_middleware_requestid_requestid",
+      "api_internal_quota_antigravity_go_context",
+      "api_internal_quota_antigravity_go_quota",
+      "api_internal_quota_antigravity_go_quota_service",
+      "api_internal_quota_model",
+      "api_internal_quota_model_go_time",
+      "api_internal_utils_base64",
+      "api_internal_utils_base64_decode",
+      "api_internal_utils_base64_decodeurl",
+      "api_internal_utils_base64_encode",
+      "api_internal_utils_base64_encodeurl",
+      "api_internal_utils_random",
+      "api_internal_utils_random_randomalphanum",
+      "api_internal_utils_random_randomhex",
+      "api_internal_utils_string",
+      "api_internal_utils_string_initials",
+      "api_internal_utils_string_slugify",
+      "api_internal_utils_string_title",
+      "api_internal_utils_string_truncate",
+      "api_internal_utils_uid",
+      "api_internal_utils_uid_generateuid",
+      "api_internal_utils_uid_generateuidshort",
+      "in",
+      "in_opt",
+      "mobile_windows_runner_main",
+      "mobile_windows_runner_main_wwinmain",
+      "mobile_windows_runner_utils_cpp_mobile_windows_runner_utils",
+      "mobile_windows_runner_utils_cpp_string",
+      "mobile_windows_runner_utils_cpp_wchar_t",
+      "mobile_windows_runner_utils_createandattachconsole",
+      "mobile_windows_runner_utils_getcommandlinearguments",
+      "mobile_windows_runner_utils_h_mobile_windows_runner_utils",
+      "mobile_windows_runner_utils_utf8fromutf16",
+      "quota_providersnapshot",
+      "quota_quota",
+      "quota_quotasnapshotresponse",
+      "quota_quotatype",
+      "quota_service_probeantigravity",
+      "quota_service_querycloudcodeapi",
+      "quota_service_refreshantigravitytoken",
+      "seeders_userseeder",
+      "seeders_userseeder_name",
+      "seeders_userseeder_run",
+      "vector"
+    ],
+    "6": [
       "api_internal_quota_antigravity",
       "api_internal_quota_antigravity_antigravitysubscriptionexpired",
       "api_internal_quota_antigravity_formatduration",
@@ -377,7 +427,7 @@
       "quota_service_probecopilot",
       "quotatype"
     ],
-    "6": [
+    "7": [
       "package",
       "package_author",
       "package_author_name",
@@ -426,7 +476,7 @@
       "release_it",
       "release_it_conventional_changelog"
     ],
-    "7": [
+    "8": [
       "any",
       "api_internal_middleware_recovery",
       "api_internal_middleware_recovery_go_handlerfunc",
@@ -467,7 +517,7 @@
       "xctest",
       "xctestcase"
     ],
-    "8": [
+    "9": [
       "activity",
       "appwidgetmanager",
       "bundle",
@@ -503,7 +553,7 @@
       "remoteviewsservice",
       "sharedpreferences"
     ],
-    "9": [
+    "10": [
       "cli_src_api",
       "cli_src_api_assertarray",
       "cli_src_api_assertbooleanlike",
@@ -532,7 +582,7 @@
       "cli_src_hooks_usequotadata",
       "cli_src_hooks_usequotadata_usequotadata"
     ],
-    "10": [
+    "11": [
       "flpluginregistry",
       "gapplication",
       "gboolean",
@@ -559,7 +609,7 @@
       "mobile_linux_runner_my_application_myapplication_parent_instance",
       "myapplicationclass"
     ],
-    "11": [
+    "12": [
       "cli_tsconfig",
       "cli_tsconfig_compileroptions",
       "cli_tsconfig_compileroptions_allowimportingtsextensions",
@@ -584,7 +634,7 @@
       "ref_bun_types",
       "ref_esnext"
     ],
-    "12": [
+    "13": [
       "dart_async",
       "login_screen_dart",
       "materialpageroute",
@@ -609,7 +659,7 @@
       "timer",
       "widgets_provider_card_dart"
     ],
-    "13": [
+    "14": [
       "api_internal_utils_csv",
       "api_internal_utils_csv_exportcsv",
       "api_internal_utils_csv_importcsv",
@@ -632,7 +682,7 @@
       "utils_pdfoptions",
       "value"
     ],
-    "14": [
+    "15": [
       "api_internal_config_app",
       "api_internal_config_app_appenv",
       "api_internal_config_app_appname",
@@ -654,7 +704,7 @@
       "api_internal_middleware_cors_cors",
       "api_internal_middleware_cors_go_handlerfunc"
     ],
-    "15": [
+    "16": [
       "dart_convert",
       "mobile_lib_services_api_service",
       "mobile_lib_services_api_service_apiservice",
@@ -676,7 +726,7 @@
       "package_shared_preferences_shared_preferences_dart",
       "static_const_string"
     ],
-    "16": [
+    "17": [
       "api_internal_setting_model",
       "api_internal_setting_model_go_time",
       "api_internal_setting_mysql",
@@ -697,7 +747,7 @@
       "setting_service_update",
       "setting_updatesettingsrequest"
     ],
-    "17": [
+    "18": [
       "mobile_lib_screens_settings_screen",
       "mobile_lib_screens_settings_screen_apiservice",
       "mobile_lib_screens_settings_screen_availableproviders",
@@ -717,7 +767,7 @@
       "mobile_lib_screens_settings_screen_toggletime",
       "mobile_lib_screens_settings_screen_urlcontroller"
     ],
-    "18": [
+    "19": [
       "api_internal_auth_router_go_auth_handler",
       "api_internal_auth_router_go_routergroup",
       "api_internal_middleware_ratelimit",
@@ -735,7 +785,7 @@
       "middleware_limiterstore_get",
       "mutex"
     ],
-    "19": [
+    "20": [
       "apiservice",
       "dashboard_screen_dart",
       "mobile_lib_screens_login_screen",
@@ -753,7 +803,7 @@
       "string",
       "texteditingcontroller"
     ],
-    "20": [
+    "21": [
       "api_cmd_migrate_main",
       "api_cmd_migrate_main_init",
       "api_cmd_migrate_main_main",
@@ -770,7 +820,7 @@
       "api_main_init",
       "api_main_main"
     ],
-    "21": [
+    "22": [
       "api_internal_auth_model_go_time",
       "api_internal_auth_mysql",
       "api_internal_auth_mysql_go_db",
@@ -787,24 +837,24 @@
       "auth_mysqlrepository_setpassword",
       "auth_mysqlrepository_updateusercredentials"
     ],
-    "22": [
+    "23": [
       "cli_package_devdependencies",
-      "cli_package_devdependencies_eslint",
       "cli_package_devdependencies_eslint_plugin_prettier",
+      "cli_package_devdependencies_eslint_plugin_security",
       "cli_package_devdependencies_eslint_plugin_unicorn",
       "cli_package_devdependencies_ianvs_prettier_plugin_sort_imports",
       "cli_package_devdependencies_react_devtools_core",
       "cli_package_devdependencies_types_react",
       "cli_package_devdependencies_typescript_eslint_eslint_plugin",
-      "eslint",
       "eslint_plugin_prettier",
+      "eslint_plugin_security",
       "eslint_plugin_unicorn",
       "ianvs_prettier_plugin_sort_imports",
       "react_devtools_core",
       "types_react",
       "typescript_eslint_eslint_plugin"
     ],
-    "23": [
+    "24": [
       "api_internal_auth_service",
       "api_internal_auth_service_go_repository",
       "api_internal_config_auth",
@@ -820,7 +870,7 @@
       "auth_service_revokerefreshtoken",
       "duration"
     ],
-    "24": [
+    "25": [
       "api_cmd_seed_main",
       "api_cmd_seed_main_init",
       "api_cmd_seed_main_main",
@@ -834,7 +884,7 @@
       "seeders_runner_runonly",
       "seeders_seeder"
     ],
-    "25": [
+    "26": [
       "api_internal_provider_repository",
       "api_internal_provider_repository_go_db",
       "api_internal_provider_repository_go_time",
@@ -848,7 +898,7 @@
       "provider_repository_savecredential",
       "provider_savecredentialinput"
     ],
-    "26": [
+    "27": [
       "api_internal_quota_opencode",
       "api_internal_quota_opencode_go_context",
       "api_internal_quota_opencode_go_quota",
@@ -860,19 +910,6 @@
       "quota_opencodeusagewindow",
       "quota_service_probeopencode",
       "quota_service_probeopencodeapi"
-    ],
-    "27": [
-      "api_internal_utils_base64",
-      "api_internal_utils_base64_decode",
-      "api_internal_utils_base64_decodeurl",
-      "api_internal_utils_base64_encode",
-      "api_internal_utils_base64_encodeurl",
-      "api_internal_utils_string",
-      "api_internal_utils_string_initials",
-      "api_internal_utils_string_slugify",
-      "api_internal_utils_string_title",
-      "api_internal_utils_string_truncate",
-      "mobile_windows_runner_utils_cpp_string"
     ],
     "28": [
       "color",
@@ -888,19 +925,6 @@
       "providersnapshot"
     ],
     "29": [
-      "in",
-      "in_opt",
-      "mobile_windows_runner_main",
-      "mobile_windows_runner_main_wwinmain",
-      "mobile_windows_runner_utils_cpp_mobile_windows_runner_utils",
-      "mobile_windows_runner_utils_cpp_wchar_t",
-      "mobile_windows_runner_utils_createandattachconsole",
-      "mobile_windows_runner_utils_getcommandlinearguments",
-      "mobile_windows_runner_utils_h_mobile_windows_runner_utils",
-      "mobile_windows_runner_utils_utf8fromutf16",
-      "vector"
-    ],
-    "30": [
       "mobile_lib_main",
       "mobile_lib_main_build",
       "mobile_lib_main_main",
@@ -913,7 +937,7 @@
       "statelesswidget",
       "theme_app_theme_dart"
     ],
-    "31": [
+    "30": [
       "mobile_web_manifest",
       "mobile_web_manifest_background_color",
       "mobile_web_manifest_description",
@@ -926,7 +950,7 @@
       "mobile_web_manifest_start_url",
       "mobile_web_manifest_theme_color"
     ],
-    "32": [
+    "31": [
       "api_internal_mail_mailer",
       "api_internal_mail_mailer_buildmessage",
       "api_internal_mail_mailer_getenv",
@@ -938,7 +962,7 @@
       "mail_mailer_send",
       "mail_passwordresetdata"
     ],
-    "33": [
+    "32": [
       "api_internal_utils_query",
       "api_internal_utils_query_go_context",
       "api_internal_utils_query_isallowedcol",
@@ -950,7 +974,7 @@
       "utils_listqueryoptions",
       "utils_listqueryparams"
     ],
-    "34": [
+    "33": [
       "mobile_test_api_service_test",
       "mobile_test_api_service_test_main",
       "mobile_test_quota_type_label_test",
@@ -962,18 +986,7 @@
       "package_qmon_mobile_models_quota_models_dart",
       "package_qmon_mobile_services_api_service_dart"
     ],
-    "35": [
-      "api_internal_middleware_requestid",
-      "api_internal_middleware_requestid_go_handlerfunc",
-      "api_internal_middleware_requestid_requestid",
-      "api_internal_utils_random",
-      "api_internal_utils_random_randomalphanum",
-      "api_internal_utils_random_randomhex",
-      "api_internal_utils_uid",
-      "api_internal_utils_uid_generateuid",
-      "api_internal_utils_uid_generateuidshort"
-    ],
-    "36": [
+    "34": [
       "api_internal_quota_repository",
       "api_internal_quota_repository_go_context",
       "api_internal_quota_repository_go_db",
@@ -984,7 +997,7 @@
       "quota_sqlrepository_querylocaldb",
       "quota_sqlrepository_runclicommand"
     ],
-    "37": [
+    "35": [
       "api_internal_utils_date",
       "api_internal_utils_date_formatdate",
       "api_internal_utils_date_formatdateiso",
@@ -995,7 +1008,7 @@
       "api_internal_utils_date_formattimeshort",
       "api_internal_utils_date_go_time"
     ],
-    "38": [
+    "36": [
       "cli_package_dependencies",
       "cli_package_dependencies_opentui_core",
       "cli_package_dependencies_opentui_react",
@@ -1006,7 +1019,7 @@
       "react",
       "signal_exit"
     ],
-    "39": [
+    "37": [
       "mobile_lib_theme_app_theme",
       "mobile_lib_theme_app_theme_accentprimary",
       "mobile_lib_theme_app_theme_apptheme",
@@ -1017,7 +1030,7 @@
       "package_google_fonts_google_fonts_dart",
       "static_const_color"
     ],
-    "40": [
+    "38": [
       "api_internal_middleware_auth",
       "api_internal_middleware_auth_auth",
       "api_internal_middleware_auth_go_handlerfunc",
@@ -1027,7 +1040,7 @@
       "handler",
       "router_handlers"
     ],
-    "41": [
+    "39": [
       "cli_package",
       "cli_package_module",
       "cli_package_name",
@@ -1037,7 +1050,7 @@
       "cli_package_type",
       "typescript"
     ],
-    "42": [
+    "40": [
       "mobile_lib_screens_dashboard_screen_dashboardscreen",
       "mobile_lib_screens_dashboard_screen_dashboardscreenstate",
       "mobile_lib_screens_login_screen_loginscreen",
@@ -1047,7 +1060,7 @@
       "state",
       "statefulwidget"
     ],
-    "43": [
+    "41": [
       "scripts_install",
       "scripts_install_build_and_install",
       "scripts_install_cleanup",
@@ -1057,7 +1070,7 @@
       "scripts_install_run_with_spinner",
       "scripts_install_sh__entry"
     ],
-    "44": [
+    "42": [
       "api_internal_config_app_appversion",
       "api_internal_health_handler",
       "api_internal_health_handler_go_context",
@@ -1066,7 +1079,7 @@
       "health_handler",
       "health_handler_check"
     ],
-    "45": [
+    "43": [
       "cli_package_scripts",
       "cli_package_scripts_dev",
       "cli_package_scripts_format",
@@ -1075,7 +1088,7 @@
       "cli_package_scripts_lint_fix",
       "cli_package_scripts_typecheck"
     ],
-    "46": [
+    "44": [
       "api_internal_config_app_appurl",
       "api_internal_storage_storage",
       "api_internal_storage_storage_deletefile",
@@ -1083,7 +1096,7 @@
       "api_internal_storage_storage_savefile",
       "fileheader"
     ],
-    "47": [
+    "45": [
       "api_internal_logger_logger",
       "api_internal_logger_logger_build",
       "api_internal_logger_logger_init",
@@ -1091,7 +1104,7 @@
       "api_internal_middleware_logger_go_handlerfunc",
       "api_internal_middleware_logger_logger"
     ],
-    "48": [
+    "46": [
       "api_internal_provider_claude_login",
       "api_internal_provider_claude_login_go_cmd",
       "api_internal_provider_claude_login_go_time",
@@ -1099,249 +1112,226 @@
       "provider_claudeloginsession",
       "writecloser"
     ],
-    "49": [
-      "api_internal_quota_antigravity_go_context",
-      "api_internal_quota_antigravity_go_quota",
-      "api_internal_quota_antigravity_go_quota_service",
-      "quota_service_probeantigravity",
-      "quota_service_querycloudcodeapi",
-      "quota_service_refreshantigravitytoken"
-    ],
-    "50": [
-      "api_internal_quota_model",
-      "api_internal_quota_model_go_time",
-      "quota_providersnapshot",
-      "quota_quota",
-      "quota_quotasnapshotresponse",
-      "quota_quotatype"
-    ],
-    "51": [
-      "api_database_seeders_03_users",
-      "api_database_seeders_03_users_go_db",
-      "seeders_userseeder",
-      "seeders_userseeder_name",
-      "seeders_userseeder_run"
-    ],
-    "52": [
+    "47": [
       "api_internal_auth_model",
       "auth_loginrequest",
       "auth_refreshtokenrequest",
       "auth_tokenresponse",
       "auth_userinfo"
     ],
-    "53": [
+    "48": [
       "api_internal_middleware_permission",
       "api_internal_middleware_permission_go_handlerfunc",
       "api_internal_middleware_permission_requirepermission",
       "middleware_permissionchecker"
     ],
-    "54": [
+    "49": [
       "api_internal_provider_antigravity_login",
       "provider_completeantigravityloginrequest",
       "provider_initiateantigravityloginrequest",
       "provider_oauthtokenresponse"
     ],
-    "55": [
+    "50": [
       "api_internal_quota_copilot",
       "quota_copilotinteractionquota",
       "quota_copilotquotasnapshots",
       "quota_copilotuserresponse"
     ],
-    "56": [
+    "51": [
       "api_internal_utils_currency",
       "api_internal_utils_currency_formatidr",
       "api_internal_utils_currency_formatusd",
       "api_internal_utils_currency_thousands"
     ],
-    "57": [
+    "52": [
       "scripts_update",
       "scripts_update_cleanup",
       "scripts_update_fail",
       "scripts_update_sh__entry"
     ],
-    "58": [
+    "53": [
       "api_internal_setting_router_go_routergroup",
       "api_internal_setting_router_go_setting_handler",
       "setting_handler_registerpublicroutes"
     ],
-    "59": [
+    "54": [
       "flutteractivity",
       "mobile_android_app_src_main_kotlin_com_qmon_qmon_mobile_mainactivity",
       "mobile_android_app_src_main_kotlin_com_qmon_qmon_mobile_mainactivity_mainactivity"
     ],
-    "60": [
+    "55": [
       "api_database_seeders_collections_users",
       "collections_userseed"
     ],
-    "61": [
+    "56": [
       "api_internal_auth_repository",
       "auth_repository"
     ],
-    "62": [
+    "57": [
       "api_internal_repository_base",
       "repository_crud"
     ],
-    "63": [
+    "58": [
       "api_internal_setting_repository",
       "setting_repository"
     ],
-    "64": [
+    "59": [
       "api_internal_utils_password",
       "api_internal_utils_password_validatepassword"
     ],
-    "65": [
+    "60": [
       "cli_eslint_config",
       "cli_eslint_config_unicornrecommendedrules"
     ],
-    "66": [
+    "61": [
+      "cli_package_devdependencies_eslint",
+      "eslint"
+    ],
+    "62": [
       "cli_package_devdependencies_eslint_config_prettier",
       "eslint_config_prettier"
     ],
-    "67": [
+    "63": [
       "cli_package_devdependencies_eslint_plugin_promise",
       "eslint_plugin_promise"
     ],
-    "68": [
-      "cli_package_devdependencies_eslint_plugin_security",
-      "eslint_plugin_security"
-    ],
-    "69": [
+    "64": [
       "cli_package_devdependencies_prettier",
       "prettier"
     ],
-    "70": [
+    "65": [
       "cli_package_devdependencies_types_bun",
       "types_bun"
     ],
-    "71": [
+    "66": [
       "cli_package_devdependencies_typescript_eslint_parser",
       "typescript_eslint_parser"
     ],
-    "72": [
+    "67": [
       "api_internal_auth_router"
     ],
-    "73": [
+    "68": [
       "api_internal_provider_codex_login"
     ],
-    "74": [
+    "69": [
       "api_internal_provider_copilot_login"
     ],
-    "75": [
+    "70": [
       "api_internal_provider_opencode_login"
     ],
-    "76": [
+    "71": [
       "api_internal_quota_codex_go_quota"
     ],
-    "77": [
+    "72": [
       "api_internal_quota_service_go_cmd"
     ],
-    "78": [
+    "73": [
       "api_internal_quota_service_go_quotasnapshotresponse"
     ],
-    "79": [
+    "74": [
       "api_internal_quota_service_go_repository"
     ],
-    "80": [
+    "75": [
       "api_internal_response_codes"
     ],
-    "81": [
+    "76": [
       "api_internal_setting_router"
     ],
-    "82": [
+    "77": [
       "cli_prettierrc"
     ],
-    "83": [
+    "78": [
       "dart_math"
     ],
-    "84": [
+    "79": [
       "mobile_android_app_build_gradle"
     ],
-    "85": [
+    "80": [
       "mobile_android_build_gradle"
     ],
-    "86": [
+    "81": [
       "mobile_android_settings_gradle"
     ],
-    "87": [
+    "82": [
       "mobile_ios_runner_runner_bridging_header"
     ],
-    "88": [
+    "83": [
       "none_quotasnapshotresponse"
     ],
-    "89": [
+    "84": [
       "none_string"
     ],
-    "90": [
+    "85": [
       "pkg_qmon_api"
     ],
-    "91": [
+    "86": [
       "quota"
     ],
-    "92": [
+    "87": [
       "time"
     ]
   },
   "cohesion": {
     "0": 0.06583850931677018,
-    "1": 0.06625258799171843,
+    "1": 0.06542443064182195,
     "2": 0.07548076923076923,
     "3": 0.0597567424643046,
     "4": 0.08081632653061224,
-    "5": 0.04698581560283688,
-    "6": 0.0425531914893617,
-    "7": 0.0620782726045884,
-    "8": 0.0748663101604278,
-    "9": 0.18803418803418803,
-    "10": 0.09666666666666666,
-    "11": 0.08695652173913043,
-    "12": 0.09090909090909091,
-    "13": 0.14761904761904762,
-    "14": 0.16842105263157894,
-    "15": 0.1,
-    "16": 0.13450292397660818,
-    "17": 0.1111111111111111,
-    "18": 0.19166666666666668,
-    "19": 0.125,
-    "20": 0.19047619047619047,
-    "21": 0.1523809523809524,
-    "22": 0.13333333333333333,
-    "23": 0.26373626373626374,
-    "24": 0.22727272727272727,
-    "25": 0.21212121212121213,
-    "26": 0.32727272727272727,
-    "27": 0.21818181818181817,
+    "5": 0.057624113475177305,
+    "6": 0.04698581560283688,
+    "7": 0.0425531914893617,
+    "8": 0.0620782726045884,
+    "9": 0.0748663101604278,
+    "10": 0.18803418803418803,
+    "11": 0.09666666666666666,
+    "12": 0.08695652173913043,
+    "13": 0.09090909090909091,
+    "14": 0.14761904761904762,
+    "15": 0.16842105263157894,
+    "16": 0.1,
+    "17": 0.13450292397660818,
+    "18": 0.1111111111111111,
+    "19": 0.19166666666666668,
+    "20": 0.125,
+    "21": 0.19047619047619047,
+    "22": 0.1523809523809524,
+    "23": 0.13333333333333333,
+    "24": 0.26373626373626374,
+    "25": 0.22727272727272727,
+    "26": 0.21212121212121213,
+    "27": 0.32727272727272727,
     "28": 0.18181818181818182,
-    "29": 0.23636363636363636,
+    "29": 0.18181818181818182,
     "30": 0.18181818181818182,
-    "31": 0.18181818181818182,
-    "32": 0.28888888888888886,
-    "33": 0.4222222222222222,
-    "34": 0.2,
-    "35": 0.25,
-    "36": 0.3611111111111111,
-    "37": 0.4444444444444444,
-    "38": 0.2222222222222222,
-    "39": 0.2222222222222222,
-    "40": 0.2857142857142857,
-    "41": 0.25,
-    "42": 0.32142857142857145,
-    "43": 0.35714285714285715,
-    "44": 0.3333333333333333,
-    "45": 0.2857142857142857,
-    "46": 0.4666666666666667,
-    "47": 0.4,
-    "48": 0.3333333333333333,
-    "49": 0.6,
-    "50": 0.6666666666666666,
-    "51": 0.4,
-    "52": 0.5,
+    "31": 0.28888888888888886,
+    "32": 0.4222222222222222,
+    "33": 0.2,
+    "34": 0.3611111111111111,
+    "35": 0.4444444444444444,
+    "36": 0.2222222222222222,
+    "37": 0.2222222222222222,
+    "38": 0.2857142857142857,
+    "39": 0.25,
+    "40": 0.32142857142857145,
+    "41": 0.35714285714285715,
+    "42": 0.3333333333333333,
+    "43": 0.2857142857142857,
+    "44": 0.4666666666666667,
+    "45": 0.4,
+    "46": 0.3333333333333333,
+    "47": 0.5,
+    "48": 0.6666666666666666,
+    "49": 0.5,
+    "50": 0.8333333333333334,
+    "51": 0.8333333333333334,
+    "52": 0.6666666666666666,
     "53": 0.6666666666666666,
-    "54": 0.5,
-    "55": 0.8333333333333334,
-    "56": 0.8333333333333334,
-    "57": 0.6666666666666666,
-    "58": 0.6666666666666666,
-    "59": 0.6666666666666666,
+    "54": 0.6666666666666666,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
     "60": 1.0,
     "61": 1.0,
     "62": 1.0,
@@ -1369,12 +1359,7 @@
     "84": 1.0,
     "85": 1.0,
     "86": 1.0,
-    "87": 1.0,
-    "88": 1.0,
-    "89": 1.0,
-    "90": 1.0,
-    "91": 1.0,
-    "92": 1.0
+    "87": 1.0
   },
   "gods": [
     {

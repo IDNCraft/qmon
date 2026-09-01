@@ -390,9 +390,9 @@
     "semantic_hash": "d67d8d12428665cb708c78c292324e35"
   },
   "cli/src/components/Dashboard.tsx": {
-    "mtime": 1787986840.9760804,
-    "ast_hash": "a62af9697fab7ba13b4c0e32a6918d2d",
-    "semantic_hash": "a62af9697fab7ba13b4c0e32a6918d2d"
+    "mtime": 1788238780.8069792,
+    "ast_hash": "d3ec1c51e9be82c103ae257ce4f4c4a1",
+    "semantic_hash": "d3ec1c51e9be82c103ae257ce4f4c4a1"
   },
   "cli/src/components/Login.tsx": {
     "mtime": 1787936695.6326516,
@@ -410,7 +410,7 @@
     "semantic_hash": "5ed5db2c0ce5af17161facf984cd9d8f"
   },
   "cli/src/sidecar.ts": {
-    "mtime": 1788235585.4926288,
+    "mtime": 1788235954.4973884,
     "ast_hash": "826a7dbea6f77f99c113f8da86c6b17c",
     "semantic_hash": "826a7dbea6f77f99c113f8da86c6b17c"
   },
@@ -665,9 +665,9 @@
     "semantic_hash": "144ca80e239aeb108a6a664e3baa6731"
   },
   "cli/src/components/dashboard/DashboardHeader.tsx": {
-    "mtime": 1787936695.6331925,
-    "ast_hash": "88716cefde0182b7e5feb6e147798bb9",
-    "semantic_hash": "88716cefde0182b7e5feb6e147798bb9"
+    "mtime": 1788246717.8797421,
+    "ast_hash": "bf49b131b258471d99fe0da6e523c477",
+    "semantic_hash": "bf49b131b258471d99fe0da6e523c477"
   },
   "cli/src/components/dashboard/Footer.tsx": {
     "mtime": 1787936695.6334379,
@@ -680,9 +680,9 @@
     "semantic_hash": "9635d7dd83e2af4d01d57a39430a15b4"
   },
   "cli/src/components/dashboard/SummaryCards.tsx": {
-    "mtime": 1787936695.6343281,
-    "ast_hash": "3e847c4fe9d04a4b6222845746b5bfc1",
-    "semantic_hash": "3e847c4fe9d04a4b6222845746b5bfc1"
+    "mtime": 1788244009.861126,
+    "ast_hash": "99fb2865447aee9d014089effdde57bb",
+    "semantic_hash": "99fb2865447aee9d014089effdde57bb"
   },
   "cli/src/components/login/LoginForm.tsx": {
     "mtime": 1787936695.634478,
@@ -700,9 +700,9 @@
     "semantic_hash": "01a469ef326df5bf0d55117c019c4d15"
   },
   "cli/src/components/quota/QuotaCard.tsx": {
-    "mtime": 1787936695.6349561,
-    "ast_hash": "8e15508ff0eb4fe0ebe9754f5716c446",
-    "semantic_hash": "8e15508ff0eb4fe0ebe9754f5716c446"
+    "mtime": 1788238780.807479,
+    "ast_hash": "4612459a499698a1ef2d2dd7953da1db",
+    "semantic_hash": "4612459a499698a1ef2d2dd7953da1db"
   },
   "cli/src/components/quota/QuotaCells.ts": {
     "mtime": 1787936695.635206,
@@ -710,9 +710,9 @@
     "semantic_hash": "c5c87b2df920f0324279f77d1178c40d"
   },
   "cli/src/components/ui.tsx": {
-    "mtime": 1787936695.635407,
-    "ast_hash": "a89807dd30ab50033d0e9ccb63a18ba6",
-    "semantic_hash": "a89807dd30ab50033d0e9ccb63a18ba6"
+    "mtime": 1788238780.7993507,
+    "ast_hash": "5b4bc3092414be2db6ab7f2dfc8b4409",
+    "semantic_hash": "5b4bc3092414be2db6ab7f2dfc8b4409"
   },
   "cli/src/hooks/useDashboardSettings.ts": {
     "mtime": 1788233157.5461779,
@@ -725,7 +725,7 @@
     "semantic_hash": "338fee5ff4839233f0de2480bbc072c7"
   },
   "cli/src/components/QuotaGrid.tsx": {
-    "mtime": 1788235467.5509677,
+    "mtime": 1788235954.4971547,
     "ast_hash": "9078d04761a7f83dee21801328dd45dd",
     "semantic_hash": "9078d04761a7f83dee21801328dd45dd"
   },

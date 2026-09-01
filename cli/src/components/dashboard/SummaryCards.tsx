@@ -8,18 +8,35 @@ import { Card, THEME } from '../ui'
 interface Props {
   isCompact: boolean
   snapshots: QuotaSnapshot[]
+  hiddenProviders: Set<string>
   showUsedMetric: boolean
   showAbsoluteTime: boolean
 }
 
-export function SummaryCards({ isCompact, snapshots, showUsedMetric, showAbsoluteTime }: Props) {
-  const uniqueProviders = useMemo(() => [...new Set(snapshots.map((s) => s.name))], [snapshots])
+export function SummaryCards({
+  isCompact,
+  snapshots,
+  hiddenProviders,
+  showUsedMetric,
+  showAbsoluteTime,
+}: Props) {
+  const visibleSnapshots = useMemo(
+    () => snapshots.filter((s) => !hiddenProviders.has(s.name)),
+    [snapshots, hiddenProviders]
+  )
+  const uniqueProviders = useMemo(
+    () => [...new Set(visibleSnapshots.map((s) => s.name))],
+    [visibleSnapshots]
+  )
   const exhaustedCount = useMemo(
     () =>
-      snapshots.reduce((acc, s) => acc + (s.quotas?.filter((q) => q.is_exhausted).length || 0), 0),
-    [snapshots]
+      visibleSnapshots.reduce(
+        (acc, s) => acc + (s.quotas?.filter((q) => q.is_exhausted).length || 0),
+        0
+      ),
+    [visibleSnapshots]
   )
-  const exhausted = snapshots.some((s) => s.quotas?.some((q) => q.is_exhausted))
+  const exhausted = visibleSnapshots.some((s) => s.quotas?.some((q) => q.is_exhausted))
 
   return (
     <box flexDirection={isCompact ? 'column' : 'row'} gap={1} marginTop={1}>
@@ -33,7 +50,7 @@ export function SummaryCards({ isCompact, snapshots, showUsedMetric, showAbsolut
         </Card>
       ) : (
         <>
-          <Card flexGrow={1} padding={1} paddingY={0} borderColor={THEME.border}>
+          <Card flexGrow={1} flexBasis={0} padding={1} paddingY={0} borderColor={THEME.border}>
             <text selectable={false} attributes={TextAttributes.DIM}>
               Providers
             </text>
@@ -41,7 +58,7 @@ export function SummaryCards({ isCompact, snapshots, showUsedMetric, showAbsolut
               {uniqueProviders.length}
             </text>
           </Card>
-          <Card flexGrow={1} padding={1} paddingY={0} borderColor={THEME.border}>
+          <Card flexGrow={1} flexBasis={0} padding={1} paddingY={0} borderColor={THEME.border}>
             <text selectable={false} attributes={TextAttributes.DIM}>
               Exhausted
             </text>
@@ -53,7 +70,7 @@ export function SummaryCards({ isCompact, snapshots, showUsedMetric, showAbsolut
               {exhaustedCount}
             </text>
           </Card>
-          <Card flexGrow={1} padding={1} paddingY={0} borderColor={THEME.border}>
+          <Card flexGrow={1} flexBasis={0} padding={1} paddingY={0} borderColor={THEME.border}>
             <text selectable={false} attributes={TextAttributes.DIM}>
               Display
             </text>
