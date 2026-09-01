@@ -64,7 +64,7 @@ export function useDashboardSettings() {
   const updateLockRef = useRef(false)
   const updateStateRef = useRef<UpdateState>('idle')
   const checkForUpdateRef = useRef<(options?: { silent?: boolean }) => Promise<void>>(
-    async () => { }
+    async () => {}
   )
 
   useEffect(() => {

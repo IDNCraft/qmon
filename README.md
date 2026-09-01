@@ -57,25 +57,19 @@ curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/install.
 
 ### Update
 
-Update Qmon to the latest tagged release with:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/IDNCraft/qmon/main/scripts/update.sh | bash
-```
-
-### Usage
-
-Show the installed CLI version:
-
-```bash
-qmon version
-```
-
-Update to the latest release, or pass a specific release tag:
+Update to the latest release from the CLI itself:
 
 ```bash
 qmon update
 ```
+
+Or pass a specific release tag:
+
+```bash
+qmon update v1.5.0
+```
+
+The CLI checks the latest GitHub release on every start (and periodically while the dashboard is open), showing an **Update** button in the header when a newer version exists. The update re-clones the tagged release and rebuilds via `scripts/install.sh`; restart `qmon` afterwards to run the new version.
 
 **1. Standalone Terminal Usage**
 
