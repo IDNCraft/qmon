@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2](https://github.com/IDNCraft/qmon/compare/v0.2.1...v0.2.2) (2026-09-01)
+
+### Bug Fixes
+
+* **cli:** keep QuotaGrid hooks order stable when all providers hidden ([#26](https://github.com/IDNCraft/qmon/issues/26)) ([e1ea001](https://github.com/IDNCraft/qmon/commit/e1ea001be79d538ab1f4059b80fe8f259fdd6f9a))
+* **cli:** repair dashboard layout overflow and hidden-provider counts ([#27](https://github.com/IDNCraft/qmon/issues/27)) ([c0f48e0](https://github.com/IDNCraft/qmon/commit/c0f48e04038c0254da0733e97903d27728ffbc5b))
+* **cli:** repair dashboard layout overflow and hidden-provider counts ([#28](https://github.com/IDNCraft/qmon/issues/28)) ([4d7b9cd](https://github.com/IDNCraft/qmon/commit/4d7b9cd2fcf998ab666ffc2cdb95b780d0c93d00))
+
 ## [0.2.1](https://github.com/IDNCraft/qmon/compare/v0.2.0...v0.2.1) (2026-09-01)
 
 ### Bug Fixes
