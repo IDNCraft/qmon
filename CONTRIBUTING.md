@@ -17,7 +17,6 @@ Fork the repository, clone your fork, then install CLI dependencies and build th
 ```bash
 git clone <your-fork-url>
 cd qmon
- bun install
 cd cli && bun install
 cd ..
 make build
@@ -25,7 +24,7 @@ make build
 
 `make install` copies binaries to `~/.local/bin`; use it only when you need a local installation. It is not required for normal development.
 
-The root package only manages release automation. It does not replace the CLI package or its dependencies.
+The only JS/TS package is the CLI (`cli/`). The repository root holds orchestration files (`Makefile`, `scripts/`, docs) and has no `package.json` of its own.
 
 ## Development Workflow
 
@@ -117,17 +116,6 @@ For a cross-layer change, run the API, CLI, and mobile checks listed above when 
 cd mobile
 flutter build apk --debug
 ```
-
-## Releases
-
-Release automation uses `release-it` with Conventional Commit changelog generation. Install root dependencies first, then run the release command from the repository root:
-
-```bash
-bun install
-bun run release:patch
-```
-
-Use `bun run release:minor`, `bun run release:major`, `bun run release:alpha`, or `bun run release:beta` when appropriate. Release commands run the configured checks, update `CHANGELOG.md`, create a `v<version>` tag, and publish a GitHub Release. Review the proposed version and changelog before confirming the interactive prompt.
 
 ## Graphify (Optional)
 
