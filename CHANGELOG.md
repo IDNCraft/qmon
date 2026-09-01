@@ -1,12 +1,21 @@
 # Changelog
 
-# [0.2.0](https://github.com/IDNCraft/qmon/compare/v0.1.0...v0.2.0) (2026-08-29)
+## [0.2.1](https://github.com/IDNCraft/qmon/compare/v0.2.0...v0.2.1) (2026-09-01)
 
+### Bug Fixes
+
+* **api:** probe OpenCode Go usage via official API endpoint ([#23](https://github.com/IDNCraft/qmon/issues/23)) ([5b67258](https://github.com/IDNCraft/qmon/commit/5b67258cae6bea73cedb940b1ee83743e0a2d829))
+
+### Code Refactoring
+
+* **api:** move Claude probe into dedicated file ([#24](https://github.com/IDNCraft/qmon/issues/24)) ([868776c](https://github.com/IDNCraft/qmon/commit/868776c0ee04328ae479f40f15f841060967fcd1))
+* **cli:** move sidecar pid and log into qmon data dir ([#25](https://github.com/IDNCraft/qmon/issues/25)) ([bbccce5](https://github.com/IDNCraft/qmon/commit/bbccce55b785fba81512258abb6ca29439a7df88))
+
+# [0.2.0](https://github.com/IDNCraft/qmon/compare/v0.1.0...v0.2.0) (2026-08-29)
 
 ### Bug Fixes
 
 * **cli:** reap orphaned sidecar processes on startup ([#21](https://github.com/IDNCraft/qmon/issues/21)) ([3f5f113](https://github.com/IDNCraft/qmon/commit/3f5f1135e81974c710f91f942a64327bdc7f87cc))
-
 
 ### Features
 
@@ -16,13 +25,11 @@
 
 # [0.1.0](https://github.com/IDNCraft/qmon/compare/v0.0.6...v0.1.0) (2026-08-28)
 
-
 ### Features
 
 * **cli:** add version and update commands ([#18](https://github.com/IDNCraft/qmon/issues/18)) ([14e25d7](https://github.com/IDNCraft/qmon/commit/14e25d7e06367cbb5872cf262de788f33485521e))
 
 ## [0.0.6](https://github.com/IDNCraft/qmon/compare/v0.0.5...v0.0.6) (2026-08-28)
-
 
 ### Features
 
@@ -34,13 +41,11 @@
 
 ## [0.0.3](https://github.com/IDNCraft/qmon/compare/v0.0.2...v0.0.3) (2026-08-28)
 
-
 ### Bug Fixes
 
 * **mobile:** modernize Flutter color and lifecycle APIs ([#11](https://github.com/IDNCraft/qmon/issues/11)) ([f7102f5](https://github.com/IDNCraft/qmon/commit/f7102f581730ee6af312f5236f2247269d6cd12b))
 
 ## [0.0.2](https://github.com/IDNCraft/qmon/compare/v0.0.1...v0.0.2) (2026-08-27)
-
 
 ### Bug Fixes
 
@@ -48,11 +53,9 @@
 
 ## 0.0.1 (2026-08-27)
 
-
 ### Bug Fixes
 
 * **cli:** cap dashboard width on wide terminals ([#1](https://github.com/IDNCraft/qmon/issues/1)) ([1e2b83c](https://github.com/IDNCraft/qmon/commit/1e2b83c4bcf5062644395445835dfd0ff90d5669))
-
 
 ### Features
 
