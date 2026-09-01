@@ -23,16 +23,22 @@ export function DashboardHeader({
   onUpdate,
 }: Props) {
   return (
-    <box flexDirection="row" justifyContent="space-between" marginBottom={1}>
+    <box
+      flexDirection="row"
+      flexWrap="wrap"
+      justifyContent="space-between"
+      columnGap={1}
+      marginBottom={1}
+    >
       <box flexDirection="row" gap={1}>
         <Button label="Refresh" onClick={onRefresh} />
         <Button label="Settings" onClick={onSettings} />
         <Button label="Logout" color={THEME.danger} onClick={onLogout} />
       </box>
-      <box flexDirection="row" gap={1}>
+      <box flexDirection="row" flexWrap="wrap" gap={1} justifyContent="flex-end" flexGrow={1}>
         {updateVersion && (
           <>
-            <Badge label={`Update ${updateVersion} available`} color={THEME.warning} />
+            <Badge label={`v${updateVersion} available`} color={THEME.warning} />
             <Button
               label={updating ? 'Updating...' : 'Update'}
               color={THEME.warning}

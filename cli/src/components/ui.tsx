@@ -67,7 +67,12 @@ export function Card({
   backgroundColor,
   onMouseDown,
 }: CardProps) {
-  const px = paddingX ?? padding + 1
+  // The extra horizontal cell belongs to the right side: long left-aligned
+  // labels crowd the right border, while the left inset already reads wide
+  // because of terminal cell aspect. Explicit paddingX opts out (compact
+  // layouts need the symmetric inset).
+  const pl = paddingX ?? padding
+  const pr = paddingX ?? (paddingY === undefined ? padding + 1 : padding)
   const py = paddingY ?? padding
   return (
     <box
@@ -82,8 +87,8 @@ export function Card({
       marginTop={marginTop}
       marginBottom={marginBottom}
       backgroundColor={backgroundColor}
-      paddingLeft={px}
-      paddingRight={px}
+      paddingLeft={pl}
+      paddingRight={pr}
       paddingTop={py}
       paddingBottom={py}
       onMouseDown={(event) => {
