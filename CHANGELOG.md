@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.3](https://github.com/IDNCraft/qmon/compare/v0.2.2...v0.2.3) (2026-09-01)
+
+### Bug Fixes
+
+* **cli:** read version from cli package.json after root removal ([#29](https://github.com/IDNCraft/qmon/issues/29)) ([329a3ed](https://github.com/IDNCraft/qmon/commit/329a3ed3c40e1c8e23e176d185f3cae61e666430))
+
 ## [0.2.2](https://github.com/IDNCraft/qmon/compare/v0.2.1...v0.2.2) (2026-09-01)
 
 ### Bug Fixes
