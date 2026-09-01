@@ -14,7 +14,7 @@ import { UpdateModal } from './dashboard/UpdateModal'
 import { LoadingScreen } from './LoadingScreen'
 import { QuotaGrid } from './QuotaGrid'
 import { Card, THEME } from './ui'
-import packageJson from '../../../package.json' with { type: 'json' }
+import packageJson from '../../package.json' with { type: 'json' }
 import { clearConfig } from '../config'
 import { useDashboardSettings } from '../hooks/useDashboardSettings'
 import { useQuotaData } from '../hooks/useQuotaData'

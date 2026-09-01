@@ -1,7 +1,7 @@
 import type { ReleaseInfo, UpdateProgress } from '../update'
 import { useEffect, useRef, useState } from 'react'
 
-import packageJson from '../../../package.json' with { type: 'json' }
+import packageJson from '../../package.json' with { type: 'json' }
 import { loadConfig, saveConfig } from '../config'
 import { LATEST_RELEASE_API_URL, RECENT_RELEASES_API_URL } from '../openUrl'
 import { runUpdate } from '../update'

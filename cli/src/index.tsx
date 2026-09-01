@@ -7,7 +7,7 @@ import { loginWithPrompt, runAuthFlow, runLogoutFlow } from './auth'
 import { clearConfig, loadConfig } from './config'
 import { startSidecar, stopSidecar } from './sidecar'
 import { runUpdate, setRendererDestroy } from './update'
-import packageJson from '../../package.json' with { type: 'json' }
+import packageJson from '../package.json' with { type: 'json' }
 
 const args = process.argv.slice(2)
 let activeRenderer: import('@opentui/core').CliRenderer | null = null
