@@ -47,14 +47,6 @@ export function QuotaGrid(props: Props) {
     [snapshots, hiddenProviders, showUsedMetric, showAbsoluteTime, lastRefreshed]
   )
 
-  if (cells.length === 0) {
-    return (
-      <text selectable={false} attributes={TextAttributes.DIM}>
-        No providers selected to display. Press 'S' to open settings.
-      </text>
-    )
-  }
-
   const gap = 2
   const availableWidth = useMemo(
     () =>
@@ -124,6 +116,18 @@ export function QuotaGrid(props: Props) {
       onOverflowChange(viewportHeightValue > 0 && estimatedContentHeight > viewportHeightValue)
     }
   }, [estimatedContentHeight, viewportHeightValue, onOverflowChange])
+
+  // Early return must stay below every hook: cells disappear when all
+  // providers are hidden, and bailing out mid-component changes the hook
+  // count between renders ("Rendered more hooks than during the previous
+  // render").
+  if (cells.length === 0) {
+    return (
+      <text selectable={false} attributes={TextAttributes.DIM}>
+        No providers selected to display. Press 'S' to open settings.
+      </text>
+    )
+  }
 
   return (
     <box flexDirection="column">
