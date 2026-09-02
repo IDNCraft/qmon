@@ -47,8 +47,16 @@ build-cli:
 install: build
 	@echo "=> Installing to $(BIN_DIR)..."
 	mkdir -p $(BIN_DIR)
+	# Replace via unlink+copy and re-sign ad-hoc: overwriting the inode in
+	# place invalidates the linker/ad-hoc signature and macOS SIGKILLs the
+	# binary ("zsh: killed qmon"), especially after `qmon update`.
+	rm -f $(BIN_DIR)/qmon-server $(BIN_DIR)/qmon
 	cp build/qmon-server $(BIN_DIR)/qmon-server
 	cp build/qmon $(BIN_DIR)/qmon
+ifeq ($(OS),darwin)
+	codesign --force --sign - $(BIN_DIR)/qmon-server
+	codesign --force --sign - $(BIN_DIR)/qmon
+endif
 	@echo "=> Installation complete!"
 	@echo "=> Make sure $(BIN_DIR) is in your PATH."
 
