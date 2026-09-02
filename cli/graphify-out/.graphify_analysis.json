@@ -1,28 +1,21 @@
 {
   "communities": {
     "0": [
-      "src_api_quotasnapshot",
-      "src_components_dashboard",
       "src_components_dashboard_dashboardheader",
-      "src_components_dashboard_dashboardheader_dashboardheader",
       "src_components_dashboard_dashboardheader_props",
-      "src_components_dashboard_footer",
-      "src_components_dashboard_footer_footer",
-      "src_components_dashboard_footer_props",
-      "src_components_dashboard_props",
-      "src_components_dashboard_settingscard",
-      "src_components_dashboard_settingscard_props",
-      "src_components_dashboard_settingscard_settingscard",
-      "src_components_dashboard_settingscard_settingsitem",
+      "src_components_dashboard_releasenotesmodal",
+      "src_components_dashboard_releasenotesmodal_props",
       "src_components_dashboard_summarycards",
       "src_components_dashboard_summarycards_props",
       "src_components_dashboard_summarycards_summarycards",
+      "src_components_dashboard_updatemodal",
       "src_components_loadingscreen",
       "src_components_loadingscreen_frames",
       "src_components_loadingscreen_loadingscreen",
       "src_components_loadingscreen_props",
       "src_components_login",
       "src_components_login_geterrormessage",
+      "src_components_login_login",
       "src_components_login_loginform",
       "src_components_login_loginform_loginform",
       "src_components_login_loginform_props",
@@ -33,6 +26,8 @@
       "src_components_login_securitycard",
       "src_components_login_securitycard_props",
       "src_components_login_securitycard_securitycard",
+      "src_components_quota_quotacard",
+      "src_components_quota_quotacard_props",
       "src_components_textinput",
       "src_components_textinput_props",
       "src_components_textinput_textinput",
@@ -44,7 +39,8 @@
       "src_components_ui_card",
       "src_components_ui_cardprops",
       "src_components_ui_theme",
-      "src_components_ui_themecolors"
+      "src_components_ui_themecolors",
+      "src_config_saveconfig"
     ],
     "1": [
       "src_app",
@@ -65,12 +61,7 @@
       "src_auth_runauthflow",
       "src_auth_runlogoutflow",
       "src_auth_startoauthcallbackserver",
-      "src_components_dashboard_dashboard",
-      "src_config",
-      "src_config_clearconfig",
-      "src_config_config_path",
       "src_config_loadconfig",
-      "src_config_qmonconfig",
       "src_index",
       "src_index_args",
       "src_index_executewithlogin",
@@ -79,10 +70,86 @@
       "src_openurl_openurlinbrowser",
       "src_sidecar",
       "src_sidecar_checkhealth",
+      "src_sidecar_legacy_log_file",
+      "src_sidecar_legacy_pid_file",
+      "src_sidecar_migratelegacyfile",
+      "src_sidecar_qmondatadir",
+      "src_sidecar_readsidecarpid",
+      "src_sidecar_reaporphansidecar",
+      "src_sidecar_sidecar_pid_file",
       "src_sidecar_startsidecar",
-      "src_sidecar_stopsidecar"
+      "src_sidecar_stopsidecar",
+      "src_sidecar_writesidecarpid",
+      "src_update_setrendererdestroy"
     ],
     "2": [
+      "package",
+      "package_author",
+      "package_author_name",
+      "package_author_url",
+      "package_description",
+      "package_engines",
+      "package_engines_bun",
+      "package_engines_node",
+      "package_keywords",
+      "package_module",
+      "package_name",
+      "package_peerdependencies",
+      "package_peerdependencies_typescript",
+      "package_private",
+      "package_scripts",
+      "package_scripts_dev",
+      "package_scripts_format",
+      "package_scripts_format_check",
+      "package_scripts_lint",
+      "package_scripts_lint_fix",
+      "package_scripts_typecheck",
+      "package_type",
+      "package_version",
+      "ref_ai",
+      "ref_antigravity",
+      "ref_claude",
+      "ref_cli",
+      "ref_codex",
+      "ref_copilot",
+      "ref_monitoring",
+      "ref_opencode",
+      "ref_quota",
+      "typescript"
+    ],
+    "3": [
+      "src_components_dashboard",
+      "src_components_dashboard_dashboard",
+      "src_components_dashboard_dashboardheader_dashboardheader",
+      "src_components_dashboard_footer",
+      "src_components_dashboard_footer_footer",
+      "src_components_dashboard_footer_props",
+      "src_components_dashboard_props",
+      "src_components_dashboard_releasenotesmodal_releasenotesmodal",
+      "src_components_dashboard_settingscard",
+      "src_components_dashboard_settingscard_buildsettingsrows",
+      "src_components_dashboard_settingscard_props",
+      "src_components_dashboard_settingscard_settingscard",
+      "src_components_dashboard_settingscard_settingsitem",
+      "src_components_dashboard_settingscard_settingsrow",
+      "src_components_dashboard_updatemodal_updatemodal",
+      "src_config",
+      "src_config_clearconfig",
+      "src_config_config_path",
+      "src_config_qmonconfig",
+      "src_hooks_usequotadata",
+      "src_hooks_usequotadata_usequotadata",
+      "src_markdown",
+      "src_markdown_breaklongword",
+      "src_markdown_markdownline",
+      "src_markdown_rendermarkdownlines",
+      "src_markdown_stripinlinemarkdown",
+      "src_markdown_striptrailingprurl",
+      "src_markdown_wraptext",
+      "src_update_releaseinfo",
+      "src_update_restartqmon"
+    ],
+    "4": [
       "eslint",
       "eslint_config_prettier",
       "eslint_plugin_prettier",
@@ -111,60 +178,6 @@
       "typescript_eslint_eslint_plugin",
       "typescript_eslint_parser"
     ],
-    "3": [
-      "src_api",
-      "src_api_assertarray",
-      "src_api_assertbooleanlike",
-      "src_api_assertobject",
-      "src_api_assertoptionalnumber",
-      "src_api_assertoptionalstring",
-      "src_api_assertstring",
-      "src_api_fetchallquotas",
-      "src_api_fetchappconfig",
-      "src_api_getbaseurl",
-      "src_api_geterrormessage",
-      "src_api_getheaders",
-      "src_api_getthrownerrormessage",
-      "src_api_login",
-      "src_api_quota",
-      "src_api_resetdefaultcredentials",
-      "src_api_safejson",
-      "src_api_validateappconfigresponse",
-      "src_api_validatequota",
-      "src_api_validatequotasnapshot",
-      "src_api_validateresetresponse",
-      "src_api_validatesnapshotresponse",
-      "src_api_validatetokenresponse",
-      "src_components_login_login",
-      "src_hooks_usequotadata",
-      "src_hooks_usequotadata_usequotadata"
-    ],
-    "4": [
-      "opentui_core",
-      "opentui_react",
-      "package",
-      "package_dependencies",
-      "package_dependencies_opentui_core",
-      "package_dependencies_opentui_react",
-      "package_dependencies_react",
-      "package_dependencies_signal_exit",
-      "package_module",
-      "package_name",
-      "package_peerdependencies",
-      "package_peerdependencies_typescript",
-      "package_private",
-      "package_scripts",
-      "package_scripts_dev",
-      "package_scripts_format",
-      "package_scripts_format_check",
-      "package_scripts_lint",
-      "package_scripts_lint_fix",
-      "package_scripts_typecheck",
-      "package_type",
-      "react",
-      "signal_exit",
-      "typescript"
-    ],
     "5": [
       "ref_bun_types",
       "ref_esnext",
@@ -191,17 +204,41 @@
       "tsconfig_compileroptions_verbatimmodulesyntax"
     ],
     "6": [
-      "src_components_dashboard_updatemodal",
+      "src_api",
+      "src_api_assertarray",
+      "src_api_assertbooleanlike",
+      "src_api_assertobject",
+      "src_api_assertoptionalnumber",
+      "src_api_assertoptionalstring",
+      "src_api_assertstring",
+      "src_api_fetchallquotas",
+      "src_api_fetchappconfig",
+      "src_api_getbaseurl",
+      "src_api_geterrormessage",
+      "src_api_getheaders",
+      "src_api_getthrownerrormessage",
+      "src_api_login",
+      "src_api_quota",
+      "src_api_resetdefaultcredentials",
+      "src_api_safejson",
+      "src_api_validateappconfigresponse",
+      "src_api_validatequota",
+      "src_api_validatequotasnapshot",
+      "src_api_validateresetresponse",
+      "src_api_validatesnapshotresponse",
+      "src_api_validatetokenresponse"
+    ],
+    "7": [
       "src_components_dashboard_updatemodal_props",
-      "src_components_dashboard_updatemodal_updatemodal",
-      "src_config_saveconfig",
       "src_hooks_usedashboardsettings",
       "src_hooks_usedashboardsettings_comparesemver",
+      "src_hooks_usedashboardsettings_fetchrecentreleases",
       "src_hooks_usedashboardsettings_initial_update_progress",
       "src_hooks_usedashboardsettings_updatestate",
       "src_hooks_usedashboardsettings_usedashboardsettings",
       "src_openurl",
       "src_openurl_latest_release_api_url",
+      "src_openurl_recent_releases_api_url",
       "src_update",
       "src_update_getinstalldir",
       "src_update_isdigits",
@@ -213,9 +250,8 @@
       "src_update_updateprogress",
       "src_update_updateprogresscallback"
     ],
-    "7": [
-      "src_components_quota_quotacard",
-      "src_components_quota_quotacard_props",
+    "8": [
+      "src_api_quotasnapshot",
       "src_components_quota_quotacard_quotacard",
       "src_components_quota_quotacells",
       "src_components_quota_quotacells_buildcells",
@@ -226,25 +262,38 @@
       "src_components_quotagrid_props",
       "src_components_quotagrid_quotagrid"
     ],
-    "8": [
+    "9": [
+      "opentui_core",
+      "opentui_react",
+      "package_dependencies",
+      "package_dependencies_opentui_core",
+      "package_dependencies_opentui_react",
+      "package_dependencies_react",
+      "package_dependencies_signal_exit",
+      "react",
+      "signal_exit"
+    ],
+    "10": [
       "eslint_config",
       "eslint_config_unicornrecommendedrules"
     ],
-    "9": [
+    "11": [
       "prettierrc"
     ]
   },
   "cohesion": {
-    "0": 0.09408033826638477,
-    "1": 0.15151515151515152,
-    "2": 0.07407407407407407,
-    "3": 0.2,
-    "4": 0.08333333333333333,
+    "0": 0.09871794871794871,
+    "1": 0.12660028449502134,
+    "2": 0.06060606060606061,
+    "3": 0.11724137931034483,
+    "4": 0.07407407407407407,
     "5": 0.08695652173913043,
-    "6": 0.17142857142857143,
-    "7": 0.3090909090909091,
-    "8": 1.0,
-    "9": 1.0
+    "6": 0.22924901185770752,
+    "7": 0.17894736842105263,
+    "8": 0.3111111111111111,
+    "9": 0.2222222222222222,
+    "10": 1.0,
+    "11": 1.0
   },
   "gods": [
     {
@@ -255,12 +304,17 @@
     {
       "id": "src_components_ui_theme",
       "label": "THEME",
-      "degree": 15
+      "degree": 17
     },
     {
       "id": "src_config_loadconfig",
       "label": "loadConfig()",
       "degree": 13
+    },
+    {
+      "id": "src_sidecar_startsidecar",
+      "label": "startSidecar()",
+      "degree": 12
     },
     {
       "id": "src_auth_runauthflow",
@@ -270,12 +324,17 @@
     {
       "id": "src_index_main",
       "label": "main()",
+      "degree": 11
+    },
+    {
+      "id": "package_keywords",
+      "label": "keywords",
       "degree": 10
     },
     {
       "id": "src_components_ui_card",
       "label": "Card()",
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "src_api_fetchallquotas",
@@ -283,28 +342,51 @@
       "degree": 9
     },
     {
-      "id": "src_sidecar_startsidecar",
-      "label": "startSidecar()",
-      "degree": 8
-    },
-    {
-      "id": "src_api_validatequotasnapshot",
-      "label": "validateQuotaSnapshot()",
-      "degree": 8
-    },
-    {
-      "id": "src_components_login_login",
-      "label": "Login()",
-      "degree": 8
+      "id": "src_markdown_rendermarkdownlines",
+      "label": "renderMarkdownLines()",
+      "degree": 9
     }
   ],
   "surprises": [
     {
-      "source": "getBaseUrl()",
-      "target": "loadConfig()",
+      "source": "openUrlInBrowser()",
+      "target": "bun",
       "source_files": [
-        "src/api.ts",
-        "src/config.ts"
+        "src/openUrl.ts",
+        "package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "restartQmon()",
+      "target": "bun",
+      "source_files": [
+        "src/update.ts",
+        "package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "runCommand()",
+      "target": "bun",
+      "source_files": [
+        "src/update.ts",
+        "package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "useQuotaData()",
+      "target": "fetchAllQuotas()",
+      "source_files": [
+        "src/hooks/useQuotaData.ts",
+        "src/api.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
@@ -315,39 +397,6 @@
       "target": "loadConfig()",
       "source_files": [
         "src/api.ts",
-        "src/config.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "useDashboardSettings()",
-      "target": "loadConfig()",
-      "source_files": [
-        "src/hooks/useDashboardSettings.ts",
-        "src/config.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "loginWithPrompt()",
-      "target": "saveConfig()",
-      "source_files": [
-        "src/auth.ts",
-        "src/config.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "Login()",
-      "target": "saveConfig()",
-      "source_files": [
-        "src/components/Login.tsx",
         "src/config.ts"
       ],
       "confidence": "EXTRACTED",

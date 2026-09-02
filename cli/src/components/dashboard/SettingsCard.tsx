@@ -138,6 +138,7 @@ export function SettingsCard({ rows, selectedIndex, onSelect, onToggle, width }:
               <box
                 key={row.key}
                 flexDirection="row"
+                marginTop={1}
                 paddingLeft={3}
                 backgroundColor={selected}
                 onMouseOver={() => {
