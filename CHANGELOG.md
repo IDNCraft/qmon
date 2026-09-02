@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.4](https://github.com/IDNCraft/qmon/compare/v0.2.3...v0.2.4) (2026-09-02)
+
+### Bug Fixes
+
+* **build:** re-sign binaries on macOS install to avoid SIGKILL ([#30](https://github.com/IDNCraft/qmon/issues/30)) ([f3167c5](https://github.com/IDNCraft/qmon/commit/f3167c5c4121620edba8259ab296bc21561661c0))
+
 ## [0.2.3](https://github.com/IDNCraft/qmon/compare/v0.2.2...v0.2.3) (2026-09-01)
 
 ### Bug Fixes
