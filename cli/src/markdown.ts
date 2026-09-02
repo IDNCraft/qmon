@@ -116,6 +116,12 @@ export function renderMarkdownLines(notes: string, wrapWidth: number): MarkdownL
     if (/^\s*#{1,6}\s+/.test(line)) {
       const level = (line.match(/^\s*(#{1,6})\s+/)?.[1] ?? '#').length
       const heading = stripInlineMarkdown(line.replace(/^\s*#{1,6}\s+/, ''))
+      // Blank line before a section heading (e.g. "What's Changed") so each
+      // release block starts on its own line instead of hugging the previous
+      // release's last note line.
+      if (lines.length > 0 && lines.at(-1)?.text !== '') {
+        lines.push({ text: '', bold: false })
+      }
       push({ text: heading, bold: true, color: level <= 2 ? THEME.accent : THEME.text })
       lines.push({ text: '', bold: false })
       lastWasListItem = false
@@ -123,6 +129,10 @@ export function renderMarkdownLines(notes: string, wrapWidth: number): MarkdownL
     }
 
     if (/^\s*([-*+]|\d+\.)\s+/.test(line)) {
+      // Space out list items so multi-line bullets don't visually merge.
+      if (lastWasListItem && lines.at(-1)?.text !== '') {
+        lines.push({ text: '', bold: false })
+      }
       const indent = (line.match(/^\s*/) ?? [''])[0].length
       const item = stripTrailingPrUrl(stripInlineMarkdown(line.replace(/^\s*([-*+]|\d+\.)\s+/, '')))
       push({ text: `• ${item}`, bold: false }, `${' '.repeat(indent)}  `)
@@ -131,6 +141,21 @@ export function renderMarkdownLines(notes: string, wrapWidth: number): MarkdownL
     }
 
     if (/^\s*(---|===|\*\*\*)\s*$/.test(line)) {
+      continue
+    }
+
+    // Blockquotes (e.g. recovery hints in release notes): drop the "> "
+    // marker and render muted with a hanging indent, so wrapped
+    // continuation lines stay aligned instead of starting flush-left.
+    if (/^\s*>/.test(line)) {
+      const quote = stripTrailingPrUrl(stripInlineMarkdown(line.replace(/^\s*>+\s?/, '')))
+      if (quote.trim()) {
+        if (lines.length > 0 && lines.at(-1)?.text !== '') {
+          lines.push({ text: '', bold: false })
+        }
+        push({ text: quote.trim(), bold: false, color: THEME.muted }, '  ')
+        lastWasListItem = false
+      }
       continue
     }
 
