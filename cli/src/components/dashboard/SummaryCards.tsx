@@ -1,9 +1,9 @@
 /** @jsxImportSource @opentui/react */
-import type { QuotaSnapshot } from '../../api'
+import type { QuotaSnapshot } from '@/api'
 import { TextAttributes } from '@opentui/core'
 import { useMemo } from 'react'
 
-import { Card, THEME } from '../ui'
+import { Card, THEME } from '@/components/ui'
 
 interface Props {
   isCompact: boolean

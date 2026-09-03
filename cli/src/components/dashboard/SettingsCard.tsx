@@ -1,10 +1,10 @@
 /** @jsxImportSource @opentui/react */
-import type { MarkdownLine } from '../../markdown'
-import type { ReleaseInfo } from '../../update'
+import type { MarkdownLine } from '@/markdown'
+import type { ReleaseInfo } from '@/update'
 import { MouseEvent, RGBA, TextAttributes } from '@opentui/core'
 
-import { renderMarkdownLines } from '../../markdown'
-import { Badge, Card, THEME } from '../ui'
+import { Badge, Card, THEME } from '@/components/ui'
+import { renderMarkdownLines } from '@/markdown'
 
 export interface SettingsItem {
   type: 'metric' | 'time' | 'provider' | 'checkUpdate'

@@ -1,7 +1,7 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
 
-import { Button, Card, THEME } from '../ui'
+import { Button, Card, THEME } from '@/components/ui'
 
 interface Props {
   isDefaultAdmin: boolean

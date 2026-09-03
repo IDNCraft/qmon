@@ -2,11 +2,11 @@
 import { createCliRenderer } from '@opentui/core'
 import { createRoot } from '@opentui/react'
 
-import { App } from './App'
-import { loginWithPrompt, runAuthFlow, runLogoutFlow } from './auth'
-import { clearConfig, loadConfig } from './config'
-import { startSidecar, stopSidecar } from './sidecar'
-import { runUpdate, setRendererDestroy } from './update'
+import { App } from '@/App'
+import { loginWithPrompt, runAuthFlow, runLogoutFlow } from '@/auth'
+import { clearConfig, loadConfig } from '@/config'
+import { startSidecar, stopSidecar } from '@/sidecar'
+import { runUpdate, setRendererDestroy } from '@/update'
 import packageJson from '../package.json' with { type: 'json' }
 
 const args = process.argv.slice(2)

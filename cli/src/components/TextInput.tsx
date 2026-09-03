@@ -2,7 +2,7 @@
 import { useKeyboard } from '@opentui/react'
 import { useEffect, useRef, useState } from 'react'
 
-import { THEME } from './ui'
+import { THEME } from '@/components/ui'
 
 interface Props {
   value: string

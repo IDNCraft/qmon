@@ -1,8 +1,8 @@
 /** @jsxImportSource @opentui/react */
-import type { UpdateProgress } from '../../update'
+import type { UpdateProgress } from '@/update'
 import { RGBA, TextAttributes } from '@opentui/core'
 
-import { Button, Card, THEME } from '../ui'
+import { Button, Card, THEME } from '@/components/ui'
 
 interface Props {
   progress: UpdateProgress

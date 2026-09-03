@@ -1,8 +1,8 @@
 /** @jsxImportSource @opentui/react */
-import type { QuotaCell } from './QuotaCells'
+import type { QuotaCell } from '@/components/quota/QuotaCells'
 import { TextAttributes } from '@opentui/core'
 
-import { Badge, Card, THEME } from '../ui'
+import { Badge, Card, THEME } from '@/components/ui'
 
 interface Props {
   cell: QuotaCell

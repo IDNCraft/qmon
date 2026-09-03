@@ -1,11 +1,11 @@
 /** @jsxImportSource @opentui/react */
-import type { QuotaSnapshot } from '../api'
-import type { QuotaCell } from './quota/QuotaCells'
+import type { QuotaSnapshot } from '@/api'
+import type { QuotaCell } from '@/components/quota/QuotaCells'
 import { TextAttributes } from '@opentui/core'
 import { useEffect, useMemo } from 'react'
 
-import { QuotaCard } from './quota/QuotaCard'
-import { buildCells } from './quota/QuotaCells'
+import { QuotaCard } from '@/components/quota/QuotaCard'
+import { buildCells } from '@/components/quota/QuotaCells'
 
 interface Props {
   snapshots: QuotaSnapshot[]

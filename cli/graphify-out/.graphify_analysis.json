@@ -2,13 +2,11 @@
   "communities": {
     "0": [
       "src_components_dashboard_dashboardheader",
+      "src_components_dashboard_dashboardheader_dashboardheader",
       "src_components_dashboard_dashboardheader_props",
-      "src_components_dashboard_releasenotesmodal",
-      "src_components_dashboard_releasenotesmodal_props",
-      "src_components_dashboard_summarycards",
-      "src_components_dashboard_summarycards_props",
-      "src_components_dashboard_summarycards_summarycards",
       "src_components_dashboard_updatemodal",
+      "src_components_dashboard_updatemodal_props",
+      "src_components_dashboard_updatemodal_updatemodal",
       "src_components_loadingscreen",
       "src_components_loadingscreen_frames",
       "src_components_loadingscreen_loadingscreen",
@@ -26,8 +24,6 @@
       "src_components_login_securitycard",
       "src_components_login_securitycard_props",
       "src_components_login_securitycard_securitycard",
-      "src_components_quota_quotacard",
-      "src_components_quota_quotacard_props",
       "src_components_textinput",
       "src_components_textinput_props",
       "src_components_textinput_textinput",
@@ -40,7 +36,8 @@
       "src_components_ui_cardprops",
       "src_components_ui_theme",
       "src_components_ui_themecolors",
-      "src_config_saveconfig"
+      "src_config_saveconfig",
+      "src_update_updateprogress"
     ],
     "1": [
       "src_app",
@@ -60,14 +57,12 @@
       "src_auth_readapiresponse",
       "src_auth_runauthflow",
       "src_auth_runlogoutflow",
-      "src_auth_startoauthcallbackserver",
       "src_config_loadconfig",
       "src_index",
       "src_index_args",
       "src_index_executewithlogin",
       "src_index_geterrormessage",
       "src_index_main",
-      "src_openurl_openurlinbrowser",
       "src_sidecar",
       "src_sidecar_checkhealth",
       "src_sidecar_legacy_log_file",
@@ -88,9 +83,6 @@
       "package_author_name",
       "package_author_url",
       "package_description",
-      "package_engines",
-      "package_engines_bun",
-      "package_engines_node",
       "package_keywords",
       "package_module",
       "package_name",
@@ -120,11 +112,12 @@
     "3": [
       "src_components_dashboard",
       "src_components_dashboard_dashboard",
-      "src_components_dashboard_dashboardheader_dashboardheader",
       "src_components_dashboard_footer",
       "src_components_dashboard_footer_footer",
       "src_components_dashboard_footer_props",
       "src_components_dashboard_props",
+      "src_components_dashboard_releasenotesmodal",
+      "src_components_dashboard_releasenotesmodal_props",
       "src_components_dashboard_releasenotesmodal_releasenotesmodal",
       "src_components_dashboard_settingscard",
       "src_components_dashboard_settingscard_buildsettingsrows",
@@ -132,7 +125,6 @@
       "src_components_dashboard_settingscard_settingscard",
       "src_components_dashboard_settingscard_settingsitem",
       "src_components_dashboard_settingscard_settingsrow",
-      "src_components_dashboard_updatemodal_updatemodal",
       "src_config",
       "src_config_clearconfig",
       "src_config_config_path",
@@ -185,6 +177,7 @@
       "tsconfig_compileroptions",
       "tsconfig_compileroptions_allowimportingtsextensions",
       "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_baseurl",
       "tsconfig_compileroptions_jsx",
       "tsconfig_compileroptions_lib",
       "tsconfig_compileroptions_module",
@@ -197,6 +190,7 @@
       "tsconfig_compileroptions_nouncheckedindexedaccess",
       "tsconfig_compileroptions_nounusedlocals",
       "tsconfig_compileroptions_nounusedparameters",
+      "tsconfig_compileroptions_paths",
       "tsconfig_compileroptions_skiplibcheck",
       "tsconfig_compileroptions_strict",
       "tsconfig_compileroptions_target",
@@ -204,6 +198,31 @@
       "tsconfig_compileroptions_verbatimmodulesyntax"
     ],
     "6": [
+      "package_engines",
+      "package_engines_bun",
+      "package_engines_node",
+      "src_auth_startoauthcallbackserver",
+      "src_hooks_usedashboardsettings",
+      "src_hooks_usedashboardsettings_comparesemver",
+      "src_hooks_usedashboardsettings_fetchrecentreleases",
+      "src_hooks_usedashboardsettings_initial_update_progress",
+      "src_hooks_usedashboardsettings_updatestate",
+      "src_hooks_usedashboardsettings_usedashboardsettings",
+      "src_openurl",
+      "src_openurl_latest_release_api_url",
+      "src_openurl_openurlinbrowser",
+      "src_openurl_recent_releases_api_url",
+      "src_update",
+      "src_update_getinstalldir",
+      "src_update_isdigits",
+      "src_update_isreleaseidentifier",
+      "src_update_normalizereleaseref",
+      "src_update_resolvereleaseref",
+      "src_update_runcommand",
+      "src_update_runupdate",
+      "src_update_updateprogresscallback"
+    ],
+    "7": [
       "src_api",
       "src_api_assertarray",
       "src_api_assertbooleanlike",
@@ -228,30 +247,13 @@
       "src_api_validatesnapshotresponse",
       "src_api_validatetokenresponse"
     ],
-    "7": [
-      "src_components_dashboard_updatemodal_props",
-      "src_hooks_usedashboardsettings",
-      "src_hooks_usedashboardsettings_comparesemver",
-      "src_hooks_usedashboardsettings_fetchrecentreleases",
-      "src_hooks_usedashboardsettings_initial_update_progress",
-      "src_hooks_usedashboardsettings_updatestate",
-      "src_hooks_usedashboardsettings_usedashboardsettings",
-      "src_openurl",
-      "src_openurl_latest_release_api_url",
-      "src_openurl_recent_releases_api_url",
-      "src_update",
-      "src_update_getinstalldir",
-      "src_update_isdigits",
-      "src_update_isreleaseidentifier",
-      "src_update_normalizereleaseref",
-      "src_update_resolvereleaseref",
-      "src_update_runcommand",
-      "src_update_runupdate",
-      "src_update_updateprogress",
-      "src_update_updateprogresscallback"
-    ],
     "8": [
       "src_api_quotasnapshot",
+      "src_components_dashboard_summarycards",
+      "src_components_dashboard_summarycards_props",
+      "src_components_dashboard_summarycards_summarycards",
+      "src_components_quota_quotacard",
+      "src_components_quota_quotacard_props",
       "src_components_quota_quotacard_quotacard",
       "src_components_quota_quotacells",
       "src_components_quota_quotacells_buildcells",
@@ -282,15 +284,15 @@
     ]
   },
   "cohesion": {
-    "0": 0.09871794871794871,
-    "1": 0.12660028449502134,
-    "2": 0.06060606060606061,
-    "3": 0.11724137931034483,
+    "0": 0.1006006006006006,
+    "1": 0.1349206349206349,
+    "2": 0.06666666666666667,
+    "3": 0.12873563218390804,
     "4": 0.07407407407407407,
-    "5": 0.08695652173913043,
-    "6": 0.22924901185770752,
-    "7": 0.17894736842105263,
-    "8": 0.3111111111111111,
+    "5": 0.08,
+    "6": 0.15019762845849802,
+    "7": 0.22924901185770752,
+    "8": 0.23809523809523808,
     "9": 0.2222222222222222,
     "10": 1.0,
     "11": 1.0
@@ -299,7 +301,7 @@
     {
       "id": "tsconfig_compileroptions",
       "label": "compilerOptions",
-      "degree": 20
+      "degree": 22
     },
     {
       "id": "src_components_ui_theme",
@@ -349,17 +351,6 @@
   ],
   "surprises": [
     {
-      "source": "openUrlInBrowser()",
-      "target": "bun",
-      "source_files": [
-        "src/openUrl.ts",
-        "package.json"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities"
-    },
-    {
       "source": "restartQmon()",
       "target": "bun",
       "source_files": [
@@ -371,6 +362,28 @@
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
+      "source": "startOAuthCallbackServer()",
+      "target": "bun",
+      "source_files": [
+        "src/auth.ts",
+        "package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "openUrlInBrowser()",
+      "target": "bun",
+      "source_files": [
+        "src/openUrl.ts",
+        "package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
       "source": "runCommand()",
       "target": "bun",
       "source_files": [
@@ -379,21 +392,10 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities"
+      "why": "connects across different repos/directories"
     },
     {
-      "source": "useQuotaData()",
-      "target": "fetchAllQuotas()",
-      "source_files": [
-        "src/hooks/useQuotaData.ts",
-        "src/api.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "getHeaders()",
+      "source": "getBaseUrl()",
       "target": "loadConfig()",
       "source_files": [
         "src/api.ts",

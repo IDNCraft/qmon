@@ -1,10 +1,10 @@
-import type { ReleaseInfo, UpdateProgress } from '../update'
+import type { ReleaseInfo, UpdateProgress } from '@/update'
 import { useEffect, useRef, useState } from 'react'
 
+import { loadConfig, saveConfig } from '@/config'
+import { LATEST_RELEASE_API_URL, RECENT_RELEASES_API_URL } from '@/openUrl'
+import { runUpdate } from '@/update'
 import packageJson from '../../package.json' with { type: 'json' }
-import { loadConfig, saveConfig } from '../config'
-import { LATEST_RELEASE_API_URL, RECENT_RELEASES_API_URL } from '../openUrl'
-import { runUpdate } from '../update'
 
 const INITIAL_UPDATE_PROGRESS: UpdateProgress = { step: 0, total: 3, label: '' }
 const UPDATE_RECHECK_INTERVAL_MS = 15 * 60 * 1000

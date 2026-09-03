@@ -3,9 +3,9 @@ import * as os from 'node:os'
 import path from 'node:path'
 import * as readline from 'node:readline'
 
-import { loadConfig, saveConfig } from './config'
-import { openUrlInBrowser } from './openUrl'
-import { startSidecar } from './sidecar'
+import { loadConfig, saveConfig } from '@/config'
+import { openUrlInBrowser } from '@/openUrl'
+import { startSidecar } from '@/sidecar'
 
 interface AuthData {
   accounts?: string[]

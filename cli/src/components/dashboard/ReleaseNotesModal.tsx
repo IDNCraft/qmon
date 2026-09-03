@@ -1,10 +1,10 @@
 /** @jsxImportSource @opentui/react */
-import type { ReleaseInfo } from '../../update'
+import type { ReleaseInfo } from '@/update'
 import { TextAttributes } from '@opentui/core'
 import { useState } from 'react'
 
-import { renderMarkdownLines } from '../../markdown'
-import { Button, Card, THEME } from '../ui'
+import { Button, Card, THEME } from '@/components/ui'
+import { renderMarkdownLines } from '@/markdown'
 
 interface Props {
   version: string
