@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.3.0](https://github.com/IDNCraft/qmon/compare/v0.2.6...v0.3.0) (2026-09-03)
+
+### Features
+
+* **cli:** improve auth flows and login recovery ([#36](https://github.com/IDNCraft/qmon/issues/36)) ([77e2c1e](https://github.com/IDNCraft/qmon/commit/77e2c1eeb9943e426c4bfce6fcf233eef33ccd2a))
+
+### Code Refactoring
+
+* **cli:** simplify update to latest-only and sync docs ([#37](https://github.com/IDNCraft/qmon/issues/37)) ([8151b30](https://github.com/IDNCraft/qmon/commit/8151b30f87433ee8c1dadbe2136bbd52bfa5bc99))
+
+## [0.2.6](https://github.com/IDNCraft/qmon/compare/v0.2.5...v0.2.6) (2026-09-03)
+
+### Features
+
+* **mobile:** mirror tui summary and status on dashboard ([#35](https://github.com/IDNCraft/qmon/issues/35)) ([0e0c3b4](https://github.com/IDNCraft/qmon/commit/0e0c3b4b58e5e184eb71fb9bc793b1b5749f536f))
+
+### Bug Fixes
+
+* **cli:** harden text rendering and reset form spacing ([#34](https://github.com/IDNCraft/qmon/issues/34)) ([7a48677](https://github.com/IDNCraft/qmon/commit/7a486774af8b5323bbcad704b2ddb0ac74fb9f2a))
+* **mobile:** gate settings behind login and scope cleartext to LAN ([#33](https://github.com/IDNCraft/qmon/issues/33)) ([8138033](https://github.com/IDNCraft/qmon/commit/8138033dfc1f13409f3b724d8f698be34cadd374))
+
 ## [0.2.5](https://github.com/IDNCraft/qmon/compare/v0.2.4...v0.2.5) (2026-09-03)
 
 ### Bug Fixes
