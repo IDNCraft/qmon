@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.5](https://github.com/IDNCraft/qmon/compare/v0.2.4...v0.2.5) (2026-09-03)
+
+### Bug Fixes
+
+* **cli:** space out release notes and add editorconfig ([#31](https://github.com/IDNCraft/qmon/issues/31)) ([6b584e9](https://github.com/IDNCraft/qmon/commit/6b584e9df1d2a0d8c7765e69cd34690229344539))
+
+### Code Refactoring
+
+* **cli:** use @/ path alias for intra-package imports ([#32](https://github.com/IDNCraft/qmon/issues/32)) ([cf8c4f3](https://github.com/IDNCraft/qmon/commit/cf8c4f3bf837427ee700cf8d22679d67216c7b66))
+
 ## [0.2.4](https://github.com/IDNCraft/qmon/compare/v0.2.3...v0.2.4) (2026-09-02)
 
 ### Bug Fixes
