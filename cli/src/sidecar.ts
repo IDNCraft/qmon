@@ -132,7 +132,7 @@ export async function startSidecar(baseUrl: string): Promise<void> {
   })
 
   apiProcess.on('error', (err) => {
-    console.error('\u001B[31m❌ Failed to spawn API process:\u001B[0m', err.message)
+    console.error('\u001B[31mFailed to spawn API process:\u001B[0m', err.message)
   })
   if (apiProcess.pid) {
     writeSidecarPid(apiProcess.pid)

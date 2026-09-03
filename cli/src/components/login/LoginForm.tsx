@@ -114,6 +114,11 @@ export function LoginForm({
                 </text>
               </box>
             )}
+            <box marginTop={1}>
+              <text selectable={false} attributes={TextAttributes.DIM}>
+                {`Forgot password? Run 'qmon reset-login' in terminal.`}
+              </text>
+            </box>
           </box>
         )}
       </box>

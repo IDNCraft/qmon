@@ -3,7 +3,13 @@ import { createCliRenderer } from '@opentui/core'
 import { createRoot } from '@opentui/react'
 
 import { App } from '@/App'
-import { loginWithPrompt, runAuthFlow, runLogoutFlow } from '@/auth'
+import {
+  listProviderAccounts,
+  runAuthFlow,
+  runLogoutFlow,
+  runResetLoginFlow,
+  selectProviderInteractively,
+} from '@/auth'
 import { clearConfig, loadConfig } from '@/config'
 import { startSidecar, stopSidecar } from '@/sidecar'
 import { runUpdate, setRendererDestroy } from '@/update'
@@ -16,13 +22,45 @@ function getErrorMessage(error: unknown): string {
   return error instanceof Error ? error.message : String(error)
 }
 
+async function renderLoginUI(): Promise<void> {
+  const config = loadConfig()
+  if (config) {
+    await startSidecar(config.baseUrl).catch(() => { })
+  } else {
+    await startSidecar('http://localhost:8080').catch(() => { })
+  }
+  activeRenderer = await createCliRenderer({ exitOnCtrlC: true })
+  activeRenderer.on('destroy', () => {
+    stopSidecar()
+  })
+  setRendererDestroy(() => {
+    activeRenderer?.destroy()
+  })
+  const { Login } = await import('@/components/Login')
+  return new Promise<void>((resolve) => {
+    const renderer = activeRenderer
+    if (!renderer) {
+      resolve()
+      return
+    }
+    createRoot(renderer).render(
+      <Login
+        onLogin={() => {
+          renderer.destroy()
+          activeRenderer = null
+          resolve()
+        }}
+      />
+    )
+  })
+}
+
 async function executeWithLogin<T>(fn: () => Promise<T>): Promise<T> {
   try {
     return await fn()
   } catch (error: unknown) {
     if (getErrorMessage(error).includes('Not logged in')) {
-      console.log(`\n\u001B[33m➜ Login required. Let's set that up first.\u001B[0m`)
-      await loginWithPrompt()
+      await renderLoginUI()
       return await fn()
     }
     throw error
@@ -52,11 +90,12 @@ async function main() {
 
 \u001B[33mCommands:\u001B[0m
   \u001B[32mqmon\u001B[0m                                Open the Qmon Quota Dashboard
-  \u001B[32mqmon version\u001B[0m                         Show the installed CLI version
-  \u001B[32mqmon update [release-ref]\u001B[0m            Update to the latest or specified release
-  \u001B[32mqmon login <provider>\u001B[0m               Login to a provider (antigravity, claude, codex, copilot)
-  \u001B[32mqmon logout\u001B[0m                          Logout of current Qmon account
-  \u001B[32mqmon logout <provider> [account]\u001B[0m    Logout of a specific provider account
+  \u001B[32mqmon version\u001B[0m                        Show the installed CLI version
+  \u001B[32mqmon update [release-ref]\u001B[0m           Update to the latest or specified release
+  \u001B[32mqmon login [provider]\u001B[0m               Login to a provider (antigravity, claude, codex, copilot, opencode)
+  \u001B[32mqmon logout\u001B[0m                         Logout of current Qmon account
+  \u001B[32mqmon logout [provider] [account]\u001B[0m    Logout of a specific provider account
+  \u001B[32mqmon reset-login\u001B[0m                    Recover Qmon login via form (no DB access needed)
 `)
     process.exit(0)
   }
@@ -85,23 +124,29 @@ async function main() {
     return
   }
 
+  if (args[0] === 'reset-login') {
+    if (args.length !== 1) {
+      console.error('Usage: qmon reset-login')
+      process.exit(1)
+    }
+    runResetLoginFlow().catch((error: unknown) => {
+      console.error(`\u001B[31mError: ${getErrorMessage(error)}\u001B[0m`)
+      process.exit(1)
+    })
+    return
+  }
+
   if (args[0] === 'login') {
-    if (!args[1]) {
-      console.log(`\u001B[31mError: Provider not specified.\u001B[0m\n`)
-      console.log(`\u001B[33mDid you mean:\u001B[0m`)
-      console.log(`  qmon login antigravity`)
-      console.log(`  qmon login claude`)
-      console.log(`  qmon login codex`)
-      console.log(`  qmon login copilot`)
-      console.log(`  qmon login opencode\n`)
+    if (args.length > 2) {
+      console.error('Usage: qmon login [provider]')
       process.exit(1)
     }
 
-    const provider = args[1]
+    const provider = args[1] ?? (await selectProviderInteractively())
     executeWithLogin(async () => {
       const config = loadConfig()
       if (config) {
-        await startSidecar(config.baseUrl).catch(() => {})
+        await startSidecar(config.baseUrl).catch(() => { })
       }
       await runAuthFlow(provider)
       stopSidecar()
@@ -112,18 +157,22 @@ async function main() {
     })
   } else if (args[0] === 'logout') {
     if (!args[1]) {
-      console.log(`\n\u001B[33m⏳ Logging out of Qmon account...\u001B[0m`)
-      clearConfig()
-      console.log(`\u001B[32m✅ Logged out. Credentials cleared.\u001B[0m\n`)
-      process.exit(0)
+      if (args.length === 1) {
+        console.log(`\n\u001B[33mLogging out of Qmon account...\u001B[0m`)
+        clearConfig()
+        console.log(`\u001B[32mLogged out. Credentials cleared.\u001B[0m\n`)
+        process.exit(0)
+      }
+      const picked = await selectProviderInteractively()
+      args[1] = picked
     }
 
-    const provider = args[1]
+    const provider = args[1] ?? ''
     const accountName = args.length > 2 ? args.slice(2).join(' ') : ''
     executeWithLogin(async () => {
       const config = loadConfig()
       if (config) {
-        await startSidecar(config.baseUrl).catch(() => {})
+        await startSidecar(config.baseUrl).catch(() => { })
       }
       await runLogoutFlow(provider, accountName)
       stopSidecar()
