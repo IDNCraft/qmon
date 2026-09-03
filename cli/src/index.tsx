@@ -3,13 +3,7 @@ import { createCliRenderer } from '@opentui/core'
 import { createRoot } from '@opentui/react'
 
 import { App } from '@/App'
-import {
-  listProviderAccounts,
-  runAuthFlow,
-  runLogoutFlow,
-  runResetLoginFlow,
-  selectProviderInteractively,
-} from '@/auth'
+import { runAuthFlow, runLogoutFlow, runResetLoginFlow, selectProviderInteractively } from '@/auth'
 import { clearConfig, loadConfig } from '@/config'
 import { startSidecar, stopSidecar } from '@/sidecar'
 import { runUpdate, setRendererDestroy } from '@/update'
@@ -91,7 +85,7 @@ async function main() {
 \u001B[33mCommands:\u001B[0m
   \u001B[32mqmon\u001B[0m                                Open the Qmon Quota Dashboard
   \u001B[32mqmon version\u001B[0m                        Show the installed CLI version
-  \u001B[32mqmon update [release-ref]\u001B[0m           Update to the latest or specified release
+  \u001B[32mqmon update\u001B[0m                          Update to the latest release
   \u001B[32mqmon login [provider]\u001B[0m               Login to a provider (antigravity, claude, codex, copilot, opencode)
   \u001B[32mqmon logout\u001B[0m                         Logout of current Qmon account
   \u001B[32mqmon logout [provider] [account]\u001B[0m    Logout of a specific provider account
@@ -110,12 +104,12 @@ async function main() {
   }
 
   if (args[0] === 'update') {
-    if (args.length > 2) {
-      console.error('Usage: qmon update [release-ref]')
+    if (args.length !== 1) {
+      console.error('Usage: qmon update')
       process.exit(1)
     }
     try {
-      await runUpdate(args[1])
+      await runUpdate()
       console.log('Qmon update complete. Restart qmon to use the new version.')
     } catch (error: unknown) {
       console.error(`\u001B[31mUpdate failed: ${getErrorMessage(error)}\u001B[0m`)

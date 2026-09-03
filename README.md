@@ -63,12 +63,6 @@ Update to the latest release from the CLI itself:
 qmon update
 ```
 
-Or pass a specific release tag:
-
-```bash
-qmon update v1.5.0
-```
-
 The CLI checks the latest GitHub release on every start (and periodically while the dashboard is open), showing an **Update** button in the header when a newer version exists. The update re-clones the tagged release and rebuilds via `scripts/install.sh`; restart `qmon` afterwards to run the new version.
 
 **1. Standalone Terminal Usage**
@@ -108,10 +102,22 @@ To log in to an AI provider (e.g., OpenCode Go):
 qmon login opencode
 ```
 
+Omit the provider to pick from an interactive list:
+
+```bash
+qmon login
+```
+
 To log out:
 
 ```bash
 qmon logout opencode
+```
+
+Forgot your Qmon login? Recover it from the terminal (no database access needed):
+
+```bash
+qmon reset-login
 ```
 
 **Mobile Companion App & Widget**

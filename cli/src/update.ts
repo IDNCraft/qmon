@@ -33,51 +33,7 @@ function getInstallDir(): string {
   return path.join(homedir(), '.local', 'bin')
 }
 
-function isDigits(value: string): boolean {
-  return value.length > 0 && [...value].every((character) => character >= '0' && character <= '9')
-}
-
-function isReleaseIdentifier(value: string): boolean {
-  return (
-    value.length > 0 &&
-    [...value].every(
-      (character) =>
-        (character >= '0' && character <= '9') ||
-        (character >= 'A' && character <= 'Z') ||
-        (character >= 'a' && character <= 'z') ||
-        character === '.' ||
-        character === '-'
-    )
-  )
-}
-
-function normalizeReleaseRef(releaseRef: string | undefined): string | undefined {
-  if (!releaseRef?.trim()) return undefined
-  const normalized = releaseRef.startsWith('v') ? releaseRef : `v${releaseRef}`
-  const version = normalized.slice(1)
-  const metadataParts = version.split('+', 2)
-  const versionWithoutMetadata = metadataParts[0] ?? ''
-  const metadata = metadataParts.length > 1 ? metadataParts[1] : undefined
-  const prereleaseParts = versionWithoutMetadata.split('-')
-  const core = prereleaseParts[0] ?? ''
-  const prerelease = prereleaseParts.length > 1 ? prereleaseParts.slice(1).join('-') : undefined
-  const coreParts = core.split('.')
-  const validCore = coreParts.length === 3 && coreParts.every((part) => isDigits(part))
-  const validPrerelease = prerelease === undefined || isReleaseIdentifier(prerelease)
-  const validMetadata = metadata === undefined || isReleaseIdentifier(metadata)
-  if (!validCore || !validPrerelease || !validMetadata) {
-    throw new TypeError(`Invalid release ref '${releaseRef}'. Expected a tag like v1.5.0.`)
-  }
-  return normalized
-}
-
-async function resolveReleaseRef(
-  releaseRef: string | undefined,
-  onProgress?: UpdateProgressCallback
-): Promise<string> {
-  const normalized = normalizeReleaseRef(releaseRef)
-  if (normalized) return normalized
-
+async function resolveLatestRelease(onProgress?: UpdateProgressCallback): Promise<string> {
   onProgress?.({ step: 0, total: TOTAL_UPDATE_STEPS, label: 'Checking latest release...' })
   const response = await fetch(LATEST_RELEASE_API_URL, {
     signal: AbortSignal.timeout(5000),
@@ -87,10 +43,10 @@ async function resolveReleaseRef(
   }
 
   const data = (await response.json()) as { tag_name?: unknown }
-  if (typeof data.tag_name !== 'string') {
+  if (typeof data.tag_name !== 'string' || !data.tag_name) {
     throw new TypeError('Latest release did not include a valid tag')
   }
-  return normalizeReleaseRef(data.tag_name) ?? ''
+  return data.tag_name
 }
 
 async function runCommand(command: string[], cwd: string): Promise<void> {
@@ -114,11 +70,8 @@ async function runCommand(command: string[], cwd: string): Promise<void> {
   }
 }
 
-export async function runUpdate(
-  releaseRef?: string,
-  onProgress?: UpdateProgressCallback
-): Promise<void> {
-  const resolvedRef = await resolveReleaseRef(releaseRef, onProgress)
+export async function runUpdate(onProgress?: UpdateProgressCallback): Promise<void> {
+  const resolvedRef = await resolveLatestRelease(onProgress)
   const installDir = getInstallDir()
   const tempRoot = await mkdtemp(path.join(tmpdir(), 'qmon-update-'))
   const sourceRoot = path.join(tempRoot, 'qmon')
@@ -176,8 +129,8 @@ export function restartQmon(): void {
   // No-op handlers keep the parent alive when the child receives Ctrl+C.
   process.removeAllListeners('SIGINT')
   process.removeAllListeners('SIGTERM')
-  process.on('SIGINT', () => {})
-  process.on('SIGTERM', () => {})
+  process.on('SIGINT', () => { })
+  process.on('SIGTERM', () => { })
   const restartedProcess = Bun.spawn([process.execPath, ...process.argv.slice(1)], {
     stdin: 'inherit',
     stdout: 'inherit',

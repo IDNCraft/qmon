@@ -226,7 +226,7 @@ function askQuestion(query: string, maskInput = false): Promise<string> {
     }
     const onData = (chunk: Buffer) => {
       const s = chunk.toString('utf8')
-      const code = s.length > 0 ? s.charCodeAt(0) : -1
+      const code = s.length > 0 ? (s.codePointAt(0) ?? -1) : -1
       // Enter (CR/LF), Ctrl+D (EOT), Ctrl+C (ETX) submit; never leak chars.
       if (code === 13 || code === 10 || code === 4 || code === 3) {
         cleanup()
@@ -277,7 +277,8 @@ export async function loginWithPrompt(): Promise<void> {
 
   let email = ''
   while (true) {
-    email = (await askQuestion('\u001B[1m\u001B[32m>\u001B[0m Email: ')).trim()
+    const answer = await askQuestion('\u001B[1m\u001B[32m>\u001B[0m Email: ')
+    email = answer.trim()
     if (!email) {
       console.log('\u001B[31mEmail is required.\u001B[0m\n')
       continue
