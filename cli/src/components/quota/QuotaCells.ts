@@ -1,6 +1,6 @@
-import type { QuotaSnapshot } from '../../api'
+import type { QuotaSnapshot } from '@/api'
 
-import { THEME } from '../ui'
+import { THEME } from '@/components/ui'
 
 const PROVIDER_COLOR: Record<string, string> = {
   antigravity: THEME.accent,

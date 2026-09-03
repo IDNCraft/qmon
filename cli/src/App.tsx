@@ -1,9 +1,9 @@
 /** @jsxImportSource @opentui/react */
 import { useEffect, useState } from 'react'
 
-import { Dashboard } from './components/Dashboard'
-import { Login } from './components/Login'
-import { loadConfig } from './config'
+import { Dashboard } from '@/components/Dashboard'
+import { Login } from '@/components/Login'
+import { loadConfig } from '@/config'
 
 export function App() {
   const [hasConfig, setHasConfig] = useState(false)

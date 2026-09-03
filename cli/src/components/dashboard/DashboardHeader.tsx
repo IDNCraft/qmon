@@ -1,5 +1,5 @@
 /** @jsxImportSource @opentui/react */
-import { Badge, Button, THEME } from '../ui'
+import { Badge, Button, THEME } from '@/components/ui'
 
 interface Props {
   loading: boolean

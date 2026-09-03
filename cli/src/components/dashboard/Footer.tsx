@@ -1,7 +1,7 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
 
-import { THEME } from '../ui'
+import { THEME } from '@/components/ui'
 
 interface Props {
   terminalColumns: number

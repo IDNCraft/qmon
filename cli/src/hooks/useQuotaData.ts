@@ -1,7 +1,7 @@
-import type { QuotaSnapshot } from '../api'
+import type { QuotaSnapshot } from '@/api'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { fetchAllQuotas } from '../api'
+import { fetchAllQuotas } from '@/api'
 
 export function useQuotaData(onLogout: () => void) {
   const [snapshots, setSnapshots] = useState<QuotaSnapshot[]>([])

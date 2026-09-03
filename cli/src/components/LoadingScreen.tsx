@@ -2,7 +2,7 @@
 import { TextAttributes } from '@opentui/core'
 import { useEffect, useState } from 'react'
 
-import { Card, THEME } from './ui'
+import { Card, THEME } from '@/components/ui'
 
 const FRAMES = [
   [' ╭───╮ ', ' │   │ ', ' │ Q │ ', ' │   │ ', ' ╰───╯ '],

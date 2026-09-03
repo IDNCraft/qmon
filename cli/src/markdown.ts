@@ -1,4 +1,4 @@
-import { THEME } from './components/ui'
+import { THEME } from '@/components/ui'
 
 export interface MarkdownLine {
   text: string

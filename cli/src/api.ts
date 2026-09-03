@@ -1,4 +1,4 @@
-import { loadConfig } from './config'
+import { loadConfig } from '@/config'
 
 interface Quota {
   quota_type: string

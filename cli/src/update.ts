@@ -2,8 +2,8 @@ import { mkdtemp, rm } from 'node:fs/promises'
 import { homedir, tmpdir } from 'node:os'
 import path from 'node:path'
 
-import { LATEST_RELEASE_API_URL } from './openUrl'
-import { stopSidecar } from './sidecar'
+import { LATEST_RELEASE_API_URL } from '@/openUrl'
+import { stopSidecar } from '@/sidecar'
 
 const REPOSITORY_URL = process.env.QMON_REPO_URL ?? 'https://github.com/IDNCraft/qmon.git'
 const TOTAL_UPDATE_STEPS = 3

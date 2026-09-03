@@ -1,8 +1,8 @@
 /** @jsxImportSource @opentui/react */
 import { TextAttributes } from '@opentui/core'
 
-import { TextInput } from '../TextInput'
-import { Button, THEME } from '../ui'
+import { TextInput } from '@/components/TextInput'
+import { Button, THEME } from '@/components/ui'
 
 interface Props {
   resetEmail: string

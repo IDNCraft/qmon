@@ -3,13 +3,13 @@ import { TextAttributes } from '@opentui/core'
 import { useKeyboard, useTerminalDimensions } from '@opentui/react'
 import { useEffect, useState } from 'react'
 
-import { LoginForm } from './login/LoginForm'
-import { ResetForm } from './login/ResetForm'
-import { SecurityCard } from './login/SecurityCard'
-import { Card, THEME } from './ui'
-import { fetchAppConfig, login, resetDefaultCredentials } from '../api'
-import { saveConfig } from '../config'
-import { startSidecar } from '../sidecar'
+import { fetchAppConfig, login, resetDefaultCredentials } from '@/api'
+import { LoginForm } from '@/components/login/LoginForm'
+import { ResetForm } from '@/components/login/ResetForm'
+import { SecurityCard } from '@/components/login/SecurityCard'
+import { Card, THEME } from '@/components/ui'
+import { saveConfig } from '@/config'
+import { startSidecar } from '@/sidecar'
 
 interface Props {
   onLogin: () => void

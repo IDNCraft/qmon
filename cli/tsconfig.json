@@ -1,13 +1,25 @@
 {
   "compilerOptions": {
     // Environment setup & latest features
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "target": "ESNext",
     "module": "Preserve",
     "moduleDetection": "force",
     "allowJs": true,
     "jsx": "react-jsx",
-    "types": ["bun-types"],
+    "types": [
+      "bun-types"
+    ],
+    // Path alias: "@/x" resolves to "src/x" so intra-package imports do
+    // not depend on file depth. Bun's bundler resolves tsconfig paths.
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     // Bundler mode
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
