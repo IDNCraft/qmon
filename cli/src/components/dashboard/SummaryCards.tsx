@@ -43,9 +43,8 @@ export function SummaryCards({
       {isCompact ? (
         <Card flexGrow={1} padding={1} paddingY={0} borderColor={THEME.border}>
           <text selectable={false} attributes={TextAttributes.DIM}>
-            {uniqueProviders.length} providers · {exhaustedCount} exhausted ·{' '}
-            {showUsedMetric ? 'Used %' : 'Remaining %'} ·{' '}
-            {showAbsoluteTime ? 'Absolute' : 'Relative'}
+            {`${uniqueProviders.length} providers · ${exhaustedCount} exhausted · ${showUsedMetric ? 'Used %' : 'Remaining %'
+              } · ${showAbsoluteTime ? 'Absolute' : 'Relative'}`}
           </text>
         </Card>
       ) : (
@@ -55,7 +54,7 @@ export function SummaryCards({
               Providers
             </text>
             <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.accent}>
-              {uniqueProviders.length}
+              {String(uniqueProviders.length)}
             </text>
           </Card>
           <Card flexGrow={1} flexBasis={0} padding={1} paddingY={0} borderColor={THEME.border}>
@@ -67,7 +66,7 @@ export function SummaryCards({
               attributes={TextAttributes.BOLD}
               fg={exhausted ? THEME.danger : THEME.success}
             >
-              {exhaustedCount}
+              {String(exhaustedCount)}
             </text>
           </Card>
           <Card flexGrow={1} flexBasis={0} padding={1} paddingY={0} borderColor={THEME.border}>
@@ -75,8 +74,8 @@ export function SummaryCards({
               Display
             </text>
             <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.warning}>
-              {showUsedMetric ? 'Used %' : 'Remaining %'} ·{' '}
-              {showAbsoluteTime ? 'Absolute' : 'Relative'}
+              {`${showUsedMetric ? 'Used %' : 'Remaining %'} · ${showAbsoluteTime ? 'Absolute' : 'Relative'
+                }`}
             </text>
           </Card>
         </>

@@ -55,7 +55,7 @@ export function UpdateModal({ progress, updating, error, width, onClose, onResta
             <box width={barWidth} height={1} backgroundColor={color} />
           </box>
           <text selectable={false} attributes={TextAttributes.DIM}>
-            Step {progress.step}/{progress.total} ({percentage}%)
+            {`Step ${progress.step}/${progress.total} (${percentage}%)`}
           </text>
           {error && (
             <text selectable={false} fg={THEME.danger}>
