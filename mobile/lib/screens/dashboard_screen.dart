@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import '../services/api_service.dart';
 import '../models/quota_models.dart';
 import '../widgets/provider_card.dart';
+import '../widgets/summary_cards.dart';
 import 'settings_screen.dart';
 import 'login_screen.dart';
 import 'package:home_widget/home_widget.dart';
@@ -428,10 +429,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
       backgroundColor: Colors.black87,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.only(top: 10, bottom: 40),
-        itemCount: _snapshot!.providers.length,
+        padding: const EdgeInsets.only(top: 4, bottom: 40),
+        itemCount: _snapshot!.providers.length + 1,
         itemBuilder: (context, index) {
-          final provider = _snapshot!.providers[index];
+          if (index == 0) {
+            return SummaryCards(
+              providers: _snapshot!.providers,
+              showUsedMetric: _showUsedMetric,
+              showAbsoluteTime: _showAbsoluteTime,
+            );
+          }
+          final provider = _snapshot!.providers[index - 1];
           return ProviderCard(
             provider: provider,
             showUsedMetric: _showUsedMetric,

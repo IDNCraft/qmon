@@ -32,6 +32,9 @@ class ProviderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gradients = _getGradients(provider.providerId);
+    // Mirror TUI QuotaCard: badge follows is_available; backend error text
+    // renders as-is like TUI last_error / statusSegments.
+    final isAvailable = provider.isAvailable;
     final hasError =
         provider.lastError != null && provider.lastError!.isNotEmpty;
 
@@ -79,17 +82,17 @@ class ProviderCard extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: hasError
-                            ? Colors.redAccent.withValues(alpha: 0.2)
-                            : Colors.greenAccent.withValues(alpha: 0.2),
+                        color: isAvailable
+                            ? Colors.greenAccent.withValues(alpha: 0.2)
+                            : Colors.redAccent.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
-                        hasError ? 'Error' : 'Active',
+                        isAvailable ? 'Health' : 'Error',
                         style: TextStyle(
-                          color: hasError
-                              ? Colors.redAccent
-                              : Colors.greenAccent,
+                          color: isAvailable
+                              ? Colors.greenAccent
+                              : Colors.redAccent,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -98,7 +101,13 @@ class ProviderCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
-                if (hasError)
+                if (!isAvailable)
+                  _buildStatusBox(
+                    provider.lastError?.isNotEmpty == true
+                        ? provider.lastError!
+                        : 'Not Available / Error',
+                  )
+                else if (hasError)
                   Text(
                     provider.lastError!,
                     style: TextStyle(
@@ -107,7 +116,13 @@ class ProviderCard extends StatelessWidget {
                     ),
                   )
                 else if (provider.quotas != null && provider.quotas!.isNotEmpty)
-                  ..._buildGroupedQuotas(provider.quotas!, gradients[0]),
+                  ..._buildGroupedQuotas(provider.quotas!, gradients[0])
+                else
+                  _buildStatusBox(
+                    provider.lastError?.isNotEmpty == true
+                        ? provider.lastError!
+                        : 'No quota info',
+                  ),
               ],
             ),
           ),
@@ -180,6 +195,30 @@ class ProviderCard extends StatelessWidget {
 
       return _buildQuotaRow(firstQ, modelName, valueColor, displayPct);
     }).toList();
+  }
+
+  /// Boxed status message mirroring the TUI bordered error/status box:
+  /// thin cyan-ish outline, inner padding, full-width multiline text.
+  Widget _buildStatusBox(String message) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: const Color(0xFF00ADB5).withValues(alpha: 0.6),
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      child: Text(
+        message,
+        style: TextStyle(
+          color: Colors.white.withValues(alpha: 0.75),
+          fontSize: 13,
+          height: 1.4,
+        ),
+      ),
+    );
   }
 
   Widget _buildQuotaRow(
