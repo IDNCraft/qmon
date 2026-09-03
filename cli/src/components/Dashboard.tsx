@@ -287,7 +287,7 @@ export function Dashboard({ onLogout }: Props) {
               paddingBottom={0}
             >
               <text selectable={false} fg={THEME.danger} attributes={TextAttributes.BOLD}>
-                Error: {error}
+                {`Error: ${error}`}
               </text>
             </box>
           </box>

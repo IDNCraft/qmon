@@ -54,7 +54,7 @@ export function ResetForm({
               onFocusField('resetEmail')
             }}
           >
-            <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.warning} width={12}>
+            <text selectable={false} attributes={TextAttributes.BOLD} fg={THEME.warning} width={14}>
               New Email
             </text>
             <TextInput
@@ -82,7 +82,7 @@ export function ResetForm({
                 selectable={false}
                 attributes={TextAttributes.BOLD}
                 fg={THEME.warning}
-                width={12}
+                width={14}
               >
                 New Password
               </text>

@@ -32,8 +32,7 @@ export function Footer({ terminalColumns }: Props) {
                 {item.key}
               </text>
               <text selectable={false} attributes={TextAttributes.DIM}>
-                {' '}
-                {item.label}
+                {` ${item.label}`}
               </text>
             </box>
           ))}

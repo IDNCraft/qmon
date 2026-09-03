@@ -32,10 +32,7 @@ export function SecurityCard({ isDefaultAdmin, onReset, width }: Props) {
             flexDirection="column"
           >
             <text selectable={false}>
-              Email:{' '}
-              <text selectable={false} fg={THEME.accent}>
-                cli@qmon.ai
-              </text>
+              Email: <span fg={THEME.accent}>cli@qmon.ai</span>
             </text>
             <text selectable={false} fg={THEME.muted}>
               Password hidden for security · use Tab to auto-fill
