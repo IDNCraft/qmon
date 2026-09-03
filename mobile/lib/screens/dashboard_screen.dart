@@ -26,15 +26,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
   bool _showUsedMetric = false;
   bool _showAbsoluteTime = false;
   List<String> _hiddenProviders = [];
+  bool _isLoggedIn = false;
 
   @override
   void initState() {
     super.initState();
+    _restoreAuthState();
     _loadData();
     // Auto-refresh every 30 seconds to match CLI
     _timer = Timer.periodic(const Duration(seconds: 30), (timer) {
       _loadData();
     });
+  }
+
+  Future<void> _restoreAuthState() async {
+    final token = await _apiService.getToken();
+    if (!mounted) return;
+    setState(() => _isLoggedIn = token != null);
   }
 
   @override
@@ -316,27 +324,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
             icon: const Icon(Icons.refresh),
             onPressed: () => _loadData(),
           ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              );
-              _loadData();
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () async {
-              final navigator = Navigator.of(context);
-              await _apiService.clearToken();
-              if (!mounted) return;
-              navigator.pushReplacement(
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
-              );
-            },
-          ),
+          if (_isLoggedIn)
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                );
+                _loadData();
+              },
+            ),
+          if (_isLoggedIn)
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: () async {
+                final navigator = Navigator.of(context);
+                await _apiService.clearToken();
+                if (!mounted) return;
+                setState(() => _isLoggedIn = false);
+                navigator.pushReplacement(
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                );
+              },
+            ),
         ],
       ),
       body: Container(
@@ -381,20 +394,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () async {
-                  await Navigator.push(
-                    context,
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => const SettingsScreen(),
+                      builder: (context) => const LoginScreen(),
                     ),
                   );
-                  _loadData();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white10,
                   foregroundColor: Colors.white,
                 ),
-                child: const Text('Configure API URL'),
+                child: Text(_isLoggedIn ? 'Retry' : 'Connect & Sign In'),
               ),
             ],
           ),

@@ -20,6 +20,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _showAbsoluteTime = false;
   List<String> _hiddenProviders = [];
   List<String> _availableProviders = [];
+  bool _isLoggedIn = false;
 
   @override
   void initState() {
@@ -30,10 +31,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _loadCurrentUrl() async {
     final url = await _apiService.getBaseUrl();
     final prefs = await SharedPreferences.getInstance();
+    final token = await _apiService.getToken();
 
     if (mounted) {
       setState(() {
         _urlController.text = url;
+        _isLoggedIn = token != null;
         _showUsedMetric = prefs.getBool('show_used_metric') ?? false;
         _showAbsoluteTime = prefs.getBool('show_absolute_time') ?? false;
         _hiddenProviders = prefs.getStringList('hidden_providers') ?? [];
@@ -102,7 +105,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _isTesting = false;
       if (isHealthy) {
         _isSuccess = true;
-        _testResult = 'Successfully connected to Qmon API!';
+        _testResult = 'Successfully connected to Qmon Server!';
       } else {
         _isSuccess = false;
         _testResult = 'Failed to connect. Is the Go daemon running?';
@@ -121,7 +124,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Qmon API Backend URL',
+                'Qmon Server URL',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -130,7 +133,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               const SizedBox(height: 8),
               Text(
-                'Enter the local network IP address of your Mac running the Qmon API daemon. (e.g. http://192.168.1.5:8080)',
+                'Enter the address of the device running the Qmon server, e.g. your Mac or PC on the same network. (e.g. http://192.168.1.5:8080)',
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.6),
                   fontSize: 14,
@@ -219,60 +222,66 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                 ),
-              const SizedBox(height: 32),
-              const Text(
-                'Dashboard Settings',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              // Dashboard preferences only make sense once signed in —
+              // guests see just the server connection section.
+              if (_isLoggedIn) ...[
+                const SizedBox(height: 32),
+                const Text(
+                  'Dashboard Settings',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              SwitchListTile(
-                title: const Text('Show Used Metric'),
-                subtitle: const Text(
-                  'Display used percentage instead of remaining',
+                const SizedBox(height: 16),
+                SwitchListTile(
+                  title: const Text('Show Used Metric'),
+                  subtitle: const Text(
+                    'Display used percentage instead of remaining',
+                  ),
+                  value: _showUsedMetric,
+                  onChanged: _toggleMetric,
+                  thumbColor: WidgetStateProperty.resolveWith(
+                    (states) => states.contains(WidgetState.selected)
+                        ? Colors.cyanAccent
+                        : null,
+                  ),
                 ),
-                value: _showUsedMetric,
-                onChanged: _toggleMetric,
-                thumbColor: WidgetStateProperty.resolveWith(
-                  (states) => states.contains(WidgetState.selected)
-                      ? Colors.cyanAccent
-                      : null,
+                SwitchListTile(
+                  title: const Text('Show Absolute Time'),
+                  subtitle: const Text(
+                    'Display exact time instead of relative',
+                  ),
+                  value: _showAbsoluteTime,
+                  onChanged: _toggleTime,
+                  thumbColor: WidgetStateProperty.resolveWith(
+                    (states) => states.contains(WidgetState.selected)
+                        ? Colors.cyanAccent
+                        : null,
+                  ),
                 ),
-              ),
-              SwitchListTile(
-                title: const Text('Show Absolute Time'),
-                subtitle: const Text('Display exact time instead of relative'),
-                value: _showAbsoluteTime,
-                onChanged: _toggleTime,
-                thumbColor: WidgetStateProperty.resolveWith(
-                  (states) => states.contains(WidgetState.selected)
-                      ? Colors.cyanAccent
-                      : null,
+                const SizedBox(height: 24),
+                const Text(
+                  'Hide Providers',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 24),
-              const Text(
-                'Hide Providers',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(height: 8),
-              ..._availableProviders.map((providerName) {
-                return CheckboxListTile(
-                  title: Text(providerName),
-                  value: _hiddenProviders.contains(providerName),
-                  onChanged: (bool? value) {
-                    _toggleProvider(providerName);
-                  },
-                  activeColor: Colors.cyanAccent,
-                );
-              }),
+                const SizedBox(height: 8),
+                ..._availableProviders.map((providerName) {
+                  return CheckboxListTile(
+                    title: Text(providerName),
+                    value: _hiddenProviders.contains(providerName),
+                    onChanged: (bool? value) {
+                      _toggleProvider(providerName);
+                    },
+                    activeColor: Colors.cyanAccent,
+                  );
+                }),
+              ],
             ],
           ),
         ),

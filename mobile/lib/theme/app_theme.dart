@@ -14,14 +14,19 @@ class AppTheme {
       scaffoldBackgroundColor: backgroundDark,
       primaryColor: accentPrimary,
       cardColor: cardDark,
-      textTheme: GoogleFonts.outfitTextTheme(ThemeData.dark().textTheme).copyWith(
-        displayLarge: GoogleFonts.outfit(
-            color: textPrimary, fontWeight: FontWeight.bold),
-        titleLarge: GoogleFonts.outfit(
-            color: textPrimary, fontWeight: FontWeight.w600),
-        bodyLarge: GoogleFonts.outfit(color: textPrimary),
-        bodyMedium: GoogleFonts.outfit(color: textSecondary),
-      ),
+      textTheme: GoogleFonts.outfitTextTheme(ThemeData.dark().textTheme)
+          .copyWith(
+            displayLarge: GoogleFonts.outfit(
+              color: textPrimary,
+              fontWeight: FontWeight.bold,
+            ),
+            titleLarge: GoogleFonts.outfit(
+              color: textPrimary,
+              fontWeight: FontWeight.w600,
+            ),
+            bodyLarge: GoogleFonts.outfit(color: textPrimary),
+            bodyMedium: GoogleFonts.outfit(color: textSecondary),
+          ),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
