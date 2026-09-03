@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cleartext HTTP is permitted only to local/development hosts: the
+     sidecar qmon-server (localhost/emulator) and private LAN subnets, so
+     the app can connect to a desktop qmon-server from a phone on the same
+     network. Everything else — including the future public backend — is
+     forced to HTTPS by the deny-by-default base-config. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">localhost</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <!-- Android emulator alias for the host machine -->
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <!-- Private LAN ranges (RFC 1918) for desktop qmon-server access -->
+        <domain includeSubdomains="false">10.0.0.0/8</domain>
+        <domain includeSubdomains="false">172.16.0.0/12</domain>
+        <domain includeSubdomains="false">192.168.0.0/16</domain>
+    </domain-config>
+</network-security-config>
